@@ -1,0 +1,64 @@
+<!DOCTYPE html> <!-- HTML5 -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	
+	<!-- mobile : not scalable -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+	
+	<meta name="description" content="Login">  
+	<meta name="author" content="Adrian Nunez"> 
+	<meta name="generator" content="Notepad++">
+	<meta name="viewport" content="width=device-width, inicial-scale=1.0">
+	<title id="title">Iniciar sesión</title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	
+	<!-- stylesheet -->
+	<link rel="stylesheet" href="css/styles.css">
+	
+	<!-- JAVASCRIPT INCLUDES: MAINTAIN ORDER!! -->
+	
+	<!-- JQUERY -->
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">-->
+	<link rel="stylesheet" href="css/font-awesome-4.2.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">	
+	
+	<!-- OWN JAVASCRIPT -->
+	<script type="text/javascript" src="js/index.js"></script>	
+</head>
+	
+<body>
+	<div id="container">
+		<!-- top-header -->
+		<div id="header" class="col-xs-12">
+			<div class="col-xs-4">exerClick</div>
+			<div class="col-xs-8" align="right"><i class="fa fa-user fa-fw"></i> Maite Urretavizcaya</div>
+		</div>
+		
+		<!-- body -->
+		<div id="login-form" class="col-xs-offset-2 col-xs-8">
+			<!-- login form -->
+				<form method="post" action="teacher.html">
+					<div class="col-xs-offset-1 col-xs-10 input-group padd">
+						<!-- username input -->
+						<input type="text" name="user" class="form-control" placeholder="Usuario">
+					</div>
+					<div class="col-xs-offset-1 col-xs-10 input-group padd">
+						<!-- password input -->
+						<input type="password" name="password" id="password" class="form-control" autocomplete="off" placeholder="Contraseña">
+					</div>
+					<!-- remember me checkbox -->
+					<div class="col-xs-offset-1 col-xs-10 input-group padd">
+						<input type="checkbox" name="remember-me" value="remember-me"> Recordarme
+					</div>
+					<!-- input button -->
+					<div class="col-xs-offset-1 col-xs-10 input-group padd"><button type="submit" class="btn ui-corner-all ui-btn-b bold">
+						INICIAR SESIÓN
+					</button></div>
+				</form>
+
+			<!-- end login form -->
+		</div>
+	</div>
+</body>
+</html>
