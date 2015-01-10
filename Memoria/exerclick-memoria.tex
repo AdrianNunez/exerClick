@@ -1,0 +1,162 @@
+% Tipo de documento
+\documentclass[12pt, twoside, a4paper, openany]{report}
+
+% Añadir caracteres no anglosajones como tildes, ñ, ¿, ¡, etc.
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+ 
+% Añadir gráficos
+\usepackage{graphicx}
+% Carpeta donde se encuentran las imágenes
+\graphicspath{ {figs/} }
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \newpage}
+
+% Floating options
+\usepackage{float}
+\restylefloat{figure}
+
+% Márgenes
+\usepackage[left=2.5cm,right=2.5cm,bindingoffset=0.5cm]{geometry}
+
+% Fuente utilizada para el cuerpo
+\usepackage[bitstream-charter]{mathdesign}
+
+% Permite usar frames (cajas)
+\usepackage{framed}
+
+% Permite usar clores
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+% Permite el uso de cabeceras y pies de página
+\usepackage{fancyhdr}
+
+\begin{document}
+
+\fancyhead[R]{\slshape \rightmark}
+\fancyfoot[C]{\thepage}
+
+% Permite escoger la profundidad de las secciones (1.1, 1.1.1.2...)
+\setcounter{secnumdepth}{2}
+
+%----------------------------------------------------%
+%                      PORTADA                       %
+%----------------------------------------------------%
+
+\input{plantilla/titulo.tex}
+\cleardoublepage
+
+%----------------------------------------------------%
+%                  AGRADECIMIENTOS                   %
+%----------------------------------------------------%
+
+\input{plantilla/agradecimientos.tex}
+\cleardoublepage
+
+%----------------------------------------------------%
+%                      RESUMEN                       %
+%----------------------------------------------------%
+
+% Castellano
+\input{plantilla/resumen/resumen.tex}
+\cleardoublepage
+
+% Euskera
+\input{plantilla/resumen/laburpena.tex}
+\cleardoublepage
+
+% Inglés
+\input{plantilla/resumen/abstract.tex}
+\cleardoublepage
+
+%----------------------------------------------------%
+%                    INDICE GENERAL                  %
+%----------------------------------------------------%
+
+% No mostrar número de página
+\pagestyle{empty}
+
+\tableofcontents
+\newpage
+
+%----------------------------------------------------%
+%                    INDICE FIGURAS                  %
+%----------------------------------------------------%
+
+% No mostrar número de página
+\pagestyle{empty}
+
+\listoffigures
+\newpage
+
+%----------------------------------------------------%
+%                    INDICE TABLAS                   %
+%----------------------------------------------------%
+
+% No mostrar número de página
+\pagestyle{empty}
+
+\listoftables
+\cleardoublepage
+
+%----------------------------------------------------%
+%                    INTRODUCCION                    %
+%----------------------------------------------------%
+
+\input{capitulos/1-introduccion.tex}
+
+%----------------------------------------------------%
+%                     OBJETIVOS                      %
+%----------------------------------------------------%
+
+\input{capitulos/2-objetivos.tex}
+
+%----------------------------------------------------%
+%                GESTIÓN DEL PROYECTO                %
+%----------------------------------------------------%
+
+\input{capitulos/gestion.tex}
+
+%----------------------------------------------------%
+%              ANALISIS DE REQUISITOS                %
+%----------------------------------------------------%
+
+\input{capitulos/analisis-de-requisitos.tex}
+
+%----------------------------------------------------%
+%                     CONCLUSIONES                   %
+%----------------------------------------------------%
+
+\input{capitulos/conclusiones.tex}
+
+%----------------------------------------------------%
+%                PROPUESTAS DE MEJORA                %
+%----------------------------------------------------%
+
+\input{capitulos/propuestas-de-mejora.tex}
+
+%----------------------------------------------------%
+%                    BIBLIOGRAFIA                    %
+%----------------------------------------------------%
+
+\input{plantilla/bibliografia.tex}
+
+%----------------------------------------------------%
+%                    APENDICES                       %
+%----------------------------------------------------%
+
+% Reiniciamos el contador de capítulos
+\setcounter{chapter}{0}
+\renewcommand{\chaptername}{Apéndice}
+\renewcommand{\thechapter}{\Alph{chapter}}
+
+\input{apendices/a-actas-reuniones.tex}
+
+\end{document}

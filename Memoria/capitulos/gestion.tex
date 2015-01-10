@@ -1,0 +1,222 @@
+%----------------------------------------------------%
+%                GESTION DEL PROYECTO                %
+%----------------------------------------------------%
+
+\chapter{Gestión del proyecto}
+\label{gestion}
+
+En este capítulo se plantea la gestión realizada durante el desarrollo del proyecto. En el apartado 2.1 se detalla la metodología de trabajo utilizada, InterMod.\\
+
+\section{Metología InterMod}
+\label{intermod}
+
+InterMod es una metodología de trabajo, que será utilizada para este proyecto, desarrollada por el grupo de investigación GaLan de la Facultad de Informática de San Sebastián. Se trata una metodología ágil de desarrollo de alta calidad de software interactivo, incluyendo aplicaciones web.\\
+
+En InterMod se define el Objetivo de Usuario (User Objetive o UO) como el deseo del usuario que puede ser alcanzado mediante una o más funcionalidades. Diferentes UOs son desarrollados durante el proyecto y la unión de todos, en su globalidad, forma la aplicación final. Además, el mismo UO puede estar incluido en uno o más requerimentos funcionales y/o no-funcionales. Existen a su vez diferentes tipos de UO:
+
+\begin{itemize}
+\item \textbf{UO Directo:} Es un objetivo del usuario final.
+\item \textbf{UO Indirecto:} Surge a partir de otros UOs por necesidades interna del desarrollo (no son propiamente deseos del usuario). Aparecen durante el desarrollo debido a la fusión o división de otros UOs.
+\item \textbf{UO Reutilizable:} Es un UO creado y evaluado, total o parcialmente, en otro proyecto o en el proyecto actual que puede ser reutilizado.
+\end{itemize}
+
+Basándose en la propuesta del Object Managemente Group’s Model Driven Architecture, Intermod establece sus actividades basadas en modelos.\\
+
+Por cada actividad se desarrollan siempre dos fases: la creación del modelo (independiente de la plataforma) y su posterior evaluación. Las evaluaciones de usabilidad son especialmente útiles para los UOs Directos ya que reflejan una necesidad del usuario, por tanto es importante que un grupo de estos esté involucrado. Para agilizar el proyecto, algunos modelos pueden ser evaluados únicamente por expertos en usabilidad. Las actividades no se dan por acabadas y pueden continuar activas durante varias iteraciones hasta conseguir una evaluación positiva.\\
+
+Existen dos tipos de actividades para el desarrollo de UOs: Actividades de Desarrollo (DA) y Actividades de Integración (IA). Existen tres tipos de DAs:
+
+\begin{itemize}
+\item \textbf{DA-1:} \textit{Análisis y Diseño de la Navegación.}
+\item \textbf{DA-2:} \textit{Construcción de la Interfaz.}
+\item \textbf{DA-3:} \textit{Codificación de la Lógica de Negocio.}
+\end{itemize}
+
+Para asegurar el desarrollo incremental de la aplicación son necesarias las Actividades de Integración (IA). Existen tres tipos de IAs:
+\begin{itemize}
+\item \textbf{IA-1:} \textit{Integración de los Modelos de Requerimientos.}
+\item \textbf{IA-2:} \textit{Integración de la Interfaz.}
+\item \textbf{IA-3:} \textit{Integración de la codificación y refactorización.}
+\end{itemize}
+
+La unión de las actividades de desarrollo e integración de cada tipo da lugar a un modelo. Así, la unión de DA-1 y IA-1, relativas al análisis de requisitos, desembocan en el modelo de requisitos (M-1); la unión de DA-2 y IA-2, relativas a las interfaces, en el modelo de presentación (M-2) y la unión de DA-3 y IA-3, las asociadas a la lógica de negocio, en el modelo de funcionalidad (M-3). El modelo M-1 es un modelo abstracto sobre el que se asientan las bases, basado en él se forma el M-2, que contiene todos los elementos gráficos y otras características definidos en el M-1. Finalmente el modelo M-3 establece la implementación en un lenguaje de programación concreto.\\
+
+InterMod define una metodología dividida en iteraciones, y, a diferencia del resto, define un paso previo, Step 0. En esta etapa previa se realiza el análisis del proyecto y se definen los UOs iniciales del proyecto y el diseño general. A continuación se pasa a la iteración 1, luego la 2, etc. y se continúa así hasta dar por finalizado el proyecto. Cada iteración esta dividida en 3 fases:
+
+\begin{itemize}
+\item \textbf{Step 1.i:} Se construye la lista de UOs.
+\item \textbf{Step 2.i:} Se planifican las actividades para los diferentes equipos.
+\item \textbf{Step 3.i:} Realizar las actividades planificadas.
+\end{itemize}
+
+\subsection{Adaptación de InterMod}
+\label{intermod:adaptacion}
+
+Debido a las características del proyecto se ha decidido realizar algunas modificaciones al esquema de InterMod:
+
+\begin{itemize}
+\item Los UOs normalmente se denotan por UOX (siendo X el número del UO). En este proyecto hemos distinguido dos usuarios, por tanto hará falta un identificador extra para saber a que usuario corresponde el UO. Se usará la notación UOX-Y, siendo Y la inicial en inglés del tipo de usuario: 'S' para el estudiante (\textit{Student}) y 'T' para el profesor (\textit{Teacher}).
+\item Siguiendo la línea del punto anterior, se ha hecho un cambio en la notación típica de los modelos. De M-1(X), el primer modelo del UOX, a M-1(XY), el primer modelo del UOX-Y (siguiendo la notación del punto anterior).
+\end{itemize}
+
+%----------------------------------------------------%
+%               	    STEP 0                       %
+%----------------------------------------------------%
+
+\section{Step 0 - Análisis del proyecto}
+\label{step0}
+
+\begin{flushleft}
+\textbf{Fecha de inicio:} 9/10/14\\
+\textbf{Fecha de fin:} 18/10/14\\
+\end{flushleft}
+
+Esta fase previa al desarrollo de la aplicación principal se planteó dentro de la metodología InterMod como una introducción. En este proyecto se realizaron dos tareas principalmente:
+
+\begin{itemize}
+\item Documentarse sobre el estado del arte en el ámbito de aplicaciones de seguimiento de ejercicios en el aula, sobre bases de datos que representaran el concepto de ejercicio, etc.
+\item Realizar un \textit{Brainstorming} para plantear todas las ideas posibles para la aplicación. De esta forma se pretender tener una idea más clara de como será la aplicación que se desea.
+\end{itemize}
+
+Finalmente se realizó la lista de UOs inicial que incluía más UOs de los necesarios. Sin embargo, se decidió dejar la lista completa e ir abordándola por trozos y actualizándola iteración por iteración.\\
+
+\subsection{UOs inicialmente planteados}
+\label{step0:uos}
+
+\textbf\textit{\large UOs del alumno}\\
+
+\colorbox{YellowGreen}{\parbox[c]{1.0\textwidth}{
+	\textbf{UO1-S:} \textit{Responder a un ejercicio.} El alumno quiere indicar que ha acabado o que tiene dudas con 			un ejercicio que el profesor ha propuesto.\\
+}}\\
+
+\vspace{0.3cm}
+
+\textbf\textit{\large UOs del profesor}\\
+
+\colorbox{SkyBlue}{\parbox[c]{1.0\textwidth}{
+\textbf{UO1-T:} \textit{Crear-lanzar un ejercicio simple.} El profesor quiere proponer un ejercicio rápidamente, sin escribir mucho.\\
+}}\\
+
+\vspace{0.1cm}
+
+\colorbox{SkyBlue}{\parbox[c]{1.0\textwidth}{
+\textbf{UO2-T:} \textit{Crear-lanzar un ejercicio detallado.} El profesor quiere proponer la realización de un ejercicio preparado previamente o con bastantes detalles.\\
+}}\\
+
+\vspace{0.1cm}
+
+\colorbox{SkyBlue}{\parbox[c]{1.0\textwidth}{
+\textbf{UO3-T:} \textit{Dar por finalizado un ejercicio propuesto activo.} El profesor quiere terminar con uno de los ejercicios que propuso.\\
+}}\\
+
+\vspace{0.1cm}
+
+\colorbox{SkyBlue}{\parbox[c]{1.0\textwidth}{
+\textbf{UO4-T:} \textit{Ver estadísticas de un ejercicio.} El profesor desea ver qué tal le ha ido a la clase en general o a un alumno en un ejercicio.\\
+}}\\
+
+\vspace{0.1cm}
+
+\colorbox{SkyBlue}{\parbox[c]{1.0\textwidth}{
+\textbf{UO5-T:} \textit{Ver la descripción completa de un ejercicio.} Un profesor quiere ver la descripción completa de un ejercicio (identificador, enunciado, página, tema, etc.).\\
+}}\\
+
+\vspace{0.1cm}
+
+\colorbox{SkyBlue}{\parbox[c]{1.0\textwidth}{
+\textbf{UO6-T:} \textit{Editar un ejercicio.} El profesor desea editar los atributos de un ejercicio.\\
+}}\\
+
+\vspace{0.1cm}
+
+\colorbox{SkyBlue}{\parbox[c]{1.0\textwidth}{
+\textbf{UO7-T:} \textit{Evaluar el ejercicio de un alumno.} El profesor quiere valorar la realización de un ejercicio a un alumno.\\
+}}\\
+
+\vspace{0.1cm}
+
+\colorbox{SkyBlue}{\parbox[c]{1.0\textwidth}{
+\textbf{UO8-T:} \textit{Cerrar sesión.} El profesor quiere cerrar su sesión activa.\\
+}}\\
+
+\vspace{0.1cm}
+
+\colorbox{SkyBlue}{\parbox[c]{1.0\textwidth}{
+\textbf{UO9-T:} \textit{Cambiar el idioma de la aplicación.} El profesor desea cambiar el idioma con el que lee la aplicación.\\
+}}\\
+
+\vspace{0.1cm}
+
+\colorbox{SkyBlue}{\parbox[c]{1.0\textwidth}{
+\textbf{UO10-T:} \textit{Cambiar de asignatura.} El profesor, que tiene más de una asignatura, quiere cambiar de una asignatura x a otra asignatura y.\\
+}}\\
+
+\subsection{Formación de equipos}
+\label{step0:equipos}
+
+En esta etapa se han identificado 4 equipos que participarán en el proyecto:
+
+\begin{itemize}
+\item \textbf{Equipo 1:} Formado por el alumno, Adrián Núñez. Se encargará del diseño de las interfaces y de la implementación de la aplicación.
+\item \textbf{Equipo 2:} Realizara las evaluaciones pertinentes y estará formado por alumnos de la facultad.
+\item \textbf{Equipo 3:} Segundo equipo para las evaluaciones, estará formado por miembros del grupo GaLan.
+\item \textbf{Equipo 4:} Se encargará de las evaluaciones con los usuarios finales.
+\end{itemize}
+
+\subsection{Tecnologías}
+\label{step0:tecnologias}
+
+Al inicio, antes del desarrollo de la aplicación, se concretaron las siguientes tecnologías mínimas a utilizar:
+
+\begin{itemize}
+\item HTML5
+\item CSS3
+\item PHP
+\item MySQL
+\end{itemize}
+
+La herramienta principal para el desarrollo de la aplicación sera Notepad++ y para la gestión de la base de datos phpMyAdmin.\\
+
+%----------------------------------------------------%
+%                     ITERACION 1                    %
+%----------------------------------------------------%
+
+\section{Iteración 1}
+\label{it1}
+
+\begin{flushleft}
+\textbf{Fecha de inicio:} 21/10/14\\
+\textbf{Fecha de fin:} -\\
+\end{flushleft}
+
+\subsection{Step 1.1. Lista de UOs}
+\label{it1:1.1}
+
+Debido a la gran cantidad de UOs planteados se ha decidido seleccionar unos pocos sobre los que centrarse. En esta primera etapa se quieren desarrollar los que creemos que son los más importantes:
+
+\begin{itemize}
+\item UOs del alumno:
+	\begin{itemize}
+	\item \textbf{UO1-S:} \textit{Responder a un ejercicio.}
+	\end{itemize}
+\item UOs del profesor:
+	\begin{itemize}
+	\item \textbf{UO1-T:} \textit{Crear-lanzar un ejercicio simple.}
+	\item \textbf{UO2-T:} \textit{Crear-lanzar un ejercicio detallado.}
+	\item \textbf{UO3-T:} \textit{Dar por finalizado un ejercicio propuesto activo.}
+	\item \textbf{UO4-T:} \textit{Ver estadísticas de un ejercicio.}
+	\end{itemize}
+\end{itemize}
+
+\subsection{Step 2.1. Planificación de la iteración}
+\label{it1:2.1}
+
+En esta primera iteración el plan es el siguiente:
+
+\begin{itemize}
+\item 
+\end{itemize}
+
+\subsection{Step 3.1. Ejecución de las actividades}
+\label{it1:3.1}
+

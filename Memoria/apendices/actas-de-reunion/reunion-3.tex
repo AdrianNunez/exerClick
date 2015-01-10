@@ -1,0 +1,61 @@
+\section*{Reunión de Trabajo 3}
+
+\textbf{Fecha:} 3 de noviembre de 2014\\
+
+\textbf{Hora de inicio:} 8:40\\
+
+\textbf{Hora de finalización:} 10:30\\
+
+\textbf{Presentes:} Maite Urretavizcaya, Samara Ruiz, Adrián Núñez\\
+
+\textbf{Temas tratados durante la reunión:}
+
+\begin{itemize}
+\item Discusión sobre los prototipos en papel desarrollados: definir las funcionalidades y diseño.
+\end{itemize}
+
+\textbf{Resumen de la reunión:}
+
+\begin{itemize}
+\item Se decide separar el UO-1T en dos UOs: una cuando haya una sesión activa y otra cuando no. Las denotaremos como UO-1T y UO-2T.
+
+\item Se decide que el nombre del profesor/alumno no es tan importante y que es mejor añadir el nombre de la asignatura. En lugar del nombre aparecerá un icono que dará acceso al perfil del usuario donde aparecerán las siguientes opciones:
+\begin{itemize}
+	\item Ver el nombre del usuario.
+	\item Escoger la asignatura para el caso del profesor. Las asignaturas se ordenan por orden de proximidad horario (la 		siguiente clase será la primera de la lista).
+	\item Cerrar sesión.
+\end{itemize}
+Además, cuando un profesor inicia sesión, si tiene más de una asignatura y ninguna sesión actualmente, será redirigido al perfil para escoger alguna asignatura.
+
+\item Los ejercicios se identificarán por lo menos con un string identificativo (único para cada sesión, pero no único para una asignatura, pues identificadores como “1” pueden repetirse muchas veces a lo largo de una asignatura). Este string puede contener un sólo un número como al principio o cosas más detalladas como “1 - con ordenación”, “1 - con x”, “2.3”, etc.
+
+\item Se decide que una vez se inicia sesión, si no hay una clase en ese momento se irá abrirá la pantalla principal en la pestaña de ejercicios preparados. En caso de que haya clase se abrirá en la pestaña de ejercicios activos.
+
+\item Para los botones de lanzar se usará el icono del avión de papel.
+
+\item Los botones de editar/borrar ejercicios deben estar separados para que no haya ningún problema por darle sin querer a borrar.
+
+\item En lugar de que haya un botón para ver el ejercicio completo se harán los ejercicios clickables, de modo que al pinchar sobre un ejercicio te muestre los detalles del ejercicio (nos ahorramos un botón).
+
+\item Se piensa en un “Modo Ordenar” para poder ordenar manualmente la lista de los ejercicios activos o preparados para que aparezcan con un orden concreto. El objetivo es mostrar que ejercicios se desea que se realicen primero.
+
+\item En la lista de ejercicios, cada ejercicio tendrá un pequeño indicador de cuánta gente lo ha dado por acabado y cuanta tiene dudas en el ejercicio como vista previa.
+
+\item Un color para identificar el estado de los ejercicios, como primer acercamiento: rojo (activo), amarillo (preparado) y azul (finalizado).
+
+\item Al crear un nuevo ejercicio si su identificador ya existe tenemos dos posibilidades, queda pendiente ver cuál es la mejor:
+\begin{itemize}
+	\item Añadir al final del identificador un número como en el caso: 1 que pasaría a ser 1(2), por ejemplo.
+	\item Mostrar un mensaje de error.
+\end{itemize}
+
+\item Cuando acaba una sesión los ejercicios activos pasan al estado preparados, quedando guardados todos los avances realizados durante la sesión.
+
+\item Se ha pensado en dejar la parte de eliminar completamente ejercicios a PresenceClick, entrando como administrador.
+\end{itemize}
+
+\textbf{Acordado para la siguiente reunión:}
+
+\begin{itemize}
+\item Desarrollar unos prototipos en papel con lo acordado durante la reunión, a limpio.
+\end{itemize}
