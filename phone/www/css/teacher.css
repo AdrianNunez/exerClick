@@ -69,7 +69,7 @@ checkbox {
 #subheader {
 	height: 1em;
 
-	background: #E6E6E6;
+	background: #FFF;
 	background: -webkit-linear-gradient(#E6E6E6, #FFF); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#E6E6E6, #FFF); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(#E6E6E6, #FFF); /* For Firefox 3.6 to 15 */
@@ -125,12 +125,13 @@ checkbox {
 }
 
 #exercises-content {
-overflow-y: scroll;
+	overflow-y: scroll;
 	overflow-x: hidden;
 }
 
 
 #overfooter {
+	display: block;
 	position: relative;
 	height: 2.5em;
 	background: #E6E6E6;
@@ -145,6 +146,7 @@ overflow-y: scroll;
 }
 
 #footer {
+	display: block;
 	position: relative;
 	height: 5em;
 	background: #2E2E2E;
@@ -372,14 +374,10 @@ overflow-y: scroll;
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
-	#container { margin-bottom: -2.5em; }
 	#header { font-size: 10px; }
-	#overfooter { border-bottom: 0px; border: 1px groove #A4A4A4; }
-	#footer { display: none; height: 0px; }
 	#new-exercise { bottom: 5.5em; }
 	.title {	font-size: 2em; }
 	.exercise-tab { font-size: 100%; }
-	.exercise-name-icons { font-size: 0.7em; }
 	.exercise-buttons-icons { font-size: 1em; }
 	.left { float: none; }
 	.exercise-buttons {	text-align: left; padding-bottom: 1em; }
@@ -387,14 +385,10 @@ overflow-y: scroll;
 
 /* Landscape phones and smaller */
 @media (max-width: 480px) {
-	#container { margin-bottom: -2.5em; }
 	#header { font-size: 10px; }
-	#overfooter { border-bottom: 0px; border: 1px groove #A4A4A4; }
-	#footer { display: none; height: 0px; }
 	#new-exercise { bottom: 5.5em; }
 	.title {	font-size: 1.5em; }
 	.exercise-tab { font-size: 100%; }
-	.exercise-name-icons { font-size: 0.7em; }
 	.exercise-buttons-icons { font-size: 1em; }
 	.exercise-name-icons { display: none; }
 	.left { float: none; }
@@ -402,18 +396,20 @@ overflow-y: scroll;
 }
 
 @media only screen and (max-width: 320px) {
-	#container { margin-bottom: -2.5em; }
 	#main { margin-top: -1px; }
-	#overfooter { border-bottom: 0px; border: 1px groove #A4A4A4; }
-	#footer { display: none; height: 0px; }
 	#header { font-size: 12px; }
 	#new-exercise { bottom: 5.5em; }
 	.title {	font-size: 12px; }
 	.exercise-tab { font-size: 100%; }
-	.exercise-name-icons { font-size: 0.7em; }
 	.exercise-buttons-icons { font-size: 1em; }
 	.exercise-name-icons { display: none; }
 	.new-exercise-title  { font-size: 0.5em; }
 	.left { float: none; }
 	.exercise-buttons {	text-align: left; padding-bottom: 1em; }
+}
+
+@media (max-height: 400px) {
+	#container { margin-bottom: -2.5em; }
+	#overfooter { border-bottom: 0px; border: 1px groove #A4A4A4; }
+	#footer { display: none; height: 0px; }
 }

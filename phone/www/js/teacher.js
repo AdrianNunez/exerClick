@@ -48,21 +48,6 @@ $(document).on('ready', function() {
 		// Occult both divs
 		$('#new-exercise').hide();
 		$('.darken').hide();
-		
-		/*var myScroll = new IScroll('#exercises-container', {
-			mouseWheel: true,
-			scrollbars: false,
-			scrollX: false,
-			bounceLock: true,
-			snap: true,
-			hScroll: false,
-			hScrollbar: false,
-			lockDirection: true,
-			desktopCompatibility: true
-		});
-		myScroll.on('scrollEnd', function() {
-			$('#subheader').css('border', '1px solid red');
-		});*/
 			
 		function newExercise() {
 			if($('#new-exercise').is(':hidden')) {

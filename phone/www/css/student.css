@@ -1,0 +1,294 @@
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	word-wrap: break-word;
+}
+
+a:link { /* unvisited link */
+	color: #000;
+	text-decoration: none;
+} 
+
+a:visited { /* visited link */
+	color: #000;
+	text-decoration: none;
+} 
+
+a:hover { /* mouse over link */
+	color: #000;
+	text-decoration: none;
+} 
+
+a:active { /* selected link */
+	color: #000;
+	text-decoration: none;
+}
+
+button {
+	width: 100%;
+}
+
+checkbox {
+	padding-left: 1em;
+}
+
+@font-face {
+    font-family: ehuFont;
+    src: url('../resources/EHUSans-black.otf');
+}
+
+.ehuFontStyle {
+	font-family: ehuFont;
+}
+
+#container {
+	min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto;
+	background-color: #FFF;
+	margin-bottom: -5em;
+	z-index: 900;
+}
+
+#header {
+	padding: 0.4em;
+	font-size: 14px;
+	border-bottom: 1px groove #F2F2F2;
+	background: #F2F2F2;
+	background: -webkit-linear-gradient(#F2F2F2, #D8D8D8); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#F2F2F2, #D8D8D8); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#F2F2F2, #D8D8D8); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#F2F2F2, #D8D8D8); /* Standard syntax */
+	z-index: 10012;
+	font-weight: bold;
+}
+
+#subheader {
+	height: 1em;
+
+	background: #FFF;
+	background: -webkit-linear-gradient(#E6E6E6, #FFF); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#E6E6E6, #FFF); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#E6E6E6, #FFF); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#E6E6E6, #FFF); /* Standard syntax */
+	
+	border-radius: 30px 30px 0px 0px;
+	
+	content: "";
+}
+
+.blackboard {
+	background-image: url("../images/blackboard.jpg");
+	background-repeat: repeat;
+}
+
+.title {
+	font-size: 2em;
+}
+
+#main {
+	color: #000;
+	z-index: 10;
+}
+
+#state-buttons {
+	height: 3em;
+}
+
+#exercises-container {
+	position: relative;	
+	margin-top: 1em;
+}
+
+#exercises-content {
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#footer {
+	display: block;
+	position: relative;
+	height: 5em;
+	background: #2E2E2E;
+	background: -webkit-linear-gradient(#6E6E6E, #2E2E2E); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#6E6E6E, #2E2E2E); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#6E6E6E, #2E2E2E); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#6E6E6E, #2E2E2E); /* Standard syntax */
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	color: #FFF;
+	font-weight: bold;
+	z-index: 10010;
+}
+
+.campos {
+	background-color: #FFF;
+	padding: 1em;
+	color: #000;
+}
+
+.clear {
+	clear: both;
+}
+
+.separator {
+	height: 3px;
+	background-color: #A4A4A4;
+}
+
+.padd {
+	padding: 0.5em;
+}
+
+.padd3 {
+	padding: 0.3em;
+}
+
+.bottompadd {
+	padding-bottom: 0.5em;
+}
+
+.white {
+	color: #FFF;
+}
+
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.shadowed {
+	padding-bottom: 0.2em;
+	text-shadow: 3px 1px 1px #000;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.border {
+	border: 1px solid #A4A4A4;
+}
+
+.exercise {
+	width: 100%;
+	
+	border: 2px solid #dddddd;
+	border-radius: 5px;
+	
+	margin-top: 0.5em;
+	
+	color: #000;
+	
+	overflow: hidden;
+}
+
+.exercise-container {
+	height: 100%;
+	
+	background: #FFF;
+}
+
+.exercise-name {
+	width: 100%;
+	background: #FFF;
+	margin-top: 1em;
+}
+
+.exercise-name-icons {
+	font-size: 0.8em;
+	
+	padding: 0.5em 0em 0.8em 0em;
+}
+
+.exercise-buttons {	
+	background: #FFF;	
+	text-align: right;	
+	padding-top: 0.8em;
+}
+
+.exercise-buttons-icons {
+	font-size: 1.5em;
+	margin-bottom: 0.5em;
+}
+
+/* EXERCISE TYPES */
+
+.progress-text {
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+.left {
+	float: left;
+}
+
+.progress {
+	margin: 0px;
+	padding: 0px;
+}
+
+.exclamation {
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+}
+
+.not-selected {
+	opacity: 0.5;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+	#header { font-size: 10px; }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+	#header { font-size: 10px; }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+	#header { font-size: 10px; }
+	.title {	font-size: 2em; }
+	.exercise-tab { font-size: 100%; }
+	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }
+	.left { float: none; }
+	.exercise-buttons {	text-align: left; padding-bottom: 1em; }
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+	#header { font-size: 10px; }
+	.title {	font-size: 1.5em; }
+	.exercise-tab { font-size: 100%; }
+	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }
+	.exercise-name-icons { display: none; }
+	.left { float: none; }
+	.exercise-buttons {	text-align: left; padding-bottom: 1em; }
+}
+
+@media only screen and (max-width: 320px) {
+	#main { margin-top: -1px; }
+	#header { font-size: 12px; }
+	.title {	font-size: 12px; }
+	.exercise-tab { font-size: 100%; }
+	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }
+	.exercise-name-icons { display: none; }
+	.left { float: none; }
+	.exercise-buttons {	text-align: left; padding-bottom: 1em; }
+}
+
+@media (max-height: 400px) {
+	#container { margin-bottom: 0em; }
+	#footer { display: none; height: 0px; }
+}
