@@ -103,25 +103,9 @@ checkbox {
 	height: 3em;
 }
 
-#exercises-container2 {
-	position: relative;
-	z-index: 1;
-	width: 100%;
-	overflow: auto;
-}
-
-#exercises2 {
-	z-index: 1;
-	width: 100%;
-	margin-top: -1px;
-	overflow: auto;
-	padding: 0px;
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-
 #exercises-container {
 	position: relative;	
-	
+	overflow: hidden;
 }
 
 #exercises-content {
@@ -189,7 +173,7 @@ checkbox {
 	bottom: 7.5em;
 }
 
-.new-exercise-title  {
+.tab-title  {
 	padding-bottom: 1em;
 	font-family: ehuFont;
 }
@@ -284,6 +268,85 @@ checkbox {
 
 .exercise-buttons-icons {
 	font-size: 1.5em;
+}
+
+#statistics {
+	position: absolute;
+	width: 100%;
+	padding-top: 1.7em;
+	background-image: url("../images/blackboard.jpg");
+	background-repeat: repeat;
+	border: 1px solid #A4A4A4;
+	border-radius: 15px 15px 0px 0px;
+	color: #FFF;
+	z-index: 10000;
+}
+
+.marginRight {
+	margin-right: 1em;
+}
+
+#statistics-buttons {
+	display: block;
+	background: #FFF;
+}
+
+.filter {
+	margin: 0;
+}
+
+.statistics-body {
+	background-color: #FFF;
+	padding: 1.5em;
+	color: #000;
+	height: 100%;
+}
+
+.statistics-body-a {
+	padding-top: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
+	border-radius: 0 0 5px 5px;
+}
+
+.statistics-search {
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	padding: 0.3em;
+	background-color: #D8D8D8;
+	border-radius: 5px;
+}
+
+.statistics-list-container {
+	position: relative;	
+	overflow-y: hidden;
+}
+
+.statistics-list-content {
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.statistics-student {
+	width: 100%;
+	border: 1px solid #dddddd;
+	padding: 0.5em;
+	border-radius: 5px;
+	border: 1px solid #BDBDBD;
+	margin-top: 0.2em;
+}
+
+.statistics-student:first-child {
+	margin-top: 0em;
+}
+
+.statistics-student-exclamation {
+	background-color: #F6CECE;
+}
+
+.statistics-student-finished {
+	background-color: #A9D0F5;
 }
 
 /* EXERCISE TYPES */
@@ -393,6 +456,7 @@ checkbox {
 	.exercise-name-icons { display: none; }
 	.left { float: none; }
 	.exercise-buttons {	text-align: left; padding-bottom: 1em; }
+	.statistics-percentage { display: none; }
 }
 
 @media only screen and (max-width: 320px) {
@@ -403,13 +467,21 @@ checkbox {
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; }
 	.exercise-name-icons { display: none; }
-	.new-exercise-title  { font-size: 0.5em; }
+	.tab-title  { font-size: 0.5em; }
 	.left { float: none; }
 	.exercise-buttons {	text-align: left; padding-bottom: 1em; }
+	.statistics-percentage { display: none; }
+	.statistics-button-data { display: none; }
 }
 
 @media (max-height: 400px) {
 	#container { margin-bottom: -2.5em; }
 	#overfooter { border-bottom: 0px; border: 1px groove #A4A4A4; }
 	#footer { display: none; height: 0px; }
+	#statistics { bottom: 2.5em; }
+	#statistics-buttons { display: none; height: 0px; }
+}
+
+@media (max-height: 500px) {
+	#statistics-buttons { display: none; height: 0px; }
 }
