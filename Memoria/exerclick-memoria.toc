@@ -1,21 +1,27 @@
 \select@language {spanish}
 \contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{15}
-\contentsline {chapter}{\numberline {2}Objetivos del proyecto}{17}
-\contentsline {chapter}{\numberline {3}Gesti\IeC {\'o}n del proyecto}{18}
-\contentsline {section}{\numberline {3.1}Metolog\IeC {\'\i }a InterMod}{18}
-\contentsline {subsection}{\numberline {3.1.1}Adaptaci\IeC {\'o}n de InterMod}{20}
-\contentsline {section}{\numberline {3.2}Step 0 - An\IeC {\'a}lisis del proyecto}{20}
-\contentsline {subsection}{\numberline {3.2.1}UOs inicialmente planteados}{20}
-\contentsline {subsection}{\numberline {3.2.2}Formaci\IeC {\'o}n de equipos}{22}
-\contentsline {subsection}{\numberline {3.2.3}Tecnolog\IeC {\'\i }as}{22}
-\contentsline {section}{\numberline {3.3}Iteraci\IeC {\'o}n 1}{22}
-\contentsline {subsection}{\numberline {3.3.1}Step 1.1. Lista de UOs}{22}
-\contentsline {subsection}{\numberline {3.3.2}Step 2.1. Planificaci\IeC {\'o}n de la iteraci\IeC {\'o}n}{23}
-\contentsline {subsection}{\numberline {3.3.3}Step 3.1. Ejecuci\IeC {\'o}n de las actividades}{23}
-\contentsline {chapter}{\numberline {4}An\IeC {\'a}lisis de Requisitos}{24}
-\contentsline {section}{\numberline {4.1}Requisitos no-funcionales}{24}
-\contentsline {section}{\numberline {4.2}Requisitos funcionales}{24}
-\contentsline {chapter}{\numberline {5}Conclusiones}{25}
-\contentsline {chapter}{\numberline {6}Propuestas de mejora}{26}
-\contentsline {chapter}{Bibliografia y referencias}{26}
-\contentsline {chapter}{\numberline {A}Actas de Reuni\IeC {\'o}n}{28}
+\contentsline {section}{\numberline {1.1}Contexto}{15}
+\contentsline {section}{\numberline {1.2}Propuesta}{16}
+\contentsline {section}{\numberline {1.3}Organizaci\IeC {\'o}n del documento}{17}
+\contentsline {chapter}{\numberline {2}Objetivos del proyecto}{18}
+\contentsline {section}{\numberline {2.1}Alcance del proyecto}{18}
+\contentsline {section}{\numberline {2.2}Exclusiones del proyecto}{19}
+\contentsline {chapter}{\numberline {3}Gesti\IeC {\'o}n del proyecto}{20}
+\contentsline {section}{\numberline {3.1}Metolog\IeC {\'\i }a InterMod}{20}
+\contentsline {subsection}{\numberline {3.1.1}Adaptaci\IeC {\'o}n de InterMod}{22}
+\contentsline {section}{\numberline {3.2}Formaci\IeC {\'o}n de equipos}{22}
+\contentsline {section}{\numberline {3.3}Canal de comunicaci\IeC {\'o}n e Infraestructura de almacenamiento}{22}
+\contentsline {section}{\numberline {3.4}Tecnolog\IeC {\'\i }as}{23}
+\contentsline {section}{\numberline {3.5}Step 0 - An\IeC {\'a}lisis del proyecto}{23}
+\contentsline {subsection}{\numberline {3.5.1}UOs inicialmente planteados}{24}
+\contentsline {section}{\numberline {3.6}Iteraci\IeC {\'o}n 1}{25}
+\contentsline {subsection}{\numberline {3.6.1}Step 1.1. Lista de UOs}{25}
+\contentsline {subsection}{\numberline {3.6.2}Step 2.1. Planificaci\IeC {\'o}n de la iteraci\IeC {\'o}n}{26}
+\contentsline {subsection}{\numberline {3.6.3}Step 3.1. Ejecuci\IeC {\'o}n de las actividades}{26}
+\contentsline {chapter}{\numberline {4}An\IeC {\'a}lisis de Requisitos}{27}
+\contentsline {section}{\numberline {4.1}Requisitos no-funcionales}{27}
+\contentsline {section}{\numberline {4.2}Requisitos funcionales}{27}
+\contentsline {chapter}{\numberline {5}Conclusiones}{28}
+\contentsline {chapter}{\numberline {6}Propuestas de mejora}{29}
+\contentsline {chapter}{Bibliografia y referencias}{29}
+\contentsline {chapter}{\numberline {A}Actas de Reuni\IeC {\'o}n}{31}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.11.22)  4 JAN 2015 10:43
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9) (preloaded format=pdflatex 2013.11.22)  20 JAN 2015 12:38
 entering extended mode
 **exerclick-memoria.tex
 ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\exerclick-memoria.tex"
@@ -699,95 +699,165 @@ LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
 (Font)              scaled to size 23.88496pt on input line 86.
  ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\exerclick-memoria.toc"
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 5.
+(Font)              scaled to size 7.68005pt on input line 3.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 5.
-LaTeX Font Info:    Try loading font information for OML+mdbch on input line 5.
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Try loading font information for OML+mdbch on input line 3.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbch\omlmdbch.fd"
 File: omlmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OML/mdbch.
 )
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 11.52008pt on input line 5.
+(Font)              scaled to size 11.52008pt on input line 3.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 7.68005pt on input line 5.
+(Font)              scaled to size 7.68005pt on input line 3.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 5.76004pt on input line 5.
-LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 5.
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Try loading font information for OMS+mdbch on input line 3.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbch\omsmdbch.fd"
 File: omsmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMS/mdbch.
 )
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 5.
+(Font)              scaled to size 11.52008pt on input line 3.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 5.
+(Font)              scaled to size 7.68005pt on input line 3.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 5.
-LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 5.
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Try loading font information for OMX+mdbch on input line 3.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbch\omxmdbch.fd"
 File: omxmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for OMX/mdbch.
 )
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 5.
+(Font)              scaled to size 11.52008pt on input line 3.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 5.
+(Font)              scaled to size 7.68005pt on input line 3.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 5.
+(Font)              scaled to size 5.76004pt on input line 3.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 5.
+(Font)              scaled to size 11.52008pt on input line 3.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 5.
+(Font)              scaled to size 7.68005pt on input line 3.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 5.
-LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 5.
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Try loading font information for MDA+mdbch on input line 3.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbch\mdamdbch.fd"
 File: mdamdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDA/mdbch.
 )
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 5.
+(Font)              scaled to size 11.52008pt on input line 3.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 5.
+(Font)              scaled to size 7.68005pt on input line 3.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 5.
-LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 5.
+(Font)              scaled to size 5.76004pt on input line 3.
+LaTeX Font Info:    Try loading font information for MDB+mdbch on input line 3.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\mathdesign\mdbch\mdbmdbch.fd"
 File: mdbmdbch.fd 2013/08/29 Fontinst v1.933 font definitions for MDB/mdbch.
 )
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 5.
+(Font)              scaled to size 11.52008pt on input line 3.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 5.
+(Font)              scaled to size 7.68005pt on input line 3.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 5.
-)
-\tf@toc=\write3
+(Font)              scaled to size 5.76004pt on input line 3.
 
 [11
 
-] ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\exerclick-memoria.lof")
+])
+\tf@toc=\write3
+ [12] ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\exerclick-memoria.lof")
 \tf@lof=\write4
-
-[12
+ [13
 
 ] ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\exerclick-memoria.lot")
 \tf@lot=\write5
 
-[13
+[14
 
-] [14
+] ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\capitulos/1-introduccion.tex"
+Cap\'{\i }tulo 1.
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
+
+ []
+
+[15
+
 
 ]
-("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\capitulos/1-introduccion.tex"
-Cap\'{\i }tulo 1.
+LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
+(Font)              scaled to size 11.52008pt on input line 22.
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--23
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 24--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 30--31
+
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Font Info:    Font shape `T1/mdbch/m/sl' will be
+(Font)              scaled to size 11.52008pt on input line 31.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16
+design size mismatch in local font md-chro8t in virtual font mdbchro8t.vf ignor
+ed.])
+Underfull \hbox (badness 10000) in paragraph at lines 32--114
+
+ []
+
+("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\capitulos/2-objetivos.tex"
+
+Package Fancyhdr Warning: \headheight is too small (14.49998pt): 
+ Make it at least 15.11554pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[17]
+Cap\'{\i }tulo 2.
 
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
@@ -798,28 +868,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--13
 
  []
 
-)
-Underfull \hbox (badness 10000) in paragraph at lines 14--114
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
-[15
+[18
 
-] ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\capitulos/2-objetivos.tex"
-LaTeX Font Info:    Font shape `T1/mdbch/m/sl' will be
-(Font)              scaled to size 11.52008pt on input line 7.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[16]
-Cap\'{\i }tulo 2.
-) ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\capitulos/gestion.tex" [17
-
-]
+]) ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\capitulos/gestion.tex"
+[19]
 Cap\'{\i }tulo 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
@@ -841,244 +898,245 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--26
 
  []
 
-[18
+[20
 
 ]
-LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 11.52008pt on input line 30.
-
 Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 (Font)              scaled to size 13.82408pt on input line 52.
-
-Package Fancyhdr Warning: \headheight is too small (14.49998pt): 
- Make it at least 15.11554pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[19
-design size mismatch in local font md-chro8t in virtual font mdbchro8t.vf ignor
-ed.]
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
-
- []
-
-LaTeX Font Info:    Font shape `T1/mdbch/b/it' will be
-(Font)              scaled to size 11.52008pt on input line 86.
-
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 90--90
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+
+ []
+
+[22]
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 
  []
 
 
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 90--91
-[][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
-[20]
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 98--98
-
- []
-
-
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 98--99
-[][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 98--99
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
-
- []
-
-
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 104--105
-[][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--105
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--110
-
- []
-
-
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 110--111
-[][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 110--111
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
-
- []
-
-
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 116--117
-[][][][][][][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 122--122
-
- []
-
-
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 122--123
-[][][][][][][] 
- []
-
-
+[23]
 Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
 
+LaTeX Font Info:    Font shape `T1/mdbch/b/it' will be
+(Font)              scaled to size 11.52008pt on input line 127.
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--128
+Underfull \hbox (badness 10000) in paragraph at lines 127--128
 
  []
 
 
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 128--129
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
+
+ []
+
+
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 131--132
 [][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--134
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
 
 
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+
+ []
+
+
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 139--140
 [][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--140
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 
  []
 
 
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 140--141
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 145--146
 [][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--146
+Underfull \hbox (badness 10000) in paragraph at lines 151--151
 
  []
 
 
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 146--147
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 151--152
 [][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Underfull \hbox (badness 10000) in paragraph at lines 151--152
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--152
+Underfull \hbox (badness 10000) in paragraph at lines 157--157
 
  []
 
 
-Overfull \hbox (26.19666pt too wide) in paragraph at lines 152--153
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 157--158
 [][][][][][][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
 
-Underfull \vbox (badness 1325) has occurred while \output is active []
-
- [21]
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
 
  []
 
-[22])
+
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 163--164
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--169
+
+ []
+
+
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 169--170
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
+
+ []
+
+
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 175--176
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+
+ []
+
+
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 181--182
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--187
+
+ []
+
+
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 187--188
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--193
+
+ []
+
+
+Overfull \hbox (26.19666pt too wide) in paragraph at lines 193--194
+[][][][][][][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--194
+
+ []
+
+[25])
 ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\capitulos/analisis-de-requisitos.
-tex" [23]
+tex" [26]
 Cap\'{\i }tulo 4.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 16.
+(Font)              scaled to size 7.68005pt on input line 18.
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
+Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
  []
 
 ) ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\capitulos/conclusiones.tex"
-[24
+[27
 
 ]
 Cap\'{\i }tulo 5.
 )
 ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\capitulos/propuestas-de-mejora.te
-x" [25
+x" [28
 
 ]
 Cap\'{\i }tulo 6.
 ) ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\plantilla/bibliografia.tex"
-[26
+[29
 
 ])
 ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\apendices/a-actas-reuniones.tex"
-[27
+[30
 
 ]
 Ap\IeC {\'e}ndice A.
@@ -1104,9 +1162,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-[28
+[31
 
-]) [29]
+]) [32]
 ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\apendices/actas-de-reunion/reunio
 n-2.tex"
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
@@ -1128,7 +1186,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-[30]) [31]
+[33]) [34]
 ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\apendices/actas-de-reunion/reunio
 n-3.tex"
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
@@ -1150,7 +1208,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-[32]) [33]
+[35]) [36]
 ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\apendices/actas-de-reunion/reunio
 n-4.tex"
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
@@ -1172,26 +1230,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-[34])) [35] ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\exerclick-memoria.aux
-") ) 
+[37]) [38]
+("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\apendices/actas-de-reunion/reunio
+n-5.tex"
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+)) [39] ("C:\Users\Adrian Núñez\Desktop\TFG\Memoria\exerclick-memoria.aux")
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6321 strings out of 493921
- 91932 string characters out of 3144848
+ 6324 strings out of 493921
+ 92109 string characters out of 3144848
  157210 words of memory out of 3000000
  9414 multiletter control sequences out of 15000+200000
  47964 words of font info for 70 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 41i,11n,43p,1017b,493s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/texnansi.enc}<C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/bitstrea/charter/bchb8a.pfb><C:/Pr
-ogram Files (x86)/MiKTeX 2.9/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Program Fi
-les (x86)/MiKTeX 2.9/fonts/type1/bitstrea/charter/bchri8a.pfb><C:/Program Files
- (x86)/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chr7y.pfb><C:/Program Files (
-x86)/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chr8t.pfb>
-Output written on exerclick-memoria.pdf (35 pages, 134353 bytes).
+ 41i,12n,43p,1150b,549s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/texnansi.enc}<C:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/bitstrea/charter/bchb8a.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/bitstrea/charter/bchr8a.pfb><C:/Program File
+s (x86)/MiKTeX 2.9/fonts/type1/bitstrea/charter/bchri8a.pfb><C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chr7y.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/mathdesign/mdbch/md-chr8t.pfb>
+Output written on exerclick-memoria.pdf (39 pages, 148294 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
+ 160 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
