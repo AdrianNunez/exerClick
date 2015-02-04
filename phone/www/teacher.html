@@ -15,6 +15,7 @@
 	
 	<!-- stylesheet -->
 	<link rel="stylesheet" href="css/teacher.css">
+	<link rel="stylesheet" href="css/fonts.css">
 	
 	<!-- JAVASCRIPT INCLUDES: MAINTAIN ORDER!! -->
 	
@@ -30,15 +31,15 @@
 	<div id="container">
 		<!-- Top Header -->
 		<div id="header" class="col-xs-12">
-			<div class="col-xs-4">exerClick</div>
-			<div class="col-xs-8" align="right"><i class="fa fa-user fa-fw"></i> Maite Urretavizcaya</div>
+			<div class="col-xs-4"><span class="exer">exer</span><span class="click">Click</span></div>
+			<div class="col-xs-8" align="right"><span class="userName"><i class="fa fa-user fa-fw"></i> Maite Urretavizcaya</span></div>
 		</div>
 	
 		<!-- Body -->
 		<div class="col-xs-12">
 			<!-- Sub header with the signature name and the top part of content box -->
 			<div class="row blackboard">
-				<h2 class="white shadowed title"><div align="center" class="ehuFontStyle">Programación Básica</div></h2>
+				<h6 class="white title"><div align="center" class="ehuSans">Programación Básica</div></h6>
 				<div id="subheader"></div>
 			</div>
 			
@@ -46,21 +47,21 @@
 			<div id="main">
 				<!-- Buttons to select the type of exercise displayed (actives, finished or "prepared and ready to be launched" -->
 				<div id="state-buttons">
-					<div class="col-xs-4 selected-active-button">
+					<div class="col-xs-6 selected-active-button">
 						<button type="button" id="actives-button" class="btn btn-danger active">
-							<span class="badge left"><i class="fa fa-exclamation-triangle fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold">ACTIVOS</div>
+							<span class="badge left"><i class="fa fa-send fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold">ACTIVOS</div>
 						</button>
 					</div>
-					<div class="col-xs-4 no-selected-button">
+					<div class="col-xs-6 no-selected-button">
 						<button type="button" id="finished-button" class="btn btn-primary">
 							<span class="badge left"><i class="fa fa-flag fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold">FINALIZADOS</div>
 						</button>
 					</div>
-					<div class="col-xs-4 no-selected-button">
+					<!--<div class="col-xs-4 no-selected-button">
 						<button type="button" id="ready-button" class="btn btn-warning">
-							<span class="badge left"><i class="fa fa-send fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold">PREPARADOS</div>
+							<span class="badge left"><i class="fa fa-exclamation-triangle fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold">PREPARADOS</div>
 						</button>
-					</div>
+					</div>-->
 				</div>
 				<div class="clear"></div>
 				<!-- Exercises container -->
@@ -83,12 +84,12 @@
 	<div id="footer">
 		<div class="col-xs-12">
 			<!-- Text on top of the progress bar -->
-			<div class="progress-text">Progreso de la sesión (20%)</div>
+			<div class="progress-text">Progreso de la sesión (<span class="progress-percentage">0</span>%)</div>
 			<!-- Progress Bar -->
 			<div class="progress progress-striped active">
 				<!-- Minimum CSS for the progress bar to work (if moved to the stylesheet this does not work) -->
-				<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-					<span class="sr-only">20% completado</span>
+				<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+					<span class="sr-only"><span class="progress-percentage">0</span>% completado</span>
 				</div>
 			</div>
 		</div>

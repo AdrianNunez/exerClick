@@ -6,6 +6,16 @@ body, html {
 	word-wrap: break-word;
 }
 
+.exer {
+	font-family: jennasue;
+	font-size: 1.5em;
+}
+
+.click {
+	font-family: archistico;
+	font-size: 1em;
+}
+
 a:link { /* unvisited link */
 	color: #000;
 	text-decoration: none;
@@ -50,16 +60,23 @@ button {
 }
 
 #header {
-	padding: 0.4em;
-	font-size: 14px;
-	border-bottom: 1px groove #F2F2F2;
+	height: 2em;
+	border-bottom: 1px groove #000;
+	font-size: 1.5em;
 	background: #F2F2F2;
 	background: -webkit-linear-gradient(#F2F2F2, #D8D8D8); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#F2F2F2, #D8D8D8); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(#F2F2F2, #D8D8D8); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#F2F2F2, #D8D8D8); /* Standard syntax */
-	z-index: 10012;
+	z-index: 200000;
 	font-weight: bold;
+	line-height: 1.8em; /* vertically centers the content */
+}
+
+.userName {
+	font-family: amatic;
+	top: 0.4em;
+	right: 0.4em;
 }
 
 #subheader {
@@ -82,7 +99,9 @@ button {
 }
 
 .title {
-	font-size: 2em;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
 #main {
@@ -93,11 +112,11 @@ button {
 #exercises-container {
 	position: relative;	
 	overflow: hidden;
+	overflow-y: hidden;
+	font-family: ehuSans;
 }
 
 #exercises-content {
-	position: relative;
-	overflow-y: scroll;
 	overflow-x: hidden;
 }
 
@@ -114,6 +133,7 @@ button {
 	color: #FFF;
 	font-weight: bold;
 	z-index: 10010;
+	font-family: ehuSans;
 }
 
 .clear {
@@ -219,6 +239,14 @@ button {
 	opacity: 0.5;
 }
 
+.background-question {
+	background-color: #F6CECE;
+}
+
+.background-finished {
+	background-color: #A9D0F5;
+}
+
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
 
@@ -236,8 +264,10 @@ button {
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
-	#header { font-size: 10px; }
-	.title {	font-size: 2em; }
+	.exer { font-size: 1.5em; }
+	.click { font-size: 1em; }
+	#header { height: 2em; }
+	.title {	font-size: 1em; }
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }
 	.left { float: none; }
@@ -246,8 +276,10 @@ button {
 
 /* Landscape phones and smaller */
 @media (max-width: 480px) {
-	#header { font-size: 10px; }
-	.title {	font-size: 1.5em; }
+	.exer { font-size: 1.5em; }
+	.click { font-size: 1em; }
+	#header { font-size: 1em; }
+	.title {	font-size: 0.5em; }
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }
 	.exercise-name-icons { display: none; }
@@ -256,8 +288,10 @@ button {
 }
 
 @media only screen and (max-width: 320px) {
+	.exer { font-size: 1.5em; }
+	.click { font-size: 1em; }
 	#header { font-size: 12px; }
-	.title {	font-size: 12px; }
+	.title {	font-size: 0.5em; }
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }
 	.exercise-name-icons { display: none; }

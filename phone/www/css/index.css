@@ -4,26 +4,39 @@ body, html {
 	margin: 0px;
 	padding: 0px;
 	word-wrap: break-word;
+	font-size: 16px;
+}
+
+.exer {
+	font-family: jennasue;
+	font-size: 7.5em;
+	color: #FFF;
+}
+
+.click {
+	font-family: archistico;
+	font-size: 7em;
+	color: #FFF;
 }
 
 a:link { /* unvisited link */
-	color: #000;
-	text-decoration: none;
+	color: #5882FA;
+	text-decoration: underline;
 } 
 
 a:visited { /* visited link */
 	color: #000;
-	text-decoration: none;
+	text-decoration: underline;
 } 
 
 a:hover { /* mouse over link */
 	color: #000;
-	text-decoration: none;
+	text-decoration: underline;
 } 
 
 a:active { /* selected link */
 	color: #000;
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 button {
@@ -53,29 +66,20 @@ checkbox {
 	z-index: 900;
 }
 
-#header {
-	padding: 0.4em;
-	font-size: 14px;
-	border-bottom: 1px groove #F2F2F2;
-	background: #F2F2F2;
-	background: -webkit-linear-gradient(#F2F2F2, #D8D8D8); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(#F2F2F2, #D8D8D8); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(#F2F2F2, #D8D8D8); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(#F2F2F2, #D8D8D8); /* Standard syntax */
-	z-index: 10012;
-	font-weight: bold;
-}
-
 #login-form {
 	position: fixed;
-	background-color: #F2F2F2;
-	border-radius: 15px;
-	padding: 2em;
 	width: 70%;
 	top: 50%;
 	left: 50%;
 	-webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+
+#login-form-content {
+	background-color: #F2F2F2;
+	border-radius: 15px;
+	padding: 2em;
+	font-family: ehuSans;
 }
 
 .padd {
@@ -90,33 +94,41 @@ checkbox {
 	padding-bottom: 0.5em;
 }
 
+.maxwidth {
+	width: 100%;
+}
+
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
-
+	.exer { font-size: 7.5em; }
+	.click { font-size: 7em; }
 }
 
 /* Portrait tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1199px) {
-	#header { font-size: 10px; }
+	.exer { font-size: 7.5em; }
+	.click { font-size: 7em; }
 }
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
-	#header { font-size: 10px; }
+	.exer { font-size: 7.5em; }
+	.click { font-size: 7em; }
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
-	#header { font-size: 10px; }
+	.exer { font-size: 5.5em; }
+	.click { font-size: 5em; }
 }
 
 /* Landscape phones and smaller */
 @media (max-width: 480px) {
-	#header { font-size: 10px; }
+	.exer { font-size: 3.5em; }
+	.click { font-size: 3em; }
 }
 
 @media only screen and (max-width: 320px) {
-	#header { font-size: 12px; }
 }
 
 @media (max-height: 400px) {

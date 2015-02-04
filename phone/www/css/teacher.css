@@ -6,6 +6,16 @@ body, html {
 	word-wrap: break-word;
 }
 
+.exer {
+	font-family: jennasue;
+	font-size: 1.5em;
+}
+
+.click {
+	font-family: archistico;
+	font-size: 1em;
+}
+
 a:link { /* unvisited link */
 	color: #000;
 	text-decoration: none;
@@ -34,15 +44,6 @@ checkbox {
 	padding-left: 1em;
 }
 
-@font-face {
-    font-family: ehuFont;
-    src: url('../resources/EHUSans-black.otf');
-}
-
-.ehuFontStyle {
-	font-family: ehuFont;
-}
-
 #container {
 	min-height: 100%;
     height: auto !important;
@@ -54,16 +55,23 @@ checkbox {
 }
 
 #header {
-	padding: 0.4em;
-	font-size: 14px;
-	border-bottom: 1px groove #F2F2F2;
+	height: 2em;
+	border-bottom: 1px groove #000;
+	font-size: 1.5em;
 	background: #F2F2F2;
 	background: -webkit-linear-gradient(#F2F2F2, #D8D8D8); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#F2F2F2, #D8D8D8); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(#F2F2F2, #D8D8D8); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#F2F2F2, #D8D8D8); /* Standard syntax */
-	z-index: 10012;
+	z-index: 200000;
 	font-weight: bold;
+	line-height: 1.8em; /* vertically centers the content */
+}
+
+.userName {
+	font-family: amatic;
+	top: 0.4em;
+	right: 0.4em;
 }
 
 #subheader {
@@ -80,18 +88,15 @@ checkbox {
 	content: "";
 }
 
-#login-form {
-	position: relative;
-	margin-top: 20vh;
-}
-
 .blackboard {
 	background-image: url("../images/blackboard.jpg");
 	background-repeat: repeat;
 }
 
 .title {
-	font-size: 2em;
+	font-size: 1em;
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
 #main {
@@ -101,12 +106,14 @@ checkbox {
 
 #state-buttons {
 	height: 3em;
+	font-family: ehuFont;
 }
 
 #exercises-container {
 	position: relative;	
 	overflow: hidden;
 	overflow-y: hidden;
+	font-family: ehuSans;
 }
 
 #exercises-content {
@@ -142,6 +149,7 @@ checkbox {
 	color: #FFF;
 	font-weight: bold;
 	z-index: 10010;
+	font-family: ehuSans;
 }
 
 .darken {
@@ -217,7 +225,6 @@ checkbox {
 }
 
 .shadowed {
-	padding-bottom: 0.2em;
 	text-shadow: 3px 1px 1px #000;
 }
 
@@ -320,12 +327,12 @@ checkbox {
 .statistics-list-container {
 	position: relative;	
 	overflow-y: hidden;
+	overflow: hidden;
 }
 
 .statistics-list-content {
 	position: relative;
 	overflow-x: hidden;
-	overflow-y: scroll;
 }
 
 .statistics-student {
@@ -401,14 +408,14 @@ checkbox {
 	padding: 0.5em;
 	z-index: 1001;
 	background-color: #F2F5A9;
-	border-radius: 5px;
+	border-radius: 5px 0px 5px 5px;
 }
 
 .selected-finished-exercises {
 	padding: 0.5em;
 	z-index: 1001;
 	background-color: #A9D0F5;
-	border-radius: 5px 0px 5px 5px;
+	border-radius: 5px;
 }
 
 .left {
@@ -427,19 +434,21 @@ checkbox {
 
 /* Portrait tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1199px) {
-	#header { font-size: 10px; }
+
 }
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
-	#header { font-size: 10px; }
+
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
-	#header { font-size: 10px; }
+	.exer { font-size: 1.5em; }
+	.click { font-size: 1em; }
+	#header { height: 2em; }
 	#new-exercise { bottom: 5.5em; }
-	.title {	font-size: 2em; }
+	.title {	font-size: 1em; }
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; }
 	.left { float: none; }
@@ -448,9 +457,11 @@ checkbox {
 
 /* Landscape phones and smaller */
 @media (max-width: 480px) {
-	#header { font-size: 10px; }
+	.exer { font-size: 1.5em; }
+	.click { font-size: 1em; }
+	#header { font-size: 1em; }
 	#new-exercise { bottom: 5.5em; }
-	.title {	font-size: 1.5em; }
+	.title {	font-size: 0.5em; }
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; }
 	.exercise-name-icons { display: none; }
@@ -460,10 +471,12 @@ checkbox {
 }
 
 @media only screen and (max-width: 320px) {
+	.exer { font-size: 1.5em; }
+	.click { font-size: 1em; }
 	#main { margin-top: -1px; }
 	#header { font-size: 12px; }
 	#new-exercise { bottom: 5.5em; }
-	.title {	font-size: 12px; }
+	.title {	font-size: 0.5em; }
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; }
 	.exercise-name-icons { display: none; }
