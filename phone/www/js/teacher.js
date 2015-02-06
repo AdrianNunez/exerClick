@@ -33,7 +33,7 @@ $(document).on('ready', function() {
 				'<div>' +
 					'<div class=\"tab-title col-xs-3"><i class=\"atras fa fa-reply btn btn-default\"></i></div>' +
 					'<div class=\"tab-title col-xs-6\" align=\"center\"><h4>NUEVO EJERCICIO</h4></div>' +
-					'<div class=\"tab-title col-xs-3\"><i class=\"fa fa-paper-plane pull-right btn ui-corner-all ui-btn-b btn-danger\"></i></div>' + 
+					'<div class=\"tab-title col-xs-3\"><i class=\"launch-exercise fa fa-paper-plane pull-right btn ui-corner-all ui-btn-b btn-danger\"></i></div>' + 
 				'</div>' +
 				'<div class=\"clear\"></div>' +
 				'<div class=\"row separator\"></div>' +
@@ -101,9 +101,9 @@ $(document).on('ready', function() {
 				data: { Type: type },
 				success: function(data) {
 					$('#exercises-content').html("");
-					/*if(data.exercises.num == 0) {
+					if(data.exercises.num == 0) {
 						$('#exercises-content').html('No hay ejercicios disponibles.');
-					}*/
+					}
 					$.each(data.exercises, function(i, item) {
 						$('#exercises-content').append(
 						'<div class=\"exercise exercise-' + type.toLowerCase() +'\" data-id=\"' + item.exercise.id + '\">' +
@@ -114,9 +114,9 @@ $(document).on('ready', function() {
 								'</div>' +
 								'<div class=\"col-xs-8 col-sm-6 col-md-3 col-lg-3 exercise-buttons\">' +
 									'<div class=\"exercise-buttons-icons\"><div align=\"right\">' +
-										((type == 'Active') ? '' : ('<button class=\"btn btn-default btn-danger col-xs-offset-1 col-xs-3\"><i class=\"fa fa-paper-plane\"></i></button>')) +
-										((type == 'Finished') ? '' : ('<button class=\"btn btn-default btn-primary col-xs-offset-1 col-xs-3\"><i class=\"fa fa-flag\"></i></button>')) +
-										((type == 'Ready') ? '' : ('<button class=\"btn btn-default btn-warning col-xs-offset-1 col-xs-3\"><i class=\"fa fa-exclamation-triangle\"></i></button>')) +
+										((type == 'Active') ? '' : ('<button class=\"btn btn-default btn-danger col-xs-offset-1 col-xs-3 change-to-active\"><i class=\"fa fa-paper-plane\"></i></button>')) +
+										((type == 'Finished') ? '' : ('<button class=\"btn btn-default btn-primary col-xs-offset-1 col-xs-3 change-to-finished\"><i class=\"fa fa-flag\"></i></button>')) +
+										//((type == 'Ready') ? '' : ('<button class=\"btn btn-default btn-warning col-xs-offset-1 col-xs-3 change-to-ready\"><i class=\"fa fa-exclamation-triangle\"></i></button>')) +
 										'<button class=\"btn btn-default btn-success col-xs-offset-1 col-xs-3 statistics-button\"><i class=\"fa fa-bar-chart\"></i></button>' +
 									'</div></div>' +
 								'</div>' +
@@ -135,9 +135,13 @@ $(document).on('ready', function() {
 				type: 'GET',
 				url: 'http://exerclick-api.net46.net/launch-exercise.php',
 				async: false,
+				jsonpCallback: 'jsonCallback',
+				contentType: "application/json",
+				dataType: 'jsonp',
 				data: { Description: description },
-				success: function() {
+				success: function(data) {
 					hideAll();
+					refresh();
 				}
 			});
 			return $.Deferred().resolve();
@@ -152,13 +156,13 @@ $(document).on('ready', function() {
 				contentType: "application/json",
 				dataType: 'jsonp',
 				success: function(data) {
-					$('.progress-percentage').html(data.progress);
-					$('.progress-bar').css('width', data.progress + '%').attr('aria-valuenow', data.progress); 
+					$('.progress-percentage').html(parseInt(data.progress));
+					$('.progress-bar').css('width', parseInt(data.progress) + '%').attr('aria-valuenow', parseInt(data.progress)); 
 					if(data.progress == 100) {
 						$('.progress-bar').removeClass('progress-bar-info');
 						$('.progress-bar').removeClass('progress-bar-warning');
 						$('.progress-bar').addClass('progress-bar-success');
-					} else if(data.progress > 75) {
+					} else if(data.progress >= 75) {
 						$('.progress-bar').removeClass('progress-bar-info');
 						$('.progress-bar').addClass('progress-bar-warning');
 						$('.progress-bar').removeClass('progress-bar-success');
@@ -170,10 +174,6 @@ $(document).on('ready', function() {
 				}
 			});
 			return $.Deferred().resolve();
-		 }
-		 
-		 function changeExerciseType(id, to) {
-			
 		 }
 			
 		function newExercise() {
@@ -207,7 +207,7 @@ $(document).on('ready', function() {
 					jsonpCallback: 'jsonCallback',
 					contentType: "application/json",
 					dataType: 'jsonp',
-					data: { State: '%', Id: id },
+					data: { State: '%', Id: id, Key: '%' },
 					success: function(data) {
 						$('.darken').show();
 						$('#container').append(
@@ -239,8 +239,8 @@ $(document).on('ready', function() {
 									'<div class=\"clear\"></div>' +
 									'<div class=\"statistics-body-a\">' +
 										'<div class=\"statistics-search form-group col-xs-12\">' +
-											'<div class=\"col-xs-8 col-sm-10 col-md-10 col-lg-11\"><input type=\"search\" class=\"form-control\" placeholder=\"Buscar alumno\" onSearch=\"searchStudent(this.value)\"></div>' +
-											'<div class=\"col-xs-4 col-sm-2 col-md-2 col-lg-1\"><button type=\"button\" class=\"btn btn-default btn-info searchStudent-button\"><i class=\"fa fa-search fa-fw\"></i></button></div>' +
+											'<div class=\"col-xs-8 col-sm-10 col-md-10 col-lg-11\"><input type=\"search\" id="search-student-input" class=\"form-control\" placeholder=\"Buscar alumno\"></div>' +
+											'<div class=\"col-xs-4 col-sm-2 col-md-2 col-lg-1\"><button type=\"button\" id="search-student-button" class=\"btn btn-default btn-info\"><i class=\"fa fa-search fa-fw\"></i></button></div>' +
 										'</div>' +
 										'<div class=\"clear\"></div>' +
 										'<div class=\"statistics-list-container\">' +
@@ -306,9 +306,10 @@ $(document).on('ready', function() {
 					}
 				});
 			});
+			return $.Deferred().resolve();
 		}
 		
-		function loadStatistics(state, id) {
+		function loadStatistics(state, id, key) {
 			$.ajax({
 				type: 'GET',
 				async: false,
@@ -316,7 +317,7 @@ $(document).on('ready', function() {
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
-				data: { State: state, Id: id },
+				data: { State: state, Id: id, Key: key },
 				success: function(data) {
 					$('.statistics-list-content').html('');
 					$.each(data.statistics, function(i, item) {
@@ -339,6 +340,34 @@ $(document).on('ready', function() {
 					});
 				}
 			});
+			return $.Deferred().resolve();
+		}
+		
+		function changeExerciseType(id, to) {
+			$.ajax({
+				type: 'GET',
+				async: false,
+				url: 'http://exerclick-api.net46.net/change-exercise.php',
+				jsonpCallback: 'jsonCallback',
+				contentType: "application/json",
+				dataType: 'jsonp',
+				data: { Id: id, Type: to },
+				success: function(data) {
+					refresh();
+					return $.Deferred().resolve();
+				}
+			});
+		}
+		
+		function refresh() {
+			if($('#state-buttons').find('.selected-active-button').length > 0) {
+				countStudentsInSession('Active');
+			} else if($('#state-buttons').find('.selected-finished-button').length > 0) {
+				countStudentsInSession('Finished')
+			} else if($('#state-buttons').find('.selected-ready-button').length > 0) {
+				countStudentsInSession('Ready')
+			}
+			return $.Deferred().resolve();
 		}
 		
 		// ------------------------------------------------------------------------------------------------------------------
@@ -416,6 +445,21 @@ $(document).on('ready', function() {
 				$('#exercises-container').addClass('selected-ready-exercises');
 			});	
 			
+			$(document).on('vclick click tap', '.change-to-active', function() {
+				var id = $(this).parents('.exercise').attr('data-id');
+				changeExerciseType(id, 'Active');
+			});
+			
+			$(document).on('vclick click tap', '.change-to-finished', function() {
+				var id = $(this).parents('.exercise').attr('data-id');
+				changeExerciseType(id, 'Finished');
+			});
+			
+			$(document).on('vclick click tap', '.change-to-ready', function() {
+				var id = $(this).parents('.exercise').attr('data-id');
+				changeExerciseType(id, 'Ready');
+			});
+			
 			$(document).on('vclick click tap', '#statistics-all-button', function() {
 				if($('#statistics-finished-button').hasClass('active')) {
 					$('#statistics-finished-button').removeClass('active');
@@ -424,7 +468,7 @@ $(document).on('ready', function() {
 				}
 				$('#statistics-all-button').addClass('active');
 				var id = $(this).parents('#statistics').attr('data-id');
-				loadStatistics('%', id);
+				loadStatistics('%', id, '%');
 			});
 			
 			$(document).on('vclick click tap', '#statistics-finished-button', function() {
@@ -435,7 +479,7 @@ $(document).on('ready', function() {
 				}
 				$('#statistics-finished-button').addClass('active');
 				var id = $(this).parents('#statistics').attr('data-id');
-				loadStatistics('Finished', id);
+				loadStatistics('Finished', id, '%');
 			});
 			
 			$(document).on('vclick click tap', '#statistics-question-button', function() {
@@ -446,9 +490,42 @@ $(document).on('ready', function() {
 				}
 				$('#statistics-question-button').addClass('active');
 				var id = $(this).parents('#statistics').attr('data-id');
-				loadStatistics('Question', id);
+				loadStatistics('Question', id, '%');
 				
-			});	
+			});			
+			
+			$(document).on('vclick click tap', '#search-student-button', function() {
+				if($('#statistics-all-button').hasClass('active')) {
+					var state = '%';
+				} else if($('#statistics-finished-button').hasClass('active')) {		
+					var state = 'Finished';
+				} else if($('#statistics-question-button').hasClass('active')) {		
+					var state = 'Question';
+				}
+				var id = $(this).parents('#statistics').attr('data-id');
+				var key = $('#search-student-input').val();
+				loadStatistics(state, id, '%' + key + '%');
+			});
+			
+			$(document).on('keyup', '#search-student-input', function() {
+				if($('#statistics-all-button').hasClass('active')) {
+					var state = '%';
+				} else if($('#statistics-finished-button').hasClass('active')) {		
+					var state = 'Finished';
+				} else if($('#statistics-question-button').hasClass('active')) {		
+					var state = 'Question';
+				}
+				var id = $(this).parents('#statistics').attr('data-id');
+				var key = $('#search-student-input').val();
+				loadStatistics(state, id, '%' + key + '%');
+			});
+			
+			$(document).on('vclick click tap', '.launch-exercise', function() {
+				var description = $(this).parents('#new-exercise').find('input').val();
+				launchExercise(description);
+			});
+			
+			
 			
 			$(window).on('resize', function() {
 				$('#header').show();

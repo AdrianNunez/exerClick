@@ -55,7 +55,7 @@ button {
     height: 100%;
     margin: 0 auto;
 	background-color: #FFF;
-	margin-bottom: -5em;
+	margin-bottom: -10em;
 	z-index: 900;
 }
 
@@ -118,6 +118,22 @@ button {
 
 #exercises-content {
 	overflow-x: hidden;
+}
+
+#overfooter {
+	display: block;
+	position: relative;
+	height: 5em;
+	background: #2E2E2E;
+	background: -webkit-linear-gradient(#6E6E6E, #2E2E2E); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#6E6E6E, #2E2E2E); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#6E6E6E, #2E2E2E); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#6E6E6E, #2E2E2E); /* Standard syntax */
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	color: #FFF;
+	font-weight: bold;
+	z-index: 10010;
+	font-family: ehuSans;
 }
 
 #footer {
@@ -254,12 +270,10 @@ button {
 
 /* Portrait tablets and medium desktops */
 @media (min-width: 992px) and (max-width: 1199px) {
-	#header { font-size: 10px; }
 }
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
-	#header { font-size: 10px; }
 }
 
 /* Landscape phones and portrait tablets */
@@ -301,5 +315,6 @@ button {
 
 @media (max-height: 400px) {
 	#container { margin-bottom: 0em; }
+	#overfooter { display: none; height: 0px; }
 	#footer { display: none; height: 0px; }
 }
