@@ -35,14 +35,14 @@
 			<div align="center"><span class="exer">exer</span><span class="click">Click</span></div>
 			<div id="login-form-content" class="col-sm-offset-2 col-sm-8 col-lg-offset-4 col-lg-4">
 				<!-- login form -->
-				<form method="post" onSubmit="return doLogin();">
+				<form method="post" onSubmit="return false;">
 					<div class="input-group padd maxwidth" align="center">
 						<!-- username input -->
-						<input type="text" id="username" class="form-control" placeholder="Usuario">
+						<input type="text" id="username" name="username" class="form-control" placeholder="Usuario">
 					</div>
 					<div class="input-group padd maxwidth" align="center">
 						<!-- password input -->
-						<input type="password" id="password" class="form-control" autocomplete="off" placeholder="Contraseña">
+						<input type="password" id="password" name="password" class="form-control" autocomplete="off" placeholder="Contraseña">
 					</div>
 					<!-- remember me checkbox -->
 					<div class="input-group padd" align="left">
@@ -53,7 +53,7 @@
 						<a href="#">He olvidado mi contraseña</a>
 					</div>
 					<!-- input button -->
-					<div class="input-group padd maxwidth" align="center"><button type="submit" class="btn btn-primary">
+					<div class="input-group padd maxwidth" align="center"><button type="submit" class="btn btn-primary" onClick="doLogin()">
 						INICIAR SESIÓN
 					</button></div>
 				</form>

@@ -1,15 +1,23 @@
 $(document).on('ready', function() {
-	$(window).on('load', function() {
+	$(window).on('load', function() {	
+		
 	});
 });
 
 function doLogin() {
-	var username = $('#username').val();
-	var password = $('#password').val();
-	if(username == 'adrian') {
-		window.location.replace('student.html');
-	} else {
-		window.location.replace('teacher.html');
-	}
-	return false;
+	username = $('#username').val();
+	password = $('#password').val();
+	$.ajax({
+		type: 'GET',
+		async: false,
+		url: 'http://exerclick-api.net46.net/login.php',
+		jsonpCallback: 'jsonCallback',
+		contentType: "application/json",
+		dataType: 'jsonp',
+		data: { Username: $('#username').val(), Password: $('#password').val() },
+		success: function(data) {		
+		alert(data.next);
+			window.location.replace(data.next);
+		}
+	});
 }

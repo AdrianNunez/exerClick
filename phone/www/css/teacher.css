@@ -49,8 +49,9 @@ checkbox {
     height: auto !important;
     height: 100%;
     margin: 0 auto;
+	bottom: 0px;
 	background-color: #FFF;
-	margin-bottom: -7.5em;
+	margin-bottom: -5.5em;
 	z-index: 900;
 }
 
@@ -139,7 +140,9 @@ checkbox {
 #footer {
 	display: block;
 	position: relative;
-	height: 5em;
+	height: 3em;
+	bottom: 0px;
+	line-height: 2em;
 	background: #2E2E2E;
 	background: -webkit-linear-gradient(#6E6E6E, #2E2E2E); /* For Safari 5.1 to 6.0 */
 	background: -o-linear-gradient(#6E6E6E, #2E2E2E); /* For Opera 11.1 to 12.0 */
@@ -150,6 +153,13 @@ checkbox {
 	font-weight: bold;
 	z-index: 10010;
 	font-family: ehuSans;
+}
+
+.progress {
+	position: fixed;
+	left: 1em;
+	right: 1em;
+	bottom: -0.6em;
 }
 
 .darken {
@@ -459,7 +469,7 @@ checkbox {
 @media (max-width: 480px) {
 	.exer { font-size: 1.5em; }
 	.click { font-size: 1em; }
-	#header { font-size: 1em; }
+	#header { font-size: 1.5em; line-height: 1.7em; height: 1.8em; }
 	#new-exercise { bottom: 5.5em; }
 	.title {	font-size: 0.5em; }
 	.exercise-tab { font-size: 100%; }
@@ -474,7 +484,7 @@ checkbox {
 	.exer { font-size: 1.5em; }
 	.click { font-size: 1em; }
 	#main { margin-top: -1px; }
-	#header { font-size: 12px; }
+	#header { font-size: 1.5em; line-height: 1.7em; height: 1.8em; }
 	#new-exercise { bottom: 5.5em; }
 	.title {	font-size: 0.5em; }
 	.exercise-tab { font-size: 100%; }
