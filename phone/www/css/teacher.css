@@ -471,7 +471,7 @@ checkbox {
 	.click { font-size: 1em; }
 	#header { font-size: 1.5em; line-height: 1.7em; height: 1.8em; }
 	#new-exercise { bottom: 5.5em; }
-	.title {	font-size: 0.5em; }
+	.title {	font-size: 1em; }
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; }
 	.exercise-name-icons { display: none; }
@@ -486,7 +486,7 @@ checkbox {
 	#main { margin-top: -1px; }
 	#header { font-size: 1.5em; line-height: 1.7em; height: 1.8em; }
 	#new-exercise { bottom: 5.5em; }
-	.title {	font-size: 0.5em; }
+	.title {	font-size: 1em; }
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; }
 	.exercise-name-icons { display: none; }

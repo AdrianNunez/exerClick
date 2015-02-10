@@ -16,7 +16,6 @@ function doLogin() {
 		dataType: 'jsonp',
 		data: { Username: $('#username').val(), Password: $('#password').val() },
 		success: function(data) {		
-		alert(data.next);
 			window.location.replace(data.next);
 		}
 	});
