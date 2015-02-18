@@ -137,6 +137,7 @@ button {
 	font-weight: bold;
 	z-index: 10010;
 	font-family: ehuSans;
+	padding-top: 0.7em;
 }
 
 #footer {
@@ -156,17 +157,44 @@ button {
 	font-weight: bold;
 	z-index: 10010;
 	font-family: ehuSans;
+	padding-top: 0.7em;
 }
+
+#screen-center {
+    position: fixed;
+	display: block;
+    top: 50%;
+	left: 12.5%;
+    width: 75%;
+	margin-top: -2.5em;
+	
+	border: 1px solid #848484;
+	border-radius: 15px;
+	background: #D8D8D8;
+	
+	text-align: center;
+	font-weight: bold;
+	font-family: ehuFont;
+}​
+
 
 .progress {
 	position: fixed;
+	display: block;
+	height: 1em;
+	content: "";
+	width: 100%;
 	left: 5em;
 	right: 1em;
-	bottom: -0.6em;
+	bottom: 10em;
 }
 
 .up {
 	bottom: 2.4em;
+}
+
+.progress-text {
+	bottom: 0.7em;
 }
 
 .clear {
@@ -208,7 +236,8 @@ button {
 .exercise {
 	width: 100%;
 	
-	border: 2px solid #dddddd;
+	border: 1px solid #E6E6E6;
+	border-bottom: 3px solid #BDBDBD;
 	border-radius: 5px;
 	
 	margin-top: 0.5em;
@@ -221,41 +250,34 @@ button {
 .exercise-container {
 	height: 100%;
 	
-	background: #FFF;
+	background: #F2F2F2;
 }
 
 .exercise-name {
-	width: 100%;
-	background: #FFF;
-	margin-top: 1em;
+	background: #F2F2F2;
+	margin-top: 0.8em;
 }
 
 .exercise-name-icons {
 	font-size: 0.8em;
-	
 	padding: 0.5em 0em 0.8em 0em;
 }
 
 .exercise-buttons {	
-	background: #FFF;	
+	background: #F2F2F2;	
 	text-align: right;	
 	padding-top: 0.8em;
 }
 
 .exercise-buttons-icons {
 	font-size: 1.5em;
-	margin-bottom: 0.5em;
+
 }
 
 /* EXERCISE TYPES */
 
 .left {
 	float: left;
-}
-
-.progress {
-	margin: 0px;
-	padding: 0px;
 }
 
 .exclamation {

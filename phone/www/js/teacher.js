@@ -6,7 +6,7 @@ $(document).on('ready', function() {
 		$.ajaxSetup({ cache: false });
 		// Cross domain
 		$.support.cors = true;
-
+		
 		// Needed to get all the height
 		$('#header').show();
 		$('#state-buttons').show();
@@ -22,7 +22,7 @@ $(document).on('ready', function() {
 		// Set the size of the containers for the exercises (needed for the scroll to appear and work)
 		$('#exercises-container').css('height', windowHeight -  offsetTop  - offsetBottom - $('#overfooter').height() - 4*Math.floor(parseFloat($('body').css('font-size'))));
 		$('#exercises-content').css('height', $('#exercises-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
-		
+
 		// Add the dark div which appears when a tab is shown
 		$('#container').append('<div class="darken"></div>');
 		$('.darken').css('height', windowHeight);
@@ -54,7 +54,7 @@ $(document).on('ready', function() {
 		// Hide both divs for showing them when asked
 		$('#new-exercise').hide();
 		$('.darken').hide();
-		
+
 		// ------------------------------------------------------------------------------------------------------------------
 		// 												 		 FUNCTIONS
 		// ------------------------------------------------------------------------------------------------------------------
@@ -70,27 +70,61 @@ $(document).on('ready', function() {
 					$('#statistics').remove();
 				});
 			}
-			
 			$('.darken').hide();
 			return $.Deferred().resolve();
 		}
 		
-		function countStudentsInSession(type) {
+		function loadData() {
 			$.ajax({
 				type: 'GET',
 				async: false,
-				url: 'http://exerclick-api.net46.net/count-students-in-session.php',
+				url: 'http://exerclick-api.net46.net/get-data.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
 				success: function(data) {
-					showExercises(type, data.students);
+					var lang = data.data[9].language;
+					switch(lang) {
+						case 'es':
+							// Profile 
+							$('#translation-1').html('PERFIL DE <span class=\"name\"></span>');
+							$('#translation-2').html('Asignatura');
+							$('#translation-3').html('Idioma');
+							$('#translation-4').html('Estás en la asignatura de <span class="subject"></span>');
+							$('#translation-5').html('CERRAR SESIÓN');
+							break;
+						case 'eu':
+							// Profile 
+							$('#translation-1').html('<span class=\"name\"></span>-REN PROFILA');
+							$('#translation-2').html('Irakasgaia');
+							$('#translation-3').html('Hizkuntza');
+							$('#translation-4').html('<span class=\"subject\"></span> irakasgaian zaude');
+							$('#translation-5').html('ITXI SAIOA');
+							break;
+					}
+					
+					$('.name').attr('data-id', data.data[0].id);
+					if(data.data[1].subject != null)
+						$('.subject').html(data.data[1].subject);
+					var surname1 = (data.data[6] !== undefined && data.data[5].surname1 !== undefined) ? data.data[6].surname1 : '&nbsp;';
+					var surname2 = (data.data[7] !== undefined && data.data[6].surname2 !== undefined) ? data.data[7].surname2 : '&nbsp;';
+					$('.name').html(data.data[5].username + ' ' + surname1 + ' ' + surname2);
+					$('select.subject-select').html('');
+					$.each(data.data[8].subjects, function(i, item) {
+						if(item.id == data.data[2].subject_id && item.group_id == data.data[4].group_id) {
+							$('select.subject-select').append('<option value="' + i + '" data-id="' + item.id + '" data-groupid="' + item.group_id + '" data-group="' + item.group + '" selected>' + item.group + ':(' + item.acronym + ') ' + item.name + '</option>');
+						} else {
+							$('select.subject-select').append('<option value="' + i + '" data-id="' + item.id + '" data-groupid="' + item.group_id + '" data-group="' + item.group + '">' + item.group + ':(' + item.acronym + ') ' + item.name + '</option>');
+						}
+					});
+					
+					showExercises('Active');
 				}
 			});
 			return $.Deferred().resolve();
-		}
+		 }
 		
-		function showExercises(type, nostudents) {
+		function showExercises(type) {
 			$.ajax({
 				type: 'GET',
 				async: false,
@@ -100,7 +134,10 @@ $(document).on('ready', function() {
 				dataType: 'jsonp',
 				data: { Type: type },
 				success: function(data) {
-					$('#exercises-content').html("");
+					$('#exercises-content').html("");var windowHeight = $(window).height();
+
+					$('#exercises-container').css('height', windowHeight -  offsetTop  - offsetBottom - $('#overfooter').height() - 4*Math.floor(parseFloat($('body').css('font-size'))));
+					$('#exercises-content').css('height', $('#exercises-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
 					if(data.exercises.num == 0) {
 						$('#exercises-content').html('No hay ejercicios disponibles.');
 					}
@@ -110,7 +147,7 @@ $(document).on('ready', function() {
 							'<div class=\"exercise-container col-xs-12\">' +
 								'<div class=\"col-xs-4 col-sm-6 col-md-9 col-lg-9 exercise-name\">' +
 									'<div class=\"ellipsis padd1 bold\">' + item.exercise.description + '</div>' +
-									'<div class=\"exercise-name-icons padd3\">' + item.exercise.nofinished + '/' + nostudents + ' <i class=\"fa fa-check-square-o fa-fw\"></i> ' + item.exercise.noquestions + '/' + nostudents + ' <i class=\"fa fa-exclamation fa-fw\"></i></div>' +
+									'<div class=\"exercise-name-icons padd3\">' + item.exercise.nofinished + '/' + item.exercise.num + ' <i class=\"fa fa-check-square-o fa-fw\"></i> ' + item.exercise.noquestions + '/' + item.exercise.num + ' <i class=\"fa fa-exclamation fa-fw\"></i></div>' +
 								'</div>' +
 								'<div class=\"col-xs-8 col-sm-6 col-md-3 col-lg-3 exercise-buttons\">' +
 									'<div class=\"exercise-buttons-icons\"><div align=\"right\">' +
@@ -361,13 +398,36 @@ $(document).on('ready', function() {
 		
 		function refresh() {
 			if($('#state-buttons').find('.selected-active-button').length > 0) {
-				countStudentsInSession('Active');
+				showExercises('Active');
 			} else if($('#state-buttons').find('.selected-finished-button').length > 0) {
-				countStudentsInSession('Finished')
+				showExercises('Finished')
 			} else if($('#state-buttons').find('.selected-ready-button').length > 0) {
-				countStudentsInSession('Ready')
+				showExercises('Ready')
 			}
 			return $.Deferred().resolve();
+		}
+		
+		/*function init() {
+			$.ajax({
+				type: 'GET',
+				async: false,
+				url: 'http://exerclick-api.net46.net/init.php',
+				jsonpCallback: 'jsonCallback',
+				contentType: "application/json",
+				dataType: 'jsonp',
+				success: function(data) {
+					loadData();
+				}
+			});
+			return $.Deferred().resolve();
+		}*/
+		
+		function viewProfile() {	
+			window.location.replace('profile.html');
+		}
+		
+		function viewMain() {
+			window.location.replace('teacher.html');
 		}
 		
 		// ------------------------------------------------------------------------------------------------------------------
@@ -375,13 +435,13 @@ $(document).on('ready', function() {
 		// ------------------------------------------------------------------------------------------------------------------
 		
 		// Call the main function to load content and then add the action listeners
-		countStudentsInSession('Active').done(function() {
+		loadData().done(function() {
 			$(document).on('vclick click tap', '.atras', hideAll);
 			$(document).on('click', '.statistics-button', showStatistics);
 			
 			$(document).on('vclick click tap', '#actives-button', function() {
 				$('#exercises-content').html("");
-				countStudentsInSession('Active');
+				showExercises('Active');
 				if($('#state-buttons').find('.selected-finished-button').length > 0) {
 					var button = $('.selected-finished-button');
 					button.removeClass('selected-finished-button');
@@ -403,7 +463,7 @@ $(document).on('ready', function() {
 			
 			$(document).on('vclick click tap', '#finished-button', function() {
 				$('#exercises-content').html("");
-				countStudentsInSession('Finished');
+				showExercises('Finished');
 				if($('#state-buttons').find('.selected-active-button').length > 0) {
 					var button = $('div.selected-active-button');
 					button.removeClass('selected-active-button');
@@ -425,7 +485,7 @@ $(document).on('ready', function() {
 			
 			$(document).on('vclick click tap', '#ready-button', function() {
 				$('#exercises-content').html("");
-				countStudentsInSession('Ready');
+				showExercises('Ready');
 				if($('#state-buttons').find('.selected-active-button').length > 0) {
 					var button = $('.selected-active-button');
 					button.removeClass('selected-active-button');
@@ -525,7 +585,72 @@ $(document).on('ready', function() {
 				launchExercise(description);
 			});
 			
+			$(document).on('vclick click tap', '.userName', function() {
+				viewProfile();
+			});	
 			
+			$(document).on('vclick click tap', '.profile-back', function() {
+				 viewMain();	
+			});
+			
+			$('select.subject-select').on('change', function (e) {
+				var optionSelected = $('option:selected', this);
+				var valueSelected = this.value;
+				var text = optionSelected.text();
+				$.ajax({
+					type: 'GET',
+					async: false,
+					url: 'http://exerclick-api.net46.net/change-subject.php',
+					jsonpCallback: 'jsonCallback',
+					contentType: "application/json",
+					dataType: 'jsonp',
+					data: { Subject: text.substr(text.indexOf(' ') + 1), Id: optionSelected.attr('data-id'), Group_id: optionSelected.attr('data-groupid'), Group: optionSelected.attr('data-group') },
+					success: function() {
+						$('.subject').html(text.substr(text.indexOf(' ') + 1));
+					}
+				});
+			});
+			
+			$('select.language-select').on('change', function (e) {
+				var optionSelected = $('option:selected', this);
+				var valueSelected = this.value;
+				var text = optionSelected.text();
+				var lang = '';
+				switch(text) {
+					case 'Castellano':
+						lang = 'es';
+						break;
+					case 'Euskera':
+						lang = 'eu';
+						break;
+				}
+				$.ajax({
+					type: 'GET',
+					async: false,
+					url: 'http://exerclick-api.net46.net/change-lang.php',
+					jsonpCallback: 'jsonCallback',
+					contentType: "application/json",
+					dataType: 'jsonp',
+					data: { Language: lang },
+					success: function(data) {
+						loadData();
+					}
+				});
+			});
+			
+			$('.profile-logout').on('click', function () {
+				$.ajax({
+					type: 'GET',
+					async: false,
+					url: 'http://exerclick-api.net46.net/end-session.php',
+					jsonpCallback: 'jsonCallback',
+					contentType: "application/json",
+					dataType: 'jsonp',
+					success: function(data) {
+						window.location.replace(data.next);
+					}
+				});
+			});
 			
 			$(window).on('resize', function() {
 				$('#header').show();

@@ -15,7 +15,7 @@ function doLogin() {
 		contentType: "application/json",
 		dataType: 'jsonp',
 		data: { Username: $('#username').val(), Password: $('#password').val() },
-		success: function(data) {		
+		success: function(data) {	
 			window.location.replace(data.next);
 		}
 	});
