@@ -16,7 +16,11 @@ function doLogin() {
 		dataType: 'jsonp',
 		data: { Username: $('#username').val(), Password: $('#password').val() },
 		success: function(data) {	
-			window.location.replace(data.next);
+			if(data.next == null) {
+				alert('No tienes clase');
+			} else {
+				window.location.replace(data.next);
+			}
 		}
 	});
 }

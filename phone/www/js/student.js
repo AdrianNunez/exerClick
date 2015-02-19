@@ -23,17 +23,25 @@ $(document).on('ready', function() {
 				contentType: "application/json",
 				dataType: 'jsonp',
 				success: function(data) {
-					// An active session exists
-					if(data.data[1].subject != null) {			
-						$('.subject').html(data.data[1].subject);
-						showExercises();
-					// No class
-					} else {
-						$('.subject').html('&nbsp;');
-						$('#container').append('<div id=\"screen-center\"><h3>NO TIENES CLASE</h3></div>');
-					}
+					/*var lang = data.data[9].language;
+					switch(lang) {
+						case 'es':
+							
+							break;
+						case 'eu':
+							
+							break;
+					}*/
+
 					$('.name').attr('data-id', data.data[0].id);
-					$('.name').html(data.data[2].username);
+					if(data.data[1].subject != null)
+						$('.subject').html(data.data[1].subject);
+					var surname1 = (data.data[6] !== undefined && data.data[5].surname1 !== undefined) ? data.data[6].surname1 : '&nbsp;';
+					var surname2 = (data.data[7] !== undefined && data.data[6].surname2 !== undefined) ? data.data[7].surname2 : '&nbsp;';
+					$('.name').html(data.data[5].username + ' ' + surname1 + ' ' + surname2);
+					
+					
+					showExercises();
 				}
 			});
 			return $.Deferred().resolve();
@@ -197,21 +205,6 @@ $(document).on('ready', function() {
 			return $.Deferred().resolve();
 		}
 		
-		function init() {
-			$.ajax({
-				type: 'GET',
-				async: false,
-				url: 'http://exerclick-api.net46.net/init.php',
-				jsonpCallback: 'jsonCallback',
-				contentType: "application/json",
-				dataType: 'jsonp',
-				success: function(data) {
-					loadData();
-				}
-			});
-			return $.Deferred().resolve();
-		}
-		
 		$(window).on('resize', function() {
 			$('#header').show();
 			var offsetTop = $('#main').offset().top;
@@ -222,7 +215,7 @@ $(document).on('ready', function() {
 			$('#exercises-content').css('height', $('#exercises-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
 		});
 		
-		init();
+		loadData();
 	});
 });
 
