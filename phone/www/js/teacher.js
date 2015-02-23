@@ -31,7 +31,7 @@ $(document).on('ready', function() {
 		$('#container').append(
 			'<div id="new-exercise">' +
 				'<div>' +
-					'<div class=\"tab-title col-xs-3"><i class=\"atras fa fa-reply btn btn-default\"></i></div>' +
+					'<div class=\"tab-title col-xs-3"><i class=\"back fa fa-reply btn btn-default\"></i></div>' +
 					'<div class=\"tab-title col-xs-6\" align=\"center\"><h4>NUEVO EJERCICIO</h4></div>' +
 					'<div class=\"tab-title col-xs-3\"><i class=\"launch-exercise fa fa-paper-plane pull-right btn ui-corner-all ui-btn-b btn-danger\"></i></div>' + 
 				'</div>' +
@@ -40,7 +40,12 @@ $(document).on('ready', function() {
 				'<form class=\"campos\"> ' +
 					'<div class=\"col-xs-12\"><input type=\"text\" class=\"form-control\" placeholder=\"Identificador del nuevo ejercicio (número de ejercicio, nombre, etc.)\"></div>' +
 					'<div class=\"clear\"></div>' +
-				'</form>' +
+					'<div class=\"extraMargin\"></div>' +
+					'<div class="col-xs-6"><button type="button" class="btn btn-default btn-warning btn-xs save-exercise">' +
+						'<span class="badge left"><i class="fa fa-exclamation-triangle fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold">GUARDAR EJERCICIO</div>' +
+					'</button></div>' +
+					'<div class=\"clear\"></div>' +
+				'</form>' +	
 			'</div>'
 		);
 		// Add some shadowing and position it
@@ -141,6 +146,7 @@ $(document).on('ready', function() {
 					if(data.exercises.num == 0) {
 						$('#exercises-content').html('No hay ejercicios disponibles.');
 					}
+					var statistics = (type == 'Finished') ? 'statistics-finished-button' : 'statistics-button';
 					$.each(data.exercises, function(i, item) {
 						$('#exercises-content').append(
 						'<div class=\"exercise exercise-' + type.toLowerCase() +'\" data-id=\"' + item.exercise.id + '\">' +
@@ -153,8 +159,8 @@ $(document).on('ready', function() {
 									'<div class=\"exercise-buttons-icons\"><div align=\"right\">' +
 										((type == 'Active') ? '' : ('<button class=\"btn btn-default btn-danger col-xs-offset-1 col-xs-3 change-to-active\"><i class=\"fa fa-paper-plane\"></i></button>')) +
 										((type == 'Finished') ? '' : ('<button class=\"btn btn-default btn-primary col-xs-offset-1 col-xs-3 change-to-finished\"><i class=\"fa fa-flag\"></i></button>')) +
-										//((type == 'Ready') ? '' : ('<button class=\"btn btn-default btn-warning col-xs-offset-1 col-xs-3 change-to-ready\"><i class=\"fa fa-exclamation-triangle\"></i></button>')) +
-										'<button class=\"btn btn-default btn-success col-xs-offset-1 col-xs-3 statistics-button\"><i class=\"fa fa-bar-chart\"></i></button>' +
+										((type == 'Ready') ? '' : ('<button class=\"btn btn-default btn-warning col-xs-offset-1 col-xs-3 change-to-ready\"><i class=\"fa fa-exclamation-triangle\"></i></button>')) +
+										'<button class=\"btn btn-default btn-success col-xs-offset-1 col-xs-3 ' + statistics + '\"><i class=\"fa fa-bar-chart\"></i></button>' +
 									'</div></div>' +
 								'</div>' +
 							'</div>' +
@@ -167,7 +173,7 @@ $(document).on('ready', function() {
 			return $.Deferred().resolve();
 		}
 		
-		function launchExercise(description) {
+		function launchExercise(state, description) {
 			$.ajax({
 				type: 'GET',
 				url: 'http://exerclick-api.net46.net/launch-exercise.php',
@@ -175,7 +181,7 @@ $(document).on('ready', function() {
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
-				data: { Description: description },
+				data: { State : state, Description: description },
 				success: function(data) {
 					hideAll();
 					refresh();
@@ -231,10 +237,8 @@ $(document).on('ready', function() {
 			return $.Deferred().resolve();
 		}
 		
-		function showStatistics() {
-			// Get the id of the exercise from the field 'data-id' (needed here before the hideAll call to work)
-			var id = $(this).parents('.exercise').attr('data-id');
-			$(document).off('click', '.statistics-button', showStatistics);
+		function showStatistics(id, exercisename) {
+			//$(document).off('click', '.statistics-button', showStatistics);
 			// Wait for everything to hide
 			hideAll().done(function() {
 				$.ajax({
@@ -250,25 +254,142 @@ $(document).on('ready', function() {
 						$('#container').append(
 							'<div id=\"statistics\" data-id="' + id + '">' +
 								'<div id=\"statistics-title\">' +
-									'<div class=\"tab-title col-xs-2 col-lg-1\"><i class=\"atras fa fa-reply btn btn-default\"></i></div>' +
-									'<div class=\"tab-title col-xs-10 col-lg-11\"><h4><i class=\"fa fa-bar-chart marginRight\"></i>1. Ejercicio</h4></div>' +
+									'<div class=\"tab-title col-xs-2 col-lg-1\"><i class=\"back fa fa-reply btn btn-default\"></i></div>' +
+									'<div class=\"tab-title col-xs-10 col-lg-11 ehuFontStyle\"><h4><i class=\"fa fa-bar-chart marginRight\"></i><span class="marginLeft">' + exercisename + '</span><span class="statistics-exercise-title"></span></h4></div>' +
 								'</div>' +
 								'<div class=\"clear\"></div>' +
 								'<div class=\"row separator\"></div>' +
 								'<div class=\"statistics-body\">' +
 									'<div id=\"statistics-buttons\">' +
 										'<div class=\"col-xs-4\">' +
-											'<button type=\"button\" id=\"statistics-all-button" class="btn btn-default btn-info active\">' +
+											'<button type=\"button\" id=\"statistics-all-button" class="btn btn-default btn-primary active\">' +
 												'<b>TODOS</b>' +
 											'</button>' +
 										'</div>' +
 										'<div class=\"col-xs-4\">' +
-											'<button type=\"button\" id=\"statistics-finished-button\" class=\"btn btn-default btn-info\">' +
+											'<button type=\"button\" id=\"statistics-finished-button\" class=\"btn btn-default btn-primary\">' +
+												'<b><i class=\"fa fa-check-square-o fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-finished\"> <span class=\"statistics-percentage statistics-percentage-finished\"></span></span></b>' +
+											'</button>' +
+										'</div>' +
+										'<div class=\"col-xs-4\">' +
+											'<button type=\"button\" id=\"statistics-question-button\" class=\"btn btn-default btn-primary\">' +
+												'<b><i class=\"fa fa-exclamation fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-question\"> <span class=\"statistics-percentage statistics-percentage-question\"></span></span></b>' +
+											'</button>' +
+										'</div>' +
+									'</div>' +
+									'<div class=\"clear\"></div>' +
+									'<div class=\"statistics-body-a\">' +
+										'<div class=\"statistics-search form-group col-xs-12\">' +
+											'<div class=\"col-xs-8 col-sm-10 col-md-10 col-lg-11\"><input type=\"search\" id="search-student-input" class=\"form-control\" placeholder=\"Buscar alumno\"></div>' +
+											'<div class=\"col-xs-4 col-sm-2 col-md-2 col-lg-1\"><button type=\"button\" id="search-student-button" class=\"btn btn-default btn-primary\"><i class=\"fa fa-search fa-fw\"></i></button></div>' +
+										'</div>' +
+										'<div class=\"clear\"></div>' +
+										'<div class=\"statistics-list-container\">' +
+											'<div class=\"statistics-list-content\">' +
+												
+											'</div>' +
+										'</div>' +
+									'</div>' +
+								'</div>' +
+							'</div>'
+						);
+						
+						$('#header').show();
+						$('#state-buttons').show();
+						var windowHeight = $(window).height();
+						var offsetTop = $('#main').offset().top;
+						var offsetBottom =  $('#overfooter').height() + $('#footer').height();
+						
+						$('#statistics').css('bottom', offsetBottom);
+						$('#statistics').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
+
+						$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top - 2*$('.statistics-search').height() - Math.floor(parseFloat($('body').css('font-size'))));
+						$('.statistics-list-content').css('height', $('.statistics-list-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
+						$('#statistics').hide();
+						$('#statistics').addClass('top-shadow');
+						$('#statistics').slideDown("slow");
+
+						$.each(data.statistics, function(i, item) {
+							switch(item.statistic.state) {
+								case 'Finished':
+									var divstyle = 'statistics-student-finished';
+									var istyle = 'fa-check-square-o';
+									break;
+								case 'Question':
+									var divstyle = 'statistics-student-exclamation';
+									var istyle = 'fa-exclamation fa-fw';
+									break;
+								case 'Nothing':
+									var divstyle = '';
+									var istyle = '';
+									break;
+							}
+							$('.statistics-list-content').append('<div class=\"statistics-student ' + divstyle + '\">' +
+																 '<i class=\"fa ' +  istyle + '\"></i> ' + item.statistic.name + ' ' + item.statistic.surnames + '</div>');
+						});
+						
+						$.ajax({
+							type: 'GET',
+							async: false,
+							url: 'http://exerclick-api.net46.net/show-statistics-percentages.php',
+							jsonpCallback: 'jsonCallback',
+							contentType: "application/json",
+							dataType: 'jsonp',
+							data: { Id: id },
+							success: function(data) {
+								var total = data.data.total;
+								var finished = data.data.finished;
+								var questions = data.data.question;
+								$('.statistics-percentage-finished').html(((total > 0) ? parseInt((finished / total) * 100) : 0) + '%<span class=\"statistics-percentage\"> ' + finished + '/' + total + '</span>');
+								$('.statistics-percentage-question').html(((total > 0) ? parseInt((questions / total) * 100) : 0) + '%<span class=\"statistics-percentage\"> ' + questions + '/' + total + '</span>');
+							}
+						});
+						/*$(document).on('click', '.statistics-button', function() {
+							var exercisename = $(this).parents('.exercise').find('.exercise-name div').html();
+							showStatistics(exercisename);
+						});*/
+					}
+				});
+			});
+			return $.Deferred().resolve();
+		}
+		
+		function showStatisticsFinished(id, exercisename) {
+			//$(document).off('click', '.statistics-finished-button', showStatistics);
+			// Wait for everything to hide
+			hideAll().done(function() {
+				$.ajax({
+					type: 'GET',
+					async: false,
+					url: 'http://exerclick-api.net46.net/show-statistics.php',
+					jsonpCallback: 'jsonCallback',
+					contentType: "application/json",
+					dataType: 'jsonp',
+					data: { State: '%', Id: id, Key: '%' },
+					success: function(data) {
+						$('.darken').show();
+						$('#container').append(
+							'<div id=\"statistics\" class="statistics-exercise-finished" data-id="' + id + '">' +
+								'<div id=\"statistics-title\">' +
+									'<div class=\"tab-title col-xs-2 col-lg-1\"><i class=\"back fa fa-reply btn btn-default\"></i></div>' +
+									'<div class=\"tab-title col-xs-10 col-lg-11 ehuFontStyle\"><h4><i class=\"fa fa-bar-chart marginRight\"></i>' + exercisename + '</h4></div>' +
+								'</div>' +
+								'<div class=\"clear\"></div>' +
+								'<div class=\"row separator\"></div>' +
+								'<div class=\"statistics-body\">' +
+									'<div id=\"statistics-buttons\">' +
+										'<div class=\"col-xs-4\">' +
+											'<button type=\"button\" id=\"statistics-all-button" class="btn btn-default btn-primary active\">' +
+												'<b>TODOS</b>' +
+											'</button>' +
+										'</div>' +
+										'<div class=\"col-xs-4\">' +
+											'<button type=\"button\" id=\"statistics-finished-button\" class=\"btn btn-default btn-primary\">' +
 												'<b><i class=\"fa fa-check-square-o fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-finished\"> 100%<span class=\"statistics-percentage statistics-percentage-finished\"> (20/78)</span></span></b>' +
 											'</button>' +
 										'</div>' +
 										'<div class=\"col-xs-4\">' +
-											'<button type=\"button\" id=\"statistics-question-button\" class=\"btn btn-default btn-info\">' +
+											'<button type=\"button\" id=\"statistics-question-button\" class=\"btn btn-default btn-primary\">' +
 												'<b><i class=\"fa fa-exclamation fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-question\"> 1% <span class=\"statistics-percentage statistics-percentage-question\"> (1/78)</span></span></b>' +
 											'</button>' +
 										'</div>' +
@@ -277,7 +398,7 @@ $(document).on('ready', function() {
 									'<div class=\"statistics-body-a\">' +
 										'<div class=\"statistics-search form-group col-xs-12\">' +
 											'<div class=\"col-xs-8 col-sm-10 col-md-10 col-lg-11\"><input type=\"search\" id="search-student-input" class=\"form-control\" placeholder=\"Buscar alumno\"></div>' +
-											'<div class=\"col-xs-4 col-sm-2 col-md-2 col-lg-1\"><button type=\"button\" id="search-student-button" class=\"btn btn-default btn-info\"><i class=\"fa fa-search fa-fw\"></i></button></div>' +
+											'<div class=\"col-xs-4 col-sm-2 col-md-2 col-lg-1\"><button type=\"button\" id="search-student-button" class=\"btn btn-default btn-primary\"><i class=\"fa fa-search fa-fw\"></i></button></div>' +
 										'</div>' +
 										'<div class=\"clear\"></div>' +
 										'<div class=\"statistics-list-container\">' +
@@ -339,7 +460,10 @@ $(document).on('ready', function() {
 								$('.statistics-percentage-question').html(((total > 0) ? parseInt((questions / total) * 100) : 0) + '%<span class=\"statistics-percentage\"> ' + questions + '/' + total + '</span>');
 							}
 						});
-						$(document).on('click', '.statistics-button', showStatistics);
+						/*$(document).on('click', '.statistics-finished-button', function() {
+							var exercisename = $(this).parents('.exercise').find('.exercise-name div').html();
+							showStatisticsFinished(exercisename);
+						});*/
 					}
 				});
 			});
@@ -374,6 +498,7 @@ $(document).on('ready', function() {
 						}
 						$('.statistics-list-content').append('<div class=\"statistics-student ' + divstyle + '\">' +
 															 '<i class=\"fa ' +  istyle + '\"></i> ' + item.statistic.name + ' ' + item.statistic.surnames + '</div>');
+						$('.statistics-exercise-title').html();
 					});
 				}
 			});
@@ -407,21 +532,6 @@ $(document).on('ready', function() {
 			return $.Deferred().resolve();
 		}
 		
-		/*function init() {
-			$.ajax({
-				type: 'GET',
-				async: false,
-				url: 'http://exerclick-api.net46.net/init.php',
-				jsonpCallback: 'jsonCallback',
-				contentType: "application/json",
-				dataType: 'jsonp',
-				success: function(data) {
-					loadData();
-				}
-			});
-			return $.Deferred().resolve();
-		}*/
-		
 		function viewProfile() {	
 			window.location.replace('profile.html');
 		}
@@ -436,8 +546,19 @@ $(document).on('ready', function() {
 		
 		// Call the main function to load content and then add the action listeners
 		loadData().done(function() {
-			$(document).on('vclick click tap', '.atras', hideAll);
-			$(document).on('click', '.statistics-button', showStatistics);
+			$(document).on('vclick click tap', '.back', hideAll);
+			$(document).on('click', '.statistics-button', function() {
+				// Get the id of the exercise from the field 'data-id' (needed here before the hideAll call to work)
+				var id = $(this).parents('.exercise').attr('data-id');
+				var exercisename = $(this).parents('.exercise').find('.exercise-name div').html();
+				showStatistics(id, exercisename);
+			});
+			$(document).on('click', '.statistics-finished-button', function() {
+				// Get the id of the exercise from the field 'data-id' (needed here before the hideAll call to work)
+				var id = $(this).parents('.exercise').attr('data-id');
+				var exercisename = $(this).parents('.exercise').find('.exercise-name div').html();
+				showStatisticsFinished(id, exercisename);
+			});
 			
 			$(document).on('vclick click tap', '#actives-button', function() {
 				$('#exercises-content').html("");
@@ -526,6 +647,7 @@ $(document).on('ready', function() {
 				} else if($('#statistics-question-button').hasClass('active')) {		
 					$('#statistics-question-button').removeClass('active');
 				}
+				$('.statistics-question-buttons').remove();
 				$('#statistics-all-button').addClass('active');
 				var id = $(this).parents('#statistics').attr('data-id');
 				loadStatistics('%', id, '%');
@@ -537,6 +659,7 @@ $(document).on('ready', function() {
 				} else if($('#statistics-question-button').hasClass('active')) {		
 					$('#statistics-question-button').removeClass('active');
 				}
+				$('.statistics-question-buttons').remove();
 				$('#statistics-finished-button').addClass('active');
 				var id = $(this).parents('#statistics').attr('data-id');
 				loadStatistics('Finished', id, '%');
@@ -548,10 +671,10 @@ $(document).on('ready', function() {
 				} else if($('#statistics-finished-button').hasClass('active')) {		
 					$('#statistics-finished-button').removeClass('active');
 				}
+				$('.statistics-question-buttons').remove();
 				$('#statistics-question-button').addClass('active');
 				var id = $(this).parents('#statistics').attr('data-id');
 				loadStatistics('Question', id, '%');
-				
 			});			
 			
 			$(document).on('vclick click tap', '#search-student-button', function() {
@@ -580,9 +703,39 @@ $(document).on('ready', function() {
 				loadStatistics(state, id, '%' + key + '%');
 			});
 			
+			$(document).on('vclick click tap', '#statistics-question-button', function() {	
+				if($(this).parents('.statistics-exercise-finished').length) {
+					$('#statistics-buttons').append(
+						'<div class="statistics-question-buttons col-xs-offset-1 col-xs-10">' +
+							'<div class=\"col-xs-4\">' +
+								'<button type=\"button\" class="btn btn-default btn-info active btn-xs\">' +
+									'<b>TODAS</b>' +
+								'</button>' +
+							'</div>' +
+							'<div class=\"col-xs-4\">' +
+								'<button type=\"button\" class=\"btn btn-default btn-info btn-xs\">' +
+									'<b>RESUELTAS</b>' +
+								'</button>' +
+							'</div>' +
+							'<div class=\"col-xs-4\">' +
+								'<button type=\"button\" class=\"btn btn-default btn-info btn-xs\">' +
+									'<b>SIN RESOLVER</b>' +
+								'</button>' +
+							'</div>' +
+						'</div>'
+					);
+				}
+			});
+			
+			
 			$(document).on('vclick click tap', '.launch-exercise', function() {
 				var description = $(this).parents('#new-exercise').find('input').val();
-				launchExercise(description);
+				launchExercise('Active', description);
+			});
+			
+			$(document).on('vclick click tap', '.save-exercise', function() {
+				var description = $(this).parents('#new-exercise').find('input').val();
+				launchExercise('Ready', description);
 			});
 			
 			$(document).on('vclick click tap', '.userName', function() {

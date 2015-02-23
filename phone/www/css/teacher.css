@@ -16,6 +16,10 @@ body, html {
 	font-size: 1em;
 }
 
+.ehuFontStyle {
+	font-family: ehuFont;
+}
+
 a:link { /* unvisited link */
 	color: #000;
 	text-decoration: none;
@@ -211,6 +215,14 @@ checkbox {
 	background-color: #A4A4A4;
 }
 
+.extraMargin {
+	display: block;
+	height: 0.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+	content: "";
+}
+
 .padd {
 	padding: 0.5em;
 }
@@ -303,9 +315,20 @@ checkbox {
 	margin-right: 1em;
 }
 
+.marginLeft {
+	margin-left: 1em;
+}
+
 #statistics-buttons {
 	display: block;
 	background: #FFF;
+}
+
+.statistics-question-buttons {
+	margin-top: 1em;
+	padding: 0.5em;fpa
+	border-radius: 5px;
+	background-color: #E6E6E6;
 }
 
 .filter {
