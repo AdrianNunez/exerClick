@@ -285,10 +285,6 @@ button {
 	padding-right: 0.2em;
 }
 
-.not-selected {
-	opacity: 0.5;
-}
-
 .background-question {
 	background-color: #F6CECE;
 }

@@ -41,7 +41,7 @@ $(document).on('ready', function() {
 					'<div class=\"col-xs-12\"><input type=\"text\" class=\"form-control\" placeholder=\"Identificador del nuevo ejercicio (número de ejercicio, nombre, etc.)\"></div>' +
 					'<div class=\"clear\"></div>' +
 					'<div class=\"extraMargin\"></div>' +
-					'<div class="col-xs-6"><button type="button" class="btn btn-default btn-warning btn-xs save-exercise">' +
+					'<div class="col-xs-6"><button type="button" class="btn btn-default btn-warning save-exercise">' +
 						'<span class="badge left"><i class="fa fa-exclamation-triangle fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold">GUARDAR EJERCICIO</div>' +
 					'</button></div>' +
 					'<div class=\"clear\"></div>' +

@@ -66,7 +66,7 @@ $(document).on('ready', function() {
 							if(state === 'nothing') {
 								var background = '';
 							} else {
-								var background = 'background-' + state
+								var background = 'background-' + state;
 							}
 							$('#exercises-content').append(
 							'<div class=\"exercise\" data-id=\"' + item.exercise.id + '\">' +
@@ -77,9 +77,9 @@ $(document).on('ready', function() {
 									'</div>' +
 									'<div class=\"col-xs-8 col-sm-6 col-md-3 col-lg-3 exercise-buttons ' + background + '\">' +
 										'<div class=\"exercise-buttons-icons\">' +
-											'<button class="' + ((state === 'finished') ? '' : 'not-selected') + ' btn btn-default btn-primary col-xs-offset-2 col-xs-4 ' +
+											'<button class="' + ((state === 'finished' || (state != 'finished' && state != 'question')) ? '' : 'disabled') + ' btn btn-default btn-primary col-xs-offset-2 col-xs-4 ' +
 											'button-finished"><i class="fa fa-flag"></i></button>' +
-											'<button class="' + ((state === 'question') ? '' : 'not-selected') + ' btn btn-default btn-danger col-xs-offset-2 col-xs-4 ' +
+											'<button class="' + ((state === 'question'  || (state != 'finished' && state != 'question')) ? '' : 'disabled') + ' btn btn-default btn-danger col-xs-offset-2 col-xs-4 ' +
 											'button-question"><i class="fa fa-exclamation"></i></button>' +
 										'</div>' +
 									'</div>' +
@@ -94,53 +94,51 @@ $(document).on('ready', function() {
 			return $.Deferred().resolve();
 		}
 		
-		$(document).on('vclick click tap', '.button-finished', function() {
-			var id = $(this).parents('.exercise').attr('data-id');
-			if($(this).hasClass('not-selected')) {
-				markExerciseAs(id, 'Finished');
-				$(this).removeClass('not-selected');
-				var parent = $(this).parents('.exercise-container');
-				parent.addClass('background-finished');
-				parent.find('.exercise-name').addClass('background-finished');
-				parent.find('.exercise-buttons').addClass('background-finished');
-				if(!$(this).siblings('.button-question').hasClass('not-selected')) {
-					$(this).siblings('.button-question').addClass('not-selected');
-					parent.removeClass('background-question');
-					parent.find('.exercise-name').removeClass('background-question');
-					parent.find('.exercise-buttons').removeClass('background-question');
-				}
-			} else {
-				markExerciseAs(id, 'Nothing');
-				var parent = $(this).parents('.exercise-container');
-				parent.removeClass('background-finished');
-				parent.find('.exercise-name').removeClass('background-finished');
-				parent.find('.exercise-buttons').removeClass('background-finished');
-				$(this).addClass('not-selected');
-			}
-		});
-		
 		$(document).on('vclick click tap', '.button-question', function() {
 			var id = $(this).parents('.exercise').attr('data-id');
-			if($(this).hasClass('not-selected')) {
+			// Both buttons are not selected
+			if(!$(this).hasClass('disabled') && !$(this).siblings('.button-finished').hasClass('disabled')) {
 				markExerciseAs(id, 'Question');
-				$(this).removeClass('not-selected');
 				var parent = $(this).parents('.exercise-container');
 				parent.addClass('background-question');
 				parent.find('.exercise-name').addClass('background-question');
 				parent.find('.exercise-buttons').addClass('background-question');
-				if(!$(this).siblings('.button-finished').hasClass('not-selected')) {
-					$(this).siblings('.button-finished').addClass('not-selected');
-					parent.removeClass('background-finished');
-					parent.find('.exercise-name').removeClass('background-finished');
-					parent.find('.exercise-buttons').removeClass('background-finished');
-				}
-			} else {
+				$(this).siblings('.button-finished').addClass('disabled');
+					//parent.removeClass('background-question');
+					//parent.find('.exercise-name').removeClass('background-question');
+					//parent.find('.exercise-buttons').removeClass('background-question');
+			} else if(!$(this).hasClass('disabled') && $(this).siblings('.button-finished').hasClass('disabled')) {
 				markExerciseAs(id, 'Nothing');
 				var parent = $(this).parents('.exercise-container');
 				parent.removeClass('background-question');
 				parent.find('.exercise-name').removeClass('background-question');
 				parent.find('.exercise-buttons').removeClass('background-question');
-				$(this).addClass('not-selected');
+				$(this).siblings('.button-finished').removeClass('disabled');
+				$(this).removeClass('disabled');
+			}
+		});
+		
+		$(document).on('vclick click tap', '.button-finished', function() {
+			var id = $(this).parents('.exercise').attr('data-id');
+			// Both buttons are not selected
+			if(!$(this).hasClass('disabled') && !$(this).siblings('.button-question').hasClass('disabled')) {
+				markExerciseAs(id, 'Finished');
+				var parent = $(this).parents('.exercise-container');
+				parent.addClass('background-finished');
+				parent.find('.exercise-name').addClass('background-finished');
+				parent.find('.exercise-buttons').addClass('background-finished');
+				$(this).siblings('.button-question').addClass('disabled');
+					//parent.removeClass('background-question');
+					//parent.find('.exercise-name').removeClass('background-question');
+					//parent.find('.exercise-buttons').removeClass('background-question');
+			} else if(!$(this).hasClass('disabled') && $(this).siblings('.button-question').hasClass('disabled')) {
+				markExerciseAs(id, 'Nothing');
+				var parent = $(this).parents('.exercise-container');
+				parent.removeClass('background-finished');
+				parent.find('.exercise-name').removeClass('background-finished');
+				parent.find('.exercise-buttons').removeClass('background-finished');
+				$(this).removeClass('disabled');
+				$(this).siblings('.button-question').removeClass('disabled');
 			}
 		});
 		
