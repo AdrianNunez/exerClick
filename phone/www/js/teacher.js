@@ -30,7 +30,7 @@ $(document).on('ready', function() {
 		// Add the "new exercise" div which appears when the '+' button is pressed (for adding new exercises)
 		$('#container').append(
 			'<div id="new-exercise">' +
-				'<div>' +
+				'<div class="new-exercise-title">' +
 					'<div class=\"tab-title col-xs-3"><i class=\"back fa fa-reply btn btn-default\"></i></div>' +
 					'<div class=\"tab-title col-xs-6\" align=\"center\"><h4>NUEVO EJERCICIO</h4></div>' +
 					'<div class=\"tab-title col-xs-3\"><i class=\"launch-exercise fa fa-paper-plane pull-right btn ui-corner-all ui-btn-b btn-danger\"></i></div>' + 
@@ -38,13 +38,19 @@ $(document).on('ready', function() {
 				'<div class=\"clear\"></div>' +
 				'<div class=\"row separator\"></div>' +
 				'<form class=\"campos\"> ' +
-					'<div class=\"col-xs-12\"><input type=\"text\" class=\"form-control\" placeholder=\"Identificador del nuevo ejercicio (número de ejercicio, nombre, etc.)\"></div>' +
+					'<div class=\"col-xs-12\"><input type=\"text\" class=\"form-control\" id="input-exercise-id" placeholder=\"Identificador del nuevo ejercicio (número de ejercicio, nombre, etc.)\"></div>' +
+					'<div class=\"clear\"></div>' +
+					'<div class=\"advanced-container\"><div class=\"advanced-content\"></div></div>' +
 					'<div class=\"clear\"></div>' +
 					'<div class=\"extraMargin\"></div>' +
-					'<div class="col-xs-6"><button type="button" class="btn btn-default btn-warning save-exercise">' +
-						'<span class="badge left"><i class="fa fa-exclamation-triangle fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold">GUARDAR EJERCICIO</div>' +
-					'</button></div>' +
-					'<div class=\"clear\"></div>' +
+					'<div class="new-exercise-buttons">' +
+						'<div class="col-xs-6"><button type="button" class="btn btn-default btn-warning save-exercise">' +
+							'<span class="badge left"><i class="fa fa-exclamation-triangle fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold">GUARDAR EJERCICIO</div>' +
+						'</button></div>' +
+						'<div class="col-xs-6"><button type="button" class="btn btn-default btn-primary advanced-exercise">' +
+							'AVANZADO' +
+						'</button></div>' +
+					'</div>' +
 				'</form>' +	
 			'</div>'
 		);
@@ -55,10 +61,33 @@ $(document).on('ready', function() {
 		// Add click listeners
 		$('#overfooter').on('click', newExercise);
 		$('.darken').on('click', hideAll);
+
+		$('.advanced-content').html(
+			'<div class=\"col-xs-12 bottompadd toppadd\"><textarea class=\"form-control\" id="input-exercise-statement" placeholder=\"Enunciado\" rows="5"></textarea></div>' +
+			'<div class=\"clear\"></div>' +
+			'<div class=\"col-xs-12 bottompadd\"><input type=\"text\" class=\"form-control\" id="input-exercise-topic" placeholder=\"Tema\"></div>' +
+			'<div class=\"clear\"></div>' +
+			'<div class=\"col-xs-12 bottompadd\"><input type=\"text\" class=\"form-control\" id="input-exercise-page" placeholder=\"Página\"></div>' +
+			'<div class=\"clear\"></div>' +
+			'<div class=\"difficulty col-xs-12 bottompadd\">' +
+				'<input type="text" class="difficulty-slider" value="" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5" ' +
+				'data-slider-orientation="horizontal" data-slider-selection="after"data-slider-tooltip="hide">' +
+			'</div>' +
+			'<div class=\"col-xs-12\">Dificultad: <span class="difficulty-level">5</span></div>'
+		);
+		$('.advanced-container').show();
+		$('.campos').css('height', $('#input-exercise-id').height() + 5*Math.floor(parseFloat($('body').css('font-size'))) + $('.save-exercise').height());
+		$('.advanced-container').css('height', $('.campos').height() - $('.save-exercise').height() - $('#input-exercise-id').height()); 
+		$('.advanced-content').css('height', $('.campos').height() - $('.save-exercise').height() - $('#input-exercise-id').height()); 
+		$('.difficulty-slider').css('width', $('.difficulty-slider').parent('.difficulty').siblings().width());
+		$('.difficulty-slider').slider().on('slide', function(ev){
+			$('.difficulty-level').html($('.difficulty-slider').val());
+		});
 		
-		// Hide both divs for showing them when asked
+		// Hide divs for showing them when asked
 		$('#new-exercise').hide();
 		$('.darken').hide();
+		$('.advanced-container').hide();			
 
 		// ------------------------------------------------------------------------------------------------------------------
 		// 												 		 FUNCTIONS
@@ -73,6 +102,11 @@ $(document).on('ready', function() {
 			if($('#statistics').length) {
 				$('#statistics').slideUp("slow", function() {
 					$('#statistics').remove();
+				});
+			}
+			if($('#exercise-details').length) {
+				$('#exercise-details').slideUp("slow", function() {
+					$('#exercise-details').remove();
 				});
 			}
 			$('.darken').hide();
@@ -143,7 +177,7 @@ $(document).on('ready', function() {
 
 					$('#exercises-container').css('height', windowHeight -  offsetTop  - offsetBottom - $('#overfooter').height() - 4*Math.floor(parseFloat($('body').css('font-size'))));
 					$('#exercises-content').css('height', $('#exercises-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
-					if(data.exercises.num == 0) {
+					if(data.exercises.length == 0) {
 						$('#exercises-content').html('No hay ejercicios disponibles.');
 					}
 					var statistics = (type == 'Finished') ? 'statistics-finished-button' : 'statistics-button';
@@ -173,7 +207,7 @@ $(document).on('ready', function() {
 			return $.Deferred().resolve();
 		}
 		
-		function launchExercise(state, description) {
+		function launchExercise(state, description, statement, topic, page, difficulty) {
 			$.ajax({
 				type: 'GET',
 				url: 'http://exerclick-api.net46.net/launch-exercise.php',
@@ -181,7 +215,7 @@ $(document).on('ready', function() {
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
-				data: { State : state, Description: description },
+				data: { State : state, Description: description, Statement: statement, Topic: topic, Page: page, Difficulty: difficulty },
 				success: function(data) {
 					hideAll();
 					refresh();
@@ -238,7 +272,6 @@ $(document).on('ready', function() {
 		}
 		
 		function showStatistics(id, exercisename) {
-			//$(document).off('click', '.statistics-button', showStatistics);
 			// Wait for everything to hide
 			hideAll().done(function() {
 				$.ajax({
@@ -344,10 +377,6 @@ $(document).on('ready', function() {
 								$('.statistics-percentage-question').html(((total > 0) ? parseInt((questions / total) * 100) : 0) + '%<span class=\"statistics-percentage\"> ' + questions + '/' + total + '</span>');
 							}
 						});
-						/*$(document).on('click', '.statistics-button', function() {
-							var exercisename = $(this).parents('.exercise').find('.exercise-name div').html();
-							showStatistics(exercisename);
-						});*/
 					}
 				});
 			});
@@ -355,7 +384,6 @@ $(document).on('ready', function() {
 		}
 		
 		function showStatisticsFinished(id, exercisename) {
-			//$(document).off('click', '.statistics-finished-button', showStatistics);
 			// Wait for everything to hide
 			hideAll().done(function() {
 				$.ajax({
@@ -460,10 +488,6 @@ $(document).on('ready', function() {
 								$('.statistics-percentage-question').html(((total > 0) ? parseInt((questions / total) * 100) : 0) + '%<span class=\"statistics-percentage\"> ' + questions + '/' + total + '</span>');
 							}
 						});
-						/*$(document).on('click', '.statistics-finished-button', function() {
-							var exercisename = $(this).parents('.exercise').find('.exercise-name div').html();
-							showStatisticsFinished(exercisename);
-						});*/
 					}
 				});
 			});
@@ -505,6 +529,56 @@ $(document).on('ready', function() {
 			return $.Deferred().resolve();
 		}
 		
+		function showExerciseDetails(id) {
+			// Wait for everything to hide
+			hideAll().done(function() {
+				$.ajax({
+					type: 'GET',
+					async: false,
+					url: 'http://exerclick-api.net46.net/get-exercise-details.php',
+					jsonpCallback: 'jsonCallback',
+					contentType: "application/json",
+					dataType: 'jsonp',
+					data: { Id: id },
+					success: function(data) {
+						$('.darken').show();
+						$('#container').append(
+							'<div id=\"exercise-details\" data-id="' + data.exercise.id + '">' +
+								'<div id=\"exercise-details-title\">' +
+									'<div class=\"tab-title col-xs-3"><i class=\"back fa fa-reply btn btn-default\"></i></div>' +
+									'<div class=\"tab-title col-xs-6\" align=\"center\"><h4 class="exercise-detail-description">' + data.exercise.description + '</h4></div>' +
+									'<div class=\"tab-title col-xs-3\"><i class=\"config-exercise fa fa-cogs pull-right btn ui-corner-all ui-btn-b btn-primary\"></i></div>' + 
+								'</div>' +
+								'<div class=\"clear\"></div>' +
+								'<div class=\"row separator\"></div>' +
+								'<div class=\"exercise-details-body\">' +
+									'<div class="exercise-details-title col-xs-12">Enunciado</div>' +
+									'<p class="col-xs-12 exercise-detail-statement">' + data.exercise.statement + '</p>' + 
+									'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Tema</div><div class="exercise-detail exercise-detail-topic col-lg-2 col-xs-6">' + data.exercise.topic + '</div>' +
+									'<div class=\"hidden-lg clear\"></div>' +
+									'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Página</div><div class="exercise-detail exercise-detail-page col-lg-2 col-xs-6">' + data.exercise.page + '</div>' +
+									'<div class=\"hidden-lg  clear\"></div>' +
+									'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Dificultad</div><div class="exercise-detail exercise-detail-difficulty col-lg-2 col-xs-6">' + data.exercise.difficulty + '</div>' +
+								'</div>' +
+							'</div>'
+						);
+						$('#header').show();
+						$('#state-buttons').show();
+						var windowHeight = $(window).height();
+						var offsetTop = $('#main').offset().top;
+						var offsetBottom =  $('#overfooter').height() + $('#footer').height();
+						
+						$('#exercise-details').css('bottom', offsetBottom);
+						$('#exercise-details').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
+						$('#exercise-details').hide();
+						$('#exercise-details').addClass('top-shadow');
+						$('#exercise-details').slideDown("slow");
+					}	
+				});
+			});
+			return $.Deferred().resolve();
+		}
+		
 		function changeExerciseType(id, to) {
 			$.ajax({
 				type: 'GET',
@@ -520,6 +594,23 @@ $(document).on('ready', function() {
 				}
 			});
 		}
+		
+		function updateExercise(id, description, statement, topic, page, difficulty) {
+			$.ajax({
+				type: 'GET',
+				async: false,
+				url: 'http://exerclick-api.net46.net/change-exercise.php',
+				jsonpCallback: 'jsonCallback',
+				contentType: "application/json",
+				dataType: 'jsonp',
+				data: { Id: id, Description: description, Statement: statement, Topic: topic, Page: page, Difficulty: difficulty },
+				success: function(data) {
+					refresh();
+				}
+			});
+			return $.Deferred().resolve();
+		}
+		
 		
 		function refresh() {
 			if($('#state-buttons').find('.selected-active-button').length > 0) {
@@ -547,13 +638,15 @@ $(document).on('ready', function() {
 		// Call the main function to load content and then add the action listeners
 		loadData().done(function() {
 			$(document).on('vclick click tap', '.back', hideAll);
-			$(document).on('click', '.statistics-button', function() {
+			$(document).on('click', '.statistics-button', function(e) {
+				e.stopPropagation();
 				// Get the id of the exercise from the field 'data-id' (needed here before the hideAll call to work)
 				var id = $(this).parents('.exercise').attr('data-id');
 				var exercisename = $(this).parents('.exercise').find('.exercise-name div').html();
 				showStatistics(id, exercisename);
 			});
-			$(document).on('click', '.statistics-finished-button', function() {
+			$(document).on('click', '.statistics-finished-button', function(e) {
+				e.stopPropagation();
 				// Get the id of the exercise from the field 'data-id' (needed here before the hideAll call to work)
 				var id = $(this).parents('.exercise').attr('data-id');
 				var exercisename = $(this).parents('.exercise').find('.exercise-name div').html();
@@ -626,17 +719,20 @@ $(document).on('ready', function() {
 				$('#exercises-container').addClass('selected-ready-exercises');
 			});	
 			
-			$(document).on('vclick click tap', '.change-to-active', function() {
+			$(document).on('vclick click tap', '.change-to-active', function(e) {
+				e.stopPropagation();
 				var id = $(this).parents('.exercise').attr('data-id');
 				changeExerciseType(id, 'Active');
 			});
 			
-			$(document).on('vclick click tap', '.change-to-finished', function() {
+			$(document).on('vclick click tap', '.change-to-finished', function(e) {
+				e.stopPropagation();
 				var id = $(this).parents('.exercise').attr('data-id');
 				changeExerciseType(id, 'Finished');
 			});
 			
-			$(document).on('vclick click tap', '.change-to-ready', function() {
+			$(document).on('vclick click tap', '.change-to-ready', function(e) {
+				e.stopPropagation();
 				var id = $(this).parents('.exercise').attr('data-id');
 				changeExerciseType(id, 'Ready');
 			});
@@ -729,14 +825,136 @@ $(document).on('ready', function() {
 			
 			
 			$(document).on('vclick click tap', '.launch-exercise', function() {
-				var description = $(this).parents('#new-exercise').find('input').val();
-				launchExercise('Active', description);
+				var description = $(this).parents('#new-exercise').find('input#input-exercise-id').val();
+				// Advanced new exercise creation tab displayed
+				if($('#new-exercise').find('.advanced-exercise-occult').length != 0) {
+					var statement  = $(this).parents('#new-exercise').find('textarea#input-exercise-statement').val();
+					var topic = $(this).parents('#new-exercise').find('input#input-exercise-topic').val();
+					var page = $(this).parents('#new-exercise').find('input#input-exercise-page').val();
+					var difficulty = $(this).parents('#new-exercise').find('.difficulty-level').html();
+				} else {
+					var statement = '';
+					var topic = '';
+					var page = '';
+					var difficulty = '';
+				}
+				launchExercise('Active', description, statement, topic, page, difficulty);
 			});
 			
 			$(document).on('vclick click tap', '.save-exercise', function() {
-				var description = $(this).parents('#new-exercise').find('input').val();
-				launchExercise('Ready', description);
+				var description = $(this).parents('#new-exercise').find('input#input-exercise-id').val();
+				// Advanced new exercise creation tab displayed
+				if($('#new-exercise').find('.advanced-exercise-occult').length != 0) {
+					var statement  = $(this).parents('#new-exercise').find('textarea#input-exercise-statement').val();
+					var topic = $(this).parents('#new-exercise').find('input#input-exercise-topic').val();
+					var page = $(this).parents('#new-exercise').find('input#input-exercise-page').val();
+					var difficulty = $(this).parents('#new-exercise').find('.difficulty-level').html();
+				} else {
+					var statement = '';
+					var topic = '';
+					var page = '';
+					var difficulty = '';
+				}
+				launchExercise('Ready', description, statement, topic, page, difficulty);
 			});
+			
+			$(document).on('vclick click tap', '.config-exercise', function() {
+				if(!$(this).parents('#exercise-details').find('.exercise-detail-statement').find('textarea').length) {
+					var description = $(this).parents('#exercise-details').find('.exercise-detail-description').html();
+					var statement  = $(this).parents('#exercise-details').find('.exercise-detail-statement').html();
+					var topic = $(this).parents('#exercise-details').find('.exercise-detail-topic').html();
+					var page = $(this).parents('#exercise-details').find('.exercise-detail-page').html();
+					var difficulty = $(this).parents('#exercise-details').find('.exercise-detail-difficulty').html();
+
+					$(this).parents('#exercise-details').find('.exercise-detail-description').html('<input type=\"text\" class=\"form-control\" id="input-exercise-description" placeholder=\"Descripción\" value="' + description + '">');
+					$(this).parents('#exercise-details').find('.exercise-detail-statement').html('<textarea class=\"form-control\" id="input-exercise-statement" placeholder=\"Enunciado\" rows="5">' + statement + '</textarea>');
+					$(this).parents('#exercise-details').find('.exercise-detail-topic').html('<input type=\"text\" class=\"form-control\" id="input-exercise-topic" placeholder=\"Tema\" value="' + topic + '">');
+					$(this).parents('#exercise-details').find('.exercise-detail-page').html('<input type=\"text\" class=\"form-control\" id="input-exercise-page" placeholder=\"Página\" value="' + page + '">');
+					$(this).parents('#exercise-details').find('.exercise-detail-difficulty').html('<input type=\"text\" class=\"form-control\" id="input-exercise-difficulty" placeholder=\"Dificultad\" value="' + difficulty + '">');
+					
+					$('.exercise-details-body').append(
+						'<button type="button" class="btn btn-default btn-primary save-changes">' +
+							'<div class="bold">GUARDAR CAMBIOS</div>' +
+						'</button>'
+					);
+				} else {
+					var description = $(this).parents('#exercise-details').find('#input-exercise-description').val();
+					var statement  = $(this).parents('#exercise-details').find('#input-exercise-statement').val();
+					var topic = $(this).parents('#exercise-details').find('#input-exercise-topic').val();
+					var page = $(this).parents('#exercise-details').find('#input-exercise-page').val();
+					var difficulty = $(this).parents('#exercise-details').find('#input-exercise-difficulty').val();
+
+					$(this).parents('#exercise-details').find('.exercise-detail-statement').html(statement);
+					$(this).parents('#exercise-details').find('.exercise-detail-topic').html(topic);
+					$(this).parents('#exercise-details').find('.exercise-detail-page').html(page);
+					$(this).parents('#exercise-details').find('.exercise-detail-difficulty').html(difficulty);
+					
+					$('.save-changes').remove();
+				}
+			});
+			
+			$(document).on('vclick click tap', '.save-changes', function() {
+				var id = $(this).parents('#exercise-details').attr('data-id');
+				var description = $(this).parents('#exercise-details').find('#input-exercise-description').val();
+				var statement  = $(this).parents('#exercise-details').find('#input-exercise-statement').val();
+				var topic = $(this).parents('#exercise-details').find('#input-exercise-topic').val();
+				var page = $(this).parents('#exercise-details').find('#input-exercise-page').val();
+				var difficulty = $(this).parents('#exercise-details').find('#input-exercise-difficulty').val();
+				
+				parent = $(this).parents('#exercise-details');
+
+				updateExercise(id, description, statement, topic, page, difficulty).done(function() {
+					parent.find('.exercise-detail-description').html(description);
+					parent.find('.exercise-detail-statement').html(statement);
+					parent.find('.exercise-detail-topic').html(topic);
+					parent.find('.exercise-detail-page').html(page);
+					parent.find('.exercise-detail-difficulty').html(difficulty);
+					$('.save-changes').remove();
+				});
+			});
+			
+			$(document).on('vclick click tap', '.advanced-exercise', function() {
+				$('.advanced-exercise').html('<b>MENOS</b>');
+				$('.advanced-exercise').addClass('advanced-exercise-occult');
+				$('.advanced-exercise-occult').removeClass('advanced-exercise');
+				
+				var windowHeight = $(window).height();
+				var offsetTop = $('#main').offset().top;
+				var offsetBottom =  $('#overfooter').height() + $('#footer').height();	
+				
+				$('#new-exercise').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
+				$('#new-exercise').css('bottom', offsetBottom);	
+				$('.campos').css('height', windowHeight - offsetBottom - $('.campos').offset().top);
+				$('.advanced-container').css('height', $('.campos').height() - 3 * $('.save-exercise').height() - $('#input-exercise-id').height()); 
+				$('.advanced-content').css('height', $('.campos').height() - 3 * $('.save-exercise').height() - $('#input-exercise-id').height()); 
+				$('.advanced-container').slideDown('slow');
+			});
+			
+			$(document).on('vclick click tap', '.advanced-exercise-occult', function() {
+				$('.advanced-exercise-occult').html('<b>AVANZADO</b>');
+				$('.advanced-exercise-occult').addClass('advanced-exercise');
+				$('.advanced-exercise').removeClass('advanced-exercise-occult');
+				
+				var windowHeight = $(window).height();
+				var offsetTop = $('#main').offset().top;
+				var offsetBottom =  $('#overfooter').height() + $('#footer').height();	
+				
+				hideAdvanced().done(function() {			
+					$('.advanced-container').css('height', $('.campos').height() - $('.save-exercise').height() - $('#input-exercise-id').height()); 
+					$('.advanced-content').css('height', $('.campos').height() - $('.save-exercise').height() - $('#input-exercise-id').height()); 
+					$('#new-exercise').css('bottom', offsetBottom);
+					$('#new-exercise').css('height', '');
+				});
+				
+			});
+			
+			function hideAdvanced() {
+				$('.advanced-container').slideUp('slow');
+				setTimeout(function() {
+					$('.campos').animate({'height': $('#input-exercise-id').height() + 5*Math.floor(parseFloat($('body').css('font-size'))) + $('.save-exercise').height()}, 500);
+				}, 250);
+				return $.Deferred().resolve();
+			}
 			
 			$(document).on('vclick click tap', '.userName', function() {
 				viewProfile();
@@ -744,6 +962,12 @@ $(document).on('ready', function() {
 			
 			$(document).on('vclick click tap', '.profile-back', function() {
 				 viewMain();	
+			});
+			
+			$(document).on('vclick click tap', '.exercise', function(e) {
+				e.stopPropagation();
+				var id = $(this).attr('data-id');
+				showExerciseDetails(id);	
 			});
 			
 			$('select.subject-select').on('change', function (e) {
@@ -820,17 +1044,35 @@ $(document).on('ready', function() {
 				$('.darken').css('bottom', windowHeight - $('#overfooter').offset().top);
 				$('#new-exercise').css('bottom', offsetBottom);
 
-				$('#header').show();
-				$('#state-buttons').show();
-				var windowHeight = $(window).height();
-				var offsetTop = $('#main').offset().top;
-				var offsetBottom =  $('#overfooter').height() + $('#footer').height();
-				
 				$('#statistics').css('bottom', offsetBottom);
 				$('#statistics').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
 
-				$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top - 2*$('.statistics-search').height() - Math.floor(parseFloat($('body').css('font-size'))));
-				$('.statistics-list-content').css('height', $('.statistics-list-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
+				if($('#statistics').length != 0) {
+					$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top -
+					2*$('.statistics-search').height() - Math.floor(parseFloat($('body').css('font-size'))));
+					$('.statistics-list-content').css('height', $('.statistics-list-container').height() - Math.floor(parseFloat($('body').css('font-size'))));
+				}
+				
+				if($('#exercise-details').length != 0) {
+					$('#exercise-details').css('bottom', offsetBottom);
+					$('#exercise-details').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
+				}
+				
+				// Advanced new exercise creation tab displayed
+				if($('#new-exercise').find('.advanced-exercise-occult').length != 0) {
+					$('#new-exercise').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
+					$('#new-exercise').css('bottom', offsetBottom);	
+					$('.campos').css('height', windowHeight - offsetBottom - $('.campos').offset().top);
+					$('.advanced-container').css('height', $('.campos').height() - 3 * $('.save-exercise').height() - $('#input-exercise-id').height()); 
+					$('.advanced-content').css('height', $('.campos').height() - 3 * $('.save-exercise').height() - $('#input-exercise-id').height()); 
+				// Naive new exercise creation tab displayed
+				} else if($('#new-exercise').find('.advanced-exercise-occult').length == 0) {
+					$('.campos').css('height', $('#input-exercise-id').height() + 5*Math.floor(parseFloat($('body').css('font-size'))) + $('.save-exercise').height());
+					$('.advanced-container').css('height', $('.campos').height() - $('.save-exercise').height() - $('#input-exercise-id').height()); 
+					$('.advanced-content').css('height', $('.campos').height() - $('.save-exercise').height() - $('#input-exercise-id').height()); 
+					$('#new-exercise').css('bottom', offsetBottom);
+					$('#new-exercise').css('height', '');
+				}
 			});
 		});
 	});
