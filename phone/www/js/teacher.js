@@ -867,7 +867,7 @@ $(document).on('ready', function() {
 					var difficulty = $(this).parents('#exercise-details').find('.exercise-detail-difficulty').html();
 
 					$(this).parents('#exercise-details').find('.exercise-detail-description').html('<input type=\"text\" class=\"form-control\" id="input-exercise-description" placeholder=\"Descripción\" value="' + description + '">');
-					$(this).parents('#exercise-details').find('.exercise-detail-statement').html('<textarea class=\"form-control\" id="input-exercise-statement" placeholder=\"Enunciado\" rows="5">' + statement + '</textarea>');
+					$(this).parents('#exercise-details').find('.exercise-detail-statement').html('<textarea class=\"form-control\" id="input-exercise-statement" placeholder=\"Enunciado\" rows="3">' + statement + '</textarea>');
 					$(this).parents('#exercise-details').find('.exercise-detail-topic').html('<input type=\"text\" class=\"form-control\" id="input-exercise-topic" placeholder=\"Tema\" value="' + topic + '">');
 					$(this).parents('#exercise-details').find('.exercise-detail-page').html('<input type=\"text\" class=\"form-control\" id="input-exercise-page" placeholder=\"Página\" value="' + page + '">');
 					$(this).parents('#exercise-details').find('.exercise-detail-difficulty').html('<input type=\"text\" class=\"form-control\" id="input-exercise-difficulty" placeholder=\"Dificultad\" value="' + difficulty + '">');
@@ -1035,6 +1035,12 @@ $(document).on('ready', function() {
 				var windowHeight = $(window).height();
 				var offsetTop = $('#main').offset().top;
 				var offsetBottom =  $('#overfooter').height() + $('#footer').height();
+
+				if($('#main').hasClass('profile-main')) {
+					$('#main').css('height', windowHeight - offsetTop);
+					$('#main').css('bottom', Math.floor(parseFloat($('body').css('font-size'))));
+					$('#main-content').css('height', windowHeight - offsetTop - Math.floor(parseFloat($('body').css('font-size'))));
+				}
 				
 				// DYNAMIC RESIZINGS
 				$('#exercises-container').css('height', windowHeight -  offsetTop  - offsetBottom - $('#overfooter').height() - 4*Math.floor(parseFloat($('body').css('font-size'))));
