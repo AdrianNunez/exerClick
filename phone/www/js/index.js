@@ -4,13 +4,15 @@ $(document).on('ready', function() {
 	});
 });
 
+domain = 'https://galan.ehu.eus/exerclick/';
+
 function doLogin() {
 	username = $('#username').val();
 	password = $('#password').val();
 	$.ajax({
 		type: 'GET',
 		async: false,
-		url: 'http://exerclick-api.net46.net/login.php',
+		url: domain + 'login.php',
 		jsonpCallback: 'jsonCallback',
 		contentType: "application/json",
 		dataType: 'jsonp',

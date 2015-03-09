@@ -1,9 +1,11 @@
 $(document).on('ready', function() {
 	$(window).on('load', function() {
+		domain = 'https://galan.ehu.eus/exerclick/';
+		
 		// ------------------------------------------------------------------------------------------------------------------
 		// 												BASICS AND CONFIGURATION
 		// ------------------------------------------------------------------------------------------------------------------
-		$.ajaxSetup({ cache: false });
+		$.ajaxSetup({ cache: false, async: false });
 		// Cross domain
 		$.support.cors = true;
 		
@@ -48,7 +50,7 @@ $(document).on('ready', function() {
 							'<span class="badge left"><i class="fa fa-exclamation-triangle fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold">GUARDAR EJERCICIO</div>' +
 						'</button></div>' +
 						'<div class="col-xs-6"><button type="button" class="btn btn-default btn-primary advanced-exercise">' +
-							'AVANZADO' +
+							'MÁS' +
 						'</button></div>' +
 					'</div>' +
 				'</form>' +	
@@ -95,6 +97,7 @@ $(document).on('ready', function() {
 		
 		function hideAll() {
 			if(!$('#new-exercise').is(':hidden')) {
+				$('.campos').find("input[type=text], textarea").val("")
 				$('#overfooter').off('click');
 				$('#new-exercise').slideUp("slow");
 				$('#overfooter').on('click', newExercise);
@@ -116,8 +119,7 @@ $(document).on('ready', function() {
 		function loadData() {
 			$.ajax({
 				type: 'GET',
-				async: false,
-				url: 'http://exerclick-api.net46.net/get-data.php',
+				url: domain + 'get-data.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
@@ -127,18 +129,38 @@ $(document).on('ready', function() {
 						case 'es':
 							// Profile 
 							$('#translation-1').html('PERFIL DE <span class=\"name\"></span>');
-							$('#translation-2').html('Asignatura');
-							$('#translation-3').html('Idioma');
-							$('#translation-4').html('Estás en la asignatura de <span class="subject"></span>');
-							$('#translation-5').html('CERRAR SESIÓN');
+							$('#translation-2').html('IR A CLASE');
+							$('#translation-3').html('Estás en la asignatura de <span class="subject"></span>');
+							$('#translation-4').html('Asignatura');
+							$('#translation-5').html('Idioma');
+							$('#translation-6').html('CERRAR SESIÓN');
 							break;
 						case 'eu':
 							// Profile 
-							$('#translation-1').html('<span class=\"name\"></span>-REN PROFILA');
-							$('#translation-2').html('Irakasgaia');
-							$('#translation-3').html('Hizkuntza');
-							$('#translation-4').html('<span class=\"subject\"></span> irakasgaian zaude');
-							$('#translation-5').html('ITXI SAIOA');
+							$('#translation-1').html('<span class=\"name\"></span>-(R)EN PROFILA');
+							$('#translation-2').html('KLASERA JOAN');
+							$('#translation-3').html('<span class=\"subject\"></span> irakasgaian zaude');
+							$('#translation-4').html('Irakasgaia');
+							$('#translation-5').html('Hizkuntza');
+							$('#translation-6').html('SAIOA ITXI');
+							break;
+						case 'en':
+							// Profile 
+							$('#translation-1').html('<span class=\"name\"></span>\'S PROFILE');
+							$('#translation-2').html('GO TO CLASS');
+							$('#translation-3').html('You are in <span class=\"subject\"></span> subject');
+							$('#translation-4').html('Subject');
+							$('#translation-5').html('Language');
+							$('#translation-6').html('CLOSE SESSION');
+							break;
+						case 'fr':
+							// Profile 
+							$('#translation-1').html('*FR*<span class=\"name\"></span>\'S PROFILE');
+							$('#translation-2').html('*FR*GO TO CLASS');
+							$('#translation-3').html('*FR*You are in <span class=\"subject\"></span> subject');
+							$('#translation-4').html('*FR*Subject');
+							$('#translation-5').html('*FR*Language');
+							$('#translation-6').html('*FR*CLOSE SESSION');
 							break;
 					}
 					
@@ -157,17 +179,19 @@ $(document).on('ready', function() {
 						}
 					});
 					
-					showExercises('Active');
+					if(!$('#main').hasClass('profile-main'))
+						showExercises('Active');
 				}
 			});
 			return $.Deferred().resolve();
 		 }
 		
 		function showExercises(type) {
+			if($('#container').find('#toast').length)
+				$('#toast').remove();
 			$.ajax({
 				type: 'GET',
-				async: false,
-				url: 'http://exerclick-api.net46.net/show-exercises.php',
+				url: domain + 'show-exercises.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
@@ -177,31 +201,36 @@ $(document).on('ready', function() {
 
 					$('#exercises-container').css('height', windowHeight -  offsetTop  - offsetBottom - $('#overfooter').height() - 4*Math.floor(parseFloat($('body').css('font-size'))));
 					$('#exercises-content').css('height', $('#exercises-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
-					if(data.exercises.length == 0) {
-						$('#exercises-content').html('No hay ejercicios disponibles.');
+					if(data.exercises == undefined) {
+						$('#container').append('<div id="toast"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> Ha ocurrido un error al cargar los ejercicios.</div></div>');
+						$('#toast').hide().fadeIn('slow');
+					} else if(data.exercises.length == 0) {
+						$('#container').append('<div id="toast"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> No hay ejercicios disponibles.</div></div>');
+						$('#toast').hide().fadeIn('slow');
+					} else {
+						var statistics = (type == 'Finished') ? 'statistics-finished-button' : 'statistics-button';
+						$.each(data.exercises, function(i, item) {
+							$('#exercises-content').append(
+							'<div class=\"exercise exercise-' + type.toLowerCase() +'\" data-id=\"' + item.exercise.id + '\">' +
+								'<div class=\"exercise-container col-xs-12\">' +
+									'<div class=\"col-xs-4 col-sm-6 col-md-9 col-lg-9 exercise-name\">' +
+										'<div class=\"ellipsis padd1 bold\">' + item.exercise.description + '</div>' +
+										'<div class=\"exercise-name-icons padd3\">' + ((type == 'Ready') ? '&nbsp;' : (item.exercise.nofinished + '/' + item.exercise.num + ' <i class=\"fa fa-check-square-o fa-fw\"></i> ' + item.exercise.noquestions + '/' + item.exercise.num + ' <i class=\"fa fa-exclamation fa-fw\"></i>')) + '</div>' +
+									'</div>' +
+									'<div class=\"col-xs-8 col-sm-6 col-md-3 col-lg-3 exercise-buttons\">' +
+										'<div class=\"exercise-buttons-icons\"><div align=\"right\">' +
+											((type == 'Ready') ? '<div class="col-xs-3"></div>' : ('<button class=\"btn btn-default btn-success col-xs-offset-1 col-xs-3 ' + statistics + '\"><i class=\"fa fa-bar-chart\"></i></button>')) +
+											((type == 'Active') ? '' : ('<button class=\"btn btn-default btn-danger col-xs-offset-1 col-xs-3 change-to-active\"><i class=\"fa fa-paper-plane\"></i></button>')) +
+											((type == 'Finished') ? '' : ('<button class=\"btn btn-default btn-primary col-xs-offset-1 col-xs-3 change-to-finished\"><i class=\"fa fa-flag-checkered\"></i></button>')) +
+											((type == 'Ready') ? '' : ('<button class=\"btn btn-default btn-warning col-xs-offset-1 col-xs-3 change-to-ready\"><i class=\"fa fa-clock-o\"></i></button>')) +		
+										'</div></div>' +
+									'</div>' +
+								'</div>' +
+							'</div>'
+							);
+						});
+						loadProgressBar();
 					}
-					var statistics = (type == 'Finished') ? 'statistics-finished-button' : 'statistics-button';
-					$.each(data.exercises, function(i, item) {
-						$('#exercises-content').append(
-						'<div class=\"exercise exercise-' + type.toLowerCase() +'\" data-id=\"' + item.exercise.id + '\">' +
-							'<div class=\"exercise-container col-xs-12\">' +
-								'<div class=\"col-xs-4 col-sm-6 col-md-9 col-lg-9 exercise-name\">' +
-									'<div class=\"ellipsis padd1 bold\">' + item.exercise.description + '</div>' +
-									'<div class=\"exercise-name-icons padd3\">' + item.exercise.nofinished + '/' + item.exercise.num + ' <i class=\"fa fa-check-square-o fa-fw\"></i> ' + item.exercise.noquestions + '/' + item.exercise.num + ' <i class=\"fa fa-exclamation fa-fw\"></i></div>' +
-								'</div>' +
-								'<div class=\"col-xs-8 col-sm-6 col-md-3 col-lg-3 exercise-buttons\">' +
-									'<div class=\"exercise-buttons-icons\"><div align=\"right\">' +
-										((type == 'Active') ? '' : ('<button class=\"btn btn-default btn-danger col-xs-offset-1 col-xs-3 change-to-active\"><i class=\"fa fa-paper-plane\"></i></button>')) +
-										((type == 'Finished') ? '' : ('<button class=\"btn btn-default btn-primary col-xs-offset-1 col-xs-3 change-to-finished\"><i class=\"fa fa-flag\"></i></button>')) +
-										((type == 'Ready') ? '' : ('<button class=\"btn btn-default btn-warning col-xs-offset-1 col-xs-3 change-to-ready\"><i class=\"fa fa-exclamation-triangle\"></i></button>')) +
-										'<button class=\"btn btn-default btn-success col-xs-offset-1 col-xs-3 ' + statistics + '\"><i class=\"fa fa-bar-chart\"></i></button>' +
-									'</div></div>' +
-								'</div>' +
-							'</div>' +
-						'</div>'
-						);
-					});
-					loadProgressBar();
 				}
 			});
 			return $.Deferred().resolve();
@@ -210,8 +239,7 @@ $(document).on('ready', function() {
 		function launchExercise(state, description, statement, topic, page, difficulty) {
 			$.ajax({
 				type: 'GET',
-				url: 'http://exerclick-api.net46.net/launch-exercise.php',
-				async: false,
+				url: domain + 'launch-exercise.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
@@ -227,8 +255,7 @@ $(document).on('ready', function() {
 		function loadProgressBar() {
 			$.ajax({
 				type: 'GET',
-				async: false,
-				url: 'http://exerclick-api.net46.net/get-session-progress.php',
+				url: domain + 'get-session-progress.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
@@ -276,8 +303,7 @@ $(document).on('ready', function() {
 			hideAll().done(function() {
 				$.ajax({
 					type: 'GET',
-					async: false,
-					url: 'http://exerclick-api.net46.net/show-statistics.php',
+					url: domain + 'show-statistics.php',
 					jsonpCallback: 'jsonCallback',
 					contentType: "application/json",
 					dataType: 'jsonp',
@@ -294,24 +320,24 @@ $(document).on('ready', function() {
 								'<div class=\"row separator\"></div>' +
 								'<div class=\"statistics-body\">' +
 									'<div id=\"statistics-buttons\">' +
-										'<div class=\"col-xs-4\">' +
-											'<button type=\"button\" id=\"statistics-all-button" class="btn btn-default btn-primary active\">' +
+										'<div class=\"col-xs-4 statistics-state-button statistics-state-button-selected\">' +
+											'<button type=\"button\" id=\"statistics-all-button" class="btn btn-default btn-success active\">' +
 												'<b>TODOS</b>' +
 											'</button>' +
 										'</div>' +
-										'<div class=\"col-xs-4\">' +
-											'<button type=\"button\" id=\"statistics-finished-button\" class=\"btn btn-default btn-primary\">' +
-												'<b><i class=\"fa fa-check-square-o fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-finished\"> <span class=\"statistics-percentage statistics-percentage-finished\"></span></span></b>' +
+										'<div class=\"col-xs-4 statistics-state-button\">' +
+											'<button type=\"button\" id=\"statistics-finished-button\" class=\"btn btn-default btn-success\">' +
+												'<b><i class=\"fa fa-check-square-o fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-finished\"><span class=\"statistics-percentage statistics-percentage-finished\"></span></span></b>' +
 											'</button>' +
 										'</div>' +
-										'<div class=\"col-xs-4\">' +
-											'<button type=\"button\" id=\"statistics-question-button\" class=\"btn btn-default btn-primary\">' +
-												'<b><i class=\"fa fa-exclamation fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-question\"> <span class=\"statistics-percentage statistics-percentage-question\"></span></span></b>' +
+										'<div class=\"col-xs-4 statistics-state-button\">' +
+											'<button type=\"button\" id=\"statistics-question-button\" class=\"btn btn-default btn-success\">' +
+												'<b><i class=\"fa fa-exclamation fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-question\"><span class=\"statistics-percentage statistics-percentage-question\"></span></span></b>' +
 											'</button>' +
 										'</div>' +
 									'</div>' +
 									'<div class=\"clear\"></div>' +
-									'<div class=\"statistics-body-a\">' +
+									'<div class=\"statistics-body-a statistics-body-all-selected\">' +
 										'<div class=\"statistics-search form-group col-xs-12\">' +
 											'<div class=\"col-xs-8 col-sm-10 col-md-10 col-lg-11\"><input type=\"search\" id="search-student-input" class=\"form-control\" placeholder=\"Buscar alumno\"></div>' +
 											'<div class=\"col-xs-4 col-sm-2 col-md-2 col-lg-1\"><button type=\"button\" id="search-student-button" class=\"btn btn-default btn-primary\"><i class=\"fa fa-search fa-fw\"></i></button></div>' +
@@ -336,7 +362,7 @@ $(document).on('ready', function() {
 						$('#statistics').css('bottom', offsetBottom);
 						$('#statistics').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
 
-						$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top - 2*$('.statistics-search').height() - Math.floor(parseFloat($('body').css('font-size'))));
+						$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top - 2*$('.statistics-search').height() - 2 * Math.floor(parseFloat($('body').css('font-size'))));
 						$('.statistics-list-content').css('height', $('.statistics-list-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
 						$('#statistics').hide();
 						$('#statistics').addClass('top-shadow');
@@ -363,8 +389,7 @@ $(document).on('ready', function() {
 						
 						$.ajax({
 							type: 'GET',
-							async: false,
-							url: 'http://exerclick-api.net46.net/show-statistics-percentages.php',
+							url: domain + 'show-statistics-percentages.php',
 							jsonpCallback: 'jsonCallback',
 							contentType: "application/json",
 							dataType: 'jsonp',
@@ -388,8 +413,7 @@ $(document).on('ready', function() {
 			hideAll().done(function() {
 				$.ajax({
 					type: 'GET',
-					async: false,
-					url: 'http://exerclick-api.net46.net/show-statistics.php',
+					url: domain + 'show-statistics.php',
 					jsonpCallback: 'jsonCallback',
 					contentType: "application/json",
 					dataType: 'jsonp',
@@ -397,33 +421,33 @@ $(document).on('ready', function() {
 					success: function(data) {
 						$('.darken').show();
 						$('#container').append(
-							'<div id=\"statistics\" class="statistics-exercise-finished" data-id="' + id + '">' +
+							'<div id=\"statistics\" data-id="' + id + '" class=\"statistics-exercise-finished\">' +
 								'<div id=\"statistics-title\">' +
 									'<div class=\"tab-title col-xs-2 col-lg-1\"><i class=\"back fa fa-reply btn btn-default\"></i></div>' +
-									'<div class=\"tab-title col-xs-10 col-lg-11 ehuFontStyle\"><h4><i class=\"fa fa-bar-chart marginRight\"></i>' + exercisename + '</h4></div>' +
+									'<div class=\"tab-title col-xs-10 col-lg-11 ehuFontStyle\"><h4><i class=\"fa fa-bar-chart marginRight\"></i><span class="marginLeft">' + exercisename + '</span><span class="statistics-exercise-title"></span></h4></div>' +
 								'</div>' +
 								'<div class=\"clear\"></div>' +
 								'<div class=\"row separator\"></div>' +
 								'<div class=\"statistics-body\">' +
 									'<div id=\"statistics-buttons\">' +
-										'<div class=\"col-xs-4\">' +
-											'<button type=\"button\" id=\"statistics-all-button" class="btn btn-default btn-primary active\">' +
+										'<div class=\"col-xs-4 statistics-state-button statistics-state-button-selected\">' +
+											'<button type=\"button\" id=\"statistics-all-button" class="btn btn-default btn-success active\">' +
 												'<b>TODOS</b>' +
 											'</button>' +
 										'</div>' +
-										'<div class=\"col-xs-4\">' +
-											'<button type=\"button\" id=\"statistics-finished-button\" class=\"btn btn-default btn-primary\">' +
-												'<b><i class=\"fa fa-check-square-o fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-finished\"> 100%<span class=\"statistics-percentage statistics-percentage-finished\"> (20/78)</span></span></b>' +
+										'<div class=\"col-xs-4 statistics-state-button\">' +
+											'<button type=\"button\" id=\"statistics-finished-button\" class=\"btn btn-default btn-success\">' +
+												'<b><i class=\"fa fa-check-square-o fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-finished\"><span class=\"statistics-percentage statistics-percentage-finished\"></span></span></b>' +
 											'</button>' +
 										'</div>' +
-										'<div class=\"col-xs-4\">' +
-											'<button type=\"button\" id=\"statistics-question-button\" class=\"btn btn-default btn-primary\">' +
-												'<b><i class=\"fa fa-exclamation fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-question\"> 1% <span class=\"statistics-percentage statistics-percentage-question\"> (1/78)</span></span></b>' +
+										'<div class=\"col-xs-4 statistics-state-button\">' +
+											'<button type=\"button\" id=\"statistics-question-button\" class=\"btn btn-default btn-success\">' +
+												'<b><i class=\"fa fa-exclamation fa-fw\"></i><span class=\"statistics-button-data statistics-percentage-question\"><span class=\"statistics-percentage statistics-percentage-question\"></span></span></b>' +
 											'</button>' +
 										'</div>' +
 									'</div>' +
 									'<div class=\"clear\"></div>' +
-									'<div class=\"statistics-body-a\">' +
+									'<div class=\"statistics-body-a statistics-body-all-selected\">' +
 										'<div class=\"statistics-search form-group col-xs-12\">' +
 											'<div class=\"col-xs-8 col-sm-10 col-md-10 col-lg-11\"><input type=\"search\" id="search-student-input" class=\"form-control\" placeholder=\"Buscar alumno\"></div>' +
 											'<div class=\"col-xs-4 col-sm-2 col-md-2 col-lg-1\"><button type=\"button\" id="search-student-button" class=\"btn btn-default btn-primary\"><i class=\"fa fa-search fa-fw\"></i></button></div>' +
@@ -448,7 +472,8 @@ $(document).on('ready', function() {
 						$('#statistics').css('bottom', offsetBottom);
 						$('#statistics').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
 
-						$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top - 2*$('.statistics-search').height() - Math.floor(parseFloat($('body').css('font-size'))));
+						$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top -
+						2 * $('.statistics-search').height() - 2 * Math.floor(parseFloat($('body').css('font-size'))));
 						$('.statistics-list-content').css('height', $('.statistics-list-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
 						$('#statistics').hide();
 						$('#statistics').addClass('top-shadow');
@@ -474,8 +499,7 @@ $(document).on('ready', function() {
 						
 						$.ajax({
 							type: 'GET',
-							async: false,
-							url: 'http://exerclick-api.net46.net/show-statistics-percentages.php',
+							url: domain + 'show-statistics-percentages.php',
 							jsonpCallback: 'jsonCallback',
 							contentType: "application/json",
 							dataType: 'jsonp',
@@ -497,14 +521,26 @@ $(document).on('ready', function() {
 		function loadStatistics(state, id, key) {
 			$.ajax({
 				type: 'GET',
-				async: false,
-				url: 'http://exerclick-api.net46.net/show-statistics.php',
+				url: domain + 'show-statistics.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
 				data: { State: state, Id: id, Key: key },
 				success: function(data) {
 					$('.statistics-list-content').html('');
+					$('#header').show();
+					var windowHeight = $(window).height();
+					var offsetTop = $('#main').offset().top;
+					var offsetBottom =  $('#overfooter').height() + $('#footer').height();
+					
+					if(state == 'Question') {
+						$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top -
+						2 * $('.statistics-search').height() - $('.statistics-question-buttons').height() - 2 * Math.floor(parseFloat($('body').css('font-size'))));
+					} else {
+						$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top -
+						2 * $('.statistics-search').height() - 2 * Math.floor(parseFloat($('body').css('font-size'))));
+					}
+					$('.statistics-list-content').css('height', $('.statistics-list-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
 					$.each(data.statistics, function(i, item) {
 						switch(item.statistic.state) {
 							case 'Finished':
@@ -522,7 +558,6 @@ $(document).on('ready', function() {
 						}
 						$('.statistics-list-content').append('<div class=\"statistics-student ' + divstyle + '\">' +
 															 '<i class=\"fa ' +  istyle + '\"></i> ' + item.statistic.name + ' ' + item.statistic.surnames + '</div>');
-						$('.statistics-exercise-title').html();
 					});
 				}
 			});
@@ -534,8 +569,7 @@ $(document).on('ready', function() {
 			hideAll().done(function() {
 				$.ajax({
 					type: 'GET',
-					async: false,
-					url: 'http://exerclick-api.net46.net/get-exercise-details.php',
+					url: domain + 'get-exercise-details.php',
 					jsonpCallback: 'jsonCallback',
 					contentType: "application/json",
 					dataType: 'jsonp',
@@ -554,11 +588,17 @@ $(document).on('ready', function() {
 								'<div class=\"exercise-details-body\">' +
 									'<div class="exercise-details-title col-xs-12">Enunciado</div>' +
 									'<p class="col-xs-12 exercise-detail-statement">' + data.exercise.statement + '</p>' + 
-									'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Tema</div><div class="exercise-detail exercise-detail-topic col-lg-2 col-xs-6">' + data.exercise.topic + '</div>' +
+									((data.exercise.topic == null || data.exercise.topic == '') ?
+										'' : 
+										'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Tema</div><div class="exercise-detail exercise-detail-topic col-lg-2 col-xs-6">' + data.exercise.topic + '</div>') +
 									'<div class=\"hidden-lg clear\"></div>' +
-									'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Página</div><div class="exercise-detail exercise-detail-page col-lg-2 col-xs-6">' + data.exercise.page + '</div>' +
+									((data.exercise.page == null || data.exercise.page == '') ?
+										'' : 
+										'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Página</div><div class="exercise-detail exercise-detail-page col-lg-2 col-xs-6">' + data.exercise.page + '</div>') +
 									'<div class=\"hidden-lg  clear\"></div>' +
-									'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Dificultad</div><div class="exercise-detail exercise-detail-difficulty col-lg-2 col-xs-6">' + data.exercise.difficulty + '</div>' +
+									((data.exercise.difficulty == null || data.exercise.difficulty == '') ?
+										'' : 
+										'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Dificultad</div><div class="exercise-detail exercise-detail-difficulty col-lg-2 col-xs-6">' + data.exercise.difficulty + '</div>') +
 								'</div>' +
 							'</div>'
 						);
@@ -582,15 +622,30 @@ $(document).on('ready', function() {
 		function changeExerciseType(id, to) {
 			$.ajax({
 				type: 'GET',
-				async: false,
-				url: 'http://exerclick-api.net46.net/change-exercise.php',
+				url: domain + 'change-exercise.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
 				data: { Id: id, Type: to },
 				success: function(data) {
+					if(to == 'Finished')
+						setTimeout(function() { assignClassToExercise(id) }, 10*1000);
 					refresh();
 					return $.Deferred().resolve();
+				}
+			});
+		}
+		
+		function assignClassToExercise(id) {
+			$.ajax({
+				type: 'GET',
+				url: domain + 'assign-class-to-exercise.php',
+				jsonpCallback: 'jsonCallback',
+				contentType: "application/json",
+				dataType: 'jsonp',
+				data: { Id: id },
+				success: function(data) {
+					alert('OK');
 				}
 			});
 		}
@@ -598,8 +653,7 @@ $(document).on('ready', function() {
 		function updateExercise(id, description, statement, topic, page, difficulty) {
 			$.ajax({
 				type: 'GET',
-				async: false,
-				url: 'http://exerclick-api.net46.net/change-exercise.php',
+				url: domain + 'change-exercise.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
@@ -610,7 +664,6 @@ $(document).on('ready', function() {
 			});
 			return $.Deferred().resolve();
 		}
-		
 		
 		function refresh() {
 			if($('#state-buttons').find('.selected-active-button').length > 0) {
@@ -738,38 +791,60 @@ $(document).on('ready', function() {
 			});
 			
 			$(document).on('vclick click tap', '#statistics-all-button', function() {
+				$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top -
+						2 * $('.statistics-search').height() - 2 * Math.floor(parseFloat($('body').css('font-size'))));
 				if($('#statistics-finished-button').hasClass('active')) {
 					$('#statistics-finished-button').removeClass('active');
+					$('#statistics-finished-button').parent().removeClass('statistics-state-button-selected');
+					$('.statistics-body-a').removeClass('statistics-body-finished-selected');
 				} else if($('#statistics-question-button').hasClass('active')) {		
 					$('#statistics-question-button').removeClass('active');
+					$('#statistics-question-button').parent().removeClass('statistics-state-button-selected');
+					$('.statistics-body-a').removeClass('statistics-body-question-selected');
 				}
 				$('.statistics-question-buttons').remove();
 				$('#statistics-all-button').addClass('active');
 				var id = $(this).parents('#statistics').attr('data-id');
+				$('.statistics-body-a').addClass('statistics-body-all-selected');
+				$('#statistics-all-button').parent().addClass('statistics-state-button-selected');
 				loadStatistics('%', id, '%');
 			});
 			
 			$(document).on('vclick click tap', '#statistics-finished-button', function() {
+				$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top -
+						2 * $('.statistics-search').height() - 2 * Math.floor(parseFloat($('body').css('font-size'))));
 				if($('#statistics-all-button').hasClass('active')) {
 					$('#statistics-all-button').removeClass('active');
+					$('#statistics-all-button').parent().removeClass('statistics-state-button-selected');
+					$('.statistics-body-a').removeClass('statistics-body-all-selected');
 				} else if($('#statistics-question-button').hasClass('active')) {		
 					$('#statistics-question-button').removeClass('active');
+					$('#statistics-question-button').parent().removeClass('statistics-state-button-selected');
+					$('.statistics-body-a').removeClass('statistics-body-question-selected');
 				}
 				$('.statistics-question-buttons').remove();
 				$('#statistics-finished-button').addClass('active');
 				var id = $(this).parents('#statistics').attr('data-id');
+				$('.statistics-body-a').addClass('statistics-body-finished-selected');
+				$('#statistics-finished-button').parent().addClass('statistics-state-button-selected');
 				loadStatistics('Finished', id, '%');
 			});
 			
 			$(document).on('vclick click tap', '#statistics-question-button', function() {
 				if($('#statistics-all-button').hasClass('active')) {
 					$('#statistics-all-button').removeClass('active');
+					$('#statistics-all-button').parent().removeClass('statistics-state-button-selected');
+					$('.statistics-body-a').removeClass('statistics-body-all-selected');
 				} else if($('#statistics-finished-button').hasClass('active')) {		
 					$('#statistics-finished-button').removeClass('active');
+					$('#statistics-finished-button').parent().removeClass('statistics-state-button-selected');
+					$('.statistics-body-a').removeClass('statistics-body-finished-selected');
 				}
 				$('.statistics-question-buttons').remove();
 				$('#statistics-question-button').addClass('active');
 				var id = $(this).parents('#statistics').attr('data-id');
+				$('.statistics-body-a').addClass('statistics-body-question-selected');
+				$('#statistics-question-button').parent().addClass('statistics-state-button-selected');
 				loadStatistics('Question', id, '%');
 			});			
 			
@@ -801,8 +876,8 @@ $(document).on('ready', function() {
 			
 			$(document).on('vclick click tap', '#statistics-question-button', function() {	
 				if($(this).parents('.statistics-exercise-finished').length) {
-					$('#statistics-buttons').append(
-						'<div class="statistics-question-buttons col-xs-offset-1 col-xs-10">' +
+					$('.statistics-body-a').prepend(
+						'<div class="statistics-question-buttons">' +
 							'<div class=\"col-xs-4\">' +
 								'<button type=\"button\" class="btn btn-default btn-info active btn-xs\">' +
 									'<b>TODAS</b>' +
@@ -818,9 +893,14 @@ $(document).on('ready', function() {
 									'<b>SIN RESOLVER</b>' +
 								'</button>' +
 							'</div>' +
-						'</div>'
+						'</div>' +
+						'<div class="clear"></div>' +
+						'<div class="smallMargin"></div>'
 					);
 				}
+				$('.statistics-list-container').html();
+				$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top -
+				2 * $('.statistics-search').height() - $('.statistics-question-buttons').height() - 2 * Math.floor(parseFloat($('body').css('font-size'))));
 			});
 			
 			
@@ -976,8 +1056,7 @@ $(document).on('ready', function() {
 				var text = optionSelected.text();
 				$.ajax({
 					type: 'GET',
-					async: false,
-					url: 'http://exerclick-api.net46.net/change-subject.php',
+					url: domain + 'change-subject.php',
 					jsonpCallback: 'jsonCallback',
 					contentType: "application/json",
 					dataType: 'jsonp',
@@ -1000,11 +1079,16 @@ $(document).on('ready', function() {
 					case 'Euskera':
 						lang = 'eu';
 						break;
+					case 'Inglés':
+						lang = 'en';
+						break;
+					case 'Francés':
+						lang = 'fr';
+						break;
 				}
 				$.ajax({
 					type: 'GET',
-					async: false,
-					url: 'http://exerclick-api.net46.net/change-lang.php',
+					url: domain + 'change-lang.php',
 					jsonpCallback: 'jsonCallback',
 					contentType: "application/json",
 					dataType: 'jsonp',
@@ -1015,19 +1099,23 @@ $(document).on('ready', function() {
 				});
 			});
 			
-			$('.profile-logout').on('click', function () {
+			$('.profile-logout').on('click', logout);
+			
+			function logout() {
 				$.ajax({
 					type: 'GET',
-					async: false,
-					url: 'http://exerclick-api.net46.net/end-session.php',
+					url: domain + 'end-session.php',
 					jsonpCallback: 'jsonCallback',
 					contentType: "application/json",
 					dataType: 'jsonp',
 					success: function(data) {
-						window.location.replace(data.next);
+						if(data.next == undefined)
+							logout();
+						else
+							window.location.replace(data.next);
 					}
 				});
-			});
+			}
 			
 			$(window).on('resize', function() {
 				$('#header').show();
@@ -1081,6 +1169,8 @@ $(document).on('ready', function() {
 				}
 			});
 		});
+		
+		setInterval(refresh, 3000);
 	});
 });
 

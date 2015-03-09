@@ -1,5 +1,7 @@
 $(document).on('ready', function() {
 	$(window).on('load', function() {
+		domain = 'https://galan.ehu.eus/exerclick/';
+		
 		$.ajaxSetup({ cache: false });
 		// Cross domain
 		$.support.cors = true;
@@ -23,7 +25,7 @@ $(document).on('ready', function() {
 			$.ajax({
 				type: 'GET',
 				async: false,
-				url: 'http://exerclick-api.net46.net/get-data.php',
+				url: domain + 'get-data.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
@@ -66,7 +68,7 @@ $(document).on('ready', function() {
 			$.ajax({
 				type: 'GET',
 				async: false,
-				url: 'http://exerclick-api.net46.net/show-exercises.php',
+				url: domain + 'show-exercises.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
@@ -93,7 +95,7 @@ $(document).on('ready', function() {
 									'<div class=\"col-xs-8 col-sm-6 col-md-3 col-lg-3 exercise-buttons ' + background + '\">' +
 										'<div class=\"exercise-buttons-icons\">' +
 											'<button class="' + ((state === 'finished' || (state != 'finished' && state != 'question')) ? '' : 'disabled') + ' btn btn-default btn-primary col-xs-offset-2 col-xs-4 ' +
-											'button-finished"><i class="fa fa-flag"></i></button>' +
+											'button-finished"><i class="fa fa-flag-checkered"></i></button>' +
 											'<button class="' + ((state === 'question'  || (state != 'finished' && state != 'question')) ? '' : 'disabled') + ' btn btn-default btn-danger col-xs-offset-2 col-xs-4 ' +
 											'button-question"><i class="fa fa-exclamation"></i></button>' +
 										'</div>' +
@@ -115,7 +117,7 @@ $(document).on('ready', function() {
 				$.ajax({
 					type: 'GET',
 					async: false,
-					url: 'http://exerclick-api.net46.net/get-exercise-details.php',
+					url: domain + 'get-exercise-details.php',
 					jsonpCallback: 'jsonCallback',
 					contentType: "application/json",
 					dataType: 'jsonp',
@@ -212,7 +214,7 @@ $(document).on('ready', function() {
 			$.ajax({
 				type: 'GET',
 				async: false,
-				url: 'http://exerclick-api.net46.net/get-student-progress.php',
+				url: domain + 'get-student-progress.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
@@ -257,7 +259,7 @@ $(document).on('ready', function() {
 			$.ajax({
 				type: 'GET',
 				async: false,
-				url: 'http://exerclick-api.net46.net/mark-exercise.php',
+				url: domain + 'mark-exercise.php',
 				jsonpCallback: 'jsonCallback',
 				contentType: "application/json",
 				dataType: 'jsonp',
@@ -292,6 +294,7 @@ $(document).on('ready', function() {
 		});
 		
 		loadData();
+		setInterval(refresh, 3000);
 	});
 });
 

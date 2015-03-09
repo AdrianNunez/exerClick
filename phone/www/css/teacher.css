@@ -244,6 +244,14 @@ checkbox {
 	content: "";
 }
 
+.smallMargin {
+	display: block;
+	height: 0px;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+	content: "";
+}
+
 .padd {
 	padding: 0.5em;
 }
@@ -388,11 +396,20 @@ checkbox {
 	background: #FFF;
 }
 
+.statistics-state-button {
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+}
+
+.statistics-state-button-selected {
+	background: #D0F5A9;
+	border-radius: 5px 5px 0px 0px
+}
+
 .statistics-question-buttons {
-	margin-top: 1em;
-	padding: 0.5em;fpa
-	border-radius: 5px;
-	background-color: #E6E6E6;
+	margin-top: 0.2em;
+	background: #D0F5A9;
+	min-height: 1.5em;
 }
 
 .filter {
@@ -407,10 +424,22 @@ checkbox {
 }
 
 .statistics-body-a {
-	padding-top: 1em;
+	padding-top: 0.3em;
 	padding-left: 1em;
 	padding-right: 1em;
-	border-radius: 0 0 5px 5px;
+	background: #D0F5A9;
+}
+
+.statistics-body-all-selected {
+	border-radius: 0 5px 5px 5px;
+}
+
+.statistics-body-finished-selected {
+	border-radius: 5px;
+}
+
+.statistics-body-question-selected {
+	border-radius: 5px 0 5px 5px;
 }
 
 .statistics-search {
@@ -439,6 +468,7 @@ checkbox {
 	border-radius: 5px;
 	border: 1px solid #BDBDBD;
 	margin-top: 0.2em;
+	background: #FFF;
 }
 
 .statistics-student:first-child {
@@ -581,6 +611,39 @@ checkbox {
     -webkit-box-shadow: inset 0 0 10px #D8D8D8;
     box-shadow: inset 0 0 10px #D8D8D8;
 	background: #FFF;
+}
+
+.name {
+	padding: 0;
+	margin: 0;
+}
+
+#toast {
+	position: absolute;
+	width: 90%;
+	height: 10%;
+	background: #F5A9A9;
+	border-radius: 20px;
+	line-height: 1.3em;
+	top: 45%;
+	left: 5%;
+	border: 1px solid #A4A4A4;
+	text-align: center;
+	line-height: 25%;
+	padding: 1em 0.5em 1em 0.5em;
+	display: table;
+	z-index: 100000000;
+	font-family: ehuSans;
+	font-size: 1.2em;
+	-webkit-box-shadow: 0px 0px 14px -1px rgba(56, 56, 56, 0.6);
+    -moz-box-shadow: 0px 0px 14px -1px rgba(56, 56, 56, 0.6);
+    box-shadow: 0px 0px 14px -1px rgba(56, 56, 56, 0.6);
+}
+
+#toast-content {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
 }
 
 /* Large desktops and laptops */
