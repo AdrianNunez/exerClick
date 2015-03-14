@@ -1,6 +1,72 @@
+/*$(document).on('ready', function() {
+
+	pushNotification = window.plugins.pushNotification;
+	
+	//$("#app-status-ul").append('<li>registering ' + device.platform + '</li>');
+	pushNotification.register( successHandler, errorHandler, { 'senderID':'86663666263', 'ecb':'onNotification' } );
+
+	function successHandler (result) {
+		alert('result = ' + result);
+	}
+	
+	function errorHandler (error) {
+		alert('error = ' + error);
+	}
+	
+	// iOS
+	function onNotificationAPN (event) {
+		if ( event.alert )
+		{
+			navigator.notification.alert(event.alert);
+		}
+
+		if ( event.sound )
+		{
+			var snd = new Media(event.sound);
+			snd.play();
+		}
+
+		if ( event.badge )
+		{
+			pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, event.badge);
+		}
+	}
+	
+	// Android and Amazon Fire OS
+	function onNotification(e) {
+		//$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
+
+		switch( e.event )
+        {
+            case 'registered':
+                if ( e.regid.length > 0 )
+                {
+                    console.log("Regid " + e.regid);
+                    alert('registration id = '+e.regid);
+                }
+            break;
+ 
+            case 'message':
+              // this is the actual push notification. its format depends on the data model from the push server
+              alert('message = '+e.message+' msgcnt = '+e.msgcnt);
+            break;
+ 
+            case 'error':
+              alert('GCM error = '+e.msg);
+            break;
+ 
+            default:
+              alert('An unknown GCM event has occurred');
+              break;
+        }
+	}
+});*/
+
 $(document).on('ready', function() {
 	$(window).on('load', function() {
+		
 		domain = 'https://galan.ehu.eus/exerclick/';
+		lang = '';
 		
 		$.ajaxSetup({ cache: false });
 		// Cross domain
@@ -30,15 +96,7 @@ $(document).on('ready', function() {
 				contentType: "application/json",
 				dataType: 'jsonp',
 				success: function(data) {
-					/*var lang = data.data[9].language;
-					switch(lang) {
-						case 'es':
-							
-							break;
-						case 'eu':
-							
-							break;
-					}*/
+					lang = data.data[9].language;
 
 					$('.name').attr('data-id', data.data[0].id);
 					if(data.data[1].subject != null)
@@ -75,8 +133,56 @@ $(document).on('ready', function() {
 				data: { Type: 'Active' },
 				success: function(data) {
 					$('#exercises-content').html("");
-					if(data.exercises.length == 0) {
-						$('#exercises-content').html('<div id="screen-center">No hay ejercicios disponibles.</div>');
+					if(data.exercises == undefined) {
+						if($('#container').find('#toast').length) {
+							if($('#container').find('#toast').hasClass('error2')) {
+								$('#toast').remove();
+								$('#container').append('<div id="toast" class="error1"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-11">&nbsp;</span></div></div>');
+								$('#toast').hide().fadeIn('slow');
+							}
+						} else {
+							$('#container').append('<div id="toast" class="error1"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-11">&nbsp;</span></div></div>');
+							$('#toast').hide().fadeIn('slow');
+						}
+						switch(lang) {
+						case 'es':
+							$('#translation-11').html('Ha ocurrido un error al cargar los ejercicios.');
+							break;
+						case 'eu':
+							$('#translation-11').html('Errore bat egon da ariketak kargatzerakoan.');
+							break;
+						case 'en':
+							$('#translation-11').html('An error has occurred while trying to load the exercises.');
+							break;
+						case 'fr':
+							$('#translation-11').html('*FR*An error has occurred while trying to load the exercises.');
+							break;
+						}
+					} else if(data.exercises.length == 0) {
+						if($('#container').find('#toast').length) {
+							if($('#container').find('#toast').hasClass('error1')) {
+								$('#toast').remove();
+								$('#container').append('<div id="toast" class="error2"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-12">&nbsp;</span></div></div>');
+								$('#toast').hide().fadeIn('slow');
+							}
+						} else {
+							$('#container').append('<div id="toast" class="error2"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-12">&nbsp;</span></div></div>');
+							$('#toast').hide().fadeIn('slow');
+						}
+						switch(lang) {
+						case 'es':
+							$('#translation-12').html('No hay ejercicios disponibles.');
+							break;
+						case 'eu':
+							$('#translation-12').html('Ez dago ariketarik.');
+							break;
+						case 'en':
+							$('#translation-12').html('No available exercises.');
+							break;
+						case 'fr':
+							$('#translation-12').html('*FR*No available exercises.');
+							break;
+						}
 					} else {
 						$.each(data.exercises, function(i, item) {
 							var state = item.exercise.state.toLowerCase();

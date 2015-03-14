@@ -17,4 +17,8 @@
 		<!--<icon src="icons/hdpi.png" density="hdpi" />
 		<icon src="icons/xhdpi.png" density="xhdpi" />
      </platform>-->
+	 
+	 <feature name="PushPlugin">
+	  <param name="android-package" value="com.plugin.gcm.PushPlugin" />
+	</feature>
 </widget>

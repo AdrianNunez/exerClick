@@ -1,0 +1,56 @@
+@font-face {
+	font-family: 'ehuSans';
+	src: url('../resources/fonts/EHUSans/EHUSans-Regular.otf');
+}
+
+@font-face {
+    font-family: ehuFont;
+    src: url('../resources/EHUSans-black.otf');
+}
+
+@font-face {
+    font-family: 'jennasue';
+    src: url('../resources/fonts/jennasue/jennasue-webfont.eot');
+    src: url('../resources/fonts/jennasue/jennasue-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../resources/fonts/jennasue/jennasue-webfont.woff2') format('woff2'),
+         url('../resources/fonts/jennasue/jennasue-webfont.woff') format('woff'),
+         url('../resources/fonts/jennasue/jennasue-webfont.ttf') format('truetype'),
+         url('../resources/fonts/jennasue/jennasue-webfont.svg#jenna_sueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'archistico';
+    src: url('../resources/fonts/archistico/Archistico_Simple-webfont.eot');
+    src: url('../resources/fonts/archistico/Archistico_Simple-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../resources/fonts/archistico/Archistico_Simple-webfont.woff') format('woff'),
+         url('../resources/fonts/archistico/Archistico_Simple-webfont.ttf') format('truetype'),
+         url('../resources/fonts/archistico/Archistico_Simple-webfont.svg#archisticonormal') format('svg');
+	font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'amatic';
+    src: url('../resources/fonts/amatic/amaticsc-regular-webfont.eot');
+    src: url('../resources/fonts/amatic/amaticsc-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../resources/fonts/amatic/amaticsc-regular-webfont.woff2') format('woff2'),
+         url('../resources/fonts/amatic/amaticsc-regular-webfont.woff') format('woff'),
+         url('../resources/fonts/amatic/amaticsc-regular-webfont.ttf') format('truetype'),
+         url('../resources/fonts/amatic/amaticsc-regular-webfont.svg#amatic_scregular') format('svg');
+	font-weight: normal;
+    font-style: normal;
+}
+
+.ehuSans {
+	font-family: ehuSans;
+}
+
+.amatic {
+	font-family: amatic;
+}
+
+.ehuFontStyle {
+	font-family: ehuFont;
+}

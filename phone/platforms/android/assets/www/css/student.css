@@ -1,0 +1,405 @@
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	word-wrap: break-word;
+}
+
+.exer {
+	font-family: jennasue;
+	font-size: 1.5em;
+}
+
+.click {
+	font-family: archistico;
+	font-size: 1em;
+}
+
+a:link { /* unvisited link */
+	color: #000;
+	text-decoration: none;
+} 
+
+a:visited { /* visited link */
+	color: #000;
+	text-decoration: none;
+} 
+
+a:hover { /* mouse over link */
+	color: #000;
+	text-decoration: none;
+} 
+
+a:active { /* selected link */
+	color: #000;
+	text-decoration: none;
+}
+
+button {
+	width: 100%;
+}
+
+@font-face {
+    font-family: ehuFont;
+    src: url('../resources/EHUSans-black.otf');
+}
+
+.ehuFontStyle {
+	font-family: ehuFont;
+}
+
+#container {
+	min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto;
+	background-color: #FFF;
+	margin-bottom: -6em;
+	z-index: 900;
+}
+
+#header {
+	height: 2em;
+	border-bottom: 1px groove #000;
+	font-size: 1.5em;
+	background: #F2F2F2;
+	background: -webkit-linear-gradient(#F2F2F2, #D8D8D8); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#F2F2F2, #D8D8D8); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#F2F2F2, #D8D8D8); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#F2F2F2, #D8D8D8); /* Standard syntax */
+	z-index: 200000;
+	font-weight: bold;
+	line-height: 1.8em; /* vertically centers the content */
+}
+
+.userName {
+	font-family: amatic;
+	top: 0.4em;
+	right: 0.4em;
+}
+
+#subheader {
+	height: 1em;
+
+	background: #FFF;
+	background: -webkit-linear-gradient(#E6E6E6, #FFF); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#E6E6E6, #FFF); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#E6E6E6, #FFF); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#E6E6E6, #FFF); /* Standard syntax */
+	
+	border-radius: 30px 30px 0px 0px;
+	
+	content: "";
+}
+
+.blackboard {
+	background-image: url("../images/blackboard.jpg");
+	background-repeat: repeat;
+}
+
+.title {
+	font-size: 1em;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.darken {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	background-color: #000;
+	opacity: 0.5;
+	z-index: 9999;
+}
+
+#main {
+	color: #000;
+	z-index: 10;
+}
+
+#exercises-container {
+	position: relative;	
+	overflow: hidden;
+	overflow-y: hidden;
+	font-family: ehuSans;
+}
+
+#exercises-content {
+	overflow-x: hidden;
+}
+
+#overfooter {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 3em;
+	bottom: 3em;
+	line-height: 3em;
+	background: #2E2E2E;
+	background: -webkit-linear-gradient(#6E6E6E, #2E2E2E); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#6E6E6E, #2E2E2E); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#6E6E6E, #2E2E2E); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#6E6E6E, #2E2E2E); /* Standard syntax */
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	color: #FFF;
+	font-weight: bold;
+	z-index: 10010;
+	font-family: ehuSans;
+	padding-top: 0.7em;
+}
+
+#footer {
+	display: block;
+	position: fixed;
+	width: 100%;
+	height: 3em;
+	bottom: 0px;
+	line-height: 3em;
+	background: #2E2E2E;
+	background: -webkit-linear-gradient(#6E6E6E, #2E2E2E); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#6E6E6E, #2E2E2E); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#6E6E6E, #2E2E2E); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#6E6E6E, #2E2E2E); /* Standard syntax */
+	border-top: 1px solid rgba(255, 255, 255, 0.5);
+	color: #FFF;
+	font-weight: bold;
+	z-index: 10010;
+	font-family: ehuSans;
+	padding-top: 0.7em;
+}
+
+#screen-center {
+    position: fixed;
+	display: block;
+    top: 50%;
+	left: 12.5%;
+    width: 75%;
+	margin-top: -2.5em;
+	
+	border: 1px solid #848484;
+	border-radius: 15px;
+	background: #D8D8D8;
+	
+	text-align: center;
+	font-weight: bold;
+	font-family: ehuFont;
+}​
+
+.progress {
+	position: fixed;
+	display: block;
+	height: 1em;
+	content: "";
+	width: 100%;
+	left: 5em;
+	right: 1em;
+	bottom: 10em;
+}
+
+.up {
+	bottom: 2.4em;
+}
+
+.progress-text {
+	bottom: 0.7em;
+}
+
+.clear {
+	clear: both;
+}
+
+.padd {
+	padding: 0.5em;
+}
+
+.padd3 {
+	padding: 0.3em;
+}
+
+.bottompadd {
+	padding-bottom: 0.5em;
+}
+
+.white {
+	color: #FFF;
+}
+
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.shadowed {
+	padding-bottom: 0.2em;
+	text-shadow: 3px 1px 1px #000;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.exercise {
+	width: 100%;
+	
+	border: 1px solid #E6E6E6;
+	border-bottom: 3px solid #BDBDBD;
+	border-radius: 5px;
+	
+	margin-top: 0.5em;
+	
+	color: #000;
+	
+	overflow: hidden;
+}
+
+.exercise-container {
+	height: 100%;
+	
+	background: #F2F2F2;
+}
+
+.exercise-name {
+	background: #F2F2F2;
+	margin-top: 0.8em;
+}
+
+.exercise-name-icons {
+	font-size: 0.8em;
+	padding: 0.5em 0em 0.8em 0em;
+}
+
+.exercise-buttons {	
+	background: #F2F2F2;	
+	text-align: right;	
+	padding-top: 0.8em;
+}
+
+.exercise-buttons-icons {
+	font-size: 1.5em;
+
+}
+
+/* EXERCISE TYPES */
+
+.left {
+	float: left;
+}
+
+.exclamation {
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+}
+
+.background-question {
+	background-color: #F6CECE;
+}
+
+.background-finished {
+	background-color: #A9D0F5;
+}
+
+#exercise-details {
+	position: absolute;
+	width: 100%;
+	padding-top: 1.7em;
+	background-image: url("../images/blackboard.jpg");
+	background-repeat: repeat;
+	border: 1px solid #A4A4A4;
+	border-radius: 15px 15px 0px 0px;
+	color: #FFF;
+	z-index: 10000;
+	font-family: ehuSans;
+}
+
+.separator {
+	height: 3px;
+	background-color: #A4A4A4;
+}
+
+.tab-title  {
+	padding-bottom: 1em;
+	font-family: ehuFont;
+}
+
+.exercise-details-body {
+	background-color: #FFF;
+	padding: 1.5em;
+	color: #000;
+	height: 100%;
+}
+
+.exercise-details-title {
+	display: block;
+	background: #A9BCF5;
+	padding: 0.2em;
+	border-radius: 5px;
+	font-weight: bold;
+	background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1)), url("../images/blackboard.jpg") repeat;
+	margin-bottom: 0.5em;
+	font-size: 1.2em;
+	color: #FFF;
+	font-family: ehuFont;
+	border-left: 2px solid #000;
+}
+
+.exercise-detail {
+	padding: 0.2em;
+	margin-bottom: 0.5em;
+}
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+	.exer { font-size: 1.5em; }
+	.click { font-size: 1em; }
+	.title {	font-size: 1em; }
+	.exercise-tab { font-size: 100%; }
+	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }
+	.left { float: none; }
+	.exercise-buttons {	text-align: left; padding-bottom: 1em; }
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+	.exer { font-size: 1.5em; }
+	.click { font-size: 1em; }
+	.title {	font-size: 1em; }
+	.exercise-tab { font-size: 100%; }
+	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }
+	.exercise-name-icons { display: none; }
+	.left { float: none; }
+	.exercise-buttons {	text-align: left; padding-bottom: 1em; }
+}
+
+@media only screen and (max-width: 320px) {
+	.exer { font-size: 1.5em; }
+	.click { font-size: 1em; }
+	.title {	font-size: 1em; }
+	.exercise-tab { font-size: 100%; }
+	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }
+	.exercise-name-icons { display: none; }
+	.left { float: none; }
+	.exercise-buttons {	text-align: left; padding-bottom: 1em; }
+}
+
+@media (max-height: 400px) {
+	#container { margin-bottom: 0em; }
+	#overfooter { display: none; height: 0px; }
+	#footer { display: none; height: 0px; }
+}
