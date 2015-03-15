@@ -733,7 +733,7 @@ checkbox {
 /* Landscape phones and smaller */
 @media (max-width: 480px) {
 	.exer { font-size: 1.5em; }
-	.click { font-size: 1em; }
+	.click { font-size: 0.8em; }
 	#header { font-size: 1.5em; line-height: 1.7em; height: 1.8em; }
 	#new-exercise { bottom: 5.5em; }
 	.title {	font-size: 1em; }
@@ -746,8 +746,8 @@ checkbox {
 }
 
 @media only screen and (max-width: 320px) {
-	.exer { font-size: 1.5em; }
-	.click { font-size: 1em; }
+	.exer { font-size: 1em; }
+	.click { font-size: 0.5em; }
 	#main { margin-top: -1px; }
 	#header { font-size: 1.5em; line-height: 1.7em; height: 1.8em; }
 	#new-exercise { bottom: 5.5em; }

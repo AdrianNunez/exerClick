@@ -302,6 +302,16 @@ button {
 	background-color: #A9D0F5;
 }
 
+.separator {
+	height: 3px;
+	background-color: #A4A4A4;
+}
+
+.tab-title  {
+	padding-bottom: 1em;
+	font-family: ehuFont;
+}
+
 #exercise-details {
 	position: absolute;
 	width: 100%;
@@ -315,21 +325,17 @@ button {
 	font-family: ehuSans;
 }
 
-.separator {
-	height: 3px;
-	background-color: #A4A4A4;
-}
-
-.tab-title  {
-	padding-bottom: 1em;
-	font-family: ehuFont;
-}
-
 .exercise-details-body {
 	background-color: #FFF;
 	padding: 1.5em;
 	color: #000;
 	height: 100%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.exercise-details-content {
+	overflow-x: hidden;
 }
 
 .exercise-details-title {
@@ -338,12 +344,13 @@ button {
 	padding: 0.2em;
 	border-radius: 5px;
 	font-weight: bold;
-	background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1)), url("../images/blackboard.jpg") repeat;
+	border: 1px #5882FA solid;
+	text-shadow: -1px 0 #5882FA, 0 1px #5882FA, 1px 0 #5882FA, 0 -1px #5882FA;
+	/* background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1)), url("../images/blackboard.jpg") repeat; */
 	margin-bottom: 0.5em;
 	font-size: 1.2em;
 	color: #FFF;
 	font-family: ehuFont;
-	border-left: 2px solid #000;
 }
 
 .exercise-detail {
@@ -381,6 +388,24 @@ button {
 	z-index: 9997;
 }
 
+#toast-details {
+	position: absolute;
+	width: 80%;
+	height: 20%;
+	background: #A9BCF5;
+	border-radius: 20px;
+	top: 45%;
+	left: 10%;
+	border: 1px solid #A4A4A4;
+	text-align: center;
+	display: table;
+	z-index: 10001;
+	font-family: ehuSans;
+	-webkit-box-shadow: 0px 0px 14px -1px rgba(56, 56, 56, 0.6);
+    -moz-box-shadow: 0px 0px 14px -1px rgba(56, 56, 56, 0.6);
+    box-shadow: 0px 0px 14px -1px rgba(56, 56, 56, 0.6);
+}
+
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
@@ -409,7 +434,7 @@ button {
 /* Landscape phones and smaller */
 @media (max-width: 480px) {
 	.exer { font-size: 1.5em; }
-	.click { font-size: 1em; }
+	.click { font-size: 0.8em; }
 	.title {	font-size: 1em; }
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }
@@ -419,8 +444,8 @@ button {
 }
 
 @media only screen and (max-width: 320px) {
-	.exer { font-size: 1.5em; }
-	.click { font-size: 1em; }
+	.exer { font-size: 1em; }
+	.click { font-size: 0.5em; }
 	.title {	font-size: 1em; }
 	.exercise-tab { font-size: 100%; }
 	.exercise-buttons-icons { font-size: 1em; margin-bottom: 0em; }

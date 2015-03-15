@@ -47,6 +47,7 @@ $(document).on('ready', function() {
 					'<div class=\"advanced-container\"><div class=\"advanced-content\"></div></div>' +
 					'<div class=\"clear\"></div>' +
 					'<div class=\"extraMargin\"></div>' +
+					'<div class=\"clear\"></div>' +
 					'<div class="new-exercise-buttons">' +
 						'<div class="col-xs-6"><button type="button" class="btn btn-default btn-warning save-exercise">' +
 							'<span class="badge left"><i class="fa fa-exclamation-triangle fa-fw"></i></span><div class="visible-sm visible-md visible-lg bold"><span id="translation-19" class="bold">&nbsp;</span></div>' +
@@ -55,6 +56,8 @@ $(document).on('ready', function() {
 							'<span id="translation-20" class="bold">&nbsp;</span>' +
 						'</button></div>' +
 					'</div>' +
+					'<div class=\"extraMargin\"></div>' +
+					'<div class=\"clear\"></div>' +
 				'</form>' +	
 			'</div>'
 		);
@@ -358,7 +361,7 @@ $(document).on('ready', function() {
 											((type == 'Ready') ? '<div class="col-xs-3"></div>' : ('<button class=\"btn btn-default btn-success col-xs-offset-1 col-xs-3 ' + statistics + '\"><i class=\"fa fa-bar-chart\"></i></button>')) +
 											((type == 'Active') ? '' : ('<button class=\"btn btn-default btn-danger col-xs-offset-1 col-xs-3 change-to-active\"><i class=\"fa fa-paper-plane\"></i></button>')) +
 											((type == 'Finished') ? '' : ('<button class=\"btn btn-default btn-primary col-xs-offset-1 col-xs-3 change-to-finished\"><i class=\"fa fa-flag-checkered\"></i></button>')) +
-											((type == 'Ready') ? '' : ('<button class=\"btn btn-default btn-warning col-xs-offset-1 col-xs-3 change-to-ready\"><i class=\"fa fa-clock-o\"></i></button>')) +		
+											((type == 'Ready') ? '' : ('<button class=\"btn btn-default btn-warning col-xs-offset-1 col-xs-3 change-to-ready\"><i class=\"fa fa-clock-o\"></i></button>')) +
 										'</div></div>' +
 									'</div>' +
 								'</div>' +
@@ -1613,11 +1616,10 @@ $(document).on('ready', function() {
 					$('#main').css('bottom', Math.floor(parseFloat($('body').css('font-size'))));
 					$('#main-content').css('height', windowHeight - offsetTop - Math.floor(parseFloat($('body').css('font-size'))));
 				}
-				alert($('#exercises-content').css('height'));
+
 				// DYNAMIC RESIZINGS
 				$('#exercises-container').css('height', windowHeight -  offsetTop  - offsetBottom - $('#overfooter').height() - 4*Math.floor(parseFloat($('body').css('font-size'))));
 				$('#exercises-content').css('height', $('#exercises-container').height() - Math.floor(parseFloat($('body').css('font-size'))));	
-				alert($('#exercises-content').css('height'));
 				
 				$('.darken').css('height', windowHeight);
 				$('.darken').css('bottom', windowHeight - $('#overfooter').offset().top);
@@ -1625,6 +1627,20 @@ $(document).on('ready', function() {
 
 				$('#statistics').css('bottom', offsetBottom);
 				$('#statistics').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
+				
+				if ($(window).width() <= 480) {
+					$('.change-to-active').addClass('btn-xs');
+					$('.change-to-finished').addClass('btn-xs');
+					$('.change-to-ready').addClass('btn-xs');
+					$('.statistics-finished-button').addClass('btn-xs');
+					$('.statistics-button').addClass('btn-xs');
+				} else {
+					$('.change-to-active').removeClass('btn-xs');
+					$('.change-to-finished').removeClass('btn-xs');
+					$('.change-to-ready').removeClass('btn-xs');
+					$('.statistics-finished-button').removeClass('btn-xs');
+					$('.statistics-button').removeClass('btn-xs');
+				}
 
 				if($('#statistics').length != 0) {
 					$('.statistics-list-container').css('height', windowHeight - offsetBottom - $('.statistics-body-a').offset().top -

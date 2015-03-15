@@ -230,25 +230,91 @@ $(document).on('ready', function() {
 					data: { Id: id },
 					success: function(data) {
 						$('.darken').show();
-						$('#container').append(
-							'<div id=\"exercise-details\">' +
+						var details = '<div id=\"exercise-details\" data-id="' + data.exercise.id + '">' +
 								'<div id=\"exercise-details-title\">' +
-									'<div class=\"tab-title col-xs-2 col-lg-1\"><i class=\"back fa fa-reply btn btn-default\"></i></div>' +
-									'<div class=\"tab-title col-xs-10 col-lg-11 ehuFontStyle\"><h4>' + data.exercise.description + '</h4></div>' +
+									'<div class=\"tab-title col-xs-3"><i class=\"back fa fa-reply btn btn-default\"></i></div>' +
+									'<div class=\"tab-title col-xs-9\" align=\"left\"><h4 class="exercise-detail-description">' + data.exercise.description + '</h4></div>' +
 								'</div>' +
 								'<div class=\"clear\"></div>' +
 								'<div class=\"row separator\"></div>' +
 								'<div class=\"exercise-details-body\">' +
-									'<div class="exercise-details-title col-xs-12">Enunciado</div>' +
-									'<p class="col-xs-12">' + data.exercise.statement + '</p>' + 
-									'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Tema</div><div class="exercise-detail col-lg-2 col-xs-6">' + data.exercise.topic + '</div>' +
-									'<div class=\"hidden-lg clear\"></div>' +
-									'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Página</div><div class="exercise-detail col-lg-2 col-xs-6">' + data.exercise.page + '</div>' +
-									'<div class=\"hidden-lg  clear\"></div>' +
-									'<div class="exercise-details-title col-lg-2 col-xs-6 bottompad">Dificultad</div><div class="exercise-detail col-lg-2 col-xs-6">' + data.exercise.difficulty + '</div>' +
-								'</div>' +
-							'</div>'
-						);
+									'<div class=\"exercise-details-content\">';
+								
+						var something = false;
+
+						if(data.exercise.statement != null && data.exercise.statement != '')
+							something = true;
+						details += '<div class="exercise-details-title exercise-details-title-1 col-xs-12"><span id="translation-27">&nbsp;</span></div><p class="col-xs-12 exercise-detail-statement">' + data.exercise.statement + '</p>';				
+						
+						if(data.exercise.topic != null && data.exercise.topic != '')	
+							something = true;
+						details += '<div class="exercise-details-title exercise-details-title-2 col-lg-2 col-md-6 col-sm-6 col-xs-12 bottompad"><span id="translation-28">&nbsp;</span></div><div class="exercise-detail exercise-detail-topic col-lg-2 col-md-6 col-sm-6 col-xs-12">' + data.exercise.topic + '</div>';
+						
+						if(data.exercise.page != null && data.exercise.page != '')	
+							something = true;
+						details += '<div class=\"hidden-lg clear\"></div><div class="exercise-details-title exercise-details-title-3 col-lg-2 col-md-6 col-sm-6 col-xs-12 bottompad"><span id="translation-29">&nbsp;</span></div><div class="exercise-detail exercise-detail-page col-lg-2 col-md-6 col-sm-6 col-xs-12">' + data.exercise.page + '</div>';		
+
+						if(data.exercise.difficulty != null && data.exercise.difficulty != '')
+							something = true;
+						details += '<div class=\"hidden-lg clear\"></div><div class="exercise-details-title exercise-details-title-4 col-lg-2 col-md-6 col-sm-6 col-xs-12 bottompad"><span id="translation-30">&nbsp;</span></div><div class="exercise-detail exercise-detail-difficulty col-lg-2 col-md-6 col-sm-6 col-xs-12">' + data.exercise.difficulty + '</div>';
+						
+						
+						if(!something) {
+							details += '<div id="toast-details"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-32">&nbsp;</span></div></div>';
+						}
+
+						$('#container').append(details + '</div></div></div><div class=\"clear\">');
+						
+						if(data.exercise.statement == null || data.exercise.statement == '') {
+							$('.exercise-details-title-1').hide();
+							$('.exercise-detail-statement').hide();
+						}
+						
+						if(data.exercise.topic == null || data.exercise.topic == '') {
+							$('.exercise-details-title-2').hide();
+							$('.exercise-detail-topic').hide();
+						}
+						
+						if(data.exercise.page == null || data.exercise.page == '') {
+							$('.exercise-details-title-3').hide();
+							$('.exercise-detail-page').hide();
+						}
+						
+						if(data.exercise.difficulty == null || data.exercise.difficulty == '') {
+							$('.exercise-details-title-4').hide();
+							$('.exercise-detail-difficulty').hide();
+						}
+						
+						switch(lang) {
+						case 'es':
+							$('#translation-27').html('ENUNCIADO');
+							$('#translation-28').html('TEMA');
+							$('#translation-29').html('PÁGINA');
+							$('#translation-30').html('DIFICULTAD');
+							$('#translation-32').html('No hay ningún detalle asociado a este ejercicio.');
+							break;
+						case 'eu':
+							$('#translation-27').html('ENUNTZIATUA');
+							$('#translation-28').html('GAIA');
+							$('#translation-29').html('ORRIALDEA');
+							$('#translation-30').html('SAILTASUNA');
+							$('#translation-32').html('Ez dago xehetasunik ariketa honekin erlazionatuta.');
+							break;
+						case 'en':
+							$('#translation-27').html('STATEMENT');
+							$('#translation-28').html('TOPIC');
+							$('#translation-29').html('PAGE');
+							$('#translation-30').html('DIFFICULTY');
+							$('#translation-32').html('No details associated to this exercise.');
+							break;
+						case 'fr':
+							$('#translation-27').html('*FR*STATEMENT');
+							$('#translation-28').html('*FR*TOPIC');
+							$('#translation-29').html('*FR*PAGE');
+							$('#translation-30').html('*FR*DIFFICULTY');
+							$('#translation-32').html('*FR*No details associated to this exercise.');
+							break;
+						}
 						$('#header').show();
 						$('#state-buttons').show();
 						var windowHeight = $(window).height();
@@ -257,6 +323,8 @@ $(document).on('ready', function() {
 						
 						$('#exercise-details').css('bottom', offsetBottom);
 						$('#exercise-details').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
+						$('.exercise-details-body').css('height', $('#exercise-details').height() - 2 * $('.exercise-details-title').height() - Math.floor(parseFloat($('body').css('font-size'))));
+						$('.exercise-details-content').css('height', $('.exercise-details-body').height() - 1);
 						$('#exercise-details').hide();
 						$('#exercise-details').addClass('top-shadow');
 						$('#exercise-details').slideDown("slow");
@@ -384,6 +452,11 @@ $(document).on('ready', function() {
 		
 		$(document).on('vclick click tap', '.back', hideAll);
 		
+		function refresh() {
+			showExercises('Active');
+			return $.Deferred().resolve();
+		}
+		
 		$(window).on('resize', function() {
 			$('#header').show();
 			var offsetTop = $('#main').offset().top;
@@ -392,11 +465,21 @@ $(document).on('ready', function() {
 			// DYNAMIC RESIZINGS
 			$('#exercises-container').css('height', windowHeight -  offsetTop  - offsetBottom - 2*Math.floor(parseFloat($('body').css('font-size'))));
 			$('#exercises-content').css('height', $('#exercises-container').height() - Math.floor(parseFloat($('body').css('font-size'))));
+			
+			if ($(window).width() <= 480) {
+					$('.button-finished').addClass('btn-xs');
+					$('.button-question').addClass('btn-xs');
+				} else {
+					$('.button-finished').removeClass('btn-xs');
+					$('.button-question').removeClass('btn-xs');
+				}
 
 			if($('#exercise-details').length != 0) {
 				$('#exercise-details').css('bottom', offsetBottom);
 				$('#exercise-details').css('height', $('#exercises-container').height() + 2 * $('#state-buttons').height());
-			}			
+				$('.exercise-details-body').css('height', $('#exercise-details').height() - 2 * $('.exercise-details-title').height() - Math.floor(parseFloat($('body').css('font-size'))));
+				$('.exercise-details-content').css('height', $('.exercise-details-body').height() - 1);
+			}		
 		});
 		
 		loadData();
