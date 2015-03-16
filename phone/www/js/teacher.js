@@ -266,6 +266,8 @@ $(document).on('ready', function() {
 							attendanceclass = data.data[10].attendanceclass;
 						} else {
 							$('.launch-exercise').addClass('disabled');
+							$('.change-to-active').addClass('disabled');
+							$('.change-to-finished').addClass('disabled');
 						}
 						
 						if(!$('#main').hasClass('profile-main'))
@@ -368,6 +370,13 @@ $(document).on('ready', function() {
 							'</div>'
 							);
 						});
+						if ($(window).width() <= 480) {
+							$('.change-to-active').addClass('btn-xs');
+							$('.change-to-finished').addClass('btn-xs');
+							$('.change-to-ready').addClass('btn-xs');
+							$('.statistics-finished-button').addClass('btn-xs');
+							$('.statistics-button').addClass('btn-xs');
+						}
 						loadProgressBar();
 					}
 				}

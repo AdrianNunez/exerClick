@@ -184,6 +184,8 @@ $(document).on('ready', function() {
 							break;
 						}
 					} else {
+						if($('#container').find('#toast').length)
+							$('#toast').remove();
 						$.each(data.exercises, function(i, item) {
 							var state = item.exercise.state.toLowerCase();
 							if(state === 'nothing') {
@@ -210,6 +212,10 @@ $(document).on('ready', function() {
 							'</div>'
 							);
 						});
+					}
+					if ($(window).width() <= 480) {
+						$('.button-finished').addClass('btn-xs');
+						$('.button-question').addClass('btn-xs');
 					}
 					loadStudentProgressBar();
 				}
@@ -467,12 +473,12 @@ $(document).on('ready', function() {
 			$('#exercises-content').css('height', $('#exercises-container').height() - Math.floor(parseFloat($('body').css('font-size'))));
 			
 			if ($(window).width() <= 480) {
-					$('.button-finished').addClass('btn-xs');
-					$('.button-question').addClass('btn-xs');
-				} else {
-					$('.button-finished').removeClass('btn-xs');
-					$('.button-question').removeClass('btn-xs');
-				}
+				$('.button-finished').addClass('btn-xs');
+				$('.button-question').addClass('btn-xs');
+			} else {
+				$('.button-finished').removeClass('btn-xs');
+				$('.button-question').removeClass('btn-xs');
+			}
 
 			if($('#exercise-details').length != 0) {
 				$('#exercise-details').css('bottom', offsetBottom);
