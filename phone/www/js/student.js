@@ -155,7 +155,7 @@ $(document).on('ready', function() {
 							$('#translation-11').html('An error has occurred while trying to load the exercises.');
 							break;
 						case 'fr':
-							$('#translation-11').html('*FR*An error has occurred while trying to load the exercises.');
+							$('#translation-11').html('Il y a un erreur en chargeant des exercices');
 							break;
 						}
 					} else if(data.exercises.length == 0) {
@@ -180,7 +180,7 @@ $(document).on('ready', function() {
 							$('#translation-12').html('No available exercises.');
 							break;
 						case 'fr':
-							$('#translation-12').html('*FR*No available exercises.');
+							$('#translation-12').html('Il n’y a pas des exercices disponibles');
 							break;
 						}
 					} else {
@@ -314,11 +314,11 @@ $(document).on('ready', function() {
 							$('#translation-32').html('No details associated to this exercise.');
 							break;
 						case 'fr':
-							$('#translation-27').html('*FR*STATEMENT');
-							$('#translation-28').html('*FR*TOPIC');
-							$('#translation-29').html('*FR*PAGE');
-							$('#translation-30').html('*FR*DIFFICULTY');
-							$('#translation-32').html('*FR*No details associated to this exercise.');
+							$('#translation-27').html('ENONCÉ');
+							$('#translation-28').html('SUJET');
+							$('#translation-29').html('PAGE');
+							$('#translation-30').html('DIFFICULTÉ');
+							$('#translation-32').html('Il n’y a pas des détails associés à cet exercice.');
 							break;
 						}
 						$('#header').show();

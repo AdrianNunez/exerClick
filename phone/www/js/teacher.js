@@ -160,6 +160,13 @@ $(document).on('ready', function() {
 								$('#translation-18').html('Dificultad: <span class="difficulty-level">5</span>');
 								$('#translation-19').html('GUARDAR EJERCICIO');
 								$('#translation-20').html('MÁS');
+								
+								// Languages of the profile
+								$('select.language-select').empty();
+								$('select.language-select').append('<option value="1">Castellano</option>');
+								$('select.language-select').append('<option value="2">Euskera</option>');
+								$('select.language-select').append('<option value="3">Inglés</option>');
+								$('select.language-select').append('<option value="4">Francés</option>');
 								break;
 							case 'eu':
 								// Profile 
@@ -187,6 +194,13 @@ $(document).on('ready', function() {
 								$('#translation-18').html('Sailtasuna: <span class="difficulty-level">5</span>');
 								$('#translation-19').html('ARIKETA GORDE');
 								$('#translation-20').html('GEHIAGO');
+								
+								// Languages of the profile
+								$('select.language-select').empty();
+								$('select.language-select').append('<option value="1">Gaztelania</option>');
+								$('select.language-select').append('<option value="2">Euskera</option>');
+								$('select.language-select').append('<option value="3">Ingelesa</option>');
+								$('select.language-select').append('<option value="4">Frantsesa</option>');
 								break;
 							case 'en':
 								// Profile 
@@ -214,34 +228,66 @@ $(document).on('ready', function() {
 								$('#translation-18').html('Difficulty: <span class="difficulty-level">5</span>');
 								$('#translation-19').html('SAVE EXERCISE');
 								$('#translation-20').html('MORE');
+								
+								// Languages of the profile
+								$('select.language-select').empty();
+								$('select.language-select').append('<option value="1">Spanish</option>');
+								$('select.language-select').append('<option value="2">Basque</option>');
+								$('select.language-select').append('<option value="3">English</option>');
+								$('select.language-select').append('<option value="4">French</option>');
 								break;
 							case 'fr':
 								// Profile 
-								$('#translation-1').html('*FR*<span class=\"name\"></span>\'S PROFILE');
-								$('#translation-2').html('*FR*GO TO CLASS');
-								$('#translation-3').html('*FR*You are in <span class=\"subject\"></span> subject');
-								$('#translation-4').html('*FR*SUBJECT');
-								$('#translation-5').html('*FR*LANGUAGE');
-								$('#translation-6').html('*FR*CLOSE SESSION');
+								$('#translation-1').html('PROFIL DE <span class=\"name\"></span>');
+								$('#translation-2').html('ALLER À CLASSE');
+								$('#translation-3').html('Vous êtes dans la matière de <span class=\"subject\"></span>');
+								$('#translation-4').html('MATIÈRE');
+								$('#translation-5').html('LANGUE');
+								$('#translation-6').html('DÉCONNECTER');
 								
 								// State buttons
-								$('#translation-7').html('*FR*ACTIVES');
-								$('#translation-8').html('*FR*FINISHED');
-								$('#translation-9').html('*FR*READY');
+								$('#translation-7').html('ACTIFS');
+								$('#translation-8').html('TERMINÉS');
+								$('#translation-9').html('PRÈTS');
 								
 								// Progress bar
-								$('#translation-10').html('*FR*<span class=\"progress-percentage\">0</span>% ACHIEVED');
+								$('#translation-10').html('<span class=\"progress-percentage\">0</span>% completé');
 								
 								// New exercise tab
-								$('#translation-13').html('*FR*NEW EXERCISE');
-								$('#translation-14').find('input').attr('placeholder', '*FR*identifier of the new exercise (exercise number, name, etc.)');
-								$('#translation-15').find('textarea').attr('placeholder', '*FR*Enunciado');
-								$('#translation-16').find('input').attr('placeholder', '*FR*Topic');
-								$('#translation-17').find('input').attr('placeholder', '*FR*Page');
-								$('#translation-18').html('*FR*Difficulty: <span class="difficulty-level">5</span>');
-								$('#translation-19').html('SAVE EXERCISE');
-								$('#translation-20').html('MORE');
+								$('#translation-13').html('NOUVEAU EXERCICE');
+								$('#translation-14').find('input').attr('placeholder', 'Identificateur du noueveau exercice (nombre d’exercice, nom, etc.)');
+								$('#translation-15').find('textarea').attr('placeholder', 'Enoncé');
+								$('#translation-16').find('input').attr('placeholder', 'Sujet');
+								$('#translation-17').find('input').attr('placeholder', 'Page');
+								$('#translation-18').html('Difficulté: <span class="difficulty-level">5</span>');
+								$('#translation-19').html('GARDER L’EXERCICE');
+								$('#translation-20').html('PLUS');
+								
+								// Languages of the profile
+								$('select.language-select').empty();
+								$('select.language-select').append('<option value="1">Castillan</option>');
+								$('select.language-select').append('<option value="2">Basque</option>');
+								$('select.language-select').append('<option value="3">Anglais</option>');
+								$('select.language-select').append('<option value="4">François</option>');
 								break;
+						}
+						if($('#main').hasClass('profile-main'))  {
+							if(lang != '') {
+								switch(lang) {
+									case 'es':
+										$('select.language-select').val('1').attr('selected', 'selected');
+										break;
+									case 'eu':
+										$('select.language-select').val('2').attr('selected', 'selected');
+										break;
+									case 'en':
+										$('select.language-select').val('3').attr('selected', 'selected');
+										break;
+									case 'fr':
+										$('select.language-select').val('4').attr('selected', 'selected');
+										break;
+								}
+							}
 						}
 
 						$('.name').attr('data-id', data.data[0].id);
@@ -318,7 +364,7 @@ $(document).on('ready', function() {
 							$('#translation-11').html('An error has occurred while trying to load the exercises.');
 							break;
 						case 'fr':
-							$('#translation-11').html('*FR*An error has occurred while trying to load the exercises.');
+							$('#translation-11').html('Il y a un erreur en chargeant des exercices.');
 							break;
 						}
 					} else if(data.exercises.length == 0) {
@@ -343,7 +389,7 @@ $(document).on('ready', function() {
 							$('#translation-12').html('No available exercises.');
 							break;
 						case 'fr':
-							$('#translation-12').html('*FR*No available exercises.');
+							$('#translation-12').html('Il n’y a pas des exerciCes disponibles');
 							break;
 						}
 					} else {
@@ -515,8 +561,8 @@ $(document).on('ready', function() {
 							$('#translation-23').find('input').attr('placeholder', 'Find student');
 							break;
 						case 'fr':
-							$('#translation-22').html('*FR*ALL');
-							$('#translation-23').find('input').attr('placeholder', '*FR*Find student');
+							$('#translation-22').html('TOUS');
+							$('#translation-23').find('input').attr('placeholder', 'Chercher étudiant');
 							break;
 						}
 						
@@ -644,8 +690,8 @@ $(document).on('ready', function() {
 							$('#translation-23').find('input').attr('placeholder', 'Find student');
 							break;
 						case 'fr':
-							$('#translation-22').html('*FR*ALL');
-							$('#translation-23').find('input').attr('placeholder', '*FR*Find student');
+							$('#translation-22').html('TOUS');
+							$('#translation-23').find('input').attr('placeholder', 'Chercher étudiant');
 							break;
 						}
 						
@@ -841,11 +887,11 @@ $(document).on('ready', function() {
 							$('#translation-32').html('No details associated to this exercise.');
 							break;
 						case 'fr':
-							$('#translation-27').html('*FR*STATEMENT');
-							$('#translation-28').html('*FR*TOPIC');
-							$('#translation-29').html('*FR*PAGE');
-							$('#translation-30').html('*FR*DIFFICULTY');
-							$('#translation-32').html('*FR*No details associated to this exercise.');
+							$('#translation-27').html('ENONCÉ');
+							$('#translation-28').html('SUJET');
+							$('#translation-29').html('PAGE');
+							$('#translation-30').html('DIFFICULTÉ');
+							$('#translation-32').html('Il n’y a pas des détails associés à cet exercice.');
 							break;
 						}
 						
@@ -939,6 +985,7 @@ $(document).on('ready', function() {
 		// Call the main function to load content and then add the action listeners
 		loadData().done(function() {
 			$(document).on('vclick click tap', '.back', hideAll);
+		
 			$(document).on('click', '.statistics-button', function(e) {
 				e.stopPropagation();
 				// Get the id of the exercise from the field 'data-id' (needed here before the hideAll call to work)
@@ -1162,9 +1209,9 @@ $(document).on('ready', function() {
 							$('#translation-26').html('NOT SOLVED');
 							break;
 						case 'fr':
-							$('#translation-24').html('*FR*ALL');
-							$('#translation-25').html('*FR*SOLVED');
-							$('#translation-26').html('*FR*NOT SOLVED');
+							$('#translation-24').html('TOUTES');
+							$('#translation-25').html('RÉSOLUES');
+							$('#translation-26').html('SANS RÉSOUDRE');
 							break;
 					}
 				}
@@ -1240,7 +1287,7 @@ $(document).on('ready', function() {
 							$('#translation-33').html('The description must have, at least, one character.');
 							break;
 						case 'fr':
-							$('#translation-33').html('*FR*The description must have, at least, one character.');
+							$('#translation-33').html('La description doit avoir au moins un caractère.');
 							break;
 					}
 					$('#toast-new-exercise').hide().fadeIn('slow').delay(2000).fadeOut();
@@ -1264,18 +1311,39 @@ $(document).on('ready', function() {
 			$(document).on('vclick click tap', '.save-exercise', function() {
 				var description = $(this).parents('#new-exercise').find('input#input-exercise-id').val();
 				// Advanced new exercise creation tab displayed
-				if($('#new-exercise').find('.advanced-exercise-occult').length != 0) {
-					var statement  = $(this).parents('#new-exercise').find('textarea#input-exercise-statement').val();
-					var topic = $(this).parents('#new-exercise').find('input#input-exercise-topic').val();
-					var page = $(this).parents('#new-exercise').find('input#input-exercise-page').val();
-					var difficulty = $(this).parents('#new-exercise').find('.difficulty-level').html();
+				if(description.length < 1) {
+					if($('#toast-new-exercise').length)
+						$('#toast-new-exercise').remove();
+					$('#container').append('<div id="toast-new-exercise" class="error3"><div id="toast-content-ne"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-33">&nbsp;</span></div></div>');
+					switch(lang) {
+						case 'es':
+							$('#translation-33').html('La descripción debe tener por lo menos un carácter.');
+							break;
+						case 'eu':
+							$('#translation-33').html('Deskripzioa, gutxienez, karaktere bat izan behar du.');
+							break;
+						case 'en':
+							$('#translation-33').html('The description must have, at least, one character.');
+							break;
+						case 'fr':
+							$('#translation-33').html('La description doit avoir au moins un caractère.');
+							break;
+					}
+					$('#toast-new-exercise').hide().fadeIn('slow').delay(2000).fadeOut();
 				} else {
-					var statement = '';
-					var topic = '';
-					var page = '';
-					var difficulty = '';
+					if($('#new-exercise').find('.advanced-exercise-occult').length != 0) {
+						var statement  = $(this).parents('#new-exercise').find('textarea#input-exercise-statement').val();
+						var topic = $(this).parents('#new-exercise').find('input#input-exercise-topic').val();
+						var page = $(this).parents('#new-exercise').find('input#input-exercise-page').val();
+						var difficulty = $(this).parents('#new-exercise').find('.difficulty-level').html();
+					} else {
+						var statement = '';
+						var topic = '';
+						var page = '';
+						var difficulty = '';
+					}
+					launchExercise('Ready', description, statement, topic, page, difficulty);
 				}
-				launchExercise('Ready', description, statement, topic, page, difficulty);
 			});
 			
 			$(document).on('vclick click tap', '.config-exercise', function() {
@@ -1330,7 +1398,7 @@ $(document).on('ready', function() {
 							$('#translation-31').html('SAVE CHANGES');
 							break;
 						case 'fr':
-							$('#translation-31').html('*FR*SAVE CHANGES');
+							$('#translation-31').html('GARDER LES CHANGEMENTS');
 							break;
 					}
 					var windowHeight = $(window).height();
@@ -1347,53 +1415,74 @@ $(document).on('ready', function() {
 					var topic = $(this).parents('#exercise-details').find('#input-exercise-topic').val();
 					var page = $(this).parents('#exercise-details').find('#input-exercise-page').val();
 					var difficulty = $(this).parents('#exercise-details').find('#input-exercise-difficulty').val();
-
-					$(this).parents('#exercise-details').find('.exercise-detail-description').html(description);
-					$(this).parents('#exercise-details').find('.exercise-detail-statement').html(statement);
-					$(this).parents('#exercise-details').find('.exercise-detail-topic').html(topic);
-					$(this).parents('#exercise-details').find('.exercise-detail-page').html(page);
-					$(this).parents('#exercise-details').find('.exercise-detail-difficulty').html(difficulty);
 					
-					var something = 0;
-					
-					if(statement == null || statement == '') {
-						$('.exercise-details-title-1').hide();
-						$('.exercise-detail-statement').hide();
-					} else something++;
-					
-					if(topic == null || topic == '') {
-						$('.exercise-details-title-2').hide();
-						$('.exercise-detail-topic').hide();
-					} else something++;
-					
-					if(page == null || page == '') {
-						$('.exercise-details-title-3').hide();
-						$('.exercise-detail-page').hide();
-					} else something++;
-					
-					if(difficulty == null || difficulty == '') {
-						$('.exercise-details-title-4').hide();
-						$('.exercise-detail-difficulty').hide();
-					} else something++;
-					
-					$('.save-changes').remove();
-					
-					if(something == 0) {
-						$('.exercise-details-content').append('<div id="toast-details"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-32">&nbsp;</span></div></div>');
-						$('#toast-details').hide().fadeIn('slow');
+					if(description.length < 1) {
+					if($('#toast-new-exercise').length)
+						$('#toast-new-exercise').remove();
+						$('#container').append('<div id="toast-new-exercise" class="error3"><div id="toast-content-ne"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-33">&nbsp;</span></div></div>');
 						switch(lang) {
-						case 'es':
-							$('#translation-32').html('No hay ningún detalle asociado a este ejercicio.');
-							break;
-						case 'eu':
-							$('#translation-32').html('Ez dago xehetasunik ariketa honekin erlazionatuta.');
-							break;
-						case 'en':
-							$('#translation-32').html('No details associated to this exercise.');
-							break;
-						case 'fr':
-							$('#translation-32').html('*FR*No details associated to this exercise.');
-							break;
+							case 'es':
+								$('#translation-33').html('La descripción debe tener por lo menos un carácter.');
+								break;
+							case 'eu':
+								$('#translation-33').html('Deskripzioa, gutxienez, karaktere bat izan behar du.');
+								break;
+							case 'en':
+								$('#translation-33').html('The description must have, at least, one character.');
+								break;
+							case 'fr':
+								$('#translation-33').html('La description doit avoir au moins un caractère.');
+								break;
+						}
+						$('#toast-new-exercise').hide().fadeIn('slow').delay(2000).fadeOut();
+					} else {
+						$(this).parents('#exercise-details').find('.exercise-detail-description').html(description);
+						$(this).parents('#exercise-details').find('.exercise-detail-statement').html(statement);
+						$(this).parents('#exercise-details').find('.exercise-detail-topic').html(topic);
+						$(this).parents('#exercise-details').find('.exercise-detail-page').html(page);
+						$(this).parents('#exercise-details').find('.exercise-detail-difficulty').html(difficulty);
+						
+						var something = 0;
+						
+						if(statement == null || statement == '') {
+							$('.exercise-details-title-1').hide();
+							$('.exercise-detail-statement').hide();
+						} else something++;
+						
+						if(topic == null || topic == '') {
+							$('.exercise-details-title-2').hide();
+							$('.exercise-detail-topic').hide();
+						} else something++;
+						
+						if(page == null || page == '') {
+							$('.exercise-details-title-3').hide();
+							$('.exercise-detail-page').hide();
+						} else something++;
+						
+						if(difficulty == null || difficulty == '') {
+							$('.exercise-details-title-4').hide();
+							$('.exercise-detail-difficulty').hide();
+						} else something++;
+						
+						$('.save-changes').remove();
+						
+						if(something == 0) {
+							$('.exercise-details-content').append('<div id="toast-details"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-32">&nbsp;</span></div></div>');
+							$('#toast-details').hide().fadeIn('slow');
+							switch(lang) {
+							case 'es':
+								$('#translation-32').html('No hay ningún detalle asociado a este ejercicio.');
+								break;
+							case 'eu':
+								$('#translation-32').html('Ez dago xehetasunik ariketa honekin erlazionatuta.');
+								break;
+							case 'en':
+								$('#translation-32').html('No details associated to this exercise.');
+								break;
+							case 'fr':
+								$('#translation-32').html('Il n’y a pas des détails associés à cet exercice.');
+								break;
+							}
 						}
 					}
 				}
@@ -1406,59 +1495,79 @@ $(document).on('ready', function() {
 				var topic = $(this).parents('#exercise-details').find('#input-exercise-topic').val();
 				var page = $(this).parents('#exercise-details').find('#input-exercise-page').val();
 				var difficulty = $(this).parents('#exercise-details').find('#input-exercise-difficulty').val();
-				
-				parent = $(this).parents('#exercise-details');
-
-				updateExercise(id, description, statement, topic, page, difficulty).done(function() {
-					parent.find('.exercise-detail-description').html(description);
-					parent.find('.exercise-detail-statement').html(statement);
-					parent.find('.exercise-detail-topic').html(topic);
-					parent.find('.exercise-detail-page').html(page);
-					parent.find('.exercise-detail-difficulty').html(difficulty);
-					
-					var something = 0;
-					
-					if(statement == null || statement == '') {
-						$('.exercise-details-title-1').hide();
-						$('.exercise-detail-statement').hide();
-					} else something++;
-					
-					if(topic == null || topic == '') {
-						$('.exercise-details-title-2').hide();
-						$('.exercise-detail-topic').hide();
-					} else something++;
-					
-					if(page == null || page == '') {
-						$('.exercise-details-title-3').hide();
-						$('.exercise-detail-page').hide();
-					} else something++;
-					
-					if(difficulty == null || difficulty == '') {
-						$('.exercise-details-title-4').hide();
-						$('.exercise-detail-difficulty').hide();
-					} else something++;
-								
-					$('.save-changes').remove();
-					
-					if(something == 0) {
-						$('.exercise-details-content').append('<div id="toast-details"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-32">&nbsp;</span></div></div>');
-						$('#toast-details').hide().fadeIn('slow');
-						switch(lang) {
+				if(description.length < 1) {
+					if($('#toast-new-exercise').length)
+						$('#toast-new-exercise').remove();
+					$('#container').append('<div id="toast-new-exercise" class="error3"><div id="toast-content-ne"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-33">&nbsp;</span></div></div>');
+					switch(lang) {
 						case 'es':
-							$('#translation-32').html('No hay ningún detalle asociado a este ejercicio.');
+							$('#translation-33').html('La descripción debe tener por lo menos un carácter.');
 							break;
 						case 'eu':
-							$('#translation-32').html('Ez dago xehetasunik ariketa honekin erlazionatuta.');
+							$('#translation-33').html('Deskripzioa, gutxienez, karaktere bat izan behar du.');
 							break;
 						case 'en':
-							$('#translation-32').html('No details associated to this exercise.');
+							$('#translation-33').html('The description must have, at least, one character.');
 							break;
 						case 'fr':
-							$('#translation-32').html('*FR*No details associated to this exercise.');
+							$('#translation-33').html('La description doit avoir au moins un caractre.');
 							break;
-						}
 					}
-				});
+					$('#toast-new-exercise').hide().fadeIn('slow').delay(2000).fadeOut();
+				} else {
+					parent = $(this).parents('#exercise-details');
+
+					updateExercise(id, description, statement, topic, page, difficulty).done(function() {
+						parent.find('.exercise-detail-description').html(description);
+						parent.find('.exercise-detail-statement').html(statement);
+						parent.find('.exercise-detail-topic').html(topic);
+						parent.find('.exercise-detail-page').html(page);
+						parent.find('.exercise-detail-difficulty').html(difficulty);
+						
+						var something = 0;
+						
+						if(statement == null || statement == '') {
+							$('.exercise-details-title-1').hide();
+							$('.exercise-detail-statement').hide();
+						} else something++;
+						
+						if(topic == null || topic == '') {
+							$('.exercise-details-title-2').hide();
+							$('.exercise-detail-topic').hide();
+						} else something++;
+						
+						if(page == null || page == '') {
+							$('.exercise-details-title-3').hide();
+							$('.exercise-detail-page').hide();
+						} else something++;
+						
+						if(difficulty == null || difficulty == '') {
+							$('.exercise-details-title-4').hide();
+							$('.exercise-detail-difficulty').hide();
+						} else something++;
+									
+						$('.save-changes').remove();
+						
+						if(something == 0) {
+							$('.exercise-details-content').append('<div id="toast-details"><div id="toast-content"><i class="fa fa-exclamation-triangle fa-fw"></i> <span id="translation-32">&nbsp;</span></div></div>');
+							$('#toast-details').hide().fadeIn('slow');
+							switch(lang) {
+							case 'es':
+								$('#translation-32').html('No hay ningún detalle asociado a este ejercicio.');
+								break;
+							case 'eu':
+								$('#translation-32').html('Ez dago xehetasunik ariketa honekin erlazionatuta.');
+								break;
+							case 'en':
+								$('#translation-32').html('No details associated to this exercise.');
+								break;
+							case 'fr':
+								$('#translation-32').html('Il n’y a pas des détails associés à cet exercice.');
+								break;
+							}
+						}	
+					});
+				}
 			});
 			
 			$(document).on('vclick click tap', '.advanced-exercise', function() {
@@ -1474,7 +1583,7 @@ $(document).on('ready', function() {
 						$('#translation-21').html('LESS');
 						break;
 					case 'fr':
-						$('#translation-21').html('*FR*LESS');
+						$('#translation-21').html('MOINS');
 						break;
 				}
 				$('.advanced-exercise').addClass('advanced-exercise-occult');
@@ -1505,7 +1614,7 @@ $(document).on('ready', function() {
 						$('#translation-20').html('MORE');
 						break;
 					case 'fr':
-						$('#translation-20').html('*FR*MORE');
+						$('#translation-20').html('PLUS');
 						break;
 				}
 				$('.advanced-exercise-occult').addClass('advanced-exercise');
@@ -1566,22 +1675,22 @@ $(document).on('ready', function() {
 			$('select.language-select').on('change', function (e) {
 				var optionSelected = $('option:selected', this);
 				var valueSelected = this.value;
-				var text = optionSelected.text();
-				var lang = '';
-				switch(text) {
-					case 'Castellano':
+				var val = optionSelected.val();
+				switch(val) {
+					case '1':
 						lang = 'es';
 						break;
-					case 'Euskera':
+					case '2':
 						lang = 'eu';
 						break;
-					case 'Inglés':
+					case '3':
 						lang = 'en';
 						break;
-					case 'Francés':
+					case '4':
 						lang = 'fr';
 						break;
 				}
+
 				$.ajax({
 					type: 'GET',
 					url: domain + 'change-lang.php',
