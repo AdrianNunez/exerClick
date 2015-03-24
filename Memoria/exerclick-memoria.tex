@@ -1,5 +1,5 @@
 % Tipo de documento
-\documentclass[12pt, twoside, a4paper, openany]{report}
+\documentclass[12pt, twoside, a4paper, openany]{scrbook}
 
 % Añadir caracteres no anglosajones como tildes, ñ, ¿, ¡, etc.
 \usepackage[utf8]{inputenc}
@@ -51,6 +51,8 @@
 %----------------------------------------------------%
 
 \input{plantilla/titulo.tex}
+\frontmatter
+\pagestyle{plain}
 \cleardoublepage
 
 %----------------------------------------------------%
@@ -80,18 +82,12 @@
 %                    INDICE GENERAL                  %
 %----------------------------------------------------%
 
-% No mostrar número de página
-\pagestyle{empty}
-
 \tableofcontents
 \newpage
 
 %----------------------------------------------------%
 %                    INDICE FIGURAS                  %
 %----------------------------------------------------%
-
-% No mostrar número de página
-\pagestyle{empty}
 
 \listoffigures
 \newpage
@@ -100,9 +96,6 @@
 %                    INDICE TABLAS                   %
 %----------------------------------------------------%
 
-% No mostrar número de página
-\pagestyle{empty}
-
 \listoftables
 \cleardoublepage
 
@@ -110,6 +103,7 @@
 %                    INTRODUCCION                    %
 %----------------------------------------------------%
 
+\mainmatter
 \input{capitulos/1-introduccion.tex}
 
 %----------------------------------------------------%
@@ -158,5 +152,7 @@
 \renewcommand{\thechapter}{\Alph{chapter}}
 
 \input{apendices/a-actas-reuniones.tex}
+
+\backmatter
 
 \end{document}
