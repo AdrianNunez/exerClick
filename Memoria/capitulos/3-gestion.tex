@@ -12,7 +12,7 @@ Añadir introducción.\\
 
 Las metodologías ágiles son procesos para el desarrollo de software. Se basan en el desarrollo incremental e iterativo, donde varios grupos se unen para dar requerimientos y soluciones nuevas gracias a su colaboración. Se enfatiza en el cara a cara más que en la documentación. Un ejemplo de esta metodología es SCRUM.\\
 
-La metodología es bastante flexible, pudiendo adaptarse a cada proyecto. Es decir, no tiene reglas absolutamente fijas. En su base esta el \textit{Manifiesto Ágil} en el que se basan todas las variantes de esta metodología. Este manifiesto \hyperref[manifiesto-agil]{\ref*{manifiesto-agil}} dice así:\\
+La metodología es bastante flexible, pudiendo adaptarse a cada proyecto. Es decir, no tiene reglas absolutamente fijas. En su base esta el \textit{Manifiesto Ágil} en el que se basan todas las variantes de esta metodología. Este manifiesto \hyperref[manifiesto-agil]{\ref*{manifiesto-agil}} dice así:
 
 \begin{itemize}
 \item Individuos e interacciones sobre procesos y herramientas
@@ -91,15 +91,36 @@ Se han identificado 4 equipos que participarán en el proyecto (interesados en e
 \item \textbf{Equipo 4:} Se encargará de las evaluaciones con los usuarios finales.
 \end{itemize}
 
-\section{Canal de comunicación e Infraestructura de almacenamiento}
+\section{Canales de comunicación e Infraestructura de almacenamiento}
 
 Con el fin de mantener la comunicación con los interesados en el proyecto se plantea el canal de comunicación \textit{Slack} (https://slack.com/) al inicio del proyecto. Mediante este canal se intercambiaran mensajes rápidos entre  y Adrián Núñez para cualquier duda u opinión rápida.\\
 
-También se realizaran periódicamente reuniones presenciales, como mínimo, entre Maite Urretavizcaya y Adrián Núñez para monitorizar el desarrollo del proyecto. A estas reuniones también asistirán Samara Ruíz, Juan Miguel López y Begoña Losada.\\
+También se realizaran periódicamente reuniones presenciales, como mínimo, entre Maite Urretavizcaya y Adrián Núñez para monitorizar el desarrollo del proyecto. A estas reuniones también han asistido Samara Ruíz (en su mayoría) y Juan Miguel López.\\
+
+Para la comunicación con el Equipo 2 se utilizó la herramienta de mensajería móvil \textit{Telegram} (que permite, al contrario que otras conocidas, el intercambio de cualquier tipo de fichero, vital para pasarles el fichero .apk).\\
 
 Finalmente, el proyecto y este documento estarán públicos en \textit{GitHub} en el siguiente repositorio: https://github.com/AdrianNunez/exerClick. Se realizaran periódicamente actualizaciones del mismo. También se dispone de otras copias en el ordenador personal del autor, Adrián Núñez, y en el espacio de almacenamiento \textit{Google Drive}, en una carpeta compartida con Maite Urretavizcaya y Samara Ruíz.\\
 
-\section{Tecnologías usadas}
+\section{Sistemas Operativos evaluados}
+\label{sistemas-operativos}
+
+En la propia documentación de Apache Cordova vienen indicados los Sistemas Operativos soportados a los que se puede adaptar la aplicación:
+
+\begin{itemize}
+\item iOS (Mac)
+\item Amazon Fire OS (Mac, Linux, Windows)
+\item Android (Mac, Linux, Windows)
+\item BlackBerry 10 (Mac, Linux, Windows)
+\item Windows Phone 8 (Windows)
+\item Windows (Windows)
+\item Firefox OS (Mac, Linux, Windows)
+\end{itemize}
+
+Ya que el abanico de posibilidades es extenso se decidió reducir las posibilidades a iOS, Android, BlackBerry 10 y Windows Phone 8. El desarrollo principal y todas las pruebas iniciales se realizarán utilizando Android.\\
+
+Al final del proyecto, debido a incompatibilidades con la infraestructura disponible, se realizaron sólo evaluaciones en dispositivos fisicos Android e iOS.\\
+
+\section{Tecnologías y Herramientas utilizadas}
 \label{tecnologias}
 
 Al inicio, antes del desarrollo de la aplicación, se concretaron las siguientes tecnologías mínimas a utilizar:
@@ -118,12 +139,9 @@ Como calidad añadida se utilizan las siguientes tecnologías:
 \item JQuery
 \end{itemize}
 
-Las herramienta principales para el desarrollo de la aplicación serán Notepad++ y Eclipse. Para la gestión de la base de datos se usará phpMyAdmin.\\
+Las herramientas principales para el desarrollo de la aplicación serán Notepad++ y Eclipse. Para la gestión de la base de datos se usará phpMyAdmin y para la gestión del servidor se usará WinSCP.\\
 
-\section{Sistemas Operativos evaluados}
-\label{sistemas-operativos}
-
-Comentar los SOs que habiamos dicho al principio y al finales cuales.\\
+Para el desarrollo en Android se utilizará la SDK de Android y el emulador Genymotion (mucho más rápido que el emulador por defecto).\\
 
 %----------------------------------------------------%
 %               	    STEP 0                       %
@@ -374,14 +392,14 @@ Más avanzados en la iteración se le ha proporcionado al alumno la base de dato
 
 \begin{flushleft}
 \textbf{Fecha de inicio:} 27/1/15\\
-\textbf{Fecha de fin:} 6/1/15\\
-\textbf{Dedicación total:} -\\
+\textbf{Fecha de fin:} 6/2/15\\
+\textbf{Dedicación total:} 23 horas, 15 minutos\\
 \end{flushleft}
 
 \subsection{Step 1.5. Lista de UOs}
 \label{it5:1.5}
 
-Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T}
+Lista de UOs = {UO1-S, UO1-T, UO2-T, UO3-T, UO4-T}
 
 \subsection{Step 2.5. Planificación de la iteración}
 \label{it5:2.5}
@@ -422,20 +440,33 @@ Se ha ocultado la pestaña de ejercicios preparados hasta que se aborde el tema.
 \label{it6}
 
 \begin{flushleft}
-\textbf{Fecha de inicio:} -\\
+\textbf{Fecha de inicio:} 9/2/15\\
 \textbf{Fecha de fin:} -\\
-\textbf{Dedicación total:} -\\
+\textbf{Dedicación total:} - horas, - minutos\\
 \end{flushleft}
 
 \subsection{Step 1.6. Lista de UOs}
 \label{it6:1.6}
 
+Lista de UOs = {UO1-S, UO5-T, UO6-T, UO7-T, UO9-T}
 
 \subsection{Step 2.6. Planificación de la iteración}
 \label{it6:2.6}
 
+\begin{itemize}
+\item Equipo 1: -
+\item Equipo 2: Evaluación de las .apks generadas durante el desarrollo
+\item Equipo 3: -
+\end{itemize}
+
 \subsection{Step 3.6. Ejecución de las actividades}
 \label{it6:3.6}
+
+La iteración 6 se puede dividir en dos partes importantes: la primera en la que se crean los UOs restantes para tener una aplicación completamente funcional y la segunda en la que se genera finalmente un apk y se comienzan las pruebas.\\
+
+Primera parte.\\
+
+Para generar el apk se uso Eclipse Luna y Java 8. Se exportó el proyecto a Eclipse y se realizaron las configuraciones necesarias. Surgieron unas gran cantidad de errores que supusieron la mayor parte del tiempo de esta parte. Finalmente, cuando todo funcionaba correctamente y la aplicación se ejecutaba en el emulador, Eclipse generaba un fichero .apk correcto. Este fichero le fue pasado a Maite Urretavizcaya, Samara Ruíz y al Equipo 2 para realizar pruebas. \\
 
 %----------------------------------------------------%
 %      DOCUMENTACION DE LA GESTION DEL PROYECTO      %
