@@ -12,11 +12,17 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+% Listas con corchetes tipo [1], [2]...
+\usepackage{enumitem}
+
+% Permite usar hipervínculos
+\usepackage[hidelinks]{hyperref}
+
 \usepackage{afterpage}
 
-\newcommand\blankpage{%
+\newcommand\blankpage{
     \null
-    \thispagestyle{empty}%
+    \thispagestyle{empty}s
     \newpage}
 
 % Floating options
@@ -32,7 +38,7 @@
 % Permite usar frames (cajas)
 \usepackage{framed}
 
-% Permite usar clores
+% Permite usar colores
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 
 % Permite el uso de cabeceras y pies de página
