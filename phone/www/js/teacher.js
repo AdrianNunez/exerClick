@@ -77,7 +77,7 @@ $(document).on('ready', function() {
 			'<div id="translation-17" class=\"col-xs-12 bottompadd\"><input type=\"text\" class=\"form-control\" id="input-exercise-page"></div>' +
 			'<div class=\"clear\"></div>' +
 			'<div class=\"difficulty bottompadd col-xs-12\">' +
-				'<input type="number" class="difficulty-slider col-xs-12" value="5">' +
+				'<input type="number" id="input-exercise-difficulty" class="difficulty-slider col-xs-12" min="1" max="10" value="5">' +
 			'</div>' +
 			'<div class="col-xs-12"><div id="translation-18"></div></div>'
 		);
@@ -86,7 +86,7 @@ $(document).on('ready', function() {
 		$('.advanced-container').css('height', $('.campos').height() - $('.save-exercise').height() - $('#input-exercise-id').height()); 
 		$('.advanced-content').css('height', $('.campos').height() - $('.save-exercise').height() - $('#input-exercise-id').height()); 
 		$('.difficulty-slider').on('keyup mouseup', function(ev){
-			$('.difficulty-level').html($('.difficulty-slider').val());
+			$('.difficulty-level').html($('#input-exercise-difficulty').val());
 		});
 		
 		// Hide divs for showing them when asked
@@ -1370,16 +1370,15 @@ $(document).on('ready', function() {
 						page = $(this).parents('#exercise-details').find('.exercise-detail-page').html();	
 					var difficulty = '';
 					if($(this).parents('#exercise-details').find('.exercise-detail-difficulty').length)
-						$(this).parents('#exercise-details').find('.exercise-detail-difficulty').html();
+						difficulty = $(this).parents('#exercise-details').find('.exercise-detail-difficulty').html();
 
-					if($(this).parents('#exercise-details').find('.exercise-detail-description').length)
-						$(this).parents('#exercise-details').find('.exercise-detail-description').html('<input type=\"text\" class=\"form-control\" id="input-exercise-description" placeholder=\"Descripción\" value="' + description + '">');	
-						
+
+					$(this).parents('#exercise-details').find('.exercise-detail-description').html('<input type=\"text\" class=\"form-control\" id="input-exercise-description" placeholder=\"Descripción\" value="' + description + '">');		
 					$(this).parents('#exercise-details').find('.exercise-detail-statement').html('<textarea class=\"form-control\" id="input-exercise-statement" placeholder=\"Enunciado\" rows="3">' + statement + '</textarea>');
 					$(this).parents('#exercise-details').find('.exercise-detail-topic').html('<input type=\"text\" class=\"form-control\" id="input-exercise-topic" placeholder=\"Tema\" value="' + topic + '">');
 					$(this).parents('#exercise-details').find('.exercise-detail-page').html('<input type=\"text\" class=\"form-control\" id="input-exercise-page" placeholder=\"Página\" value="' + page + '">');
-					$(this).parents('#exercise-details').find('.exercise-detail-difficulty').html('<input type=\"text\" class=\"form-control\" id="input-exercise-difficulty" placeholder=\"Dificultad\" value="' + difficulty + '">');
-					
+					$(this).parents('#exercise-details').find('.exercise-detail-difficulty').html('<input type="number" id="input-exercise-difficulty" class="difficulty-slider col-xs-12" min="1" max="10" value="' + difficulty + '">');
+
 					$('.exercise-details-content').append(
 						'<button type="button" class="btn btn-default btn-primary save-changes">' +
 							'<div class="bold"><span id="translation-31">&nbsp;</span></div>' +
@@ -1413,7 +1412,7 @@ $(document).on('ready', function() {
 					var topic = $(this).parents('#exercise-details').find('#input-exercise-topic').val();
 					var page = $(this).parents('#exercise-details').find('#input-exercise-page').val();
 					var difficulty = $(this).parents('#exercise-details').find('#input-exercise-difficulty').val();
-					
+
 					if(description.length < 1) {
 					if($('#toast-new-exercise').length)
 						$('#toast-new-exercise').remove();
@@ -1439,7 +1438,7 @@ $(document).on('ready', function() {
 						$(this).parents('#exercise-details').find('.exercise-detail-topic').html(topic);
 						$(this).parents('#exercise-details').find('.exercise-detail-page').html(page);
 						$(this).parents('#exercise-details').find('.exercise-detail-difficulty').html(difficulty);
-						
+			
 						var something = 0;
 						
 						if(statement == null || statement == '') {
