@@ -336,6 +336,12 @@ checkbox {
 	font-size: 1.5em;
 }
 
+.difficulty-slider {
+	border-radius: 5px;
+	border: 1px solid #cccccc;
+	color: gray;
+}
+
 #exercise-details {
 	position: absolute;
 	width: 100%;

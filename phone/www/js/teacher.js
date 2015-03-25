@@ -33,7 +33,7 @@ $(document).on('ready', function() {
 		
 		// Add the "new exercise" div which appears when the '+' button is pressed (for adding new exercises)
 		$('#container').append(
-			'<div id="new-exercise">' +
+			'<div id="new-exercise" class="ehuSans">' +
 				'<div class="new-exercise-title">' +
 					'<div class=\"tab-title col-xs-3"><i class=\"back fa fa-reply btn btn-default\"></i></div>' +
 					'<div class=\"tab-title col-xs-6\" align=\"center\"><h4><span id="translation-13">&nbsp;</span></h4></div>' +
@@ -76,18 +76,16 @@ $(document).on('ready', function() {
 			'<div class=\"clear\"></div>' +
 			'<div id="translation-17" class=\"col-xs-12 bottompadd\"><input type=\"text\" class=\"form-control\" id="input-exercise-page"></div>' +
 			'<div class=\"clear\"></div>' +
-			'<div class=\"difficulty col-xs-12 bottompadd\">' +
-				'<input type="text" class="difficulty-slider" value="" data-slider-min="0" data-slider-max="10" data-slider-step="1" data-slider-value="5" ' +
-				'data-slider-orientation="horizontal" data-slider-selection="after"data-slider-tooltip="hide">' +
+			'<div class=\"difficulty bottompadd col-xs-12\">' +
+				'<input type="number" class="difficulty-slider col-xs-12" value="5">' +
 			'</div>' +
-			'<div id="translation-18" class=\"col-xs-12\"></div>'
+			'<div class="col-xs-12"><div id="translation-18"></div></div>'
 		);
 		$('.advanced-container').show();
 		$('.campos').css('height', $('#input-exercise-id').height() + 5*Math.floor(parseFloat($('body').css('font-size'))) + $('.save-exercise').height());
 		$('.advanced-container').css('height', $('.campos').height() - $('.save-exercise').height() - $('#input-exercise-id').height()); 
 		$('.advanced-content').css('height', $('.campos').height() - $('.save-exercise').height() - $('#input-exercise-id').height()); 
-		$('.difficulty-slider').css('width', $('.difficulty-slider').parent('.difficulty').siblings().width());
-		$('.difficulty-slider').slider().on('slide', function(ev){
+		$('.difficulty-slider').on('keyup mouseup', function(ev){
 			$('.difficulty-level').html($('.difficulty-slider').val());
 		});
 		
