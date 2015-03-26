@@ -464,9 +464,20 @@ Lista de UOs = {UO1-S, UO5-T, UO6-T, UO7-T, UO9-T}
 
 La iteración 6 se puede dividir en dos partes importantes: la primera en la que se crean los UOs restantes para tener una aplicación completamente funcional y la segunda en la que se genera finalmente un apk y se comienzan las pruebas.\\
 
-Primera parte.\\
+Tras la reunión que daba inicio a esta iteración se realizaron todas las modificaciones y correcciones acordadas para empezar. El objetivo principal era completar el UO principal que forma el UO1-T, el UO1-S y el UO4-T (es decir, añadir ejercicios, responder a ellos y ver los resultados). Para ello primero había que convertir los datos estáticos en datos obtenidos de la base de datos (asignatura, estadísticas, etc.). Además de esto se realizaron muchísimas actividades más:
 
-Para generar el apk se uso Eclipse Luna y Java 8. Se exportó el proyecto a Eclipse y se realizaron las configuraciones necesarias. Surgieron unas gran cantidad de errores que supusieron la mayor parte del tiempo de esta parte. Finalmente, cuando todo funcionaba correctamente y la aplicación se ejecutaba en el emulador, Eclipse generaba un fichero .apk correcto. Este fichero le fue pasado a Maite Urretavizcaya, Samara Ruíz y al Equipo 2 para realizar pruebas. \\
+\begin{itemize}
+\item Se creó el perfil para el profesor y el UO7-T y el UO9-T.
+\item Se probó por primera vez en una tablet la aplicación completa.
+\item Se añadieron estadísticas diferentes para los ejercicios que estaban finalizados.
+\item Se añadieron los ejercicios preparados.
+\item Se modificó el funcionamiento de los botones para marcar el estado de un ejercicio en la vista del alumno.
+\item Se realizaron pruebas con el Grupo 2, formado por alumnos, por primera vez.
+\item Se añadió la opción de crear ejercicios avanzados.
+\item UO5-T para ver detalles de un ejercicio y UO6-T para editar un ejercicio.
+\end{itemize}
+
+Para generar el apk se usó Eclipse Luna y Java 8. Se exportó el proyecto a Eclipse y se realizaron las configuraciones necesarias. Surgieron unas gran cantidad de errores que supusieron la mayor parte del tiempo de esta parte. Finalmente, cuando todo funcionaba correctamente y la aplicación se ejecutaba en el emulador, Eclipse generaba un fichero .apk correcto. Este fichero le fue pasado a Maite Urretavizcaya, Samara Ruíz y al Equipo 2 para realizar pruebas. \\
 
 %----------------------------------------------------%
 %      DOCUMENTACION DE LA GESTION DEL PROYECTO      %
@@ -475,4 +486,151 @@ Para generar el apk se uso Eclipse Luna y Java 8. Se exportó el proyecto a Ecli
 \section{Documentación de la gestión del proyecto}
 \label{dgp}
 
-Añadir documentos sobre UOs: creación, tablas, esquemas, etc.\\
+A continuación se presenta un resumen completo de los objetivos desarrollados en las iteraciones. Con el paso de estas los objetivos se han fusionado, divididos o han ido evolucionando. Estos procesos se muestran de manera gráfica para dar una visión rápida del origen de cada UO. En esta leyenda se muestran todos los UOs desarrollados:\\
+
+\vspace{0.1cm}
+
+\noindent
+\framebox{\parbox[c]{1.0\textwidth}{
+\textbf{Notación}\\
+
+\textbf{UOX-Y:} UO Directo.\\
+\textbf{\framebox{UOX-Y}:} UO por Fusión.\\
+\textbf{\underline{UOX-Y}:} UO por División.\\
+}}\\
+
+\vspace{0.1cm}
+
+\noindent
+\framebox{\parbox[c]{1.0\textwidth}{
+\textbf{Alumno}\\
+
+\textbf{UO1-S:} \textit{Responder a un ejercicio.} El alumno quiere indicar que ha acabado o que tiene dudas con un ejercicio que el profesor ha propuesto.\\
+
+\textbf{UO2-S:} \textit{Ver detalles de un ejercicio.} El alumno quiere ver más detalles sobre un ejercicio disponible y activo en la sesión.\\
+}}\\
+
+\vspace{0.1cm}
+
+\noindent
+\framebox{\parbox[c]{1.0\textwidth}{
+\textbf{Profesor}\\
+
+\textbf{UO1-T:} \textit{Crear-Lanzar un ejercicio simple.} El profesor quiere proponer un ejercicio rápidamente, sin escribir mucho.\\
+
+\textbf{UO2-T:} \textit{Crear un ejercicio detallado.} El profesor quiere proponer la realización de un ejercicio preparado previamente o con bastantes detalles.\\
+
+\textbf{UO3-T:} \textit{Cambiar el tipo de ejercicio.} El profesor desea cambiar un ejercicio del tipo que tiene a otro cualquiera (de activo a finalizado, por ejemplo).\\
+
+\textbf{UO4-T:} \textit{El profesor desea ver qué tal le ha ido a la clase en general o a un alumno en un ejercicio.} El profesor desea ver qué tal le ha ido a la clase en general o a un alumno en un ejercicio.\\
+
+\textbf{UO5-T:} \textit{Ver la descripción completa de un ejercicio.} Un profesor quiere ver la descripción completa de un ejercicio (identificador, enunciado, página, tema, etc.).\\
+
+\textbf{UO6-T:} \textit{Editar un ejercicio.} El profesor desea editar los atributos de un ejercicio.\\
+
+\textbf{UO8-T:} \textit{Cerrar sesión.} El profesor quiere cerrar su sesión activa.\\
+
+\textbf{UO9-T:} \textit{Cambiar el idioma de la aplicación.} El profesor desea cambiar el idioma con el que lee la aplicación.\\
+
+\textbf{UO10-T:} \textit{ Cambiar de asignatura.} El profesor, que tiene más de una asignatura, quiere cambiar de una asignatura x a otra asignatura y.\\
+
+\textbf{\framebox{UO1}:} \textit{Lanzar ejercicios y visualizar resultados.} El profesor desea lanzar un ejercicio y, tras lanzarlo, ver el estado de cada alumno en dicho ejercicio.\\
+}}\\
+
+\vspace{0.1cm}
+
+\noindent
+\framebox{\parbox[c]{1.0\textwidth}{
+\textbf{Generales}\\
+
+\textbf{\framebox{UO2}:} \textit{Lanzar ejercicios, responder al ejercicio y visualizar los resultados.} El profesor desea lanzar un ejercicio, el alumno desea responder al ejercicio y finalmente el profesor desea ver el estado de ese alumno en el ejercicio que ha lanzado previamente.\\
+}}\\
+
+\vspace{0.1cm}
+
+Y los UOs definidos pero que no han sido realizados:\\
+
+\vspace{0.1cm}
+
+\noindent
+\framebox{\parbox[c]{1.0\textwidth}{
+\textbf{UO7-T:} \textit{Evaluar el ejercicio de un alumno.} El profesor quiere valorar la realización de un ejercicio a un alumno.\\
+}}\\
+
+\vspace{0.1cm}
+
+\subsection{Progreso de creación de UOs por iteraciones}
+\label{dgp:uos-iteraciones-creacion}
+
+Añadir imagen con líneas y tal para UOs.\\
+
+\subsection{Progreso de desarrollo de actividades por iteraciones}
+\label{dgp:uos-iteraciones-actividades}
+
+Añadir imagen con líneas y tal para actividades.\\
+
+\subsection{Hoja de gestión: planificación y UOs}
+\label{dgp:hoja-de-gestion}
+
+\subsubsection{Creación de Objetivos (UOs directos, UOs indirectos-fusión o division)}
+\label{dgp:hoja-de-gestion:a}
+
+\noindent
+\begin{tabular}{| l | c | c | c | c | c | c |}
+  \hline                       
+  Lista de UOs & 1 & 2 & 3 & 4 & 5 & 6 \\
+  \hline  
+  Fusión &  & &  &  &  &   \\
+  \hline  
+  División &  &  &  &  &  &  \\
+  \hline  
+\end{tabular}
+
+\subsubsection{Step 1.i y Step 2.i de cada iteración}
+\label{dgp:hoja-de-gestion:b}
+
+\noindent
+\begin{tabular}{| l | c | c | c | c | c | c |}
+  \hline                       
+  Iteración & 1 & 2 & 3 & 4 & 5 & 6 \\
+  \hline  
+  Lista de UOs &  & &  &  &  &   \\
+  \hline  
+  Equipo 1 &  &  &  &  &  &  \\
+  \hline  
+  Equipo 2 &  &  &  &  &  &  \\
+  \hline  
+\end{tabular}\\
+
+\subsubsection{Step 3.i}
+\label{dgp:hoja-de-gestion:c}
+
+\textbf{Profesor}\\
+
+\noindent
+\begin{tabular}{| l | c | c | c | c | c | c | c | c | c |}
+  \hline                       
+  UOs & 1 & 2 & 3 & 4 & 5 & 6 & 8 & 9 & 10 \\
+  \hline  
+  M-1 &  & &  &  &  &  &  &  &   \\
+  \hline  
+  M-2 &  & &  &  &  &  &  &  &   \\
+  \hline  
+  M-3 &  & &  &  &  &  &  &  &   \\
+  \hline  
+\end{tabular}\\
+
+\textbf{Alumno}\\
+
+\noindent
+\begin{tabular}{| l | c | c |}
+  \hline                       
+  UOs & 1 & 2 \\
+  \hline  
+  M-1 &  & \\
+  \hline  
+  M-2 &  & \\
+  \hline  
+  M-3 &  & \\
+  \hline  
+\end{tabular}\\

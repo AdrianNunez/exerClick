@@ -1,5 +1,5 @@
 % Tipo de documento
-\documentclass[12pt, twoside, a4paper, openany]{scrbook}
+\documentclass[12pt, twoside, a4paper, openany, bibliography=totoc]{scrbook}
 
 % Añadir caracteres no anglosajones como tildes, ñ, ¿, ¡, etc.
 \usepackage[utf8]{inputenc}
@@ -22,7 +22,7 @@
 
 \newcommand\blankpage{
     \null
-    \thispagestyle{empty}s
+    \thispagestyle{empty}
     \newpage}
 
 % Floating options
@@ -43,6 +43,10 @@
 
 % Permite el uso de cabeceras y pies de página
 \usepackage{fancyhdr}
+
+% Biblatex
+\usepackage[backend=bibtex,style=numeric,natbib=true]{biblatex}
+\addbibresource{bibliography.bib}
 
 \begin{document}
 
@@ -146,7 +150,8 @@
 %                    BIBLIOGRAFIA                    %
 %----------------------------------------------------%
 
-\input{plantilla/bibliografia.tex}
+\nocite{*}
+\printbibliography[heading=bibintoc,title={Bibliografía y Referencias}]
 
 %----------------------------------------------------%
 %                    APENDICES                       %
