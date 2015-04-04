@@ -339,6 +339,10 @@ Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T}
 \subsection{Step 2.3. Planificación de la iteración}
 \label{it2:2.3}
 
+\begin{itemize}
+\item Equipo 1: UO1-T[M-2]
+\end{itemize}
+
 \subsection{Step 3.3. Ejecución de las actividades}
 \label{it2:3.3}
 
@@ -366,10 +370,14 @@ También se fija que la versión de Android mínima para utilizar la aplicación
 \subsection{Step 1.4. Lista de UOs}
 \label{it4:1.4}
 
-Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T}
+Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T, UO1-S}
 
 \subsection{Step 2.4. Planificación de la iteración}
 \label{it4:2.4}
+
+\begin{itemize}
+\item Equipo 1: UO1-T[M-2], UO4-T[M-2], UO1-S[M-2]
+\end{itemize}
 
 \subsection{Step 3.4. Ejecución de las actividades}
 \label{it4:3.4}
@@ -399,13 +407,13 @@ Más avanzados en la iteración se le ha proporcionado al alumno la base de dato
 \subsection{Step 1.5. Lista de UOs}
 \label{it5:1.5}
 
-Lista de UOs = {UO1-S, UO1-T, UO2-T, UO3-T, UO4-T}
+Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T, UO1-S}
 
 \subsection{Step 2.5. Planificación de la iteración}
 \label{it5:2.5}
 
 \begin{itemize}
-\item Equipo 1: UO1-T[M-3], UO3-T[M-3], UO4-T[M-3], UO1-S[M-3]
+\item Equipo 1: UO1-T[M-3], UO3-T[M-2,M-3], UO4-T[M-3], UO1-S[M-3]
 \item Equipo 3: Evaluación{UO1-T[M-2], UO3-3[M-2], UO4-T[M-2]}
 \end{itemize}
 
@@ -448,15 +456,15 @@ Se ha ocultado la pestaña de ejercicios preparados hasta que se aborde el tema.
 \subsection{Step 1.6. Lista de UOs}
 \label{it6:1.6}
 
-Lista de UOs = {UO1-S, UO5-T, UO6-T, UO7-T, UO9-T}
+Lista de UOs = {UO1-S, UO2-S, UO5-T, UO6-T, UO8-T, UO9-T, UO10-T}
 
 \subsection{Step 2.6. Planificación de la iteración}
 \label{it6:2.6}
 
 \begin{itemize}
-\item Equipo 1: -
+\item Equipo 1: UO1-T[M-3], UO2-T[M-2,M-3], UO3-T[M-3], UO4-T[M-3], UO1-S[M-3], UO2-S[M-2,M-3], UO5-T[M-2,M-3], UO6-T[M-2,M-3], UO7-T[M-2,M-3], UO9-T[M-2,M-3]
 \item Equipo 2: Evaluación de las .apks generadas durante el desarrollo
-\item Equipo 3: -
+\item Equipo 3: Evaluación de las .apks generadas durante el desarrollo
 \end{itemize}
 
 \subsection{Step 3.6. Ejecución de las actividades}
@@ -467,7 +475,7 @@ La iteración 6 se puede dividir en dos partes importantes: la primera en la que
 Tras la reunión que daba inicio a esta iteración se realizaron todas las modificaciones y correcciones acordadas para empezar. El objetivo principal era completar el UO principal que forma el UO1-T, el UO1-S y el UO4-T (es decir, añadir ejercicios, responder a ellos y ver los resultados). Para ello primero había que convertir los datos estáticos en datos obtenidos de la base de datos (asignatura, estadísticas, etc.). Además de esto se realizaron muchísimas actividades más:
 
 \begin{itemize}
-\item Se creó el perfil para el profesor y el UO7-T y el UO9-T.
+\item Se creó el perfil para el profesor y el UO8-T (cerrar sesión) y el UO9-T (cambiar de asignatura).
 \item Se probó por primera vez en una tablet la aplicación completa.
 \item Se añadieron estadísticas diferentes para los ejercicios que estaban finalizados.
 \item Se añadieron los ejercicios preparados.
@@ -477,7 +485,7 @@ Tras la reunión que daba inicio a esta iteración se realizaron todas las modif
 \item UO5-T para ver detalles de un ejercicio y UO6-T para editar un ejercicio.
 \end{itemize}
 
-Para generar el apk se usó Eclipse Luna y Java 8. Se exportó el proyecto a Eclipse y se realizaron las configuraciones necesarias. Surgieron unas gran cantidad de errores que supusieron la mayor parte del tiempo de esta parte. Finalmente, cuando todo funcionaba correctamente y la aplicación se ejecutaba en el emulador, Eclipse generaba un fichero .apk correcto. Este fichero le fue pasado a Maite Urretavizcaya, Samara Ruíz y al Equipo 2 para realizar pruebas. \\
+Para generar el fichero .apk se usó Eclipse Luna y Java 8. Se exportó el proyecto a Eclipse y se realizaron las configuraciones necesarias. Surgieron unas gran cantidad de errores que supusieron la mayor parte del tiempo de esta parte. Finalmente, cuando todo funcionaba correctamente y la aplicación se ejecutaba en el emulador, Eclipse generaba un fichero .apk correcto. Este fichero le fue pasado a Maite Urretavizcaya, Samara Ruíz y al Equipo 2 para realizar pruebas.\\
 
 %----------------------------------------------------%
 %      DOCUMENTACION DE LA GESTION DEL PROYECTO      %
@@ -534,7 +542,9 @@ A continuación se presenta un resumen completo de los objetivos desarrollados e
 
 \textbf{UO10-T:} \textit{ Cambiar de asignatura.} El profesor, que tiene más de una asignatura, quiere cambiar de una asignatura x a otra asignatura y.\\
 
-\textbf{\framebox{UO1}:} \textit{Lanzar ejercicios y visualizar resultados.} El profesor desea lanzar un ejercicio y, tras lanzarlo, ver el estado de cada alumno en dicho ejercicio.\\
+\textbf{\framebox{UO1}:} \textit{Lanzar ejercicios.} El profesor desea lanzar un ejercicio simple o avanzado, dependiendo de su necesidad.\\
+
+\textbf{\framebox{UO2}:} \textit{Lanzar ejercicios y visualizar resultados.} El profesor desea lanzar un ejercicio y, tras lanzarlo, ver el estado de cada alumno en dicho ejercicio.\\
 }}\\
 
 \vspace{0.1cm}
@@ -543,7 +553,7 @@ A continuación se presenta un resumen completo de los objetivos desarrollados e
 \framebox{\parbox[c]{1.0\textwidth}{
 \textbf{Generales}\\
 
-\textbf{\framebox{UO2}:} \textit{Lanzar ejercicios, responder al ejercicio y visualizar los resultados.} El profesor desea lanzar un ejercicio, el alumno desea responder al ejercicio y finalmente el profesor desea ver el estado de ese alumno en el ejercicio que ha lanzado previamente.\\
+\textbf{\framebox{UO3}:} \textit{Lanzar ejercicios, responder al ejercicio y visualizar los resultados.} El profesor desea lanzar un ejercicio, el alumno desea responder al ejercicio y finalmente el profesor desea ver el estado de ese alumno en el ejercicio que ha lanzado previamente.\\
 }}\\
 
 \vspace{0.1cm}
@@ -559,15 +569,67 @@ Y los UOs definidos pero que no han sido realizados:\\
 
 \vspace{0.1cm}
 
-\subsection{Progreso de creación de UOs por iteraciones}
+\subsection{Selección de UOs por iteraciones}
 \label{dgp:uos-iteraciones-creacion}
 
-Añadir imagen con líneas y tal para UOs.\\
+En la figura ~\ref{fig:grafico-seleccion-uos} se muestra el proceso de selección de UOs dividido por iteraciones. Con "seleccionar" se quiere decir que se añade a la planificación de la iteración para realizar alguno de los modelos del UO.
 
-\subsection{Progreso de desarrollo de actividades por iteraciones}
-\label{dgp:uos-iteraciones-actividades}
+\begin{figure}[h]
+	\includegraphics[width=\linewidth]{grafico-seleccion-uos}
+	\caption{Progreso del proyecto según selección de UOs}
+	\label{fig:grafico-seleccion-uos}
+\end{figure}
 
-Añadir imagen con líneas y tal para actividades.\\
+Los UOs directos aparecen con un borde negro grueso y los UOs por Fusión con un borde negro simple. Las líneas que unen los UOs indican una relación de fusión.\\
+
+\subsection{Desarrollo de actividades por iteraciones}
+\label{dgp:desarrollo-actividades}
+
+En la figura ~\ref{fig:grafico-desarrollo-actividades} se detalla el desarrollo de los diferentes tipos de actividad (de desarrollo o de integración) para cada UO en base a las iteraciones.
+
+\begin{figure}[h]
+	\includegraphics[width=\linewidth]{grafico-desarrollo-actividades}
+	\caption{Progreso del proyecto según el desarrollo de Actividades}
+	\label{fig:grafico-desarrollo-actividades}
+\end{figure}
+
+Las actividades se unen por líneas si estan relacionadas entre sí, estén o no en la misma iteración. Las líneas gruesas indican el flujo normal de desarrollo y las líneas delgadas el flujo de integración.\\
+
+\subsection{Modelos evaluados por iteraciones}
+\label{dgp:modelos-evaluados}
+
+En la tabla \ref{table:tabla-progreso-modelos-evaluados} se pueden ver valores asociados a cada par de UO y modelo, estos valores siguen la notación:\\
+
+\framebox{\parbox[c]{1.0\textwidth}{
+Modelos obtenidos debido a una actividad o proceso:
+\begin{itemize}
+\item X: debido a una DA.
+\item I: debido a una IA.
+\item \underline{I}: debido a una Integración Incremental \underline{IA}.
+\item D: derivado de un proceso de división de un UO.
+\item F: derivado de un proceso de fusión de UOs.
+\end{itemize}
+El número expresa la iteración en la que se evaluó
+satisfactoriamente dicho modelo.
+}}\\
+
+\noindent
+\begin{table}[h]
+\centering
+\begin{tabu}[h]{|c|[2pt]c|c|c|c|c|c|c|c|c|c|}
+  \cline{2-11}
+  \multicolumn{1}{c|}{} & 1-S & 2-S & 1-T & 2-T & 3-T & 4-T & 5-T & 6-T & 8-T & 9-T\\
+  \cline{1-1} \tabucline[2pt]{2-11}
+  M-1 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2\\ 
+  \hline
+  M-2 & - & - & - & - & - & - & - & - & - & -\\
+  \hline
+  M-3 & - & - & - & - & - & - & - & - & - & -\\
+  \hline
+\end{tabu}
+\caption{Progreso del proyecto según modelos evaluados}
+\label{table:tablas-progreso-modelos-evaluados}
+\end{table}
 
 \subsection{Hoja de gestión: planificación y UOs}
 \label{dgp:hoja-de-gestion}
@@ -589,48 +651,13 @@ Añadir imagen con líneas y tal para actividades.\\
 \subsubsection{Step 1.i y Step 2.i de cada iteración}
 \label{dgp:hoja-de-gestion:b}
 
-\noindent
-\begin{tabular}{| l | c | c | c | c | c | c |}
-  \hline                       
-  Iteración & 1 & 2 & 3 & 4 & 5 & 6 \\
-  \hline  
-  Lista de UOs &  & &  &  &  &   \\
-  \hline  
-  Equipo 1 &  &  &  &  &  &  \\
-  \hline  
-  Equipo 2 &  &  &  &  &  &  \\
-  \hline  
-\end{tabular}\\
+tabla
 
 \subsubsection{Step 3.i}
 \label{dgp:hoja-de-gestion:c}
 
 \textbf{Profesor}\\
-
-\noindent
-\begin{tabular}{| l | c | c | c | c | c | c | c | c | c |}
-  \hline                       
-  UOs & 1 & 2 & 3 & 4 & 5 & 6 & 8 & 9 & 10 \\
-  \hline  
-  M-1 &  & &  &  &  &  &  &  &   \\
-  \hline  
-  M-2 &  & &  &  &  &  &  &  &   \\
-  \hline  
-  M-3 &  & &  &  &  &  &  &  &   \\
-  \hline  
-\end{tabular}\\
+tabla
 
 \textbf{Alumno}\\
-
-\noindent
-\begin{tabular}{| l | c | c |}
-  \hline                       
-  UOs & 1 & 2 \\
-  \hline  
-  M-1 &  & \\
-  \hline  
-  M-2 &  & \\
-  \hline  
-  M-3 &  & \\
-  \hline  
-\end{tabular}\\
+tabla

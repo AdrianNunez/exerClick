@@ -11,6 +11,9 @@
 \graphicspath{ {figs/} }
 \usepackage{caption}
 \usepackage{subcaption}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
 
 % Listas con corchetes tipo [1], [2]...
 \usepackage{enumitem}
@@ -47,6 +50,16 @@
 % Biblatex
 \usepackage[backend=bibtex,style=numeric,natbib=true]{biblatex}
 \addbibresource{bibliography.bib}
+
+% Permite realizar rotaciones
+\usepackage{rotating}
+
+% Opciones de tablas
+% Para crear líneas más gruesas
+\usepackage{tabu}
+\counterwithout{table}{chapter}
+
+\captionsetup[figure]{font=bf,position=below}
 
 \begin{document}
 
@@ -163,6 +176,10 @@
 \renewcommand{\thechapter}{\Alph{chapter}}
 
 \input{apendices/a-actas-reuniones.tex}
+
+\input{apendices/b-actas-pruebas.tex}
+
+\input{apendices/c-magadi.tex}
 
 \backmatter
 
