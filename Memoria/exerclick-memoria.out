@@ -53,27 +53,33 @@
 \BOOKMARK [2][-]{subsection.3.14.4}{Hoja de gesti\363n: planificaci\363n y UOs}{section.3.14}% 53
 \BOOKMARK [0][-]{chapter.4}{An\341lisis de Requisitos}{}% 54
 \BOOKMARK [1][-]{section.4.1}{Requisitos no-funcionales}{chapter.4}% 55
-\BOOKMARK [1][-]{section.4.2}{Requisitos funcionales}{chapter.4}% 56
-\BOOKMARK [2][-]{subsection.4.2.1}{UO1-S: Responder a un ejercicio}{section.4.2}% 57
-\BOOKMARK [2][-]{subsection.4.2.2}{UO1-T: Crear-Lanzar un ejercicio simple}{section.4.2}% 58
-\BOOKMARK [2][-]{subsection.4.2.3}{UO2-T: Crear un ejercicio detallado}{section.4.2}% 59
-\BOOKMARK [2][-]{subsection.4.2.4}{UO3-T: Cambiar el tipo de ejercicio}{section.4.2}% 60
-\BOOKMARK [2][-]{subsection.4.2.5}{UO4-T: Ver estad\355sticas de un ejercicio}{section.4.2}% 61
-\BOOKMARK [2][-]{subsection.4.2.6}{UO5-T: Ver la descripci\363n completa de un ejercicio}{section.4.2}% 62
-\BOOKMARK [2][-]{subsection.4.2.7}{UO6-T: Editar un ejercicio}{section.4.2}% 63
-\BOOKMARK [2][-]{subsection.4.2.8}{UO7-T: Cerrar sesi\363n}{section.4.2}% 64
-\BOOKMARK [2][-]{subsection.4.2.9}{UO8-T: Cambiar el idioma de la aplicaci\363n}{section.4.2}% 65
-\BOOKMARK [2][-]{subsection.4.2.10}{UO9-T: Cambiar de asignatura}{section.4.2}% 66
-\BOOKMARK [0][-]{chapter.5}{Dise\361o e Implementaci\363n}{}% 67
-\BOOKMARK [1][-]{section.5.1}{Estructura del proyecto}{chapter.5}% 68
-\BOOKMARK [1][-]{section.5.2}{Interfaces o lado del cliente}{chapter.5}% 69
-\BOOKMARK [1][-]{section.5.3}{L\363gica de negocio o lado del servidor}{chapter.5}% 70
-\BOOKMARK [2][-]{subsection.5.3.1}{Base de datos}{section.5.3}% 71
-\BOOKMARK [0][-]{chapter.6}{Conclusiones y L\355neas futuras}{}% 72
-\BOOKMARK [1][-]{section.6.1}{Objetivos alcanzados}{chapter.6}% 73
-\BOOKMARK [1][-]{section.6.2}{Lecciones aprendidas}{chapter.6}% 74
-\BOOKMARK [1][-]{section.6.3}{L\355neas futuras y Propuestas de mejora}{chapter.6}% 75
-\BOOKMARK [0][-]{chapter*.11}{Bibliograf\355a y Referencias}{}% 76
-\BOOKMARK [0][-]{chapter.1}{Actas de Reuni\363n}{}% 77
-\BOOKMARK [0][-]{chapter.2}{Actas de Pruebas}{}% 78
-\BOOKMARK [0][-]{chapter.3}{Base de datos: MAGADI}{}% 79
+\BOOKMARK [2][-]{subsection.4.1.1}{Requisitos de la interfaz}{section.4.1}% 56
+\BOOKMARK [1][-]{section.4.2}{Requisitos funcionales}{chapter.4}% 57
+\BOOKMARK [2][-]{subsection.4.2.1}{UO1-S: Responder a un ejercicio}{section.4.2}% 58
+\BOOKMARK [2][-]{subsection.4.2.2}{UO1-T: Crear-Lanzar un ejercicio simple}{section.4.2}% 59
+\BOOKMARK [2][-]{subsection.4.2.3}{UO2-T: Crear un ejercicio detallado}{section.4.2}% 60
+\BOOKMARK [2][-]{subsection.4.2.4}{UO3-T: Cambiar el tipo de ejercicio}{section.4.2}% 61
+\BOOKMARK [2][-]{subsection.4.2.5}{UO4-T: Ver estad\355sticas de un ejercicio}{section.4.2}% 62
+\BOOKMARK [2][-]{subsection.4.2.6}{UO5-T: Ver la descripci\363n completa de un ejercicio}{section.4.2}% 63
+\BOOKMARK [2][-]{subsection.4.2.7}{UO6-T: Editar un ejercicio}{section.4.2}% 64
+\BOOKMARK [2][-]{subsection.4.2.8}{UO7-T: Cerrar sesi\363n}{section.4.2}% 65
+\BOOKMARK [2][-]{subsection.4.2.9}{UO8-T: Cambiar el idioma de la aplicaci\363n}{section.4.2}% 66
+\BOOKMARK [2][-]{subsection.4.2.10}{UO9-T: Cambiar de asignatura}{section.4.2}% 67
+\BOOKMARK [0][-]{chapter.5}{Dise\361o e Implementaci\363n}{}% 68
+\BOOKMARK [1][-]{section.5.1}{Estructura del proyecto}{chapter.5}% 69
+\BOOKMARK [1][-]{section.5.2}{Interfaces o lado del cliente}{chapter.5}% 70
+\BOOKMARK [2][-]{subsection.5.2.1}{Interfaz de autenticaci\363n de usuario}{section.5.2}% 71
+\BOOKMARK [2][-]{subsection.5.2.2}{Interfaz del profesor}{section.5.2}% 72
+\BOOKMARK [2][-]{subsection.5.2.3}{Interfaz del perfil del profesor}{section.5.2}% 73
+\BOOKMARK [2][-]{subsection.5.2.4}{Interfaz del alumno}{section.5.2}% 74
+\BOOKMARK [2][-]{subsection.5.2.5}{Uso de iconos mediante Font Awesome}{section.5.2}% 75
+\BOOKMARK [1][-]{section.5.3}{L\363gica de negocio o lado del servidor}{chapter.5}% 76
+\BOOKMARK [2][-]{subsection.5.3.1}{Base de datos}{section.5.3}% 77
+\BOOKMARK [0][-]{chapter.6}{Conclusiones y L\355neas futuras}{}% 78
+\BOOKMARK [1][-]{section.6.1}{Objetivos alcanzados}{chapter.6}% 79
+\BOOKMARK [1][-]{section.6.2}{Lecciones aprendidas}{chapter.6}% 80
+\BOOKMARK [1][-]{section.6.3}{L\355neas futuras y Propuestas de mejora}{chapter.6}% 81
+\BOOKMARK [0][-]{chapter*.18}{Bibliograf\355a y Referencias}{}% 82
+\BOOKMARK [0][-]{chapter.1}{Actas de Reuni\363n}{}% 83
+\BOOKMARK [0][-]{chapter.2}{Actas de Pruebas}{}% 84
+\BOOKMARK [0][-]{chapter.3}{Base de datos: MAGADI}{}% 85

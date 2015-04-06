@@ -1,5 +1,5 @@
 % Tipo de documento
-\documentclass[12pt, twoside, a4paper, openany, bibliography=totoc]{scrbook}
+\documentclass[12pt, twoside, a4paper, openany, bibliography=totoc, numbers=noenddot]{scrbook}
 
 % Añadir caracteres no anglosajones como tildes, ñ, ¿, ¡, etc.
 \usepackage[utf8]{inputenc}
@@ -9,7 +9,7 @@
 \usepackage{graphicx}
 % Carpeta donde se encuentran las imágenes
 \graphicspath{ {figs/} }
-\usepackage{caption}
+\usepackage[labelfont=bf]{caption}
 \usepackage{subcaption}
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 \usepackage{chngcntr}
@@ -60,6 +60,8 @@
 \counterwithout{table}{chapter}
 
 \captionsetup[figure]{font=bf,position=below}
+
+\usepackage{listings}
 
 \begin{document}
 

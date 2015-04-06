@@ -8,7 +8,27 @@
 \section{Requisitos no-funcionales}
 \label{analisis-de-requisitos:no-funcionales}
 
+La aplicación ha sido desarrollada con dos requisitos básicos:
 
+\begin{itemize}
+\item Que tenga mucha funcionalidad con el mínimo posible de \textit{clicks}.
+\item Que para el alumno no suponga una distracción.
+\end{itemize}
+
+Asi pues se ha creado un diseño agradable que pretende tener mucha funcionalidad, especialmente en la vista de profesor. En la vista del alumno se ha minimizado el diseño y los elementos para que no existan distracciones importantes en clase.\\
+
+\subsection{Requisitos de la interfaz}
+\label{analisis-de-requisitos:no-funcionales:interfaz}
+
+Para hacer más intuitiva la aplicación se han concretado unos colores e iconos específicos para cada tipo de ejercicio, de modo que sea fácil asociar una acción o estado mediante un color o un icono.
+
+\begin{itemize}
+\item Ejercicios activos: color rojo, pretendiendo indicar actividad, y un icono de un avión de papel, simbolizando un ejercicio que ha sido lanzado.
+\item Ejercicios finalizados: color azul, indicando calma (ya hemos terminado), y un icono de una bandera de meta, simbolizando el fin.
+\item Ejercicios preparados: color amarillo y un icono de un reloj, indicando que esto no se ha lanzado aun (viendo las aplicaciones móvil más utilizadas resulta intuitivo el significado del reloj).
+\end{itemize}
+
+Para las estadísticas se ha dejado el color verde y un icono de un gráfico de barras. El color azul se emplea para otros botones, sin usar ningún icono.\\
 
 \section{Requisitos funcionales}
 \label{analisis-de-requisitos:funcionales}
@@ -16,6 +36,8 @@
 En este apartado se presentan los requisitos funcionales recogidos en interfaces de papel
 
 Siguiendo las pautas fijadas por los requisitos no-funcionales se han realizado interfaces sencillas e intuitivas. Se le ha dado mucha importancia a la filosofia de "en pocos \textit{clicks}" que sigue la aplicación. Por tanto, ante todo, se han minimizado la cantidad de transiciones entre pantallas y el uso de excesivos botones para buscar mucha funcionalidad en pocos \textit{clicks}.\\
+
+El resultado queda plasmado en estos modelos de requisitos (M-1) de cada objetivo de usuario (User Objective).\\
 
 \subsection{UO1-S: Responder a un ejercicio}
 \label{analisis-de-requisitos:funcionales:uo1s}
@@ -66,3 +88,10 @@ Añadir pantallas, autómata de estados, info de seguimiento, etc.\\
 \label{analisis-de-requisitos:funcionales:uo9t}
 
 Añadir pantallas, autómata de estados, info de seguimiento, etc.\\
+
+\section{Requisitos de dispositivos para su ejecución}
+\label{analisis-de-requisitos:dispositivos}
+
+La aplicación está pensada para el uso en cualquier dispositivo móvil con los sistemas operativos Android e iOS. No está pensada para tamaños de pantalla excesivamente pequeños, donde probablemente la aplicación se vería incorrectamente.\\
+
+En Android la versión mínima requerida es la 4.0 (API 15).\\
