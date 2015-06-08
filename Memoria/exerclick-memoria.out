@@ -55,32 +55,36 @@
 \BOOKMARK [1][-]{section.4.1}{Requisitos no-funcionales}{chapter.4}% 55
 \BOOKMARK [2][-]{subsection.4.1.1}{Requisitos de la interfaz}{section.4.1}% 56
 \BOOKMARK [1][-]{section.4.2}{Requisitos funcionales}{chapter.4}% 57
-\BOOKMARK [2][-]{subsection.4.2.1}{UO1-S: Responder a un ejercicio}{section.4.2}% 58
-\BOOKMARK [2][-]{subsection.4.2.2}{UO1-T: Crear-Lanzar un ejercicio simple}{section.4.2}% 59
-\BOOKMARK [2][-]{subsection.4.2.3}{UO2-T: Crear-Lanzar un ejercicio detallado}{section.4.2}% 60
-\BOOKMARK [2][-]{subsection.4.2.4}{UO3-T: Cambiar el tipo de ejercicio}{section.4.2}% 61
-\BOOKMARK [2][-]{subsection.4.2.5}{UO4-T: Ver estad\355sticas de un ejercicio}{section.4.2}% 62
-\BOOKMARK [2][-]{subsection.4.2.6}{UO5-T: Ver la descripci\363n completa de un ejercicio}{section.4.2}% 63
-\BOOKMARK [2][-]{subsection.4.2.7}{UO6-T: Editar un ejercicio}{section.4.2}% 64
-\BOOKMARK [2][-]{subsection.4.2.8}{UO7-T: Cerrar sesi\363n}{section.4.2}% 65
-\BOOKMARK [2][-]{subsection.4.2.9}{UO8-T: Cambiar el idioma de la aplicaci\363n}{section.4.2}% 66
-\BOOKMARK [2][-]{subsection.4.2.10}{UO9-T: Cambiar de asignatura}{section.4.2}% 67
-\BOOKMARK [1][-]{section.4.3}{Requisitos de dispositivos para su ejecuci\363n}{chapter.4}% 68
-\BOOKMARK [0][-]{chapter.5}{Dise\361o e Implementaci\363n}{}% 69
-\BOOKMARK [1][-]{section.5.1}{Estructura del proyecto}{chapter.5}% 70
-\BOOKMARK [1][-]{section.5.2}{Interfaces o lado del cliente}{chapter.5}% 71
-\BOOKMARK [2][-]{subsection.5.2.1}{Interfaz de autenticaci\363n de usuario}{section.5.2}% 72
-\BOOKMARK [2][-]{subsection.5.2.2}{Interfaz del profesor}{section.5.2}% 73
-\BOOKMARK [2][-]{subsection.5.2.3}{Interfaz del perfil del profesor}{section.5.2}% 74
-\BOOKMARK [2][-]{subsection.5.2.4}{Interfaz del alumno}{section.5.2}% 75
-\BOOKMARK [2][-]{subsection.5.2.5}{Uso de iconos mediante Font Awesome}{section.5.2}% 76
-\BOOKMARK [1][-]{section.5.3}{L\363gica de negocio o lado del servidor}{chapter.5}% 77
-\BOOKMARK [2][-]{subsection.5.3.1}{Base de datos}{section.5.3}% 78
-\BOOKMARK [0][-]{chapter.6}{Conclusiones y L\355neas futuras}{}% 79
-\BOOKMARK [1][-]{section.6.1}{Objetivos alcanzados}{chapter.6}% 80
-\BOOKMARK [1][-]{section.6.2}{Lecciones aprendidas}{chapter.6}% 81
-\BOOKMARK [1][-]{section.6.3}{L\355neas futuras y Propuestas de mejora}{chapter.6}% 82
-\BOOKMARK [0][-]{chapter*.18}{Bibliograf\355a y Referencias}{}% 83
-\BOOKMARK [0][-]{chapter.1}{Actas de Reuni\363n}{}% 84
-\BOOKMARK [0][-]{chapter.2}{Actas de Pruebas}{}% 85
-\BOOKMARK [0][-]{chapter.3}{Base de datos: MAGADI}{}% 86
+\BOOKMARK [2][-]{subsection.4.2.1}{Requisito com\372n: Autenticaci\363n}{section.4.2}% 58
+\BOOKMARK [2][-]{subsection.4.2.2}{UO1-S: Responder a un ejercicio}{section.4.2}% 59
+\BOOKMARK [2][-]{subsection.4.2.3}{UO2-S: Ver la descripci\363n completa de un ejercicio}{section.4.2}% 60
+\BOOKMARK [2][-]{subsection.4.2.4}{UO1-T: Crear-Lanzar un ejercicio simple}{section.4.2}% 61
+\BOOKMARK [2][-]{subsection.4.2.5}{UO2-T: Crear-Lanzar un ejercicio detallado}{section.4.2}% 62
+\BOOKMARK [2][-]{subsection.4.2.6}{UO3-T: Cambiar el tipo de ejercicio}{section.4.2}% 63
+\BOOKMARK [2][-]{subsection.4.2.7}{UO4-T: Ver estad\355sticas de un ejercicio}{section.4.2}% 64
+\BOOKMARK [2][-]{subsection.4.2.8}{UO5-T: Ver la descripci\363n completa de un ejercicio}{section.4.2}% 65
+\BOOKMARK [2][-]{subsection.4.2.9}{UO6-T: Editar un ejercicio}{section.4.2}% 66
+\BOOKMARK [2][-]{subsection.4.2.10}{UO7-T: Cerrar sesi\363n}{section.4.2}% 67
+\BOOKMARK [2][-]{subsection.4.2.11}{UO8-T: Cambiar el idioma de la aplicaci\363n}{section.4.2}% 68
+\BOOKMARK [2][-]{subsection.4.2.12}{UO9-T: Cambiar de asignatura}{section.4.2}% 69
+\BOOKMARK [2][-]{subsection.4.2.13}{UO1: Lanzar ejercicios}{section.4.2}% 70
+\BOOKMARK [2][-]{subsection.4.2.14}{UO2: Lanzar ejercicios y visualizar resultados}{section.4.2}% 71
+\BOOKMARK [1][-]{section.4.3}{Requisitos de dispositivos para su ejecuci\363n}{chapter.4}% 72
+\BOOKMARK [0][-]{chapter.5}{Dise\361o e Implementaci\363n}{}% 73
+\BOOKMARK [1][-]{section.5.1}{Estructura del proyecto}{chapter.5}% 74
+\BOOKMARK [1][-]{section.5.2}{Interfaces o lado del cliente}{chapter.5}% 75
+\BOOKMARK [2][-]{subsection.5.2.1}{Interfaz de autenticaci\363n de usuario}{section.5.2}% 76
+\BOOKMARK [2][-]{subsection.5.2.2}{Interfaz del profesor}{section.5.2}% 77
+\BOOKMARK [2][-]{subsection.5.2.3}{Interfaz del perfil del profesor}{section.5.2}% 78
+\BOOKMARK [2][-]{subsection.5.2.4}{Interfaz del alumno}{section.5.2}% 79
+\BOOKMARK [2][-]{subsection.5.2.5}{Uso de iconos mediante Font Awesome}{section.5.2}% 80
+\BOOKMARK [1][-]{section.5.3}{L\363gica de negocio o lado del servidor}{chapter.5}% 81
+\BOOKMARK [2][-]{subsection.5.3.1}{Base de datos}{section.5.3}% 82
+\BOOKMARK [0][-]{chapter.6}{Conclusiones y L\355neas futuras}{}% 83
+\BOOKMARK [1][-]{section.6.1}{Objetivos alcanzados}{chapter.6}% 84
+\BOOKMARK [1][-]{section.6.2}{L\355neas futuras y Propuestas de mejora}{chapter.6}% 85
+\BOOKMARK [1][-]{section.6.3}{Lecciones aprendidas}{chapter.6}% 86
+\BOOKMARK [0][-]{chapter*.18}{Bibliograf\355a y Referencias}{}% 87
+\BOOKMARK [0][-]{chapter.1}{Actas de Reuni\363n}{}% 88
+\BOOKMARK [0][-]{chapter.2}{Actas de Pruebas}{}% 89
+\BOOKMARK [0][-]{chapter.3}{Base de datos: MAGADI}{}% 90

@@ -10,7 +10,7 @@ Añadir introducción.\\
 \section{Metología Ágil}
 \label{metodologia-agil}
 
-Las metodologías ágiles son procesos para el desarrollo de software. Se basan en el desarrollo incremental e iterativo, donde varios grupos se unen para dar requerimientos y soluciones nuevas gracias a su colaboración. Se enfatiza en el cara a cara más que en la documentación. Un ejemplo de esta metodología es SCRUM.\\
+Las metodologías ágiles son procesos para el desarrollo de software. Se basan en el desarrollo incremental e iterativo, donde varios grupos se unen para obtener requerimientos y soluciones nuevas gracias a su colaboración. Se enfatiza en el cara a cara más que en la documentación. Un ejemplo de esta metodología es SCRUM.\\
 
 La metodología es bastante flexible, pudiendo adaptarse a cada proyecto. Es decir, no tiene reglas absolutamente fijas. En su base esta el \textit{Manifiesto Ágil} en el que se basan todas las variantes de esta metodología. Este manifiesto \hyperref[manifiestoagil]{\cite{manifiestoagil}} dice así:
 
@@ -21,18 +21,14 @@ La metodología es bastante flexible, pudiendo adaptarse a cada proyecto. Es dec
 \item Respuesta ante el cambio sobre seguir un plan
 \end{itemize}
 
-\begin{quote}
-\small Esto es, aunque valoramos los elementos de la derecha, valoramos más los de la izquierda.
-\end{quote}
-
 Al comienzo del proyecto se fijó el uso de esta metodología, con 4 grupos trabajando en paralelo (los equipos vienen definidos en el apartado \ref{equipos}). Sin embargo, las iteraciones acabaron volviéndose excesivamente largas, habiendo varios grupos parados. Si bien se respetó la filosofía de la metodología ágil en cierto sentido, y aun con cierta flexibilidad en su adaptación, al final del proyecto acabó por volverse algo parecido a una metodología ágil sin llegar a serlo.\\
 
 \section{Metología InterMod}
 \label{intermod}
 
-InterMod es una metodología de trabajo, que será utilizada para este proyecto, desarrollada por el grupo de investigación GaLan de la Facultad de Informática de San Sebastián. Se trata una metodología ágil de desarrollo de alta calidad de software interactivo, incluyendo aplicaciones web.\\
+InterMod es una metodología de trabajo, que será utilizada para este proyecto, desarrollada por el grupo de investigación GaLan de la Facultad de Informática de San Sebastián. Se trata de una metodología ágil para el desarrollo de software interactivo de alta calidad.\\
 
-En InterMod se define el Objetivo de Usuario (User Objetive o UO) como el deseo del usuario que puede ser alcanzado mediante una o más funcionalidades. Diferentes UOs son desarrollados durante el proyecto y la unión de todos, en su globalidad, forma la aplicación final. Además, el mismo UO puede estar incluido en uno o más requerimentos funcionales y/o no-funcionales. Existen a su vez diferentes tipos de UO:
+En InterMod se define el Objetivo de Usuario (User Objetive o UO) como el deseo del usuario que puede ser alcanzado mediante una o más funcionalidades. Diferentes UOs son desarrollados durante el proyecto y la unión de todos, en su globalidad, forma la aplicación final. Además, el mismo UO puede puede incluir uno o más requerimentos funcionales y/o no-funcionales. Existen a su vez diferentes tipos de UO:
 
 \begin{itemize}
 \item \textbf{UO Directo:} Es un objetivo del usuario final.
@@ -59,7 +55,7 @@ Para asegurar el desarrollo incremental de la aplicación son necesarias las Act
 \item \textbf{IA-3:} \textit{Integración de la codificación y refactorización.}
 \end{itemize}
 
-Las actividades de desarrollo e integración de cada tipo da lugar a un modelo. Así, las DA-1 y IA-1, relativas al análisis de requisitos, desembocan en el modelo de requisitos (M-1); las DA-2 y IA-2, relativas a las interfaces, crean el modelo de presentación (M-2) y las DA-3 y IA-3, las asociadas a la lógica de negocio, constituyen el modelo de funcionalidad (M-3). El modelo M-1 es un modelo abstracto sobre el que se asientan las bases, basado en él se forma el M-2, que contiene todos los elementos gráficos y otras características definidos en el M-1. Finalmente el modelo M-3 establece la implementación en un lenguaje de programación concreto.\\
+Las actividades de desarrollo e integración de cada tipo da lugar a un modelo. Así, las DA-1 e IA-1, relativas al análisis de requisitos, desembocan en el modelo de requisitos (M-1); las DA-2 e IA-2, relativas a las interfaces, crean el modelo de presentación (M-2) y las DA-3 e IA-3, las asociadas a la lógica de negocio, constituyen el modelo de funcionalidad (M-3). El modelo M-1 es un modelo abstracto sobre el que se asientan las bases, basado en él se forma el M-2, que contiene todos los elementos gráficos y otras características definidos en el M-1. Finalmente el modelo M-3 establece la implementación en un lenguaje de programación concreto.\\
 
 InterMod define una metodología dividida en iteraciones, y, a diferencia del resto, define un paso previo, Step 0. En esta etapa previa se realiza el análisis del proyecto y se definen los UOs iniciales del mismo y el diseño general. A continuación se pasa a la iteración 1, luego la 2, etc. y se continúa así hasta dar por finalizado el proyecto. Cada iteración esta dividida en 3 pasos:
 
@@ -82,7 +78,7 @@ Debido a las características del proyecto se ha decidido realizar algunas modif
 \section{Formación de equipos}
 \label{equipos}
 
-Se han identificado 4 equipos que participarán en el proyecto (interesados en el proyecto):
+Se han identificado 4 equipos que participarán en el proyecto (con diferentes niveles de implicación):
 
 \begin{itemize}
 \item \textbf{Equipo 1:} Formado por el alumno, Adrián Núñez. Se encargará del diseño de las interfaces y de la implementación de la aplicación.
@@ -274,8 +270,8 @@ Debido a la gran cantidad de UOs planteados se ha decidido seleccionar los consi
 En esta primera iteración el plan es el siguiente:
 
 \begin{itemize}
-\item Equipo 1: M-1 de todos los UOs iniciales
-\item Equipo 3: Evaluación{M-1 de todos los UOs iniciales}
+\item Equipo 1: DA-1(1S), DA-1(1T), DA-1(2T), DA-1(3T), DA-1(4T)
+\item Equipo 3: Evaluación{DA-1(1S), DA-1(1T), DA-1(2T), DA-1(3T), DA-1(4T)}
 \end{itemize}
 
 \subsection{Step 3.1. Ejecución de las actividades}
@@ -309,8 +305,8 @@ Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T}
 Se continúa con el mismo plan de la pasada iteración.
 
 \begin{itemize}
-\item Equipo 1: M-1 de todos los UOs iniciales
-\item Equipo 3: Evaluación{M-1 de todos los UOs iniciales}
+\item Equipo 1: DA-1(1S), DA-1(1T), DA-1(2T), DA-1(3T), DA-1(4T)
+\item Equipo 3: Evaluación{DA-1(1S), DA-1(1T), DA-1(2T), DA-1(3T), DA-1(4T)}
 \end{itemize}
 
 \subsection{Step 3.2. Ejecución de las actividades}
@@ -340,7 +336,7 @@ Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T}
 \label{it2:2.3}
 
 \begin{itemize}
-\item Equipo 1: UO1-T[M-2]
+\item Equipo 1: DA-2(1T)
 \end{itemize}
 
 \subsection{Step 3.3. Ejecución de las actividades}
@@ -376,7 +372,7 @@ Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T, UO1-S}
 \label{it4:2.4}
 
 \begin{itemize}
-\item Equipo 1: UO1-T[M-2], UO4-T[M-2], UO1-S[M-2]
+\item Equipo 1: DA-2(1S), DA-2(1T), DA-2(4T)
 \end{itemize}
 
 \subsection{Step 3.4. Ejecución de las actividades}
@@ -413,8 +409,8 @@ Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T, UO1-S}
 \label{it5:2.5}
 
 \begin{itemize}
-\item Equipo 1: UO1-T[M-3], UO3-T[M-2,M-3], UO4-T[M-3], UO1-S[M-3]
-\item Equipo 3: Evaluación{UO1-T[M-2], UO3-3[M-2], UO4-T[M-2]}
+\item Equipo 1: DA-3(1S), DA-3(1T), DA-2(3T), DA-3(3T), DA-3(4T)   
+\item Equipo 3: Evaluación{DA-2(1T), DA-2(4T)}
 \end{itemize}
 
 \subsection{Step 3.5. Ejecución de las actividades}
@@ -422,7 +418,7 @@ Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T, UO1-S}
 
 Se empieza la iteración modificando el aspecto de la pantalla madre (correspondiente a casi todos los UOs del docente).\\
 
-Para pasar la aplicación al móvil es necesario que el código PHP (de servidor) este en un servidor externo, de otro modo no funcionara. Se ha creado para ese propósito un servidor con el espacio que proporciona 000webhost (http://www.000webhost.com/) sin costo alguno para realizar pruebas al principio. Se ha instalado la base de datos proporcionada ahí mismo con las tablas originales más las dos creadas en la iteración anterior.\\
+Para pasar la aplicación al móvil es necesario que el código PHP (de servidor) este en un servidor externo, de otro modo no funcionará. Se ha creado para ese propósito un servidor con el espacio que proporciona 000webhost (http://www.000webhost.com/) sin costo alguno para realizar pruebas al principio. Se ha instalado la base de datos proporcionada ahí mismo con las tablas originales más las dos creadas en la iteración anterior.\\
 
 Se ha empezado realizando el M-3 del UO1-T, luego el UO4-T y finalmente el UO3-T. El objetivo de la iteración es tener una aplicación mínimamente funcional para realizar pruebas. Es decir, poder al menos realizar la función básica de que el profesor lance un ejercicio, el alumno lo vea y responda. Además, ver las estadísticas del ejercicio propuesto también sería importante.\\
 
@@ -462,7 +458,7 @@ Lista de UOs = {UO1-S, UO2-S, UO5-T, UO6-T, UO8-T, UO9-T, UO10-T}
 \label{it6:2.6}
 
 \begin{itemize}
-\item Equipo 1: UO1-T[M-3], UO2-T[M-2,M-3], UO3-T[M-3], UO4-T[M-3], UO1-S[M-3], UO2-S[M-2,M-3], UO5-T[M-2,M-3], UO6-T[M-2,M-3], UO7-T[M-2,M-3], UO9-T[M-2,M-3]
+\item Equipo 1: DA-3(1T), DA-2(2T), DA-3(2T), DA-3(3T), DA-3(4T), DA-3(1S), DA-2(2S), DA-3(2S), DA-2(5T), DA-3(5T), DA-2(6T), DA-3(6T), DA-2(7T), DA-3(7T), DA-2(9T), DA-3(9T).
 \item Equipo 2: Evaluación de las .apks generadas durante el desarrollo
 \item Equipo 3: Evaluación de las .apks generadas durante el desarrollo
 \end{itemize}
@@ -485,7 +481,7 @@ Tras la reunión que daba inicio a esta iteración se realizaron todas las modif
 \item UO5-T para ver detalles de un ejercicio y UO6-T para editar un ejercicio.
 \end{itemize}
 
-Para generar el fichero .apk se usó Eclipse Luna y Java 8. Se exportó el proyecto a Eclipse y se realizaron las configuraciones necesarias. Surgieron unas gran cantidad de errores que supusieron la mayor parte del tiempo de esta parte. Finalmente, cuando todo funcionaba correctamente y la aplicación se ejecutaba en el emulador, Eclipse generaba un fichero .apk correcto. Este fichero le fue pasado a Maite Urretavizcaya, Samara Ruíz y al Equipo 2 para realizar pruebas.\\
+Para generar el fichero .apk se usó Eclipse Luna y Java 8. Se exportó el proyecto a Eclipse y se realizaron las configuraciones necesarias. Surgió unas gran cantidad de errores que supusieron la mayor parte del tiempo de esta parte. Finalmente, cuando todo funcionaba correctamente y la aplicación se ejecutaba en el emulador, Eclipse generaba un fichero .apk correcto. Este fichero le fue pasado a Maite Urretavizcaya, Samara Ruíz y al Equipo 2 para realizar pruebas.\\
 
 %----------------------------------------------------%
 %      DOCUMENTACION DE LA GESTION DEL PROYECTO      %
@@ -540,7 +536,7 @@ A continuación se presenta un resumen completo de los objetivos desarrollados e
 
 \textbf{UO9-T:} \textit{Cambiar el idioma de la aplicación.} El profesor desea cambiar el idioma con el que lee la aplicación.\\
 
-\textbf{UO10-T:} \textit{ Cambiar de asignatura.} El profesor, que tiene más de una asignatura, quiere cambiar de una asignatura x a otra asignatura y.\\
+\textbf{UO10-T:} \textit{Cambiar de asignatura.} El profesor, que tiene más de una asignatura, quiere cambiar de una asignatura x a otra asignatura y.\\
 
 \textbf{\framebox{UO1}:} \textit{Lanzar ejercicios.} El profesor desea lanzar un ejercicio simple o avanzado, dependiendo de su necesidad.\\
 

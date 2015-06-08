@@ -7,16 +7,60 @@
 \chapter{Conclusiones y Líneas futuras}
 \label{conclusiones}
 
-Añadir texto.
+\textit{\textbf{exerClick}} es la aplicación para el seguimiento de ejercicios en el aula desarrollada en este proyecto. Su objetivo principal era dar una visión más real de lo que hacen los alumnos (tanto una visión global del grupo como individual), de modo que el docente pueda ofrecer un aprendizaje más adaptado e individualizado, aunque los grupos de alumnos sean muy grandes.\\
+
+Se planteó al inicio como una aplicación web, al igual que su antecesor, qClick, una aplicación de pregunta-respuesta en un entorno docente. Se decidió cambiar a una aplicación móvil finalmente, conllevando el cambio en la tecnología principal: \textit{Apache Cordova}. Las tecnologías principales (tecnologías web) se mantuvieron intactas gracias a Cordova: HTML5, CSS3 y Javascript. Ésto permitió realizar una aplicación móvil manteniendo las tecnologías acordadas al inicio del proyecto.\\
+
+El proyecto partió de algo sencillo como idea inicial (objetivo de las primeras iteraciones): una aplicación sencilla de lanzar un ejercicio simple, que el alumno envíe su \textit{feedback} (el estado en el que se encuentra con el ejercicio) y el profesor pueda visualizar esa respuesta (tanto de forma individual como sumada al resto del grupo, aportando una visión global). Sin embargo, durante la captura de requisitos inicial se vio que había muchas ideas sobre la mesa que podrían ser interesantes, algunas descartadas por requerir quizá demasiado tiempo o ser demasiado ambiciosas. Esto, aun así, aportó gran inspiración para el desarrollo de la aplicación, pudiendo añadir más funcionalidad de forma incremental.\\
+
+El proyecto fue lento al principio debido a la obligación del aprendizaje de la tecnología \textit{Apache Cordova} (y la adaptación de esta a móviles) y Responsive Web Design. En esta etapa se intentó perfeccionar el objetivo más básico de lanzar un ejercicio, especialmente su interfaz, que había que adaptar muy bien a móviles. Se quería crear también algo reutilizable, de modo que las siguientes interfaces fueran más sencillas de crear. Esto creo un \textit{boom} importante en las fases finales del proyecto, donde se consiguieron crear muchas interfaces y cumplir muchos objetivos en un corto periodo de tiempo.\\
+
+Desde el inicio del proyecto se pensó en tener alumnos evaluando la aplicación, dando un \textit{feedback} más cercano y constante. Debido a lo tarde que apareció una versión útil de la aplicación (que los usuarios pudieran manejar) los alumnos no probaron la aplicación hasta fechas tardías. Incluso hasta poder generar el fichero APK sólo se hicieron pruebas en un único móvil en el que estaba instalada la aplicación (en el anexo \ref{anexo-b} se pueden ver los resultados de esa prueba). Después se les pasó el fichero APK para poder probarla en sus propios móviles, de cara a ver como se adaptaba la aplicación a diferentes dispositivos y de tener un \textit{feedback} más continuo. En este punto no se llevaron acabo evaluaciones presenciales, sólo se recibían opiniones de pruebas por petición del autor o por iniciativa propia de los alumnos. Pese a que no se llevó acabo como fue planeado, las aportaciones recibidas por los usuarios fueron vitales para ciertos errores o para mejorar aspectos importantes de la aplicación.\\
 
 \section{Objetivos alcanzados}
 
-De los objetivos iniciales indicar los alcanzados.\\
+Como se ha comentado, hubo muchas ideas descartadas al inicio por ser demasiado ambiciosas o salirse del alcance previsto del proyecto. Entre los objetivos seleccionados, se han conseguido llevar a cabo satisfactoriamente todos excepto uno, que se será comentado en breves.\\
+
+\textbf{Objetivos del Alumno}\\
+
+\textbf{UO1-S:} \textit{Responder a un ejercicio.} El alumno quiere indicar que ha acabado o que tiene dudas con un ejercicio que el profesor ha propuesto. Para ello, se ha pensado en que el alumno puede marcar el ejercicio con uno de los dos estados. A modo de \textit{feedback}, el profesor recibirá el estado (acabado o con dudas) de ese alumno.\\
+
+\textbf{UO2-S:} \textit{Ver detalles de un ejercicio.} El alumno quiere ver más detalles sobre un ejercicio disponible y activo en la sesión. Al pinchar sobre un ejercicio puede ver cualquier detalle extra que el profesor haya decidido añadir.\\
+
+\textbf{Objetivos del Profesor}\\
+
+\textbf{UO1-T:} \textit{Crear-Lanzar un ejercicio simple.} El profesor quiere proponer un ejercicio rápidamente, sin escribir mucho. Ésto resulta especialmente útil cuando se tiene claro cuales son los ejercicios que se mencionan (se sabe el tema, la página... el contexto de qué ejercicios se están realizando es claro) y cuando se quieren lanzar rápidamente sin perder mucho tiempo.\\
+
+\textbf{UO2-T:} \textit{Crear-Lanzar un ejercicio detallado.} El profesor quiere proponer la realización de un ejercicio preparado previamente o con bastantes detalles. Al contrario que en el UO1-T, en este caso el profesor se los puede preparar fuera de una sesión, incluso llegando a inventarse un ejercicio.\\
+
+\textbf{UO3-T:} \textit{Cambiar el tipo de ejercicio.} El profesor desea cambiar un ejercicio del tipo que tiene a otro cualquiera (de activo a finalizado, por ejemplo). Fundamental cuando se desea lanzar un ejercicio que estaba guardado mientras se preparaba mejor, cuando queremos dar un ejercicio por finalizado o cuando nos confundimos en cualquier cambio y queremos deshacerlo.\\
+
+\textbf{UO4-T:} \textit{El profesor desea ver qué tal le ha ido a la clase en general o a un alumno en un ejercicio.} Este UO es quizá de los más importantes, ya que es el que nos muestra todo el \textit{feedback} recibido de los alumnos. Podemos ver el estado de un ejercicio para cada alumno o ver globalmente (en porcentajes) el progreso de la clase.\\
+
+\textbf{UO5-T:} \textit{Ver la descripción completa de un ejercicio.} Un profesor quiere ver la descripción completa de un ejercicio (identificador, enunciado, página, tema, etc.).\\
+
+\textbf{UO6-T:} \textit{Editar un ejercicio.} El profesor desea editar los atributos de un ejercicio. Quizá se haya equivocado al crear el ejercicio en algún detalle o quiera añadir más detalles. Especialmente útil para los ejercicios que se han guardado y se quieren preparar mejor.\\
+
+\textbf{UO8-T:} \textit{Cerrar sesión.} El profesor quiere cerrar su sesión activa.\\
+
+\textbf{UO9-T:} \textit{Cambiar el idioma de la aplicación.} El profesor desea cambiar el idioma con el que lee la aplicación. Un requisito fundamental de cara a la internacionalización fue que la aplicación estuviera en 4 idiomas: castellano, euskera, inglés y francés.\\
+
+\textbf{UO10-T:} \textit{Cambiar de asignatura.} El profesor, que tiene más de una asignatura, quiere cambiar de una asignatura x a otra asignatura y.\\
+
+\section{Líneas futuras y Propuestas de mejora}
+
+\textit{\textbf{exerClick}} fue pensada como parte de un proyecto mayor, \textit{PresenceClick}, que integrará ésta y otras aplicaciones. Pasaría a ser un módulo de \textit{PresenceClick}, de modo que algunas opciones de \textit{\textbf{exerClick}} que quizá necesiten de un entorno de trabajo más apropiado (como un ordenador) podrían exportarse a ese módulo.\\
+
+Se pensó también en integrar las aplicaciones móviles relacionadas a \textit{PresenceClick} en una sola, para tener una \textit{app} más completa. Integrar \textit{\textbf{exerClick}} (ya sea tomándolo como base o simplemente añadiendo sus funcionalidades a otra aplicación) es una idea futura que queda pendiente.\\
+
+Además de ésto, se pensaron más ideas relacionadas a \textit{\textbf{exerClick}} que quedaron en el tintero. La siguiente lista aporta todas esas ideas y otras que surgieron durante el desarrollo del proyecto:
+
+\begin{itemize}
+\item UO7-T: Evaluar a un alumno en un ejercicio. Este objetivo se marcó como una posibilidad y resultaba interesante. Para un ejercicio se permitía asignarle a un alumno una valoración del 1 al 5 (usando \textit{emoticonos} de tristeza o sonrisa de diferentes grados) al igual que hace \textit{PresenceClick}. El docente se acercaría a un alumno, vería el estado en el que se encuentra con el ejercicio y si al docente le pareciera correcto podría darle una valoración (no visible para el alumno, es algo personal del docente).
+
+\item Poder descargar un PDF con los detalles de los ejercicios, de modo que para ejercicios con muchos detalles se tuviera una visualización más sencilla.
+\end{itemize}
 
 \section{Lecciones aprendidas}
 
 Añadir lecciones aprendidas durante el proyecto.\\
-
-\section{Líneas futuras y Propuestas de mejora}
-
-Futuros mejoras, usos, etc. de la app.\\
