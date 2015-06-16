@@ -34,6 +34,12 @@
 
 % Márgenes
 \usepackage[left=2.5cm,right=2.5cm,bindingoffset=0.5cm]{geometry}
+\setlength{\headheight}{20pt}
+
+% Estilo de los titulos de los capítulos
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}[\vspace{2ex}\titlerule]
 
 % Fuente utilizada para el cuerpo
 \usepackage[bitstream-charter]{mathdesign}
@@ -61,10 +67,52 @@
 
 \captionsetup[figure]{font=bf,position=below}
 
+\PassOptionsToPackage{usenames,dvipsnames}{xcolor}
+
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[draft]{pgf}
 \usepackage{listings}
+\usepackage[svgnames]{xcolor}
 
 % Bordes en imágenes
 \usepackage[export]{adjustbox}
+
+% Múltiples líneas en una misma celda de una tabla => \specialcell{}
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\lstset{
+     language        = php,
+     basicstyle      = \small\ttfamily,
+     keywordstyle    = \color{blue},
+     stringstyle     = \color{red},
+     identifierstyle = \color{ForestGreen},
+     commentstyle    = \color{gray},
+     emph            =[1]{php},
+     emphstyle       =[1]\color{black},
+     emph            =[2]{if,and,or,else},
+     showstringspaces=false,
+     emphstyle       =[2]\color{yellow},
+     backgroundcolor=\color{gray!10},
+     breaklines=true,
+     numbers=left,
+     numberstyle=\footnotesize,
+     showspaces = false,
+     showstringspaces = false,
+     tabsize = 2,
+     %numbers=left,
+     %numbersyle=\tiny
+     frame=single,
+     xleftmargin=5pt,
+     xrightmargin=3pt,
+     aboveskip = 20pt,
+     rulecolor=\color{black},
+     escapechar=|
+}
+     
+\renewcommand{\lstlistingname}{Código}
+\DeclareCaptionFormat{listing}{\rule{\dimexpr\textwidth\relax}{0.4pt}\par\vskip1pt#1#2#3}
+\captionsetup[lstlisting]{format=listing,singlelinecheck=false, margin=0pt, font={sf},labelsep=space,labelfont=bf}
 
 \begin{document}
 
@@ -132,6 +180,9 @@
 %----------------------------------------------------%
 
 \mainmatter
+\fancyhead[LE,RO]{\itshape \nouppercase \rightmark}
+\fancyhead[LO,RE]{\itshape \nouppercase Capítulo \arabic{chapter}}
+
 \input{capitulos/1-introduccion.tex}
 
 %----------------------------------------------------%

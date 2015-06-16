@@ -66,28 +66,55 @@ Además, se han fijado dentro del alcance los siguientes requisitos:
 
 \subsection{Estudio de alternativas para la creación de una aplicación móvil}
 
-Añadir porque se ha escogido Cordova en lugar de Phonegap/Ionic o una aplicación nativa.\\
+Al principio el proyecto iba a seguir a su antecesor, \textit{qClick}, como una aplicación web. Sin embargo, acabó pensándose durante una reunión inicial en convertirlo en una aplicación móvil para aprovecharse mejor de las ventajas de un móvil: notificaciones, no requiere necesidad de cargar la página cada vez que se entra, etc.\\
+
+Ya que el proyecto iba a ser una aplicación web y por tanto se iban a usar tecnologías web se acordó usar un sistema como Apache Cordova para la implementación de la aplicación en lugar de crear una aplicación nativa. Así no se requerían de conocimientos de Android y por tanto se mantenían las bases iniciales del proyecto.\\
+
+Se pensó en Apache Cordova ya que era conocido por uno de los integrantes del grupo GaLan, que estaba desarrollando una aplicación con esta tecnología. De esta forma se podía consultar en caso de alguna duda o pregunta en general directamente a dicha persona en lugar de perder excesivo tiempo buscando respuestas.\\
 
 \subsection{Formación}
 
-Añadir detalles sobre como se ha aprendido sobre tecnologías web, responsive, cordova, etc.\\
+Ya se partía con una base propia de conocimiento en tecnologías web, por lo que no fue un gran problema.\\
+
+Samara Ruíz fue la que aportó información sobre Responsive Web Design al inicio del proyecto para poder empezar a realizar las interfaces gráficas. No tenía conocimientos al respecto de esta herramienta y fue de gran ayuda una clase rápida introductoria.\\
+
+Para aprender Apache Cordova se siguieron tutoriales encontrados en la red, tanto para crear la primera aplicación como para simulaciones y pruebas. Para algunas cosas también se consultó con el grupo GaLan en ciertos momentos.\\
 
 \subsection{Documentación del proyecto}
 
-Añadir sobre la documentación algo (como se ha ido desarrollando y tal).\\
+La memoria del proyecto se empezó en una etapa temprana del proyecto. Se comenzó creando la plantilla de \LaTeX \ con todo lo necesario desde cero. La plantilla de la universidad resultaba algo incómoda de usar para cambiar algunos detalles, es por eso que se decidió crear una propia. Tras tener el estilo definido y los paquetes necesarios añadidos se realizó la estructura del documento, añadiendo sólo las cabeceras de cada sección, subsección, etc.\\
+
+También al inicio se comenzó a realizar un seguimiento constante. Mediante Google Drive se iban manteniendo hojas de cálculo con cada tarea realizada, su duración y fecha, así como el cómputo total de horas por mes (y dentro de cada mes por iteraciones, si hubiera más de una). De esta forma plasmarlo más adelante fue una tarea muy sencilla.\\
+
+La memoria no se desarrolló demasiado hasta que la aplicación empezaba a verse acabada, momento en el que empezó a tomar cuerpo con mucho contenido. Debido a que en abril se empezaron los estudios en el programa Erasmus en Alemania la memoria quedó completamente parado hasta junio, momento en el que se finalizó exitosamente.\\
 
 \subsection{Presentación y Defensa del proyecto}
 
-Añadir como ha ido el tema de la presentación y preparación de la defensa.\\
+La presentación del proyecto se realizará en los meses de agosto y septiembre, momento en el que se dispondrá de todo el tiempo necesario. Se plantea realizar unas transparencias para una presentación de 30 minutos con previo ensayo con la directora del proyecto.\\
 
-%----------------------------------------------------%
+%----------------------------------------------------%d
 %                 ANALISIS DE RIESGOS                %
 %----------------------------------------------------%
 
 \section{Análisis de riesgos}
 
-Análisis de riesgos.\\
+En este punto se concretan dos riesgos que pueden dar problemas durante el proyecto y la solución encontrada para mitigarlos:\\
 
+\subsection*{Programa Erasmus}
+
+El mayor riesgo durante el proyecto es el cuatrimestre en el programa Erasmus desde el mes de abril al mes de agosto: se desconocen los eventos que puedan acontecer durante esos meses, si la carga lectiva de las asignaturas y trabajos impedirá el seguir con la memoria, o simplemente puede ser una mala época anímicamente hablando para realizar el proyecto. De cualquier modo, para evitar este riesgo se ha pensado en acabar la aplicación por lo menos antes de marchar para minimizar riesgos.\\
+
+\subsection*{Pérdida de información}
+
+La pérdida de información siempre es una posibilidad cuando se trabaja en una aplicación de esta índole. Para tener menos probabilidades de que se pierda absolutamente todo se realizan varias copias de todos los ficheros:
+
+\begin{itemize}
+\item Copia principal en el ordenador de trabajo.
+\item En Github, en el repositorio exerClick (ver sección \ref{infraestructura}).
+\item En Google Drive.
+\end{itemize}
+
+Se actualizan periódicamente, sin una frecuencia fija.\\
 
 %----------------------------------------------------%
 %              ANALISIS DE FACTIBILIDAD              %
@@ -95,4 +122,4 @@ Análisis de riesgos.\\
 
 \section{Análisis de factibilidad}
 
-Análisis de factibilidads.\\
+Hay poca carga lectiva durante el primer cuatrimestre (3 asignaturas), dando tiempo a desarrollar el proyecto. Aun así, se ha visto que antes de empezar el programa Erasmus hay 3 meses sin ningún tipo de carga a parte del Trabajo de Fin de Grado. Sumado a que debido al Erasmus sólo se puede defender el proyecto en Septiembre y se tiene tiempo en verano para continuar tenemos una gran cantidad de tiempo prevista. Esto hace que la realización del proyecto sea completamente factible.\\

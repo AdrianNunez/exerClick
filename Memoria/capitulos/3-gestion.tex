@@ -5,7 +5,7 @@
 \chapter{Gestión del proyecto}
 \label{gestion}
 
-Añadir introducción.\\
+En este apartado se detallará la gestión llevada a cabo durante el proyecto. En primer lugar se detallan en el apartado \ref{metodologia-agil} y \ref{intermod} las metodologias ágiles y la metodologia InterMod, respectivamente. Estas han sido utilizadas durante el proyecto. Desde el punto \ref{equipos} al punto \ref{tecnologias} se hace referencia a otros puntos de la gestión: los equipos que han participado, la infraestructura utilizada, sistemas operativos en los que se han realizado evaluaciones y las tecnologías y herramientas utilizadas. Desde el punto \ref{step0} al punto \ref{it6} se explica iteración por iteración la gestión llevada a cabo. En el punto \ref{dgp} se resume esta información y en el punto \ref{seguimiento} se muestran las gráficas del seguimiento realizado durante el proyecto.\\
 
 \section{Metología Ágil}
 \label{metodologia-agil}
@@ -88,6 +88,7 @@ Se han identificado 4 equipos que participarán en el proyecto (con diferentes n
 \end{itemize}
 
 \section{Canales de comunicación e Infraestructura de almacenamiento}
+\label{infraestructura}
 
 Con el fin de mantener la comunicación con los interesados en el proyecto se plantea el canal de comunicación \textit{Slack} (https://slack.com/) al inicio del proyecto. Mediante este canal se intercambiaran mensajes rápidos entre  y Adrián Núñez para cualquier duda u opinión rápida.\\
 
@@ -270,8 +271,8 @@ Debido a la gran cantidad de UOs planteados se ha decidido seleccionar los consi
 En esta primera iteración el plan es el siguiente:
 
 \begin{itemize}
-\item Equipo 1: DA-1(1S), DA-1(1T), DA-1(2T), DA-1(3T), DA-1(4T)
-\item Equipo 3: Evaluación{DA-1(1S), DA-1(1T), DA-1(2T), DA-1(3T), DA-1(4T)}
+\item Equipo 1: DA-1(1S, 1T, 2T, 3T, 4T, 5T, 6T, 7T, 8T, 9T, 10T)
+\item Equipo 3: Evaluación\{DA-1(1S), DA-1(1T), DA-1(2T), DA-1(3T), DA-1(4T)\}
 \end{itemize}
 
 \subsection{Step 3.1. Ejecución de las actividades}
@@ -305,8 +306,7 @@ Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T}
 Se continúa con el mismo plan de la pasada iteración.
 
 \begin{itemize}
-\item Equipo 1: DA-1(1S), DA-1(1T), DA-1(2T), DA-1(3T), DA-1(4T)
-\item Equipo 3: Evaluación{DA-1(1S), DA-1(1T), DA-1(2T), DA-1(3T), DA-1(4T)}
+\item Equipo 1: DA-2(1T), DA-2(2T), DA-2(3T), DA-2(4T)
 \end{itemize}
 
 \subsection{Step 3.2. Ejecución de las actividades}
@@ -336,7 +336,7 @@ Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T}
 \label{it2:2.3}
 
 \begin{itemize}
-\item Equipo 1: DA-2(1T)
+\item Equipo 1: DA-2(1T), DA-2(2T), DA-2(3T), DA-2(4T)
 \end{itemize}
 
 \subsection{Step 3.3. Ejecución de las actividades}
@@ -372,7 +372,8 @@ Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T, UO1-S}
 \label{it4:2.4}
 
 \begin{itemize}
-\item Equipo 1: DA-2(1S), DA-2(1T), DA-2(4T)
+\item Equipo 1: DA-2(1S), DA-2(1T), DA-2(2T), DA-2(3T), DA-2(4T)
+\item Equipo 3: Evaluación\{DA-2(1S), DA-2(1T), DA-2(2T), DA-2(3T), DA-2(4T)\}
 \end{itemize}
 
 \subsection{Step 3.4. Ejecución de las actividades}
@@ -458,7 +459,7 @@ Lista de UOs = {UO1-S, UO2-S, UO5-T, UO6-T, UO8-T, UO9-T, UO10-T}
 \label{it6:2.6}
 
 \begin{itemize}
-\item Equipo 1: DA-3(1T), DA-2(2T), DA-3(2T), DA-3(3T), DA-3(4T), DA-3(1S), DA-2(2S), DA-3(2S), DA-2(5T), DA-3(5T), DA-2(6T), DA-3(6T), DA-2(7T), DA-3(7T), DA-2(9T), DA-3(9T).
+\item Equipo 1: M-2(2S, 2T,5T, 6T, 8T, 9T, 10T), M-3(1S, 2-S, 1T, 2T, 3T, 4T, 5T, 6T, 8T, 9T, 1-T)
 \item Equipo 2: Evaluación de las .apks generadas durante el desarrollo
 \item Equipo 3: Evaluación de las .apks generadas durante el desarrollo
 \end{itemize}
@@ -479,6 +480,7 @@ Tras la reunión que daba inicio a esta iteración se realizaron todas las modif
 \item Se realizaron pruebas con el Grupo 2, formado por alumnos, por primera vez.
 \item Se añadió la opción de crear ejercicios avanzados.
 \item UO5-T para ver detalles de un ejercicio y UO6-T para editar un ejercicio.
+\item Finalmente se tradujo todo a 4 idiomas y se dio la posibilidad de cambiar entre ellos en el perfil del profesor (UO10-T).
 \end{itemize}
 
 Para generar el fichero .apk se usó Eclipse Luna y Java 8. Se exportó el proyecto a Eclipse y se realizaron las configuraciones necesarias. Surgió unas gran cantidad de errores que supusieron la mayor parte del tiempo de esta parte. Finalmente, cuando todo funcionaba correctamente y la aplicación se ejecutaba en el emulador, Eclipse generaba un fichero .apk correcto. Este fichero le fue pasado a Maite Urretavizcaya, Samara Ruíz y al Equipo 2 para realizar pruebas.\\
@@ -612,15 +614,15 @@ satisfactoriamente dicho modelo.
 \noindent
 \begin{table}[h]
 \centering
-\begin{tabu}[h]{|c|[2pt]c|c|c|c|c|c|c|c|c|c|}
-  \cline{2-11}
-  \multicolumn{1}{c|}{} & 1-S & 2-S & 1-T & 2-T & 3-T & 4-T & 5-T & 6-T & 8-T & 9-T\\
-  \cline{1-1} \tabucline[2pt]{2-11}
-  M-1 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2\\ 
+\begin{tabu}[h]{|c|[2pt]c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \cline{2-15}
+  \multicolumn{1}{c|}{} & 1-S & 2-S & 1-T & 2-T & 3-T & 4-T & 5-T & 6-T & 8-T & 9-T & 10-T & 1 & 2 & 3\\
+  \cline{1-1} \tabucline[2pt]{2-15}
+  M-1 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & I6 & I6 & I6\\ 
   \hline
-  M-2 & - & - & - & - & - & - & - & - & - & -\\
+  M-2 & X4 & X6 & X4 & X4 & X4 & X4 & X6 & X6 & X6 & X6 & X6 & I6 & I6 & I6\\
   \hline
-  M-3 & - & - & - & - & - & - & - & - & - & -\\
+  M-3 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & I6 &I6 & I6\\
   \hline
 \end{tabu}
 \caption{Progreso del proyecto según modelos evaluados}
@@ -630,13 +632,33 @@ satisfactoriamente dicho modelo.
 \subsection{Hoja de gestión: planificación y UOs}
 \label{dgp:hoja-de-gestion}
 
-\subsubsection{Creación de Objetivos (UOs directos, UOs indirectos-fusión o division)}
+\subsubsection{Planificación (Steps 1.i y 2.i)}
 \label{dgp:hoja-de-gestion:a}
+
+\noindent
+\begin{tabu}[h]{| l | c | c | c | c | c | c |}
+  \hline                       
+  Iteraciones & 1 & 2 & 3 & 4 & 5 & 6 \\
+  \tabucline[2pt]{1-7} 
+  Lista de UOs & \specialcell{1-T\\2-T\\3-T\\4-T} & & & 1-S & & \specialcell{2-S\\5-T\\6-T\\8-T\\9-T\\10-T}\\
+  \tabucline[2pt]{1-7}
+  1º equipo & \specialcell{DA-1(1T)\\DA-1(2T)\\DA-1(3T)\\DA-1(4T)\\DA-1(5T)\\DA-1(6T)\\DA-1(7T)\\DA-1(8T)\\DA-1(9T)\\DA-1(10T)} & \specialcell{DA-2(1T)\\DA-2(2T)\\DA-2(3T)\\DA-2(4T)} &  & DA-2(1S) & \specialcell{DA-3(1S)\\DA-3(1T)\\DA-3(2T)\\DA-3(3T)\\DA-3(4T)} & \specialcell{DA-2(2S)\\DA-3(2S)\\DA-3(5T)\\DA-3(6T)\\DA-3(8T)\\DA-3(9T)\\DA-3(10T)}\\
+  \hline  
+  2º equipo &  &  &  &  &  & \specialcell{\textbf{Evaluación}\\UO3}  \\
+  \hline  
+  3º equipo & \specialcell{\textbf{Evaluación}\\DA-1(1T)\\DA-1(2T)\\DA-1(3T)\\DA-1(4T)} &  &  & \specialcell{\textbf{Evaluación}\\DA-2(1T)\\DA-2(2T)\\DA-2(3T)\\DA-2(4T)} &  & \specialcell{\textbf{Evaluación}\\UO3} \\
+  \hline  
+  4º equipo &  &  &  &  &  &  \\
+  \hline  
+\end{tabu}
+
+\subsubsection{Creación de Objetivos (Step 3.i)}
+\label{dgp:hoja-de-gestion:b}
 
 \noindent
 \begin{tabular}{| l | c | c | c | c | c | c |}
   \hline                       
-  Lista de UOs & 1 & 2 & 3 & 4 & 5 & 6 \\
+  Iteraciones & 1 & 2 & 3 & 4 & 5 & 6 \\
   \hline  
   Fusión &  & &  &  &  &   \\
   \hline  
@@ -644,16 +666,29 @@ satisfactoriamente dicho modelo.
   \hline  
 \end{tabular}
 
-\subsubsection{Step 1.i y Step 2.i de cada iteración}
-\label{dgp:hoja-de-gestion:b}
+%----------------------------------------------------%
+%     				 SEGUIMIENTO                     %
+%----------------------------------------------------%
 
-tabla
+\section{Seguimiento}
+\label{seguimiento}
 
-\subsubsection{Step 3.i}
-\label{dgp:hoja-de-gestion:c}
+\subsubsection{Seguimiento por tipo de tarea}
+\label{seguimiento:tipo-tarea}
 
-\textbf{Profesor}\\
-tabla
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{seguimiento}
+	\caption{Seguimiento por tipo de tarea.}
+	\label{fig:seguimiento}
+\end{figure}
 
-\textbf{Alumno}\\
-tabla
+\subsubsection{Seguimiento por tiempo}
+\label{seguimiento:tiempo}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{seguimiento-2}
+	\caption{Seguimiento por tiempo.}
+	\label{fig:seguimiento-2}
+\end{figure}
