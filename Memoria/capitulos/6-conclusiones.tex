@@ -67,6 +67,7 @@ Además de ésto, se pensaron más ideas relacionadas a \textit{\textbf{exerClic
 
 \section{Lecciones aprendidas}
 
+\subsection*{Apache Cordova vs Aplicación Nativa}
 \begin{itemize}
 \item Basándome en mi experiencia durante el proyecto y en algunas opiniones recogidas me ha parecido que la tecnología de Apache Cordova intenta abarcar demasiado. Las aplicaciones que se generan se vuelven lentas y con fallos. Para un proyecto que quiera un diseño interesante, sin embargo, Cordova es una herramienta sencilla de usar. También para aquellos que no tengan conocimientos de las tecnologías de Android y quieran crear una aplicación esta herramienta es estupenda.\\
 
@@ -88,3 +89,32 @@ Y crea una aplicación nativa en Android si:
 \item Quieres crear algo simple (sin meterte en todo el tema Cordova) o algo realmente amplio (resulta más cómodo para no tener tantos problemas).
 \end{itemize}
 \end{itemize}
+
+\subsection*{Generar un apk con Apache Cordova}
+
+Para generar un apk necesitaremos usar un IDE de desarrollo, en este caso se usó Eclipse Luna. Crearemos un nuevo proyecto en Android con el código que tenemos (si no estábamos trabajando ya sobre un IDE) tal y como se muestra en la siguiente figura:\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{LLAA_1}
+	\caption{Primer paso: crear un proyecto nuevo}
+	\label{fig:LLAA-1}
+\end{figure}
+
+En el proyecto nuevo debemos meter nuestro código en la ruta ''\textit{assets/www}'' (si no existe cread las carpeta necesarias). También necesitaremos el archivo cordova.js que podemos conseguir desde en https://github.com/apache/cordova-js. Deberíamos tener algo parecido a la estructura de la siguiente figura:\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=7cm]{LLAA_2}
+	\caption{Segundo paso: tener la estructura y archivos correctos}
+	\label{fig:LLAA-2}
+\end{figure}
+
+Finalmente debemos ejecutar el proyecto (aunque no llegue a cargarse el emulador, para hacerlo rápido podemos anular el proceso cuando se nos pida escoger el emulador). Una vez ejecutado se habrá creado el apk y podremos encontrar en la carpeta bin de nuestro proyecto de Eclipse.\\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[height=4cm]{LLAA_3}
+	\caption{apk generada con éxito}
+	\label{fig:LLAA-3}
+\end{figure}
