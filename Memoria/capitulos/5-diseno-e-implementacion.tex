@@ -85,13 +85,30 @@ La pantalla de autenticación de usuario (index.html) de la figura ~\ref{fig:aut
 \label{diseno-e-implementacion:interfaces:profesor}
 
 \begin{figure}[H]
+\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics[height=7cm, frame]{activos}
 	\caption{Pantalla en la que se muestran los ejercicios activos en clase}
 	\label{fig:activos}
+\end{subfigure}
+\\
+\begin{subfigure}[b]{\textwidth}
+	\centering
+	\includegraphics[width=\textwidth, frame]{P1_big}
+	\caption{Versión grande de la pantalla del profesor (P1A)}
+	\label{fig:activos_g}
+\end{subfigure}
+
+\label{diseno-e-implementacion:interfaces:profesor}
 \end{figure}
 
-La pantalla del profesor nos muestra el entorno de opciones del que dispone el docente.\\
+Cuando nos identificamos como profesor, si hay una clase activa, accederemos directamente a esta pantalla (teacher.html). Además sirve como base de muchos UOs del profesor, ya que hay que pasar obligatoriamente por ella. En ella se muestra en la parte superior el nombre del usuario identificado y justo debajo el nombre de la asignatura activa.\\
+
+En el centro tenemos tres botones de colores y una lista de ejercicios. La lista de ejercicios que aparece al cargar esta interfaz por primera vez es la de ejercicios activos propuestos en clase (que los alumnos pueden ver). Estos ejercicios corresponden al botón rojo. Pulsando el botón azul se mostrarán los ejercicios finalizados y pulsando el botón amarillo los preparados (son ejercicios guardados que se quieren lanzar).\\
+
+En cada caja de ejercicios veremos el nombre del ejercicio en la parte izquierda y en la derecha tres botones. El botón verde sirve para mostrar las estadísticas (UO4-T) en la pantalla P5(T/A/F) y los otros dos cambian dependiendo del tipo de ejercicios que se muestren. Su función es cambiar el tipo del ejercicio (UO3-T). Así, un ejercicio activo, al pulsar el botón azul se cambiará a finalizado.\\
+
+Finalmente, en la parte de abajo hay dos barras. La primera, con un '+', sirve para mostrar la pestaña para crear ejercicios nuevos (UO1-T, UO2-T y UO1). La barra inferior a esta muestra el progreso en la sesión, es decir: cuántos ejercicios han sido dados por finalizados respecto a los lanzados.\\
 
 \subsection{Interfaz del perfil del profesor}
 \label{diseno-e-implementacion:interfaces:perfil}
@@ -103,19 +120,32 @@ La pantalla del profesor nos muestra el entorno de opciones del que dispone el d
 	\label{fig:perfil}
 \end{figure}
 
-Es la interfaz de teacher.html, y la vista de profesor de inicio después de autenticarse. Esta pantalla sirve como base de cualquier UO del profesor, ya que hay que pasar obligatoriamente por ella.
+Es la interfaz de profile.html, y la vista de profesor de inicio después de autenticarse si no hay ninguna sesión activa en marcha (no hay clase). Desde esta pantalla podemos cambiar algunas opciones como la asignatura activa (aparece un mensaje de cuál es la asignatura activa más abajo) o el idioma de la aplicación. El botón de ''Ir a clase'' nos devuelve a la pantalla P1 (teacher.html) con la asignatura activa escogida. En la parte inferior hay un botón para cerrar sesión y volver a la pantalla de autenticación (P0).\\
 
 \subsubsection{UO1-T: Crear-Lanzar un ejercicio simple}
 \label{diseno-e-implementacion:interfaces:profesor:uo1-t}
 
 \begin{figure}[H]
+\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics[height=7cm, frame]{ejercicio-simple}
 	\caption{Interfaz del UO1-T: Crear-Lanzar un ejercicio simple}
 	\label{fig:crear-lanzar-ejercicio-simple}
+\end{subfigure}
+\\
+\begin{subfigure}[b]{\textwidth}
+	\centering
+	\includegraphics[width=\textwidth, frame]{P2_big}
+	\caption{Versión grande de la pantalla del UO1-T (P2)}
+	\label{fig:crear-lanzar-ejercicio-simple-big}
+\end{subfigure}
+
+\label{diseno-e-implementacion:interfaces:profesor}
 \end{figure}
 
-Al pulsar el botón con símbolo de '+' (\textit{plus}/más) de la parte inferior de la interfaz del profesor se desplegará la pestaña que aparece en la figura ~\ref{fig:crear-lanzar-ejercicio-simple}.
+Al pulsar el botón con símbolo de '+' (\textit{plus}/más) de la parte inferior de la interfaz del profesor se desplegará la pestaña que aparece en la figura ~\ref{fig:crear-lanzar-ejercicio-simple}. En la parte superior tenemos la el botón con una flecha hacia atrás para cerrar la pestaña, el identificador del ejercicio y el botón para lanzar el ejercicio. Este botón sólo estará activo si estamos en clase, de otro modo sólo podremos guardar el ejercicio.\\
+
+En la parte central hay un campo para añadir el identificador del ejercicio (obligatorio). Hay dos botones debajo de este campo: para guardar el ejercicio como preparado y otro para mostrar la versión avanzada de crear ejercicios (con más detalles, UO2-T) con la pantalla P2'.\\
 
 \subsubsection{UO2-T: Crear-Lanzar un ejercicio detallado}
 \label{diseno-e-implementacion:interfaces:profesor:uo2-t}
@@ -123,9 +153,11 @@ Al pulsar el botón con símbolo de '+' (\textit{plus}/más) de la parte inferio
 \begin{figure}[H]
 	\centering
 	\includegraphics[height=7cm, frame]{ejercicio-avanzado}
-	\caption{Interfaz del UO1-T: Crear-Lanzar un ejercicio detallado}
+	\caption{Interfaz del UO2-T: Crear-Lanzar un ejercicio detallado}
 	\label{fig:crear-lanzar-ejercicio-avanzados}
 \end{figure}
+
+En esta pantalla se añaden más detalles a parte del identificador (opcionales todos menos este último). Al pulsar sobre el botón ''Menos'' volveremos a P2.\\
 
 \subsubsection{UO4-T: Ver estadísticas de un ejercicio}
 \label{diseno-e-implementacion:interfaces:profesor:uo4-t}
@@ -134,73 +166,108 @@ Al pulsar el botón con símbolo de '+' (\textit{plus}/más) de la parte inferio
 \begin{subfigure}[b]{0.3\textwidth}
 	\centering
 	\includegraphics[height=7cm, frame]{P5T}
-	\caption{P5T}
-	\label{fig:req-autenticacion:p0}
+	\caption{P5T: todos}
+	\label{fig:diseno-e-implementacion:interfaces:profesor:uo4-t:p5t}
 \end{subfigure}
 %
 \begin{subfigure}[b]{0.3\textwidth}
 	\centering
 	\includegraphics[height=7cm, frame]{P5A}
-	\caption{P5A}
-	\label{fig:req-autenticacion:p0'}
+	\caption{P5A: sólo acabados}
+	\label{fig:diseno-e-implementacion:interfaces:profesor:uo4-t:p5a}
 \end{subfigure}
 %
 \begin{subfigure}[b]{0.3\textwidth}
 	\centering
 	\includegraphics[height=7cm, frame]{P5D}
-	\caption{P5D}
-	\label{fig:fsm-autenticacion}
+	\caption{P5D: sólo con dudas}
+	\label{fig:diseno-e-implementacion:interfaces:profesor:uo4-t:p5d}
+\end{subfigure}
+\\
+\begin{subfigure}[b]{\textwidth}
+	\centering
+	\includegraphics[width=\textwidth, frame]{P5_big}
+	\caption{Versión grande de la pantalla del UO4-T (P5T)}
+	\label{fig:diseno-e-implementacion:interfaces:profesor:uo4-t:p5a-big}
 \end{subfigure}
 
-\label{fig:autenticacion}
+\label{fig:diseno-e-implementacion:interfaces:profesor:uo4-t}
 \end{figure}
+
+La parte superior de la nueva pestaña de esta pantalla es similar a la de crear nuevos ejercicios. En la parte central hay 3 botones verdes, un buscador y una lista de alumnos. Al cargar esta pestaña se cargarán todos los alumnos involucrados en el ejercicio (esto corresponde al primer botón). Los otros dos botones muestran todos los alumnos que han marcado el ejercicio como acabado y todos aquellos que han marcado una duda (en ese orden). El buscador nos permite buscar por nombre y/o apellido a cualquier persona (busca por subcadenas, así que no es necesario introducir el nombre o apellido completo) e irá actualizando la lista de alumnos.\\
 
 \subsubsection{UO5-T: Ver la descripción completa de un ejercicio}
 \label{diseno-e-implementacion:interfaces:profesor:uo5-t}
 
 \begin{figure}[H]
+\begin{subfigure}[b]{0.5\textwidth}
 	\centering
 	\includegraphics[height=7cm, frame]{P3}
-	\caption{P3}
-	\label{diseno-e-implementacion:interfaces:profesor:uo5-t:p3}
+	\caption{P3: ver detalles de un ejercicio}
+	\label{fig:diseno-e-implementacion:interfaces:profesor:uo5-t:p3}
+\end{subfigure}
+%
+\begin{subfigure}[b]{0.5\textwidth}
+	\centering
+	\includegraphics[height=7cm, frame]{P3'}
+	\caption{P3: no hay detalles asociados}
+	\label{fig:diseno-e-implementacion:interfaces:profesor:uo5-t:p3'}
+\end{subfigure}
+\\
+\begin{subfigure}[b]{\textwidth}
+	\centering
+	\includegraphics[width=\textwidth, frame]{P3_big}
+	\caption{Versión grande de la pantalla del UO5-T (P3)}
+	\label{fig:diseno-e-implementacion:interfaces:profesor:uo5-t:p3-big}
+\end{subfigure}
+
+\label{fig:diseno-e-implementacion:interfaces:profesor:uo5-t}
 \end{figure}
+
+En la parte superior vemos un botón azul con engranajes que nos lleva a la pantalla P4 (UO6-T). En la parte central veremos los detalles del ejercicio que estamos viendo (si hubiera alguno). Si un ejercicio no tiene detalles aparecerá un mensaje indicando que no existen detalles asociados al ejercicio como en la figura \ref{fig:diseno-e-implementacion:interfaces:profesor:uo5-t:p3'}.\\
 
 \subsubsection{UO6-T: Editar un ejercicio}
 \label{diseno-e-implementacion:interfaces:profesor:uo6-t}
 
 \begin{figure}[H]
-\begin{subfigure}[b]{0.3\textwidth}
-	\centering
-	\includegraphics[height=7cm, frame]{P4}
-	\caption{P5T}
-	\label{fig:req-autenticacion:p0}
-\end{subfigure}
-%
-\begin{subfigure}[b]{0.3\textwidth}
+\begin{subfigure}[b]{0.5\textwidth}
 	\centering
 	\includegraphics[height=7cm, frame]{P4-2}
-	\caption{P5A}
-	\label{fig:req-autenticacion:p0'}
+	\caption{P4: editar un ejercicio}
+	\label{fig:diseno-e-implementacion:interfaces:profesor:uo6-t:p4}
 \end{subfigure}
 %
-\begin{subfigure}[b]{0.3\textwidth}
+\begin{subfigure}[b]{0.5\textwidth}
 	\centering
-	\includegraphics[height=7cm, frame]{P4'}
-	\caption{P5D}
-	\label{fig:fsm-autenticacion}
+	\includegraphics[height=7cm, frame]{P4}
+	\caption{P4: editar un ejercicio (\textit{scroll down})}
+	\label{fig:diseno-e-implementacion:interfaces:profesor:uo6-t:p4'}
 \end{subfigure}
 
-\label{fig:autenticacion}
+\label{fig:diseno-e-implementacion:interfaces:profesor:uo6-t}
 \end{figure}
+
+Al pulsar sobre el botón de los engranajes en la pantalla P3 accederemos a P4. Los detalles que antes eran texto plano ahora están dentro de un campo editable (incluido el identificador del ejercicio). Si volvemos a pulsar el botón de engranajes no se guardarán los cambios y volveremos a P3. Si pulsamos en el botón ''Guardar cambios'' que hay en la parte de abajo se guardarán y volveremos a P3 con los datos modificados.\\
 
 \subsection{Interfaz del alumno}
 \label{diseno-e-implementacion:interfaces:alumno}
 
 \begin{figure}[H]
+\begin{subfigure}[b]{\textwidth}
 	\centering
 	\includegraphics[height=7cm, frame]{P1-S}
 	\caption{P1}
-	\label{diseno-e-implementacion:interfaces:alumno:p1}
+	\label{fig:diseno-e-implementacion:interfaces:alumno:p1}
+\end{subfigure}
+\\
+\begin{subfigure}[b]{\textwidth}
+	\centering
+	\includegraphics[width=\textwidth, frame]{P1-S_big}
+	\caption{Versión grande de la pantalla del alumno (P1)}
+	\label{fig:diseno-e-implementacion:interfaces:alumno:p1_big}
+\end{subfigure}
+
+\label{diseno-e-implementacion:interfaces:alumno}
 \end{figure}
 
 La pantalla del alumno le muestra a este el estado actual de la clase: los ejercicios activos, su progreso en esta sesión y la media de progreso de la clase.
@@ -209,22 +276,28 @@ La pantalla del alumno le muestra a este el estado actual de la clase: los ejerc
 \label{diseno-e-implementacion:interfaces:alumno:uo1-s}
 
 \begin{figure}[H]
-\begin{subfigure}[b]{0.3\textwidth}
+\begin{subfigure}[b]{0.5\textwidth}
 	\centering
 	\includegraphics[height=7cm, frame]{P1-S}
-	\caption{P1}
-	\label{diseno-e-implementacion:interfaces:alumno:p1}
+	\caption{P1 del alumno: vista principal, se muestran los ejercicios}
+	\label{fig:diseno-e-implementacion:interfaces:alumno:p1}
 \end{subfigure}
 %
-\begin{subfigure}[b]{0.3\textwidth}
+\begin{subfigure}[b]{0.5\textwidth}
 	\centering
 	\includegraphics[height=7cm, frame]{P1-S'}
-	\caption{P1'}
-	\label{diseno-e-implementacion:interfaces:alumno:p1'}
+	\caption{P1 del alumno: cambio en el estado de un ejercicio}
+	\label{fig:diseno-e-implementacion:interfaces:alumno:p1'}
 \end{subfigure}
 
 \label{fig:p1-student}
 \end{figure}
+
+En la figura \ref{fig:diseno-e-implementacion:interfaces:alumno:p1} se muestra la pantalla principal del alumno (P1). En la barra superior aparece el nombre de usuario e inmediatamente debajo el nombre de la asignatura de la que hay una sesión activa.\\
+
+Las cajas que vemos de colores son ejercicios activos en esa asignatura. Para que el estado de los ejercicios sea más visible las cajas tienen colores: el rojo es para una duda y el azul para un ejercicio acabado. Dentro de las cajas aparece el nombre de los ejercicios a la izquierda y a la derecha dos botones para marcar el estado en el que nos encontramos con cada ejercicio.\\
+
+Como se puede apreciar sólo uno de los botones de cada ejercicio está activo mientras que el otro esta desactivado (con menos opacidad). Para cambiar el estado de un ejercicio (UO1-T) debemos darle al botón activado (es decir, quitar la marca que habíamos hecho) para que el ejercicio se quede sin estado (nada marcado, la caja toma un color gris). Cuando la caja está gris ambos botones están activados y podemos, por tanto, marcar un nuevo estado (el que queramos). Se puede ver parte de la transición en la figura \ref{fig:diseno-e-implementacion:interfaces:alumno:p1} (el ejercicio 1º ejercicio está marcado como acabado) y en la figura \ref{fig:diseno-e-implementacion:interfaces:alumno:p1'} (ahora ese mismo ejercicio está marcado como duda, pero ha pasado por el estado ''sin marca'' antes).\\
 
 \subsubsection{UO2-S: Ver detalles de un ejercicio}
 \label{diseno-e-implementacion:interfaces:alumno:uo2-s}
@@ -232,9 +305,11 @@ La pantalla del alumno le muestra a este el estado actual de la clase: los ejerc
 \begin{figure}[H]
 	\centering
 	\includegraphics[height=7cm, frame]{P2-S}
-	\caption{P2}
-	\label{diseno-e-implementacion:interfaces:alumno:p1}
+	\caption{P2 del alumno: ver los detalles de un ejercicio}
+	\label{diseno-e-implementacion:interfaces:alumno:p2}
 \end{figure}
+
+Al pulsar sobre un ejercicio podremos ver la pantalla P2 del alumno. Los detalles del ejercicio sobre el que hemos pinchado se cargan en una pestaña, tal y como se ve en la imagen \ref{diseno-e-implementacion:interfaces:alumno:p2}. Tenemos un botón para ir atrás y cerrar la pestaña en la parte superior, junto al identificador del ejercicio. En el cuerpo de la pestaña aparecen los detalles de uno en uno, podemos bajar gracias al \textit{scroll} para ver todos los detalles.\\
 
 \subsection{Uso de iconos mediante Font Awesome}
 \label{diseno-e-implementacion:interfaces:font-awesome}
@@ -252,17 +327,23 @@ Además podemos aumentar el tamaño del icono añadiendo clases del tipo fa-2x, 
 \section{Lógica de negocio o lado del servidor}
 \label{diseno-e-implementacion:logica-negocio}
 
-Hablar sobre la parte de servidor y la base de datos.\\
+En esta sección hablaremos sobre la base de datos en el apartado \ref{diseno-e-implementacion:logica-negocio:bd} y sobre el código del lado del servidor (escrito en PHP) desde el apartado \ref{diseno-e-implementacion:configuracion} hasta el \ref{diseno-e-implementacion:logica-negocio:cambiar-asignatura}.\\
 
 \subsection{Base de datos}
 \label{diseno-e-implementacion:logica-negocio:bd}
 
-El diseño de la base de datos se ha realizado considerando desarrollos anteriores del grupo GaLan.
-Por ello muchos de los elementos son comunes con una de sus herramientas genérica de creación
-de sistemas docente, MAGADI, que ha sido proporcionada para este proyecto.\\
+El diseño de la base de datos se ha realizado considerando la base de datos utilizada en PresenceClick (ver figura \ref{fig:anexo-c:2} del apéndice ~\ref{anexo-c}). En ella hay muchas tablas que no nos han interesado usar en este proyecto, se han utilizado sólo unas pocas.\\
 
-Se han incorporado unas tablas nuevas a la base de datos ya existente para la gestión de ejercicios tal y como se muestra en la figura ~\ref{fig:base-de-datos} del apéndice C.\\
+Se han incorporado unas tablas nuevas a la base de datos ya existente para la gestión de ejercicios tal y como se muestra en la figura \ref{fig:anexo-c:1} del apéndice ~\ref{anexo-c}), donde aparecen algo tablas como \textit{student} de PresenceClick relacionadas a tablas nuevas de \textit{\textbf{exerClick}}. Las tablas añadidas son:
 
+\begin{itemize}
+\item \textbf{exercise:} contiene los detalles de un ejercicio, el grupo al que pertenece y el estado del ejercicio.
+\item \textbf{exercisestate:} guarda el estado de un ejercicio de un alumno concreto.
+\item \textbf{exerciseattendanceclass:} relaciona un ejercicio con la sesión de ejercicios (\textit{attendanceclass}) en la que se lanzó el ejercicio.
+\item \textbf{exercise\_solved\_questions:} se guarda el momento (día y hora) en el que una duda de un alumno en un ejercicio ha sido resuelta.
+\end{itemize}
+
+Se utiliza el prefijo ''exercise'' para denotar que son relativas a \textit{\textbf{exerClick}}.\\
 
 \subsection{Configuración}
 \label{diseno-e-implementacion:configuracion}

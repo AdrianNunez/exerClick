@@ -242,7 +242,7 @@ $(document).on('ready', function() {
 									'<div class=\"tab-title col-xs-9\" align=\"left\"><h4 class="exercise-detail-description">' + data.exercise.description + '</h4></div>' +
 								'</div>' +
 								'<div class=\"clear\"></div>' +
-								'<div class=\"row separator\"></div>' +
+								'<div class=\"separator\"></div>' +
 								'<div class=\"exercise-details-body\">' +
 									'<div class=\"exercise-details-content\">';
 								

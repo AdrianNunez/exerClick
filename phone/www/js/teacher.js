@@ -40,7 +40,7 @@ $(document).on('ready', function() {
 					'<div class=\"tab-title col-xs-3\"><i class=\"launch-exercise fa fa-paper-plane pull-right btn ui-corner-all ui-btn-b btn-danger\"></i></div>' + 
 				'</div>' +
 				'<div class=\"clear\"></div>' +
-				'<div class=\"row separator\"></div>' +
+				'<div class=\"separator\"></div>' +
 				'<form class=\"campos\"> ' +
 					'<div id="translation-14" class=\"col-xs-12\"><input type=\"text\" class=\"form-control\" id="input-exercise-id"></div>' +
 					'<div class=\"clear\"></div>' +
@@ -509,7 +509,7 @@ $(document).on('ready', function() {
 									'<div class=\"tab-title col-xs-10 col-lg-11 ehuFontStyle\"><h4><i class=\"fa fa-bar-chart marginRight\"></i><span class="marginLeft">' + exercisename + '</span><span class="statistics-exercise-title"></span></h4></div>' +
 								'</div>' +
 								'<div class=\"clear\"></div>' +
-								'<div class=\"row separator\"></div>' +
+								'<div class=\"separator\"></div>' +
 								'<div class=\"statistics-body\">' +
 									'<div id=\"statistics-buttons\">' +
 										'<div class=\"col-xs-4 statistics-state-button statistics-state-button-selected\">' +
@@ -638,7 +638,7 @@ $(document).on('ready', function() {
 									'<div class=\"tab-title col-xs-10 col-lg-11 ehuFontStyle\"><h4><i class=\"fa fa-bar-chart marginRight\"></i><span class="marginLeft">' + exercisename + '</span><span class="statistics-exercise-title"></span></h4></div>' +
 								'</div>' +
 								'<div class=\"clear\"></div>' +
-								'<div class=\"row separator\"></div>' +
+								'<div class=\"separator\"></div>' +
 								'<div class=\"statistics-body\">' +
 									'<div id=\"statistics-buttons\">' +
 										'<div class=\"col-xs-4 statistics-state-button statistics-state-button-selected\">' +
@@ -813,7 +813,7 @@ $(document).on('ready', function() {
 									'<div class=\"tab-title col-xs-3\"><i class=\"config-exercise fa fa-cogs pull-right btn ui-corner-all ui-btn-b btn-primary\"></i></div>' + 
 								'</div>' +
 								'<div class=\"clear\"></div>' +
-								'<div class=\"row separator\"></div>' +
+								'<div class=\"separator\"></div>' +
 								'<div class=\"exercise-details-body\">' +
 									'<div class=\"exercise-details-content\">';
 								

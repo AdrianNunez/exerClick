@@ -226,16 +226,23 @@
 %                    APENDICES                       %
 %----------------------------------------------------%
 
-% Reiniciamos el contador de capítulos
+% Reiniciamos el contador de capítulos y hacemos que Capítulo pase a ser Apédice
 \setcounter{chapter}{0}
-\renewcommand{\chaptername}{Apéndice}
+\renewcommand{\chaptername}{Apéndice } % dejar el espacio es importante
 \renewcommand{\thechapter}{\Alph{chapter}}
+
+% Cambiamos el titulo para que ponga Apéndice en lugar de Capítulo tal y como acabamos de definir
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{\chaptername \thechapter}{20pt}{\Huge}[\vspace{2ex}\titlerule]
+
+\fancyhead[LE,RO]{\itshape \nouppercase \rightmark}
+\fancyhead[LO,RE]{\itshape \nouppercase \chaptername \Alph{chapter}}
 
 \input{apendices/a-actas-reuniones.tex}
 
 \input{apendices/b-actas-pruebas.tex}
 
-\input{apendices/c-magadi.tex}
+\input{apendices/c-base-de-datos.tex}
 
 \backmatter
 
