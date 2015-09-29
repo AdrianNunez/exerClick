@@ -67,6 +67,19 @@
 
 \captionsetup[figure]{font=bf,position=below}
 
+% Prevents placing floats before the section 
+\usepackage{placeins}
+\makeatletter
+\AtBeginDocument{%
+  \expandafter\renewcommand\expandafter\subsection\expandafter
+    {\expandafter\@fb@secFB\subsection}%
+  \newcommand\@fb@secFB{\FloatBarrier
+    \gdef\@fb@afterHHook{\@fb@topbarrier \gdef\@fb@afterHHook{}}}%
+  \g@addto@macro\@afterheading{\@fb@afterHHook}%
+  \gdef\@fb@afterHHook{}%
+}
+\makeatother
+
 \PassOptionsToPackage{usenames,dvipsnames}{xcolor}
 
 \usepackage[usenames,dvipsnames]{xcolor}
@@ -172,8 +185,8 @@
 %                    INDICE TABLAS                   %
 %----------------------------------------------------%
 
-\listoftables
-\cleardoublepage
+%\listoftables
+%\cleardoublepage
 
 %----------------------------------------------------%
 %                    INTRODUCCION                    %
@@ -189,36 +202,42 @@
 %                     OBJETIVOS                      %
 %----------------------------------------------------%
 
+\cleardoublepage
 \input{capitulos/2-objetivos.tex}
 
 %----------------------------------------------------%
 %                GESTIÓN DEL PROYECTO                %
 %----------------------------------------------------%
 
+\cleardoublepage
 \input{capitulos/3-gestion.tex}
 
 %----------------------------------------------------%
 %              ANALISIS DE REQUISITOS                %
 %----------------------------------------------------%
 
+\cleardoublepage
 \input{capitulos/4-analisis-de-requisitos.tex}
 
 %----------------------------------------------------%
 %              DISEÑO E IMPLEMENTACIÓN               %
 %----------------------------------------------------%
 
+\cleardoublepage
 \input{capitulos/5-diseno-e-implementacion.tex}
 
 %----------------------------------------------------%
 %                     CONCLUSIONES                   %
 %----------------------------------------------------%
 
+\cleardoublepage
 \input{capitulos/6-conclusiones.tex}
 
 %----------------------------------------------------%
 %                    BIBLIOGRAFIA                    %
 %----------------------------------------------------%
 
+\cleardoublepage
 \nocite{*}
 \printbibliography[heading=bibintoc,title={Bibliografía y Referencias}]
 
@@ -238,10 +257,13 @@
 \fancyhead[LE,RO]{\itshape \nouppercase \rightmark}
 \fancyhead[LO,RE]{\itshape \nouppercase \chaptername \Alph{chapter}}
 
+\cleardoublepage
 \input{apendices/a-actas-reuniones.tex}
 
+\cleardoublepage
 \input{apendices/b-actas-pruebas.tex}
 
+\cleardoublepage
 \input{apendices/c-base-de-datos.tex}
 
 \backmatter

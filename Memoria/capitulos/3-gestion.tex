@@ -5,12 +5,12 @@
 \chapter{Gestión del proyecto}
 \label{gestion}
 
-En este apartado se detallará la gestión llevada a cabo durante el proyecto. En primer lugar se detallan en el apartado \ref{metodologia-agil} y \ref{intermod} las metodologias ágiles y la metodologia InterMod, respectivamente. Estas han sido utilizadas durante el proyecto. Desde el punto \ref{equipos} al punto \ref{tecnologias} se hace referencia a otros puntos de la gestión: los equipos que han participado, la infraestructura utilizada, sistemas operativos en los que se han realizado evaluaciones y las tecnologías y herramientas utilizadas. Desde el punto \ref{step0} al punto \ref{it6} se explica iteración por iteración la gestión llevada a cabo. En el punto \ref{dgp} se resume esta información y en el punto \ref{seguimiento} se muestran las gráficas del seguimiento realizado durante el proyecto.\\
+En este apartado se detallará la gestión llevada a cabo durante el proyecto. En primer lugar se detallan las metodologías de desarrollo utilizadas (las metodologías ágiles y la metodología InterMod) en el apartado \ref{metodologias}. En el apartado \ref{equipos} se habla de los equipos involucrado en el proyecto y de la comunicación utilizada y en el apartado \ref{aspectos-de-desarrollo-considerados} se habla de los aspectos considerados en el desarrollo (tecnologías y herramientas). La gestión a través de InterMod se detalle en el apartado \ref{gestion-via-intermod}. En el punto \ref{dgp} se resume esta información y en el punto \ref{seguimiento} se muestran las gráficas del seguimiento realizado durante el proyecto.\\
 
-\section{Metología Ágil}
-\label{metodologia-agil}
+\section{Metología de Desarrollo}
+\label{metodologias}
 
-Las metodologías ágiles son procesos para el desarrollo de software. Se basan en el desarrollo incremental e iterativo, donde varios grupos se unen para obtener requerimientos y soluciones nuevas gracias a su colaboración. Se enfatiza en el cara a cara más que en la documentación. Un ejemplo de esta metodología es SCRUM.\\
+Las metodologías ágiles proponen el desarrollo de software de forma incremental e iterativa, donde varios grupos se unen para obtener requerimientos y soluciones nuevas gracias a su colaboración. Se enfatiza en el cara a cara más que en la documentación. Un ejemplo de esta metodología es SCRUM.\\
 
 La metodología es bastante flexible, pudiendo adaptarse a cada proyecto. Es decir, no tiene reglas absolutamente fijas. En su base esta el \textit{Manifiesto Ágil} en el que se basan todas las variantes de esta metodología. Este manifiesto \hyperref[manifiestoagil]{\cite{manifiestoagil}} dice así:
 
@@ -23,7 +23,7 @@ La metodología es bastante flexible, pudiendo adaptarse a cada proyecto. Es dec
 
 Al comienzo del proyecto se fijó el uso de esta metodología, con 4 grupos trabajando en paralelo (los equipos vienen definidos en el apartado \ref{equipos}). Sin embargo, las iteraciones acabaron volviéndose excesivamente largas, habiendo varios grupos parados. Si bien se respetó la filosofía de la metodología ágil en cierto sentido, y aun con cierta flexibilidad en su adaptación, al final del proyecto acabó por volverse algo parecido a una metodología ágil sin llegar a serlo.\\
 
-\section{Metología InterMod}
+\subsection{Metología InterMod}
 \label{intermod}
 
 InterMod es una metodología de trabajo, que será utilizada para este proyecto, desarrollada por el grupo de investigación GaLan de la Facultad de Informática de San Sebastián. Se trata de una metodología ágil para el desarrollo de software interactivo de alta calidad.\\
@@ -32,11 +32,11 @@ En InterMod se define el Objetivo de Usuario (User Objetive o UO) como el deseo 
 
 \begin{itemize}
 \item \textbf{UO Directo:} Es un objetivo del usuario final.
-\item \textbf{UO Indirecto:} Surge a partir de otros UOs por necesidades interna del desarrollo (no son propiamente deseos del usuario). Aparecen durante el desarrollo debido a la fusión o división de otros UOs.
+\item \textbf{UO Indirecto:} Surge a partir de otros UOs por necesidades internas del desarrollo (no son propiamente deseos del usuario). Aparecen durante el desarrollo debido a la fusión o división de otros UOs.
 \item \textbf{UO Reutilizable:} Es un UO creado y evaluado, total o parcialmente, en otro proyecto o en el proyecto actual que puede ser reutilizado.
 \end{itemize}
 
-Basándose en la propuesta del Object Managemente Group’s Model Driven Architecture, Intermod establece sus actividades basadas en modelos.\\
+Basándose en la propuesta del Object Managemente Group’s Model Driven Architecture, InterMod establece sus actividades basadas en modelos.\\
 
 Por cada actividad se desarrollan siempre dos fases: la creación del modelo (independiente de la plataforma) y su posterior evaluación. Las evaluaciones de usabilidad son especialmente útiles para los UOs Directos ya que reflejan una necesidad del usuario, por tanto es importante que un grupo de estos esté involucrado. Para agilizar el proyecto, algunos modelos pueden ser evaluados únicamente por expertos en usabilidad. Las actividades no se dan por acabadas y pueden continuar activas durante varias iteraciones hasta conseguir una evaluación positiva.\\
 
@@ -75,7 +75,7 @@ Debido a las características del proyecto se ha decidido realizar algunas modif
 \item Siguiendo la línea del punto anterior, se ha hecho un cambio en la notación típica de los modelos. De M-1(X), el primer modelo del UOX, a M-1(XY), el primer modelo del UOX-Y (siguiendo la notación del punto anterior).
 \end{itemize}
 
-\section{Formación de equipos}
+\section{Equipos y Comunicación}
 \label{equipos}
 
 Se han identificado 4 equipos que participarán en el proyecto (con diferentes niveles de implicación):
@@ -87,19 +87,19 @@ Se han identificado 4 equipos que participarán en el proyecto (con diferentes n
 \item \textbf{Equipo 4:} Se encargará de las evaluaciones con los usuarios finales.
 \end{itemize}
 
-\section{Canales de comunicación e Infraestructura de almacenamiento}
-\label{infraestructura}
+%\section{Canales de comunicación e Infraestructura de almacenamiento}
+%\label{infraestructura}
 
-Con el fin de mantener la comunicación con los interesados en el proyecto se plantea el canal de comunicación \textit{Slack} (https://slack.com/) al inicio del proyecto. Mediante este canal se intercambiaran mensajes rápidos entre  y Adrián Núñez para cualquier duda u opinión rápida.\\
+Con el fin de mantener la comunicación con los interesados en el proyecto se plantea el canal de comunicación \textit{Slack} (https://slack.com/) al inicio del proyecto. Mediante este canal se intercambiaran mensajes rápidos entre los demás miembros del grupo y Adrián Núñez para cualquier duda u opinión rápida.\\
 
-También se realizaran periódicamente reuniones presenciales, como mínimo, entre Maite Urretavizcaya y Adrián Núñez para monitorizar el desarrollo del proyecto. A estas reuniones también han asistido Samara Ruíz (en su mayoría) y Juan Miguel López.\\
+También se realizaran periódicamente reuniones presenciales, como mínimo, entre Maite Urretavizcaya y Adrián Núñez para monitorizar el desarrollo del proyecto. A estas reuniones también han asistido Samara Ruíz (como desarrolladora de PresenceClick) y Juan Miguel López (como especialista en evaluaciones de usabilidad).\\
 
 Para la comunicación con el Equipo 2 se utilizó la herramienta de mensajería móvil \textit{Telegram} (que permite, al contrario que otras conocidas, el intercambio de cualquier tipo de fichero, vital para pasarles el fichero .apk).\\
 
 Finalmente, el proyecto y este documento estarán públicos en \textit{GitHub} en el siguiente repositorio: https://github.com/AdrianNunez/exerClick. Se realizaran periódicamente actualizaciones del mismo. También se dispone de otras copias en el ordenador personal del autor, Adrián Núñez, y en el espacio de almacenamiento \textit{Google Drive}, en una carpeta compartida con Maite Urretavizcaya y Samara Ruíz.\\
 
-\section{Sistemas Operativos evaluados}
-\label{sistemas-operativos}
+\section{Aspectos de desarrollo considerados}
+\label{aspectos-de-desarrollo-considerados}
 
 En la propia documentación de Apache Cordova vienen indicados los Sistemas Operativos soportados a los que se puede adaptar la aplicación:
 
@@ -117,10 +117,7 @@ Ya que el abanico de posibilidades es extenso se decidió reducir las posibilida
 
 Al final del proyecto, debido a incompatibilidades con la infraestructura disponible, se realizaron sólo evaluaciones en dispositivos fisicos Android e iOS.\\
 
-\section{Tecnologías y Herramientas utilizadas}
-\label{tecnologias}
-
-Al inicio, antes del desarrollo de la aplicación, se concretaron las siguientes tecnologías mínimas a utilizar:
+Antes del desarrollo de la aplicación, se concretaron las siguientes tecnologías mínimas a utilizar:
 
 \begin{itemize}
 \item HTML5
@@ -141,10 +138,27 @@ Las herramientas principales para el desarrollo de la aplicación serán Notepad
 Para el desarrollo en Android se utilizará la SDK de Android y el emulador Genymotion (mucho más rápido que el emulador por defecto).\\
 
 %----------------------------------------------------%
+%     Gestión del proyecto a través de InterMod      %
+%----------------------------------------------------%
+
+\section{Gestión del proyecto a través de InterMod}
+\label{gestion-via-intermod}
+
+El proyecto se ha llevado a cabo usando una adaptación de InterMod (apartado \ref{adaptacion-intermod}), con una duración de 6 iteraciones totales. Se considera que la última iteración ha acabado cuando la aplicación final se ha terminado. Las horas restantes dedicadas a la redacción de la memoria forman parte del Trabajo de Fin de Grado, si bien se han añadido horas de redacción de memoria dentro de las distintas iteraciones.\\
+
+Antes de la primera iteración, tal y como especifica InterMod, hay un step0. Aquí se realiza una visión global de la aplicación mediante un brainstorming y se plantean la lista de UOs (User Objective) iniciales. De esta lista se extraen los UOs trabajados durante las siguientes iteraciones.\\
+
+Las dos primeras iteraciones sirven para pasar esta visión global a unos prototipos en papel de la aplicación (que suponen el M-1 de los UOs). A partir de la iteración 3 se desarrollan los M-2, es decir, el diseño de las pantallas correspondientes a los UOs basadas en los prototipos en papel. En la iteración 5 se comienza la implementación de la lógica de negocio.\\
+
+En general la iteración 6 es la más larga de todas y, debido a que había mucho trabajo previo y material reutilizable, en ella se desarrollan la mayor parte de los UOs.\\
+
+Las iteraciones se dividen en los step 1.i (Lista de UOs), 2.i (Planificación de la iteración) y 3.i (Ejecución de las actividades) como se ha comentado en apartados anteriores. A continuación se detalla cada iteración.
+
+%----------------------------------------------------%
 %               	    STEP 0                       %
 %----------------------------------------------------%
 
-\section{Step 0 - Análisis del proyecto}
+\subsection{Step 0 - Análisis del proyecto}
 \label{step0}
 
 \begin{flushleft}
@@ -157,18 +171,18 @@ Esta fase previa al desarrollo de la aplicación principal se planteó dentro de
 
 \begin{itemize}
 \item Documentarse sobre el estado del arte en el ámbito de aplicaciones de seguimiento de ejercicios en el aula, sobre bases de datos que representaran el concepto de ejercicio, etc.
-\item Realizar un \textit{Brainstorming} para plantear todas las ideas posibles para la aplicación. De esta forma se pretender tener una idea más clara de como será la aplicación que se desea.
+\item Realizar un \textit{Brainstorming} para plantear todas las ideas posibles para la aplicación. De esta forma se pretender tener una idea más clara de como será la aplicación que se desea (una visión general).
 \end{itemize}
 
-Finalmente se realizó la lista de UOs inicial que incluía muchos UOs no prioritarios. Sin embargo, se decidió dejar la lista completa e ir abordándola por prioridades y actualizándola iteración por iteración.\\
+Finalmente se realizó la lista de UOs inicial que incluía muchos UOs no prioritarios. Sin embargo, se decidió dejar la lista completa e ir abordándola por prioridades y actualizándola iteración a iteración.\\
 
-\subsection{UOs inicialmente planteados}
+\subsubsection{UOs inicialmente planteados}
 \label{step0:uos}
 
 \textbf\textit{\large UOs del alumno}\\
 
 \colorbox{YellowGreen}{\parbox[c]{1.0\textwidth}{
-	\textbf{UO1-S:} \textit{Responder a un ejercicio.} El alumno quiere indicar que ha acabado o que tiene dudas con 			un ejercicio que el profesor ha propuesto.\\
+	\textbf{UO1-S:} \textit{Responder a un ejercicio.} El alumno quiere indicar que ha acabado o que tiene dudas con un ejercicio que el profesor ha propuesto.\\
 }}\\
 
 \vspace{0.3cm}
@@ -237,7 +251,7 @@ Finalmente se realizó la lista de UOs inicial que incluía muchos UOs no priori
 %                     ITERACION 1                    %
 %----------------------------------------------------%
 
-\section{Iteración 1}
+\subsection{Iteración 1}
 \label{it1}
 
 \begin{flushleft}
@@ -246,47 +260,51 @@ Finalmente se realizó la lista de UOs inicial que incluía muchos UOs no priori
 \textbf{Dedicación total:} 3 horas, 25 minutos\\
 \end{flushleft}
 
-\subsection{Step 1.1. Lista de UOs}
+\subsubsection{Step 1.1. Lista de UOs}
 \label{it1:1.1}
 
-Debido a la gran cantidad de UOs planteados se ha decidido seleccionar los considerados como prioritarios. En esta primera etapa se quieren desarrollar los que creemos que son los más importantes:
+%Debido a la gran cantidad de UOs planteados se ha decidido seleccionar los considerados como %prioritarios. En esta primera etapa se quieren desarrollar los que creemos que son los más %importantes:
 
-\begin{itemize}
-\item UOs del alumno:
-	\begin{itemize}
-	\item \textbf{UO1-S:} \textit{Responder a un ejercicio.}
-	\end{itemize}
-\item UOs del profesor:
-	\begin{itemize}
-	\item \textbf{UO1-T:} \textit{Crear-lanzar un ejercicio simple.}
-	\item \textbf{UO2-T:} \textit{Crear-lanzar un ejercicio detallado.}
-	\item \textbf{UO3-T:} \textit{Dar por finalizado un ejercicio propuesto activo.}
-	\item \textbf{UO4-T:} \textit{Ver estadísticas de un ejercicio.}
-	\end{itemize}
-\end{itemize}
+%\begin{itemize}
+%\item UOs del alumno:
+%	\begin{itemize}
+%	\item \textbf{UO1-S:} \textit{Responder a un ejercicio.}
+%	\end{itemize}
+%\item UOs del profesor:
+%	\begin{itemize}
+%	\item \textbf{UO1-T:} \textit{Crear-lanzar un ejercicio simple.}
+%	\item \textbf{UO2-T:} \textit{Crear-lanzar un ejercicio detallado.}
+%	\item \textbf{UO3-T:} \textit{Dar por finalizado un ejercicio propuesto activo.}
+%	\item \textbf{UO4-T:} \textit{Ver estadísticas de un ejercicio.}
+%	\end{itemize}
+%\end{itemize}
 
-\subsection{Step 2.1. Planificación de la iteración}
+Lista de UOs = {UO1-S, UO1-T..UO10-T}
+
+\subsubsection{Step 2.1. Planificación de la iteración}
 \label{it1:2.1}
 
 En esta primera iteración el plan es el siguiente:
 
 \begin{itemize}
-\item Equipo 1: DA-1(1S, 1T, 2T, 3T, 4T, 5T, 6T, 7T, 8T, 9T, 10T)
-\item Equipo 3: Evaluación\{DA-1(1S), DA-1(1T), DA-1(2T), DA-1(3T), DA-1(4T)\}
+\item Equipo 1: M-1(1S, 1T..10T)
+\item Equipo 3: Evaluación\{M-1(1S, 1T..10T)\}
 \end{itemize}
 
-\subsection{Step 3.1. Ejecución de las actividades}
+\subsubsection{Step 3.1. Ejecución de las actividades}
 \label{it1:3.1}
 
 Con la síntesis de lo acordado en la última reunión se modifica el documento de Brainstorming, que queda corregido para tener todas las ideas previas claras por escrito.\\
 
 Se empiezan realizando los M-1 (prototipos de papel) de los UOs planteados inicialmente (de la lista entera). Los prototipos en papel se envían durante la iteración a Maite y Samara para valoraciones rápidas y posteriores correcciones.\\
 
+Al final de la iteración no se consiguen evaluar satisfactoriamente los prototipos en papel debido a los fallos que tenían o mejoras que se podían incluir, de modo que se retoman en la siguiente iteración.\\
+
 %----------------------------------------------------%
 %                     ITERACION 2                    %
 %----------------------------------------------------%
 
-\section{Iteración 2}
+\subsection{Iteración 2}
 \label{it2}
 
 \begin{flushleft}
@@ -295,30 +313,33 @@ Se empiezan realizando los M-1 (prototipos de papel) de los UOs planteados inici
 \textbf{Dedicación total:} 3 horas, 30 minutos\\
 \end{flushleft}
 
-\subsection{Step 1.2. Lista de UOs}
+\subsubsection{Step 1.2. Lista de UOs}
 \label{it2:1.2}
 
-Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T}
+Lista de UOs = No cambian
 
-\subsection{Step 2.2. Planificación de la iteración}
+\subsubsection{Step 2.2. Planificación de la iteración}
 \label{it2:2.2}
 
 Se continúa con el mismo plan de la pasada iteración.
 
 \begin{itemize}
-\item Equipo 1: DA-2(1T), DA-2(2T), DA-2(3T), DA-2(4T)
+\item Equipo 1: M-1(1S, 1T..10T)
+\item Equipo 3: Evaluación\{M-1(1S, 1T..10T)\}
 \end{itemize}
 
-\subsection{Step 3.2. Ejecución de las actividades}
+\subsubsection{Step 3.2. Ejecución de las actividades}
 \label{it2:3.2}
 
-Se corrigen los prototipos en papel con lo acordado durante la pasada reunión y se realizan nuevos a limpio.\\
+Los modelos enviados a evaluar en la anterior iteración no eran adecuados, así pues se corrigen los prototipos en papel con lo acordado durante la pasada reunión (síntesis de la evaluación realizada) y se realizan nuevos a limpio para evaluar.\\
+
+Esta vez los prototipos en papel son satisfactoriamente evaluados, en la siguiente iteración se puede comenzar con los M-2.\\
 
 %----------------------------------------------------%
 %                     ITERACION 3                    %
 %----------------------------------------------------%
 
-\section{Iteración 3}
+\subsection{Iteración 3}
 \label{it3}
 
 \begin{flushleft}
@@ -327,34 +348,38 @@ Se corrigen los prototipos en papel con lo acordado durante la pasada reunión y
 \textbf{Dedicación total:} 72 horas, 55 minutos\\
 \end{flushleft}
 
-\subsection{Step 1.3. Lista de UOs}
+\subsubsection{Step 1.3. Lista de UOs}
 \label{it3:1.3}
 
-Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T}
+Lista de UOs = No cambian
 
-\subsection{Step 2.3. Planificación de la iteración}
+\subsubsection{Step 2.3. Planificación de la iteración}
 \label{it2:2.3}
 
 \begin{itemize}
-\item Equipo 1: DA-2(1T), DA-2(2T), DA-2(3T), DA-2(4T)
+\item Equipo 1: M-2(1T, 2T, 3T, 4T)
 \end{itemize}
 
-\subsection{Step 3.3. Ejecución de las actividades}
+\subsubsection{Step 3.3. Ejecución de las actividades}
 \label{it2:3.3}
 
-Durante esta iteración se instala el entorno de trabajo de Cordova. Se instalan inicialmente las plataformas Android y Windows Phone. Se decide también iniciar todas las pruebas utilizando Android.\\
-
-Se comienza con el M-2 del UO1-T, que servirá como base para otros UOs (ya que casi todos comparten la pantalla madre que se desarrolla en esta fase).\\
+Se comienza con el M-2 del UO1-T, que servirá como base para otros UOs (ya que casi todos comparten la pantalla madre que se desarrolla en esta fase). Ya que es un requisito para este UO, se ha desarrollado también una interfaz de autenticación de usuario.\\
 
 El proyecto queda exportado a Eclipse para intentar generar el fichero .apk de modo que cualquiera pueda probar la aplicación, aunque no se consigue que este funcione. Queda pendiente para una futura iteración.\\
 
 También se fija que la versión de Android mínima para utilizar la aplicación sin problema es la 3.0.\\
 
+Al final de esta iteración se ha realizado un gran consumo de tiempo en el aprendizaje de Cordova y algunas pruebas, por lo tanto no ha habido tiempo para el desarrollo de UOs (a parte del UO1-T antes mencionado, que no se ha terminado). Se realiza al final una reunión para ver el progreso del M-2 del UO1-T.\\
+
+\textbf{Actividades de formación complementarias al desarrollo:}\\
+
+Durante esta iteración se instala el entorno de trabajo de Cordova. Se instalan inicialmente las plataformas Android y Windows Phone. Se decide también iniciar todas las pruebas utilizando Android.\\
+
 %----------------------------------------------------%
 %                     ITERACION 4                    %
 %----------------------------------------------------%
 
-\section{Iteración 4}
+\subsection{Iteración 4}
 \label{it4}
 
 \begin{flushleft}
@@ -363,23 +388,23 @@ También se fija que la versión de Android mínima para utilizar la aplicación
 \textbf{Dedicación total:} 16 horas\\
 \end{flushleft}
 
-\subsection{Step 1.4. Lista de UOs}
+\subsubsection{Step 1.4. Lista de UOs}
 \label{it4:1.4}
 
-Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T, UO1-S}
+Lista de UOs = No cambian
 
-\subsection{Step 2.4. Planificación de la iteración}
+\subsubsection{Step 2.4. Planificación de la iteración}
 \label{it4:2.4}
 
 \begin{itemize}
-\item Equipo 1: DA-2(1S), DA-2(1T), DA-2(2T), DA-2(3T), DA-2(4T)
-\item Equipo 3: Evaluación\{DA-2(1S), DA-2(1T), DA-2(2T), DA-2(3T), DA-2(4T)\}
+\item Equipo 1: M-2(1S, 1T, 2T, 3T, 4T)
+\item Equipo 3: Evaluación\{M-2(1S, 1T, 2T, 3T, 4T)\}
 \end{itemize}
 
-\subsection{Step 3.4. Ejecución de las actividades}
+\subsubsection{Step 3.4. Ejecución de las actividades}
 \label{it4:3.4}
 
-Se añaden las correcciones acordadas en la anterior reunión al M-2 del UO1-T y se inician en esta fase los M-2 de los UO4-T y UO1-S. También se sube el proyecto a GitHub para el control de versiones y tener una copia de seguridad extra.\\
+Se añaden las correcciones acordadas en la anterior reunión al M-2 del UO1-T y se inician en esta fase los M-2 de los UO4-T y UO1-S. También se sube el proyecto a GitHub para el control de versiones y tener una copia de seguridad extra. Se consigue terminar los M-2 de los UO 1-T, 4-T y 1-S.\\
 
 Más avanzados en la iteración se le ha proporcionado al alumno la base de datos de PreseceClick vacía para poder empezar con la lógica de negocio o el M-3 de los UOs realizados. Se han creado dos tablas nuevas exclusivas para exerClick:
 
@@ -388,11 +413,15 @@ Más avanzados en la iteración se le ha proporcionado al alumno la base de dato
 \item \textbf{exercisestate:} Almacena el estado de un ejercicio.
 \end{itemize}
 
+También se realiza una fase de aprendizaje de la base de datos proporcionada para aprender a utilizarla. Esto servirá como preparación para afrontar los M-3 (implementación) en las próximas iteraciones, ya que hará falta el uso de la base de datos. El UO2-T no se empieza por falta de tiempo.\\
+
+Se finalizan los M-2 de todos los UOs seleccionados excepto del UO2-T. Queda pendiente su M-2 para la siguiente iteración. Al haber acabado los M-2 de los otros UOs se puede comenzar con sus M-3.\\
+
 %----------------------------------------------------%
 %                     ITERACION 5                    %
 %----------------------------------------------------%
 
-\section{Iteración 5}
+\subsection{Iteración 5}
 \label{it5}
 
 \begin{flushleft}
@@ -401,29 +430,28 @@ Más avanzados en la iteración se le ha proporcionado al alumno la base de dato
 \textbf{Dedicación total:} 23 horas, 15 minutos\\
 \end{flushleft}
 
-\subsection{Step 1.5. Lista de UOs}
+\subsubsection{Step 1.5. Lista de UOs}
 \label{it5:1.5}
 
-Lista de UOs = {UO1-T, UO2-T, UO3-T, UO4-T, UO1-S}
+Lista de UOs = No cambian
 
-\subsection{Step 2.5. Planificación de la iteración}
+\subsubsection{Step 2.5. Planificación de la iteración}
 \label{it5:2.5}
 
 \begin{itemize}
-\item Equipo 1: DA-3(1S), DA-3(1T), DA-2(3T), DA-3(3T), DA-3(4T)   
-\item Equipo 3: Evaluación{DA-2(1T), DA-2(4T)}
+\item Equipo 1: M-2(2T), M-3(1S, 1T, 3T, 4T)
 \end{itemize}
 
-\subsection{Step 3.5. Ejecución de las actividades}
+El UO3-T no necesita un M-2, así que se aborda directamente su M-3.\\
+
+\subsubsection{Step 3.5. Ejecución de las actividades}
 \label{it5:3.5}
 
-Se empieza la iteración modificando el aspecto de la pantalla madre (correspondiente a casi todos los UOs del docente).\\
-
-Para pasar la aplicación al móvil es necesario que el código PHP (de servidor) este en un servidor externo, de otro modo no funcionará. Se ha creado para ese propósito un servidor con el espacio que proporciona 000webhost (http://www.000webhost.com/) sin costo alguno para realizar pruebas al principio. Se ha instalado la base de datos proporcionada ahí mismo con las tablas originales más las dos creadas en la iteración anterior.\\
+Al inicio de la iteración se revisa la visión general que se tenía de la aplicación (desarrollada en el step0) y se decide introducir modificaciones en ella para cambiar su aspecto visual.\\
 
 Se ha empezado realizando el M-3 del UO1-T, luego el UO4-T y finalmente el UO3-T. El objetivo de la iteración es tener una aplicación mínimamente funcional para realizar pruebas. Es decir, poder al menos realizar la función básica de que el profesor lance un ejercicio, el alumno lo vea y responda. Además, ver las estadísticas del ejercicio propuesto también sería importante.\\
 
-Al abordar el UO3-T se han encontrado otros subobjetivos, derivados también de la reunión del día 27 de enero. En la reunión se decidió que los ejercicios, estuvieran en el estado que estuvieran (activos, finalizados o preparados para lanzarse), podrían cambiarse a cualquier estado. Es decir, el UO3-T tenía como objetivo el cambio de ejercicio activo a ejercicio finalizado, pero con esta decisión se deben de poder realizar cualquier otro cambio posible además del anterior.\\
+Al abordar el UO3-T se han encontrado otros subobjetivos, derivados también de la reunión del día 27 de enero. En la reunión se decidió que los ejercicios, estuvieran en el estado que estuvieran (activos, finalizados o preparados para lanzarse), podrían cambiarse a cualquier estado. Es decir, el UO3-T tenía como objetivo el cambio de ejercicio activo a ejercicio finalizado, pero con esta decisión se debe de poder realizar cualquier otro cambio posible además del anterior.\\
 
 \vspace{0.1cm}
 
@@ -433,43 +461,55 @@ Al abordar el UO3-T se han encontrado otros subobjetivos, derivados también de 
 
 \vspace{0.1cm}
 
-En esta iteración no se ha implementado la identificación de usuarios, por lo que sigue estando como en la iteración previa.\\
+Este UO sólo necesita la pantalla principal de la vista del profesor (y los botones incluidos en esta). Al estar hecha se ha abordado directamente su M-3.\\
 
-Se ha ocultado la pestaña de ejercicios preparados hasta que se aborde el tema.\\
+En esta iteración no se ha implementado la identificación de usuarios por falta de tiempo. Se ha ocultado la pestaña de ejercicios preparados hasta que se aborde el tema, así que en esta iteración no se hace nada con los ejercicios preparados. Además, no se ha trabajado en el UO2-T debido que se quería una aplicación mínimamente funcional, como se ha comentado, y por tanto se han centrado los esfuerzos en los UO 1-T, 4-T y 1-S. El UO3-T se ha conseguido terminar debido a que era el más simple que el UO2-T y se ha decidido realizarlo primero.\\
+
+El equipo 3 finaliza la iteración evaluando los UO 1-T, 4-T y 1-S.\\
+
+\textbf{Nota:}\\
+
+Para pasar la aplicación al móvil es necesario que el código PHP (de servidor) este en un servidor externo, de otro modo no funcionará. Se ha creado para ese propósito un servidor con el espacio que proporciona 000webhost (http://www.000webhost.com/) sin costo alguno para realizar pruebas al principio. Se ha instalado la base de datos proporcionada ahí mismo con las tablas originales más las dos creadas en la iteración anterior.\\
 
 %----------------------------------------------------%
 %                     ITERACION 6                    %
 %----------------------------------------------------%
 
-\section{Iteración 6}
+\subsection{Iteración 6}
 \label{it6}
 
 \begin{flushleft}
 \textbf{Fecha de inicio:} 9/2/15\\
-\textbf{Fecha de fin:} -\\
-\textbf{Dedicación total:} - horas, - minutos\\
+\textbf{Fecha de fin:} 25/3/15\\
+\textbf{Dedicación total:} 102 horas, 15 minutos\\
 \end{flushleft}
 
-\subsection{Step 1.6. Lista de UOs}
+\subsubsection{Step 1.6. Lista de UOs}
 \label{it6:1.6}
 
-Lista de UOs = {UO1-S, UO2-S, UO5-T, UO6-T, UO8-T, UO9-T, UO10-T}
+Lista de UOs = UOs anteriores + {UO2-S}
 
-\subsection{Step 2.6. Planificación de la iteración}
+El UO2-S no estaba recogido en la captura de requisitos inicial del step0. Sin embargo es un UO de vital importancia para el alumno que no se había tenido en cuenta. Su M-1, M-2 y M-3 se basan directamente en el UO5-T (al ser prácticamente iguales).\\
+
+\subsubsection{Step 2.6. Planificación de la iteración}
 \label{it6:2.6}
 
 \begin{itemize}
-\item Equipo 1: M-2(2S, 2T,5T, 6T, 8T, 9T, 10T), M-3(1S, 2-S, 1T, 2T, 3T, 4T, 5T, 6T, 8T, 9T, 1-T)
+\item Equipo 1: M-2(2S, 2T, 5T, 6T, 8T, 9T, 10T), M-3(2S, 1T, 2T, 3T, 4T, 5T, 6T, 8T, 9T, 10T)
 \item Equipo 2: Evaluación de las .apks generadas durante el desarrollo
 \item Equipo 3: Evaluación de las .apks generadas durante el desarrollo
 \end{itemize}
 
-\subsection{Step 3.6. Ejecución de las actividades}
+Los M-3 de los UO 1-T, 4-T y 1-S no fueron considerados adecuados tras la evaluación, por lo que siguen en desarrollo.\\
+
+\subsubsection{Step 3.6. Ejecución de las actividades}
 \label{it6:3.6}
 
 La iteración 6 se puede dividir en dos partes importantes: la primera en la que se crean los UOs restantes para tener una aplicación completamente funcional y la segunda en la que se genera finalmente un apk y se comienzan las pruebas.\\
 
-Tras la reunión que daba inicio a esta iteración se realizaron todas las modificaciones y correcciones acordadas para empezar. El objetivo principal era completar el UO principal que forma el UO1-T, el UO1-S y el UO4-T (es decir, añadir ejercicios, responder a ellos y ver los resultados). Para ello primero había que convertir los datos estáticos en datos obtenidos de la base de datos (asignatura, estadísticas, etc.). Además de esto se realizaron muchísimas actividades más:
+Tras la reunión que daba inicio a esta iteración se realizaron todas las modificaciones y correcciones acordadas para empezar (no se validaron correctamente los M-3 de los UO 1-T, 3-T y 4-T). El objetivo principal era completar el UO3 (como se comentaba en la anterior iteración) que está formado por el UO1-T, el UO1-S y el UO4-T (es decir, añadir ejercicios, responder a ellos y ver los resultados). Para ello primero había que convertir los datos estáticos en datos obtenidos de la base de datos (asignatura, estadísticas, etc.).\\
+
+Cuando se había acabado el UO3 se decidieron realizar todos los UOs menores que faltaban. Debido a que el trabajo más tedioso estaba hecho (realizar las interfaces principales) y que muchos de los siguientes UOs basaban su M-2 en UOs ya realizados (UO1-T y UO4-T) se consiguieron realizar todos los UOs del 5 al 10 rápidamente. En general, estás fueron las actividades realizadas posteriores al UO3:
 
 \begin{itemize}
 \item Se creó el perfil para el profesor y el UO8-T (cerrar sesión) y el UO9-T (cambiar de asignatura).
@@ -494,21 +534,15 @@ Para generar el fichero .apk se usó Eclipse Luna y Java 8. Se exportó el proye
 
 A continuación se presenta un resumen completo de los objetivos desarrollados en las iteraciones. Con el paso de estas los objetivos se han fusionado, divididos o han ido evolucionando. Estos procesos se muestran de manera gráfica para dar una visión rápida del origen de cada UO. En esta leyenda se muestran todos los UOs desarrollados:\\
 
-\vspace{0.1cm}
-
 \noindent
-\framebox{\parbox[c]{1.0\textwidth}{
+\framebox{\parbox[!htbp][][c]{1.0\textwidth}{
 \textbf{Notación}\\
 
-\textbf{UOX-Y:} UO Directo.\\
-\textbf{\framebox{UOX-Y}:} UO por Fusión.\\
-\textbf{\underline{UOX-Y}:} UO por División.\\
+\textbf{UOX-Y}, donde X corresponde a la numeración del UO y la Y determina el tipo de usuario alumno (S de student) o profesor (T de teacher).
 }}\\
 
-\vspace{0.1cm}
-
 \noindent
-\framebox{\parbox[c]{1.0\textwidth}{
+\framebox{\parbox[!htbp][][c]{1.0\textwidth}{
 \textbf{Alumno}\\
 
 \textbf{UO1-S:} \textit{Responder a un ejercicio.} El alumno quiere indicar que ha acabado o que tiene dudas con un ejercicio que el profesor ha propuesto.\\
@@ -516,10 +550,8 @@ A continuación se presenta un resumen completo de los objetivos desarrollados e
 \textbf{UO2-S:} \textit{Ver detalles de un ejercicio.} El alumno quiere ver más detalles sobre un ejercicio disponible y activo en la sesión.\\
 }}\\
 
-\vspace{0.1cm}
-
 \noindent
-\framebox{\parbox[c]{1.0\textwidth}{
+\framebox{\parbox[!htbp][][c]{1.0\textwidth}{
 \textbf{Profesor}\\
 
 \textbf{UO1-T:} \textit{Crear-Lanzar un ejercicio simple.} El profesor quiere proponer un ejercicio rápidamente, sin escribir mucho.\\
@@ -528,7 +560,7 @@ A continuación se presenta un resumen completo de los objetivos desarrollados e
 
 \textbf{UO3-T:} \textit{Cambiar el tipo de ejercicio.} El profesor desea cambiar un ejercicio del tipo que tiene a otro cualquiera (de activo a finalizado, por ejemplo).\\
 
-\textbf{UO4-T:} \textit{El profesor desea ver qué tal le ha ido a la clase en general o a un alumno en un ejercicio.} El profesor desea ver qué tal le ha ido a la clase en general o a un alumno en un ejercicio.\\
+\textbf{UO4-T:} \textit{Ver estadísticas de un ejercicio.} El profesor desea ver qué tal le ha ido a la clase en general o a un alumno en un ejercicio.\\
 
 \textbf{UO5-T:} \textit{Ver la descripción completa de un ejercicio.} Un profesor quiere ver la descripción completa de un ejercicio (identificador, enunciado, página, tema, etc.).\\
 
@@ -545,34 +577,28 @@ A continuación se presenta un resumen completo de los objetivos desarrollados e
 \textbf{\framebox{UO2}:} \textit{Lanzar ejercicios y visualizar resultados.} El profesor desea lanzar un ejercicio y, tras lanzarlo, ver el estado de cada alumno en dicho ejercicio.\\
 }}\\
 
-\vspace{0.1cm}
-
 \noindent
-\framebox{\parbox[c]{1.0\textwidth}{
+\framebox{\parbox[!htbp][][c]{1.0\textwidth}{
 \textbf{Generales}\\
 
 \textbf{\framebox{UO3}:} \textit{Lanzar ejercicios, responder al ejercicio y visualizar los resultados.} El profesor desea lanzar un ejercicio, el alumno desea responder al ejercicio y finalmente el profesor desea ver el estado de ese alumno en el ejercicio que ha lanzado previamente.\\
-}}\\
 
-\vspace{0.1cm}
+\textbf{\framebox{Autenticación de usuario}:} \textit{Se requiere que un usuario se identifique como estudiante o como profesor antes de entrar a la aplicación.} No lo consideramos como un UO aunque se mencione aquí, sino como una parte asociada a todos los UOs como desarrollo incremental de estos.\\
+}}\\
 
 Y los UOs definidos pero que no han sido realizados:\\
 
-\vspace{0.1cm}
-
 \noindent
-\framebox{\parbox[c]{1.0\textwidth}{
+\framebox{\parbox[!htbp][][c]{1.0\textwidth}{
 \textbf{UO7-T:} \textit{Evaluar el ejercicio de un alumno.} El profesor quiere valorar la realización de un ejercicio a un alumno.\\
 }}\\
-
-\vspace{0.1cm}
 
 \subsection{Selección de UOs por iteraciones}
 \label{dgp:uos-iteraciones-creacion}
 
 En la figura ~\ref{fig:grafico-seleccion-uos} se muestra el proceso de selección de UOs dividido por iteraciones. Con "seleccionar" se quiere decir que se añade a la planificación de la iteración para realizar alguno de los modelos del UO.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 	\includegraphics[width=\linewidth]{grafico-seleccion-uos}
 	\caption{Progreso del proyecto según selección de UOs}
 	\label{fig:grafico-seleccion-uos}
@@ -580,12 +606,12 @@ En la figura ~\ref{fig:grafico-seleccion-uos} se muestra el proceso de selecció
 
 Los UOs directos aparecen con un borde negro grueso y los UOs por Fusión con un borde negro simple. Las líneas que unen los UOs indican una relación de fusión.\\
 
-\subsection{Desarrollo de actividades por iteraciones}
+\subsection{Desarrollo de modelos por iteraciones}
 \label{dgp:desarrollo-actividades}
 
 En la figura ~\ref{fig:grafico-desarrollo-actividades} se detalla el desarrollo de los diferentes tipos de actividad (de desarrollo o de integración) para cada UO en base a las iteraciones.
 
-\begin{figure}[h]
+\begin{figure}[!htbp]
 	\includegraphics[width=\linewidth]{grafico-desarrollo-actividades}
 	\caption{Progreso del proyecto según el desarrollo de Actividades}
 	\label{fig:grafico-desarrollo-actividades}
@@ -593,78 +619,73 @@ En la figura ~\ref{fig:grafico-desarrollo-actividades} se detalla el desarrollo 
 
 Las actividades se unen por líneas si estan relacionadas entre sí, estén o no en la misma iteración. Las líneas gruesas indican el flujo normal de desarrollo y las líneas delgadas el flujo de integración.\\
 
-\subsection{Modelos evaluados por iteraciones}
-\label{dgp:modelos-evaluados}
-
-En la tabla \ref{table:tabla-progreso-modelos-evaluados} se pueden ver valores asociados a cada par de UO y modelo, estos valores siguen la notación:\\
-
-\framebox{\parbox[c]{1.0\textwidth}{
-Modelos obtenidos debido a una actividad o proceso:
+En la iteración final se integraron varios UOs para formar 3 UOs:
 \begin{itemize}
-\item X: debido a una DA.
-\item I: debido a una IA.
-\item \underline{I}: debido a una Integración Incremental \underline{IA}.
-\item D: derivado de un proceso de división de un UO.
-\item F: derivado de un proceso de fusión de UOs.
+\item UO1: UO1-T + UO2-T.
+\item UO2: UO1 + UO4-T.
+\item UO1: UO2 + UO1-S.
 \end{itemize}
-El número expresa la iteración en la que se evaluó
-satisfactoriamente dicho modelo.
-}}\\
 
-\noindent
-\begin{table}[h]
-\centering
-\begin{tabu}[h]{|c|[2pt]c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
-  \cline{2-15}
-  \multicolumn{1}{c|}{} & 1-S & 2-S & 1-T & 2-T & 3-T & 4-T & 5-T & 6-T & 8-T & 9-T & 10-T & 1 & 2 & 3\\
-  \cline{1-1} \tabucline[2pt]{2-15}
-  M-1 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & I6 & I6 & I6\\ 
-  \hline
-  M-2 & X4 & X6 & X4 & X4 & X4 & X4 & X6 & X6 & X6 & X6 & X6 & I6 & I6 & I6\\
-  \hline
-  M-3 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & I6 &I6 & I6\\
-  \hline
-\end{tabu}
-\caption{Progreso del proyecto según modelos evaluados}
-\label{table:tablas-progreso-modelos-evaluados}
-\end{table}
+%\subsection{Modelos evaluados por iteraciones}
+%\label{dgp:modelos-evaluados}
 
-\subsection{Hoja de gestión: planificación y UOs}
-\label{dgp:hoja-de-gestion}
+%En la tabla \ref{table:tablas-progreso-modelos-evaluados} se pueden ver valores asociados a cada %par de UO y modelo, estos valores siguen la notación:\\
 
-\subsubsection{Planificación (Steps 1.i y 2.i)}
-\label{dgp:hoja-de-gestion:a}
+%\framebox{\parbox[c]{1.0\textwidth}{
+%Modelos obtenidos debido a una actividad o proceso:
+%\begin{itemize}
+%\item X: debido a una DA.
+%\item I: debido a una IA.
+%\item \underline{I}: debido a una Integración Incremental \underline{IA}.
+%\item D: derivado de un proceso de división de un UO.
+%\item F: derivado de un proceso de fusión de UOs.
+%\end{itemize}
+%El número expresa la iteración en la que se evaluó
+%satisfactoriamente dicho modelo.
+%}}\\
 
-\noindent
-\begin{tabu}[h]{| l | c | c | c | c | c | c |}
-  \hline                       
-  Iteraciones & 1 & 2 & 3 & 4 & 5 & 6 \\
-  \tabucline[2pt]{1-7} 
-  Lista de UOs & \specialcell{1-T\\2-T\\3-T\\4-T} & & & 1-S & & \specialcell{2-S\\5-T\\6-T\\8-T\\9-T\\10-T}\\
-  \tabucline[2pt]{1-7}
-  1º equipo & \specialcell{DA-1(1T)\\DA-1(2T)\\DA-1(3T)\\DA-1(4T)\\DA-1(5T)\\DA-1(6T)\\DA-1(7T)\\DA-1(8T)\\DA-1(9T)\\DA-1(10T)} & \specialcell{DA-2(1T)\\DA-2(2T)\\DA-2(3T)\\DA-2(4T)} &  & DA-2(1S) & \specialcell{DA-3(1S)\\DA-3(1T)\\DA-3(2T)\\DA-3(3T)\\DA-3(4T)} & \specialcell{DA-2(2S)\\DA-3(2S)\\DA-3(5T)\\DA-3(6T)\\DA-3(8T)\\DA-3(9T)\\DA-3(10T)}\\
-  \hline  
-  2º equipo &  &  &  &  &  & \specialcell{\textbf{Evaluación}\\UO3}  \\
-  \hline  
-  3º equipo & \specialcell{\textbf{Evaluación}\\DA-1(1T)\\DA-1(2T)\\DA-1(3T)\\DA-1(4T)} &  &  & \specialcell{\textbf{Evaluación}\\DA-2(1T)\\DA-2(2T)\\DA-2(3T)\\DA-2(4T)} &  & \specialcell{\textbf{Evaluación}\\UO3} \\
-  \hline  
-  4º equipo &  &  &  &  &  &  \\
-  \hline  
-\end{tabu}
+%\noindent
+%\begin{table}[h]
+%\centering
+%\begin{tabu}[h]{|c|[2pt]c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+%  \cline{2-15}
+%  \multicolumn{1}{c|}{} & 1-S & 2-S & 1-T & 2-T & 3-T & 4-T & 5-T & 6-T & 8-T & 9-T & 10-T & 1 & %2 & 3\\
+%  \cline{1-1} \tabucline[2pt]{2-15}
+%  M-1 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & X2 & I6 & I6 & I6\\ 
+%  \hline
+%  M-2 & X4 & X6 & X4 & X4 & X4 & X4 & X6 & X6 & X6 & X6 & X6 & I6 & I6 & I6\\
+%  \hline
+%  M-3 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & X6 & I6 &I6 & I6\\
+%  \hline
+%\end{tabu}
+%\caption{Progreso del proyecto según modelos evaluados}
+%\label{table:tablas-progreso-modelos-evaluados}
+%\end{table}
 
-\subsubsection{Creación de Objetivos (Step 3.i)}
-\label{dgp:hoja-de-gestion:b}
+%\subsection{Hoja de gestión: planificación y UOs}
+%\label{dgp:hoja-de-gestion}
 
-\noindent
-\begin{tabular}{| l | c | c | c | c | c | c |}
-  \hline                       
-  Iteraciones & 1 & 2 & 3 & 4 & 5 & 6 \\
-  \hline  
-  Fusión &  & &  &  &  &   \\
-  \hline  
-  División &  &  &  &  &  &  \\
-  \hline  
-\end{tabular}
+%\subsubsection{Planificación (Steps 1.i y 2.i)}
+%\label{dgp:hoja-de-gestion:a}
+
+%\noindent
+%\begin{tabu}[h]{| l | c | c | c | c | c | c |}
+%  \hline                       
+%  Iteraciones & 1 & 2 & 3 & 4 & 5 & 6 \\
+%  \tabucline[2pt]{1-7} 
+%  Lista de UOs & \specialcell{1-T\\2-T\\3-T\\4-T} & & & 1-S & & \specialcell{2-S\\5-T\\6-T\\8-T\%%\9-T\\10-T}\\
+%  \tabucline[2pt]{1-7}
+%  1º equipo & \specialcell{DA-1(1T)\\DA-1(2T)\\DA-1(3T)\\DA-1(4T)\\DA-1(5T)\\DA-1(6T)\\DA-1(7T)\%%\DA-1(8T)\\DA-1(9T)\\DA-1(10T)} & \specialcell{DA-2(1T)\\DA-2(2T)\\DA-2(3T)\\DA-2(4T)} &  & %DA-2(1S) & \specialcell{DA-3(1S)\\DA-3(1T)\\DA-3(2T)\\DA-3(3T)\\DA-3(4T)} & \specialcell{DA-2(2S)%\\DA-3(2S)\\DA-3(5T)\\DA-3(6T)\\DA-3(8T)\\DA-3(9T)\\DA-3(10T)}\\
+%  \hline  
+%  2º equipo &  &  &  &  &  & \specialcell{\textbf{Evaluación}\\UO3}  \\
+%  \hline  
+%  3º equipo & \specialcell{\textbf{Evaluación}\\DA-1(1T)\\DA-1(2T)\\DA-1(3T)\\DA-1(4T)\\DA-1(5T)\%\DA-1(6T)\\DA-1(7T)\\DA-1(8T)\\DA-1(9T)\\DA-1(10T)} &  &  & \specialcell{\textbf{Evaluación}\%\DA-2(1T)\\DA-2(2T)\\DA-2(3T)\\DA-2(4T)} &  & \specialcell{\textbf{Evaluación}\\UO3} \\
+%  \hline  
+%  4º equipo &  &  &  &  &  &  \\
+%  \hline 
+%\end{tabu}
+%\captionof{table}{Planificación (Steps 1.i y 2.i)}
+%\label{dgp:hoja-de-gestion:a:tabla}
 
 %----------------------------------------------------%
 %     				 SEGUIMIENTO                     %
@@ -673,22 +694,24 @@ satisfactoriamente dicho modelo.
 \section{Seguimiento}
 \label{seguimiento}
 
-\subsubsection{Seguimiento por tipo de tarea}
+La dedicación total al proyecto ha sido de 264 horas y 56 minutos horas. Al acabar la iteración 6 se habían dedicado 223 horas y 56 minutos.\\
+
+\subsubsection{Dedicación por tipo de tarea}
 \label{seguimiento:tipo-tarea}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=\textwidth]{seguimiento}
-	\caption{Seguimiento por tipo de tarea.}
+	\includegraphics[height=6cm, keepaspectratio]{seguimiento}
+	\caption{Dedicación por tipo de tarea}
 	\label{fig:seguimiento}
 \end{figure}
 
-\subsubsection{Seguimiento por tiempo}
+\subsubsection{Dedicación del progreso por meses}
 \label{seguimiento:tiempo}
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=\textwidth]{seguimiento-2}
-	\caption{Seguimiento por tiempo.}
+	\includegraphics[height=6cm, keepaspectratio]{seguimiento-2}
+	\caption{Dedicación por meses}
 	\label{fig:seguimiento-2}
 \end{figure}
